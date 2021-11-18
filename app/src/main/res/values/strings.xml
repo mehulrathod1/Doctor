@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Doctor</string>
+
+    <!--    Sign up-->
+
+    <string name="dcp">DCP</string>
+    <string name="Sign_up">Sign Up</string>
+    <string name="new_dcp">New to DCP ? Please Provide your details!!!</string>
+    <string name="Firstname">Firstname</string>
+    <string name="Lastname">Lastname</string>
+    <string name="email">Email</string>
+    <string name="mobile_Number">Mobile Number</string>
+    <string name="Password">Password</string>
+    <string name="Conform_Password">Conform Password</string>
+
+
+    <!--    Sign in-->
+    <string name="ForgotPassword">Forgot Password?</string>
+    <string name="RememberMe">Remember Me</string>
+    <string name="sign_in_with">or Sign in with Fingerprint or Face</string>
+    <string name="sign_in">Sign In</string>
+
+</resources>
