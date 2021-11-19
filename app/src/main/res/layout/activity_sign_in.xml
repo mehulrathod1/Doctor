@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SignIn">
+    tools:context=".activity.SignIn">
 
 
     <LinearLayout
@@ -24,6 +24,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="@string/dcp"
+                android:textColor="@color/md_light_blue_A200"
                 android:textSize="@dimen/_26sdp" />
         </LinearLayout>
 
@@ -38,14 +39,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/_8sdp"
-                android:text="@string/Sign_up"
+                android:text="@string/sign_in"
+                android:textColor="@color/action_mode_color"
                 android:textSize="@dimen/_24sdp" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/new_dcp"
-                android:textSize="@dimen/_12sdp" />
+                android:text="@string/sign_in_into"
+                android:textColor="@color/md_cyan_B700"                android:textSize="@dimen/_12sdp" />
         </LinearLayout>
 
         <LinearLayout
@@ -74,7 +76,8 @@
                     android:inputType="textEmailAddress"
                     android:lines="1"
                     android:padding="10dp"
-                    android:textAlignment="viewStart" />
+                    android:textAlignment="viewStart"
+                    android:textSize="@dimen/_18sdp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -99,6 +102,7 @@
                     android:inputType="textPassword"
                     android:padding="5sp"
                     android:textAlignment="viewStart"
+                    android:textSize="@dimen/_18sdp"
                     app:hintEnabled="false" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -116,7 +120,8 @@
                 android:id="@+id/forgotPassword"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/ForgotPassword" />
+                android:text="@string/ForgotPassword"
+                android:textColor="@color/purple_700" />
 
         </LinearLayout>
 
@@ -124,7 +129,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/_8sdp"
-            android:layout_marginTop="@dimen/_4sdp"
+            android:layout_marginTop="@dimen/_8sdp"
             android:layout_marginRight="@dimen/_8sdp">
 
             <CheckBox
@@ -150,26 +155,30 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/sign_in_with" />
+                    android:text="@string/sign_in_with"
+                    android:textColor="@color/md_cyan_B700"/>
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8sdp"
                 android:orientation="horizontal">
+
                 <ImageView
                     android:layout_width="0dp"
                     android:layout_height="@dimen/_100sdp"
                     android:layout_margin="@dimen/_10sdp"
-                    android:background="@color/action_mode_color"
-                    android:layout_weight="1"/>
+                    android:layout_weight="1"
+                    android:background="@color/action_mode_color" />
+
                 <ImageView
                     android:layout_width="0dp"
                     android:layout_height="@dimen/_100sdp"
                     android:layout_margin="@dimen/_10sdp"
-                    android:background="@color/action_mode_color"
-                    android:layout_weight="1"/>
+                    android:layout_weight="1"
+                    android:background="@color/action_mode_color" />
             </LinearLayout>
         </LinearLayout>
 
@@ -184,9 +193,10 @@
                 android:id="@+id/btnSignIn"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_60sdp"
-                android:text="@string/sign_in"/>
+                android:text="@string/sign_in" />
 
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -208,6 +218,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textColor="@color/md_cyan_B700"
                     android:text="@string/Sign_up" />
 
             </LinearLayout>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/ProfileSetting"
+        android:title="@string/profile_setting" />
+
+    <item
+        android:id="@+id/ManageCalender"
+        android:title="@string/manage_calender" />
+
+    <item
+        android:id="@+id/BookingRequest"
+        android:title="@string/my_booking_request" />
+    <item
+        android:id="@+id/BookedAppointment"
+        android:title="@string/my_booked_appointment" />
+    <item
+        android:id="@+id/OnlineConsultant"
+        android:title="@string/my_online_consultants" />
+    <item
+        android:id="@+id/CompletedAssignment"
+        android:title="@string/completed_assignment" />
+    <item
+        android:id="@+id/MyReview"
+        android:title="@string/my_review" />
+    <item
+        android:id="@+id/MYQuestion"
+        android:title="@string/my_question" />
+    <item
+        android:id="@+id/BillingSegment"
+        android:title="@string/Billing_segment" />
+    <item
+        android:id="@+id/AccountSetting"
+        android:title="@string/account_setting" />
+
+    <item
+        android:id="@+id/Logout"
+        android:title="@string/logout" />
+
+</menu>

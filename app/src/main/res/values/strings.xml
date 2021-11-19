@@ -19,5 +19,24 @@
     <string name="RememberMe">Remember Me</string>
     <string name="sign_in_with">or Sign in with Fingerprint or Face</string>
     <string name="sign_in">Sign In</string>
+    <string name="sign_in_into">Please Sign in into your account!!</string>
 
+
+
+<!--    navigation-->
+    <string name="profile_setting">Profile Setting</string>
+    <string name="manage_calender">Manage Calender</string>
+    <string name="my_booking_request">My booking Request</string>
+    <string name="my_booked_appointment">My Booked Appointment</string>
+    <string name="my_online_consultants">My Online Consultant</string>
+    <string name="completed_assignment">Completed Assignment</string>
+    <string name="my_review">My Review</string>
+    <string name="my_question">MY Question</string>
+    <string name="Billing_segment">Billing Segment</string>
+    <string name="account_setting">Account Setting</string>
+    <string name="logout">Logout</string>
+
+
+    <string name="nav_open">Open</string>
+    <string name="nav_close">Close</string>
 </resources>

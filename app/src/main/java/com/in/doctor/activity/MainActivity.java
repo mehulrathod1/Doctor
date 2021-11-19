@@ -1,0 +1,51 @@
+package com.in.doctor.activity;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
+import android.widget.Button;
+
+import com.in.doctor.R;
+
+public class MainActivity extends AppCompatActivity {
+
+    Button btnSignup;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        getSupportActionBar().hide();
+
+        init();
+
+    }
+
+    public void init() {
+
+        btnSignup = findViewById(R.id.btnSignup);
+
+
+        btnSignup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(getApplicationContext(), SignIn.class);
+                startActivity(intent);
+            }
+        });
+
+        final String[] COUNTRIES = {"+91", "+92", "+93", "+93", "+94", "+92", "+93", "+93", "+94", "+92", "+93", "+93", "+94"};
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_dropdown_item_1line, COUNTRIES);
+        AutoCompleteTextView textView = (AutoCompleteTextView)
+                findViewById(R.id.countryCode);
+        textView.setAdapter(adapter);
+        textView.setText(COUNTRIES[0]);
+    }
+}
