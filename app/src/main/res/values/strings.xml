@@ -22,8 +22,7 @@
     <string name="sign_in_into">Please Sign in into your account!!</string>
 
 
-
-<!--    navigation-->
+    <!--    navigation-->
     <string name="profile_setting">Profile Setting</string>
     <string name="manage_calender">Manage Calender</string>
     <string name="my_booking_request">My booking Request</string>
@@ -39,4 +38,15 @@
 
     <string name="nav_open">Open</string>
     <string name="nav_close">Close</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+<!--    Profile_setting_personal-->
+    <string name="first_name">Firstname</string>
+    <string name="last_name">Lastname</string>
+    <string name="Speciality">Speciality</string>
+    <string name="Speciality_subcategory">Speciality-Subcategory</string>
+    <string name="education">Education</string>
+
 </resources>

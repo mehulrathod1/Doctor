@@ -3,9 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     tools:context=".activity.MainActivity">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -41,21 +44,21 @@
                 android:layout_marginBottom="@dimen/_8sdp"
                 android:text="@string/Sign_up"
                 android:textColor="@color/action_mode_color"
-                android:textSize="@dimen/_24sdp" />
+                android:textSize="@dimen/_34sdp" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/new_dcp"
                 android:textColor="@color/md_cyan_B700"
-                android:textSize="@dimen/_12sdp" />
+                android:textSize="@dimen/_16sdp" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/_8sdp"
-            android:layout_marginTop="@dimen/_50sdp"
+            android:layout_marginTop="@dimen/_56sdp"
             android:layout_marginRight="@dimen/_8sdp"
             android:orientation="vertical">
 
@@ -232,9 +235,12 @@
                 android:layout_marginTop="@dimen/_40sdp"
                 android:text="@string/Sign_up"
                 android:textSize="@dimen/_20sdp" />
+
+
         </LinearLayout>
 
-    </LinearLayout>
 
+    </LinearLayout>
+    </ScrollView>
 
 </RelativeLayout>

@@ -3,22 +3,19 @@ package com.in.doctor.activity;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.google.android.material.navigation.NavigationView;
 import com.in.doctor.R;
+import com.in.doctor.fragment.ProfileSetting;
 
 public class Home extends AppCompatActivity {
 
@@ -28,6 +25,9 @@ public class Home extends AppCompatActivity {
     ImageView nevBack, nevBackHeader;
     View toolbar;
 
+    FrameLayout firstFrame;
+
+    Fragment fragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,8 +35,13 @@ public class Home extends AppCompatActivity {
         setContentView(R.layout.activity_home);
 
         Navigation = findViewById(R.id.Navigation);
-
+        firstFrame = findViewById(R.id.firstFrame);
         toolbar = findViewById(R.id.toolbar);
+
+        getSupportActionBar().hide();
+
+        fragment = new ProfileSetting();
+
         View headerLayout = Navigation.inflateHeaderView(R.layout.nev_header);
         nevBackHeader = headerLayout.findViewById(R.id.nevBackHeader);
 
@@ -67,12 +72,14 @@ public class Home extends AppCompatActivity {
                 int id = menuItem.getItemId();
                 switch (id) {
                     case R.id.ProfileSetting:
+                        toolbar.setVisibility(View.GONE);
                         drawerLayout.close();
+                        fragment = new ProfileSetting();
+                        loadFragment(fragment);
                         break;
                     case R.id.CompletedAssignment:
                         drawerLayout.close();
                         break;
-
                     case R.id.OnlineConsultant:
                         drawerLayout.close();
                         break;
@@ -91,7 +98,6 @@ public class Home extends AppCompatActivity {
                     case R.id.MYQuestion:
                         drawerLayout.close();
                         break;
-
                     case R.id.BillingSegment:
                         drawerLayout.close();
                         break;
@@ -102,7 +108,6 @@ public class Home extends AppCompatActivity {
                         drawerLayout.close();
                         break;
                 }
-
                 return false;
             }
         });
@@ -117,4 +122,12 @@ public class Home extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    private void loadFragment(Fragment fragment) {
+        // load fragment
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+//frame_container is your layout name in xml file
+        transaction.replace(R.id.firstFrame, fragment);
+        transaction.addToBackStack(null);
+        transaction.commit();
+    }
 }

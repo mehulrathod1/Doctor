@@ -4,16 +4,19 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
+import android.widget.EditText;
 
 import com.in.doctor.R;
 
 public class MainActivity extends AppCompatActivity {
 
     Button btnSignup;
+    EditText EdtFirstName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +31,8 @@ public class MainActivity extends AppCompatActivity {
     public void init() {
 
         btnSignup = findViewById(R.id.btnSignup);
+        EdtFirstName = findViewById(R.id.EdtFirstName);
+
 
 
         btnSignup.setOnClickListener(new View.OnClickListener() {

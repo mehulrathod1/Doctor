@@ -11,7 +11,6 @@
         android:theme="@style/Theme.Doctor">
         <activity
             android:name=".activity.Home"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
             android:exported="true" />
         <activity
             android:name=".activity.SignIn"

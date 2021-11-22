@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="action_mode_color">#1A237E</color>
+    <color name="action_mode_color">#233E8B</color>
 
     <color name="colorPrimary">#0288D1</color>
     <color name="colorPrimaryDark">#4fC3F7</color>
@@ -144,7 +144,7 @@
     <color name="md_cyan_A200">#18FFFF</color>
     <color name="md_cyan_A400">#00E5FF</color>
     <color name="md_cyan_A700">#00B8D4</color>
-    <color name="md_cyan_B700">#3cb98f</color>
+    <color name="md_cyan_B700">#1EAE98</color>
 
 
     <!-- teal -->
