@@ -6,15 +6,17 @@
         <entry key="..\:/Project/Doctor/app/src/main/res/drawable/back_bg.xml" value="0.2203125" />
         <entry key="..\:/Project/Doctor/app/src/main/res/drawable/edt_bg.xml" value="0.2203125" />
         <entry key="..\:/Project/Doctor/app/src/main/res/drawable/nev_back.xml" value="0.2203125" />
+        <entry key="..\:/Project/Doctor/app/src/main/res/drawable/profile_edt_bg.xml" value="0.2203125" />
         <entry key="..\:/Project/Doctor/app/src/main/res/layout/activity_home.xml" value="0.20416666666666666" />
-        <entry key="..\:/Project/Doctor/app/src/main/res/layout/activity_main.xml" value="0.292259083728278" />
+        <entry key="..\:/Project/Doctor/app/src/main/res/layout/activity_main.xml" value="0.22" />
         <entry key="..\:/Project/Doctor/app/src/main/res/layout/activity_sign_in.xml" value="0.25" />
         <entry key="..\:/Project/Doctor/app/src/main/res/layout/fragment_dashboard.xml" value="0.20416666666666666" />
         <entry key="..\:/Project/Doctor/app/src/main/res/layout/fragment_home.xml" value="0.20416666666666666" />
         <entry key="..\:/Project/Doctor/app/src/main/res/layout/fragment_profile_setting.xml" value="0.20416666666666666" />
         <entry key="..\:/Project/Doctor/app/src/main/res/layout/fragment_profile_setting_clinical.xml" value="0.20416666666666666" />
         <entry key="..\:/Project/Doctor/app/src/main/res/layout/fragment_profile_setting_lifestyle.xml" value="0.20416666666666666" />
-        <entry key="..\:/Project/Doctor/app/src/main/res/layout/fragment_profile_setting_personal.xml" value="0.20416666666666666" />
+        <entry key="..\:/Project/Doctor/app/src/main/res/layout/fragment_profile_setting_personal.xml" value="0.22" />
+        <entry key="..\:/Project/Doctor/app/src/main/res/layout/manage_calendar_item.xml" value="0.20416666666666666" />
         <entry key="..\:/Project/Doctor/app/src/main/res/layout/nev_header.xml" value="0.49444444444444446" />
         <entry key="..\:/Project/Doctor/app/src/main/res/layout/toolbar.xml" value="0.25" />
         <entry key="..\:/Project/Doctor/app/src/main/res/menu/menu.xml" value="0.20416666666666666" />

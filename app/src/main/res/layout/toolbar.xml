@@ -6,9 +6,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/_56sdp"
-        android:background="@color/md_grey_200"
-        >
-
+        android:background="@color/md_grey_200">
 
         <ImageView
             android:id="@+id/nevBack"

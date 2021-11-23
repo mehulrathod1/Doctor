@@ -32,9 +32,6 @@ public class MainActivity extends AppCompatActivity {
 
         btnSignup = findViewById(R.id.btnSignup);
         EdtFirstName = findViewById(R.id.EdtFirstName);
-
-
-
         btnSignup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -45,7 +42,6 @@ public class MainActivity extends AppCompatActivity {
         });
 
         final String[] COUNTRIES = {"+91", "+92", "+93", "+93", "+94", "+92", "+93", "+93", "+94", "+92", "+93", "+93", "+94"};
-
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_dropdown_item_1line, COUNTRIES);
         AutoCompleteTextView textView = (AutoCompleteTextView)

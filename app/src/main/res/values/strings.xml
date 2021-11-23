@@ -48,5 +48,30 @@
     <string name="Speciality">Speciality</string>
     <string name="Speciality_subcategory">Speciality-Subcategory</string>
     <string name="education">Education</string>
+    <string name="Language_Spoken">Language Spoken</string>
+    <string name="Language_Spoken_Language_Spoken">Language Spoken, Language Spoken</string>
+    <string name="Total_years_of_experience">Total years of experience</string>
+    <string name="years_of_experience">10 years of experience</string>
+    <string name="Address">Address</string>
+    <string name="Update_Photo">Update Photo</string>
+    <string name="Choose_new_photo">Choose new photo</string>
+    <string name="Submit">Submit</string>
 
+
+    <!--    Profile_setting_Clinical-->
+    <string name="Clinic_Name">Clinic Name</string>
+    <string name="Location_of_clinic">Location of clinic</string>
+    <string name="Location_of_clini_hint">Lorem ipsum dolor sit amet, consetetur.</string>
+    <string name="From_to_To_days">From to To days</string>
+    <string name="Open_Time">Open Time</string>
+    <string name="Close_Time">Close Time</string>
+    <string name="Offline_Consultancy_Fees">Offline Consultancy Fees</string>
+    <string name="Doctor_availability_status">Doctor’s availability status</string>
+
+<!--    manage_calendar-->
+    <string name="Booking_Id">Booking Id</string>
+    <string name="Doctor_Name">Doctor Name</string>
+    <string name="Location">Location</string>
+    <string name="Pending">Pending</string>
+    <string name="View_Booking_Details">View Booking Details</string>
 </resources>

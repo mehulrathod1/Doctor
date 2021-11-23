@@ -50,7 +50,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/new_dcp"
-                android:textColor="@color/md_cyan_B700"
+                android:textColor="@color/action_mode_color_300"
                 android:textSize="@dimen/_16sdp" />
         </LinearLayout>
 
@@ -228,7 +228,6 @@
 
 
             <Button
-
                 android:id="@+id/btnSignup"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_60sdp"
