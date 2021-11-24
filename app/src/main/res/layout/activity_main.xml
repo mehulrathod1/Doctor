@@ -233,6 +233,7 @@
                 android:layout_height="@dimen/_60sdp"
                 android:layout_marginTop="@dimen/_40sdp"
                 android:text="@string/Sign_up"
+
                 android:textSize="@dimen/_20sdp" />
 
 

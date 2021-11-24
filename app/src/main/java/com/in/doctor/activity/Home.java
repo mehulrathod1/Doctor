@@ -15,6 +15,9 @@ import android.widget.ImageView;
 
 import com.google.android.material.navigation.NavigationView;
 import com.in.doctor.R;
+import com.in.doctor.fragment.BookedAppointment;
+import com.in.doctor.fragment.ManageBooking;
+import com.in.doctor.fragment.ManageCalendar;
 import com.in.doctor.fragment.ProfileSetting;
 
 public class Home extends AppCompatActivity {
@@ -77,21 +80,33 @@ public class Home extends AppCompatActivity {
                         fragment = new ProfileSetting();
                         loadFragment(fragment);
                         break;
-                    case R.id.CompletedAssignment:
+                    case R.id.ManageCalender:
+                        toolbar.setVisibility(View.GONE);
+                        fragment = new ManageCalendar();
+                        loadFragment(fragment);
                         drawerLayout.close();
+                        break;
+
+                    case R.id.BookingRequest:
+                        toolbar.setVisibility(View.GONE);
+                        fragment = new ManageBooking();
+                        loadFragment(fragment);
+                        drawerLayout.close();
+                        break;
+
+                    case R.id.BookedAppointment:
+                        toolbar.setVisibility(View.GONE);
+                        fragment = new BookedAppointment();
+                        loadFragment(fragment);
+                        drawerLayout.close();
+                        break;
+
+                    case R.id.CompletedAssignment:
                         break;
                     case R.id.OnlineConsultant:
                         drawerLayout.close();
                         break;
-                    case R.id.ManageCalender:
-                        drawerLayout.close();
-                        break;
-                    case R.id.BookingRequest:
-                        drawerLayout.close();
-                        break;
-                    case R.id.BookedAppointment:
-                        drawerLayout.close();
-                        break;
+
                     case R.id.MyReview:
                         drawerLayout.close();
                         break;

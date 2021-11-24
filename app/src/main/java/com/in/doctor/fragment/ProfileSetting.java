@@ -54,7 +54,6 @@ public class ProfileSetting extends Fragment {
         viewPager = view.findViewById(R.id.pager);
 
         headerTitle.setText("Profile Setting");
-        headerTitle.setTextColor(Color.parseColor("#3cb98f"));
 
         tabLayout.addTab(tabLayout.newTab().setText("Personal"));
         tabLayout.addTab(tabLayout.newTab().setText("Clinical"));

@@ -26,7 +26,7 @@
             android:layout_centerVertical="true"
             android:gravity="center"
             android:text="DCP"
-            android:textColor="@color/action_mode_color"
+            android:textColor="@color/action_mode_color_300"
             android:textSize="@dimen/_26sdp" />
 
     </RelativeLayout>
