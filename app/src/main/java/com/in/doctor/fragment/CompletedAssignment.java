@@ -15,23 +15,23 @@ import android.widget.TextView;
 
 import com.in.doctor.R;
 import com.in.doctor.activity.Home;
-import com.in.doctor.adapter.ManageCalenderAdapter;
-import com.in.doctor.model.ManageCalendarModel;
+import com.in.doctor.adapter.BookedAppointmentAdapter;
+import com.in.doctor.adapter.CompletedAssignmentAdapter;
+import com.in.doctor.model.BookedAppointmentModel;
+import com.in.doctor.model.CompleteAssignmentModel;
 
 import java.util.ArrayList;
 import java.util.List;
 
-
-public class ManageCalendar extends Fragment {
+public class CompletedAssignment extends Fragment {
 
     ImageView nevBack;
     TextView headerTitle;
-    View view;
-
-    ManageCalenderAdapter adapter;
     RecyclerView recyclerView;
-    List<ManageCalendarModel> list = new ArrayList<>();
+    CompletedAssignmentAdapter adapter;
+    List<CompleteAssignmentModel> list = new ArrayList<>();
 
+    View view;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -41,9 +41,8 @@ public class ManageCalendar extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        view = inflater.inflate(R.layout.fragment_manage_calendar, container, false);
 
+        view = inflater.inflate(R.layout.fragment_completed_assignment, container, false);
         init();
         recyclerData();
 
@@ -51,13 +50,11 @@ public class ManageCalendar extends Fragment {
     }
 
     public void init() {
-
         nevBack = view.findViewById(R.id.nevBack);
         headerTitle = view.findViewById(R.id.header_title);
         recyclerView = view.findViewById(R.id.recycler);
 
-        headerTitle.setText("Manage Calendar");
-
+        headerTitle.setText("Completed Assignment");
 
         nevBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,12 +63,11 @@ public class ManageCalendar extends Fragment {
                 startActivity(intent);
             }
         });
-
     }
 
     public void recyclerData() {
 
-        ManageCalendarModel model = new ManageCalendarModel("9956328","Lorem ipsum.","Gujarat ","$199","","Pending");
+        CompleteAssignmentModel model = new CompleteAssignmentModel("9956328", "27/09/2021", "$199 ");
         list.add(model);
         list.add(model);
         list.add(model);
@@ -80,9 +76,35 @@ public class ManageCalendar extends Fragment {
         list.add(model);
         list.add(model);
 
-        adapter = new ManageCalenderAdapter(list, getContext(), new ManageCalenderAdapter.Click() {
+
+        adapter = new CompletedAssignmentAdapter(list, getContext(), new CompletedAssignmentAdapter.Click() {
             @Override
-            public void onButtonClick(int position) {
+            public void onClickPrescriptionView(int position) {
+
+            }
+
+            @Override
+            public void onClickPrescriptionDownload(int position) {
+
+            }
+
+            @Override
+            public void onClickInvoiceView(int position) {
+
+            }
+
+            @Override
+            public void onClickInvoiceDownload(int position) {
+
+            }
+
+            @Override
+            public void onClickDocumentView(int position) {
+
+            }
+
+            @Override
+            public void onClickDocumentDownload(int position) {
 
             }
         });

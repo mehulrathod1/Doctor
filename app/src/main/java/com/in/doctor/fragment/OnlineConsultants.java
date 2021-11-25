@@ -16,22 +16,23 @@ import android.widget.TextView;
 import com.in.doctor.R;
 import com.in.doctor.activity.Home;
 import com.in.doctor.adapter.ManageCalenderAdapter;
+import com.in.doctor.adapter.OnlineConsultantAdapter;
 import com.in.doctor.model.ManageCalendarModel;
+import com.in.doctor.model.OnlineConsultantModel;
 
 import java.util.ArrayList;
 import java.util.List;
 
+public class OnlineConsultants extends Fragment {
 
-public class ManageCalendar extends Fragment {
 
     ImageView nevBack;
     TextView headerTitle;
     View view;
 
-    ManageCalenderAdapter adapter;
+    OnlineConsultantAdapter adapter;
     RecyclerView recyclerView;
-    List<ManageCalendarModel> list = new ArrayList<>();
-
+    List<OnlineConsultantModel> list = new ArrayList<>();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -41,12 +42,12 @@ public class ManageCalendar extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        view = inflater.inflate(R.layout.fragment_manage_calendar, container, false);
+
+        view =  inflater.inflate(R.layout.fragment_online_consultants, container, false);
+
 
         init();
         recyclerData();
-
         return view;
     }
 
@@ -56,7 +57,7 @@ public class ManageCalendar extends Fragment {
         headerTitle = view.findViewById(R.id.header_title);
         recyclerView = view.findViewById(R.id.recycler);
 
-        headerTitle.setText("Manage Calendar");
+        headerTitle.setText("Online Consultant");
 
 
         nevBack.setOnClickListener(new View.OnClickListener() {
@@ -68,10 +69,10 @@ public class ManageCalendar extends Fragment {
         });
 
     }
-
     public void recyclerData() {
 
-        ManageCalendarModel model = new ManageCalendarModel("9956328","Lorem ipsum.","Gujarat ","$199","","Pending");
+
+        OnlineConsultantModel model = new OnlineConsultantModel("9956328","Lorem ipsum.","Gujarat ","$199","","Pending");
         list.add(model);
         list.add(model);
         list.add(model);
@@ -80,7 +81,7 @@ public class ManageCalendar extends Fragment {
         list.add(model);
         list.add(model);
 
-        adapter = new ManageCalenderAdapter(list, getContext(), new ManageCalenderAdapter.Click() {
+        adapter = new OnlineConsultantAdapter(list, getContext(), new OnlineConsultantAdapter.Click() {
             @Override
             public void onButtonClick(int position) {
 

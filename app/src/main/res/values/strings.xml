@@ -74,4 +74,21 @@
     <string name="Location">Location</string>
     <string name="Pending">Pending</string>
     <string name="View_Booking_Details">View Booking Details</string>
+
+    <!--    Manage Booking Request-->
+    <string name="Order_Date">Order Date</string>
+    <string name="Booking_of">Booking of</string>
+    <string name="Booking_Time">Booking Time</string>
+    <string name="Accept">Accept</string>
+    <string name="Cancel">Cancel</string>
+
+
+    <!--    Completed Assignment-->
+    <string name="Prescription">Prescription</string>
+    <string name="Invoice">Invoice</string>
+    <string name="Document">Document</string>
+    <string name="Appointment_Date">Appointment Date</string>
+    <string name="Amount_paid">Amount paid</string>
+    <string name="Chat_With_Patient">Chat With Patient</string>
+
 </resources>

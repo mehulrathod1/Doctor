@@ -15,23 +15,23 @@ import android.widget.TextView;
 
 import com.in.doctor.R;
 import com.in.doctor.activity.Home;
-import com.in.doctor.adapter.ManageCalenderAdapter;
-import com.in.doctor.model.ManageCalendarModel;
+import com.in.doctor.adapter.BookedAppointmentAdapter;
+import com.in.doctor.adapter.MyReviewAdapter;
+import com.in.doctor.model.BookedAppointmentModel;
+import com.in.doctor.model.MyReviewModel;
 
 import java.util.ArrayList;
 import java.util.List;
 
-
-public class ManageCalendar extends Fragment {
+public class MyReview extends Fragment {
 
     ImageView nevBack;
     TextView headerTitle;
-    View view;
-
-    ManageCalenderAdapter adapter;
     RecyclerView recyclerView;
-    List<ManageCalendarModel> list = new ArrayList<>();
+    MyReviewAdapter adapter;
+    List<MyReviewModel> list = new ArrayList<>();
 
+    View view;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -42,22 +42,18 @@ public class ManageCalendar extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        view = inflater.inflate(R.layout.fragment_manage_calendar, container, false);
-
+        view =  inflater.inflate(R.layout.fragment_my_review, container, false);
         init();
         recyclerData();
-
         return view;
     }
 
     public void init() {
-
         nevBack = view.findViewById(R.id.nevBack);
         headerTitle = view.findViewById(R.id.header_title);
         recyclerView = view.findViewById(R.id.recycler);
 
-        headerTitle.setText("Manage Calendar");
-
+        headerTitle.setText("My Booked Appointment");
 
         nevBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,12 +62,11 @@ public class ManageCalendar extends Fragment {
                 startActivity(intent);
             }
         });
-
     }
 
     public void recyclerData() {
 
-        ManageCalendarModel model = new ManageCalendarModel("9956328","Lorem ipsum.","Gujarat ","$199","","Pending");
+        MyReviewModel model = new MyReviewModel("", "Lorem ipsum.", "27/09/2021","Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea.");
         list.add(model);
         list.add(model);
         list.add(model);
@@ -80,9 +75,10 @@ public class ManageCalendar extends Fragment {
         list.add(model);
         list.add(model);
 
-        adapter = new ManageCalenderAdapter(list, getContext(), new ManageCalenderAdapter.Click() {
+
+        adapter = new MyReviewAdapter(list, getContext(), new MyReviewAdapter.Click() {
             @Override
-            public void onButtonClick(int position) {
+            public void onItemClick(int position) {
 
             }
         });
@@ -91,5 +87,4 @@ public class ManageCalendar extends Fragment {
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setAdapter(adapter);
     }
-
 }

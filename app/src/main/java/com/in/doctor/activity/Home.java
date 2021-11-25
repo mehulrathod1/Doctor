@@ -16,8 +16,11 @@ import android.widget.ImageView;
 import com.google.android.material.navigation.NavigationView;
 import com.in.doctor.R;
 import com.in.doctor.fragment.BookedAppointment;
+import com.in.doctor.fragment.CompletedAssignment;
 import com.in.doctor.fragment.ManageBooking;
 import com.in.doctor.fragment.ManageCalendar;
+import com.in.doctor.fragment.MyReview;
+import com.in.doctor.fragment.OnlineConsultants;
 import com.in.doctor.fragment.ProfileSetting;
 
 public class Home extends AppCompatActivity {
@@ -101,13 +104,25 @@ public class Home extends AppCompatActivity {
                         drawerLayout.close();
                         break;
 
-                    case R.id.CompletedAssignment:
-                        break;
                     case R.id.OnlineConsultant:
+                        toolbar.setVisibility(View.GONE);
+                        fragment = new OnlineConsultants();
+                        loadFragment(fragment);
+                        drawerLayout.close();
+                        break;
+
+
+                    case R.id.CompletedAssignment:
+                        toolbar.setVisibility(View.GONE);
+                        fragment = new CompletedAssignment();
+                        loadFragment(fragment);
                         drawerLayout.close();
                         break;
 
                     case R.id.MyReview:
+                        toolbar.setVisibility(View.GONE);
+                        fragment = new MyReview();
+                        loadFragment(fragment);
                         drawerLayout.close();
                         break;
                     case R.id.MYQuestion:

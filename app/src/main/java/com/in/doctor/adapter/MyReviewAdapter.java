@@ -5,7 +5,6 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -13,54 +12,50 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.in.doctor.R;
-import com.in.doctor.model.ManageCalendarModel;
+import com.in.doctor.fragment.ManageBooking;
+import com.in.doctor.model.MyReviewModel;
 
 import java.util.List;
 
-public class ManageCalenderAdapter extends RecyclerView.Adapter<ManageCalenderAdapter.ViewHolder> {
+public class MyReviewAdapter extends RecyclerView.Adapter<MyReviewAdapter.ViewHolder> {
 
-    List<ManageCalendarModel> list;
+    List<MyReviewModel> list;
     Context context;
     Click click;
 
-
-    public ManageCalenderAdapter(List<ManageCalendarModel> list, Context context, Click click) {
+    public MyReviewAdapter(List<MyReviewModel> list, Context context, Click click) {
         this.list = list;
         this.context = context;
         this.click = click;
     }
 
     public interface Click {
-        void onButtonClick(int position);
+        void onItemClick(int position);
     }
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.manage_calendar_item, parent, false);
+                .inflate(R.layout.my_reviw_item, parent, false);
         return new ViewHolder(itemView);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, @SuppressLint("RecyclerView") int position) {
 
-        ManageCalendarModel model = list.get(position);
+        MyReviewModel model = list.get(position);
 
-        holder.BookingId.setText(model.getBookingId());
-        holder.DoctorName.setText(model.getDoctorName());
-        holder.CityName.setText(model.getCityName());
-        holder.Price.setText(model.getPrice());
+        holder.Name.setText(model.getName());
+        holder.Date.setText(model.getDate());
+        holder.ReviewText.setText(model.getReviewText());
 
-        holder.viewBookingDetail.setOnClickListener(new View.OnClickListener() {
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                click.onButtonClick(position);
+                click.onItemClick(position);
             }
         });
-
-
-
     }
 
     @Override
@@ -70,18 +65,17 @@ public class ManageCalenderAdapter extends RecyclerView.Adapter<ManageCalenderAd
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
+        TextView Name, Date, ReviewText;
         ImageView profileImage;
-        TextView BookingId, DoctorName, CityName, Price,viewBookingDetail;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
+            Name = itemView.findViewById(R.id.Name);
+            Date = itemView.findViewById(R.id.Date);
+            ReviewText = itemView.findViewById(R.id.ReviewText);
+
             profileImage = itemView.findViewById(R.id.profileImage);
-            BookingId = itemView.findViewById(R.id.BookingId);
-            DoctorName = itemView.findViewById(R.id.DoctorName);
-            CityName = itemView.findViewById(R.id.CityName);
-            Price = itemView.findViewById(R.id.Price);
-            viewBookingDetail = itemView.findViewById(R.id.viewBookingDetail);
         }
     }
 }

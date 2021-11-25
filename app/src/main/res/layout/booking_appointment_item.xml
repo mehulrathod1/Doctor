@@ -58,6 +58,7 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_8sdp"
                             android:orientation="horizontal">
 
                             <LinearLayout
@@ -116,12 +117,12 @@
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:text="@string/Location"
+                                        android:text="Amount Paid"
                                         android:textColor="@color/black_text_color"
                                         android:textSize="@dimen/_10sdp" />
 
                                     <TextView
-                                        android:id="@+id/CityName"
+                                        android:id="@+id/Amount"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:text="Gujarat"
@@ -134,15 +135,24 @@
                                 <LinearLayout
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/_16sdp"
                                     android:orientation="horizontal">
 
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:text="@string/Location"
+                                        android:text="Document"
+                                        android:layout_marginTop="@dimen/_4sdp"
                                         android:textColor="@color/black_text_color"
                                         android:textSize="@dimen/_10sdp" />
 
+                                    <ImageView
+                                        android:id="@+id/ViewDetail"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="@dimen/_12sdp"
+                                        android:src="@drawable/ic_baseline_view_eye_24"
+                                         />
 
                                 </LinearLayout>
 
@@ -152,6 +162,8 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+
+                            android:layout_marginBottom="@dimen/_8sdp"
                             android:orientation="vertical">
 
                             <TextView

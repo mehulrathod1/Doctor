@@ -58,9 +58,7 @@ public class ManageBooking extends Fragment {
         headerTitle = view.findViewById(R.id.header_title);
         recyclerView = view.findViewById(R.id.recycler);
 
-
-        headerTitle.setText("Manage Calendar");
-
+        headerTitle.setText("My Booking Request");
 
         nevBack.setOnClickListener(new View.OnClickListener() {
             @Override

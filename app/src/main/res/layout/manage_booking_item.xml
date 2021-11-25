@@ -60,7 +60,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/Booking_Id"
+                        android:text="@string/Order_Date"
                         android:textColor="@color/black_text_color"
                         android:textSize="@dimen/_10sdp" />
 
@@ -85,7 +85,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/_30sdp"
                         android:id="@+id/RequestAccept"
-                        android:text="Accept"
+                        android:text="@string/Accept"
                         android:textAllCaps="false"
                         android:background="@drawable/button_blue_border"
                         android:textColor="@color/white_button_color" />
@@ -109,7 +109,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/RequestCancel"
-                        android:text="@string/Booking_Id"
+                        android:text="@string/Booking_of"
                         android:textColor="@color/black_text_color"
                         android:textSize="@dimen/_10sdp" />
 
@@ -133,7 +133,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/Booking_Id"
+                        android:text="@string/Booking_Time"
                         android:textColor="@color/black_text_color"
                         android:textSize="@dimen/_10sdp" />
 
@@ -156,7 +156,7 @@
                     <android.widget.Button
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/_30sdp"
-                        android:text="Cancel"
+                        android:text="@string/Cancel"
                         android:textAllCaps="false"
                         android:background="@drawable/button_border"
                         android:textColor="@color/black_text_color" />
