@@ -28,7 +28,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="@string/dcp"
-                    android:textColor="@color/md_light_blue_A200"
+                    android:textColor="@color/action_mode_color"
                     android:textSize="@dimen/_26sdp" />
             </LinearLayout>
 
@@ -45,14 +45,14 @@
                     android:layout_marginBottom="@dimen/_8sdp"
                     android:text="@string/sign_in"
                     android:textColor="@color/action_mode_color"
-                    android:textSize="@dimen/_24sdp" />
+                    android:textSize="@dimen/_34sdp" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/sign_in_into"
                     android:textColor="@color/action_mode_color_300"
-                    android:textSize="@dimen/_12sdp" />
+                    android:textSize="@dimen/_16sdp" />
             </LinearLayout>
 
             <LinearLayout
@@ -69,6 +69,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:hintAnimationEnabled="false"
+                    app:boxStrokeWidth="0dp"
+                    app:boxStrokeWidthFocused="0dp"
                     app:hintEnabled="false">
 
                     <EditText
@@ -95,6 +97,8 @@
                     android:layout_marginTop="@dimen/_24sdp"
                     app:hintAnimationEnabled="false"
                     app:hintEnabled="false"
+                    app:boxStrokeWidth="0dp"
+                    app:boxStrokeWidthFocused="0dp"
                     app:passwordToggleEnabled="true">
 
                     <com.google.android.material.textfield.TextInputEditText
@@ -162,6 +166,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/sign_in_with"
+                        android:textSize="@dimen/_16sdp"
                         android:textColor="@color/action_mode_color_300" />
 
                 </LinearLayout>
@@ -198,7 +203,8 @@
                 <Button
                     android:id="@+id/btnSignIn"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_60sdp"
+                    android:layout_height="@dimen/_46sdp"
+                    android:background="@drawable/button_bg"
                     android:text="@string/sign_in"
                     android:textSize="@dimen/_20sdp" />
 
@@ -215,6 +221,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_14sdp"
                     android:gravity="center">
 
                     <TextView

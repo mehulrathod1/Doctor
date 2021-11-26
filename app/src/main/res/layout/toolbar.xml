@@ -19,14 +19,15 @@
             android:src="@drawable/nev_back" />
 
     </RelativeLayout>
-        <TextView
-            android:id="@+id/header_title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:gravity="center"
-            android:text="DCP"
-            android:textColor="@color/action_mode_color_300"
-            android:textSize="@dimen/_22sdp" />
 
-    </RelativeLayout>
+    <TextView
+        android:id="@+id/header_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:gravity="center"
+        android:text="DCP"
+        android:textColor="@color/action_mode_color_300"
+        android:textSize="@dimen/_22sdp" />
+
+</RelativeLayout>

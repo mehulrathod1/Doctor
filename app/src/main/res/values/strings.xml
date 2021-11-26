@@ -91,4 +91,26 @@
     <string name="Amount_paid">Amount paid</string>
     <string name="Chat_With_Patient">Chat With Patient</string>
 
+
+    <!--    Wallet  -->
+
+    <string name="Transaction_Id">Transaction Id</string>
+    <string name="Transaction_Date">Transaction Date</string>
+    <string name="Order_Id">Order Id / Service Id</string>
+    <string name="Transaction_Amount">Transaction Amount</string>
+    <string name="Current_Wallet_Balance">Current Wallet Balance:</string>
+    <string name="Amount">Amount</string>
+    <string name="Enter_Amount">Enter Amount</string>
+
+
+<!--    Account Setting-->
+    <string name="Change_Password">Change Password</string>
+    <string name="Enter_Old_Password">Enter Old Password</string>
+    <string name="New_Password">New Password</string>
+    <string name="Enter_New_Password">Enter New Password</string>
+    <string name="Payment_gateway_ID">Payment gateway ID</string>
+    <string name="Enter_Payment_gateway_ID">Enter_Payment gateway ID</string>
+    <string name="Deactivate_Account">Deactivate Account</string>
+
+
 </resources>

@@ -15,11 +15,14 @@ import android.widget.ImageView;
 
 import com.google.android.material.navigation.NavigationView;
 import com.in.doctor.R;
+import com.in.doctor.fragment.AccountSetting;
 import com.in.doctor.fragment.BookedAppointment;
 import com.in.doctor.fragment.CompletedAssignment;
 import com.in.doctor.fragment.ManageBooking;
 import com.in.doctor.fragment.ManageCalendar;
+import com.in.doctor.fragment.MyQuestion;
 import com.in.doctor.fragment.MyReview;
+import com.in.doctor.fragment.MyWallet;
 import com.in.doctor.fragment.OnlineConsultants;
 import com.in.doctor.fragment.ProfileSetting;
 
@@ -29,7 +32,6 @@ public class Home extends AppCompatActivity {
     public ActionBarDrawerToggle actionBarDrawerToggle;
     NavigationView Navigation;
     ImageView nevBack, nevBackHeader;
-    View toolbar;
 
     FrameLayout firstFrame;
 
@@ -42,7 +44,6 @@ public class Home extends AppCompatActivity {
 
         Navigation = findViewById(R.id.Navigation);
         firstFrame = findViewById(R.id.firstFrame);
-        toolbar = findViewById(R.id.toolbar);
 
         getSupportActionBar().hide();
 
@@ -78,34 +79,29 @@ public class Home extends AppCompatActivity {
                 int id = menuItem.getItemId();
                 switch (id) {
                     case R.id.ProfileSetting:
-                        toolbar.setVisibility(View.GONE);
                         drawerLayout.close();
                         fragment = new ProfileSetting();
                         loadFragment(fragment);
                         break;
                     case R.id.ManageCalender:
-                        toolbar.setVisibility(View.GONE);
                         fragment = new ManageCalendar();
                         loadFragment(fragment);
                         drawerLayout.close();
                         break;
 
                     case R.id.BookingRequest:
-                        toolbar.setVisibility(View.GONE);
                         fragment = new ManageBooking();
                         loadFragment(fragment);
                         drawerLayout.close();
                         break;
 
                     case R.id.BookedAppointment:
-                        toolbar.setVisibility(View.GONE);
                         fragment = new BookedAppointment();
                         loadFragment(fragment);
                         drawerLayout.close();
                         break;
 
                     case R.id.OnlineConsultant:
-                        toolbar.setVisibility(View.GONE);
                         fragment = new OnlineConsultants();
                         loadFragment(fragment);
                         drawerLayout.close();
@@ -113,25 +109,29 @@ public class Home extends AppCompatActivity {
 
 
                     case R.id.CompletedAssignment:
-                        toolbar.setVisibility(View.GONE);
                         fragment = new CompletedAssignment();
                         loadFragment(fragment);
                         drawerLayout.close();
                         break;
 
                     case R.id.MyReview:
-                        toolbar.setVisibility(View.GONE);
                         fragment = new MyReview();
                         loadFragment(fragment);
                         drawerLayout.close();
                         break;
                     case R.id.MYQuestion:
+                        fragment = new MyQuestion();
+                        loadFragment(fragment);
                         drawerLayout.close();
                         break;
                     case R.id.BillingSegment:
+                        fragment = new MyWallet();
+                        loadFragment(fragment);
                         drawerLayout.close();
                         break;
                     case R.id.AccountSetting:
+                        fragment = new AccountSetting();
+                        loadFragment(fragment);
                         drawerLayout.close();
                         break;
                     case R.id.Logout:

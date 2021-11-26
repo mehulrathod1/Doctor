@@ -11,20 +11,22 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <LinearLayout
+
+        <FrameLayout
+            android:id="@+id/firstFrame"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="match_parent">
 
-            <LinearLayout
+
+            <TextView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <include
-                    android:id="@+id/toolbar"
-                    layout="@layout/toolbar" />
-
-            </LinearLayout>
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="Home"
+                android:textAlignment="center"
+                android:textSize="@dimen/_30sdp"
+                tools:ignore="RtlCompat" />
+            <!---->
 
 
             <LinearLayout
@@ -32,30 +34,50 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
-               <FrameLayout
-                   android:layout_width="match_parent"
-                   android:layout_height="match_parent"
-                   android:id="@+id/firstFrame">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_56sdp">
 
 
-                   <LinearLayout
-                       android:layout_width="match_parent"
-                       android:layout_height="wrap_content"
-                       android:gravity="center">
+                    <ImageView
+                        android:id="@+id/nevBack"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/_20sdp"
+                        android:background="@drawable/back_button_bg"
+                        android:padding="@dimen/_5sdp"
+                        android:src="@drawable/ic_nev_list_24" />
 
-                       <TextView
-                           android:layout_width="match_parent"
-                           android:layout_height="wrap_content"
-                           android:text="Home"
-                           android:textSize="@dimen/_30sdp"
-                           android:textAlignment="center"/>
+                    <TextView
+                        android:id="@+id/header_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:gravity="center"
+                        android:text="DCP"
+                        android:textColor="@color/action_mode_color_300"
+                        android:textSize="@dimen/_22sdp" />
 
-                   </LinearLayout>
-               </FrameLayout>
+
+                </RelativeLayout>
 
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"></LinearLayout>
             </LinearLayout>
-        </LinearLayout>
+
+
+            <!--            <LinearLayout-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="match_parent"-->
+            <!--                android:gravity="center_vertical">-->
+
+
+        </FrameLayout>
+
     </RelativeLayout>
 
     <com.google.android.material.navigation.NavigationView
