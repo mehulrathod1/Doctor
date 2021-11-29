@@ -43,7 +43,6 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), SignIn.class);
                 startActivity(intent);
 
-
             }
         });
 

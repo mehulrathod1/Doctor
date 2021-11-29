@@ -5,6 +5,7 @@
       <map>
         <entry key="..\:/Project/Doctor/app/src/main/res/drawable/back_bg.xml" value="0.2203125" />
         <entry key="..\:/Project/Doctor/app/src/main/res/drawable/back_button_bg.xml" value="0.2203125" />
+        <entry key="..\:/Project/Doctor/app/src/main/res/drawable/bottom_menu_back.xml" value="0.2203125" />
         <entry key="..\:/Project/Doctor/app/src/main/res/drawable/button_bg.xml" value="0.2203125" />
         <entry key="..\:/Project/Doctor/app/src/main/res/drawable/button_blue_border.xml" value="0.2203125" />
         <entry key="..\:/Project/Doctor/app/src/main/res/drawable/button_border.xml" value="0.2203125" />
@@ -23,9 +24,11 @@
         <entry key="..\:/Project/Doctor/app/src/main/res/layout/fragment_completed_assignment.xml" value="0.20416666666666666" />
         <entry key="..\:/Project/Doctor/app/src/main/res/layout/fragment_dashboard.xml" value="0.20416666666666666" />
         <entry key="..\:/Project/Doctor/app/src/main/res/layout/fragment_home.xml" value="0.20416666666666666" />
+        <entry key="..\:/Project/Doctor/app/src/main/res/layout/fragment_home_dashboard.xml" value="0.20416666666666666" />
         <entry key="..\:/Project/Doctor/app/src/main/res/layout/fragment_manage_booking.xml" value="0.20416666666666666" />
         <entry key="..\:/Project/Doctor/app/src/main/res/layout/fragment_manage_calendar.xml" value="0.20416666666666666" />
         <entry key="..\:/Project/Doctor/app/src/main/res/layout/fragment_my_question.xml" value="0.20416666666666666" />
+        <entry key="..\:/Project/Doctor/app/src/main/res/layout/fragment_my_revenue.xml" value="0.20416666666666666" />
         <entry key="..\:/Project/Doctor/app/src/main/res/layout/fragment_my_review.xml" value="0.20416666666666666" />
         <entry key="..\:/Project/Doctor/app/src/main/res/layout/fragment_my_wallet.xml" value="0.20416666666666666" />
         <entry key="..\:/Project/Doctor/app/src/main/res/layout/fragment_online_consultants.xml" value="0.20416666666666666" />
@@ -40,9 +43,11 @@
         <entry key="..\:/Project/Doctor/app/src/main/res/layout/my_question_item.xml" value="0.20416666666666666" />
         <entry key="..\:/Project/Doctor/app/src/main/res/layout/my_reviw_item.xml" value="0.20416666666666666" />
         <entry key="..\:/Project/Doctor/app/src/main/res/layout/nev_header.xml" value="0.49444444444444446" />
+        <entry key="..\:/Project/Doctor/app/src/main/res/layout/nev_toolbar.xml" value="0.20416666666666666" />
         <entry key="..\:/Project/Doctor/app/src/main/res/layout/online_consultant_item.xml" value="0.20416666666666666" />
         <entry key="..\:/Project/Doctor/app/src/main/res/layout/toolbar.xml" value="0.25" />
         <entry key="..\:/Project/Doctor/app/src/main/res/layout/transaction_history_item.xml" value="0.2" />
+        <entry key="..\:/Project/Doctor/app/src/main/res/menu/bottom_menu.xml" value="0.20416666666666666" />
         <entry key="..\:/Project/Doctor/app/src/main/res/menu/menu.xml" value="0.20416666666666666" />
       </map>
     </option>

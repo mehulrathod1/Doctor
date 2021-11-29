@@ -12,10 +12,16 @@
         android:layout_height="match_parent">
 
 
+        <include
+            android:id="@+id/header"
+            layout="@layout/nev_toolbar" />
+
+
         <FrameLayout
             android:id="@+id/firstFrame"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_below="@+id/header">
 
 
             <TextView
@@ -34,49 +40,18 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/_56sdp">
-
-
-                    <ImageView
-                        android:id="@+id/nevBack"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_marginLeft="@dimen/_20sdp"
-                        android:background="@drawable/back_button_bg"
-                        android:padding="@dimen/_5sdp"
-                        android:src="@drawable/ic_nev_list_24" />
-
-                    <TextView
-                        android:id="@+id/header_title"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:gravity="center"
-                        android:text="DCP"
-                        android:textColor="@color/action_mode_color_300"
-                        android:textSize="@dimen/_22sdp" />
-
-
-                </RelativeLayout>
-
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="vertical"></LinearLayout>
+                    android:orientation="vertical">
+
+                </LinearLayout>
             </LinearLayout>
 
 
-            <!--            <LinearLayout-->
-            <!--                android:layout_width="match_parent"-->
-            <!--                android:layout_height="match_parent"-->
-            <!--                android:gravity="center_vertical">-->
-
-
         </FrameLayout>
+
 
     </RelativeLayout>
 

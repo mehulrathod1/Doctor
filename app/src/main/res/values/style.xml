@@ -22,4 +22,5 @@
     <style name="sub_heading_text">
         <item name="android:textSize">@dimen/_16sdp</item>
     </style>
+
 </resources>

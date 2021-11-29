@@ -103,7 +103,7 @@
     <string name="Enter_Amount">Enter Amount</string>
 
 
-<!--    Account Setting-->
+    <!--    Account Setting-->
     <string name="Change_Password">Change Password</string>
     <string name="Enter_Old_Password">Enter Old Password</string>
     <string name="New_Password">New Password</string>
@@ -112,5 +112,8 @@
     <string name="Enter_Payment_gateway_ID">Enter_Payment gateway ID</string>
     <string name="Deactivate_Account">Deactivate Account</string>
 
+<!--    Revenue-->
 
+    <string name="Transaction_History">Transaction History</string>
+<!--    <string name="Amount">Amount</string>-->
 </resources>
