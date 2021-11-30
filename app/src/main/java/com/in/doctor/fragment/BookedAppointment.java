@@ -69,6 +69,7 @@ public class BookedAppointment extends Fragment {
 
     public void recyclerData() {
 
+
         BookedAppointmentModel model = new BookedAppointmentModel("9956328", "Lorem ipsum.", "Gujarat ", "$199", "");
         list.add(model);
         list.add(model);

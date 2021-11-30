@@ -112,8 +112,25 @@
     <string name="Enter_Payment_gateway_ID">Enter_Payment gateway ID</string>
     <string name="Deactivate_Account">Deactivate Account</string>
 
-<!--    Revenue-->
+    <!--    Revenue-->
 
     <string name="Transaction_History">Transaction History</string>
-<!--    <string name="Amount">Amount</string>-->
+
+
+    <!--    Home-->
+
+    <string name="Doctor_Consultation">Doctor Consultation</string>
+    <string name="Home_Care_Servicies">Home Care Servicies</string>
+    <string name="Lab_Tests">Lab Tests</string>
+    <string name="Medicine">Medicine</string>
+    <string name="Health_care">Health care &amp; Other product</string>
+    <string name="Stress_buster_zone">Stress buster zone</string>
+    <string name="Ask_Questions">Ask Questions</string>
+    <string name="Knowledge_Forum">Knowledge Forum</string>
+
+    <string name="Find_Your_Doctors">Find Your Doctors</string>
+    <string name="View_all">View all</string>
+    <string name="Choose_from">Choose from top specialities</string>
+
+
 </resources>

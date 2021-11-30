@@ -11,16 +11,22 @@
         <entry key="..\:/Project/Doctor/app/src/main/res/drawable/button_border.xml" value="0.2203125" />
         <entry key="..\:/Project/Doctor/app/src/main/res/drawable/edt_bg.xml" value="0.2203125" />
         <entry key="..\:/Project/Doctor/app/src/main/res/drawable/ic_baseline_view_eye_24.xml" value="0.2203125" />
+        <entry key="..\:/Project/Doctor/app/src/main/res/drawable/ic_location_on_24.xml" value="0.19722222222222222" />
         <entry key="..\:/Project/Doctor/app/src/main/res/drawable/ic_review_star_24.xml" value="0.2203125" />
+        <entry key="..\:/Project/Doctor/app/src/main/res/drawable/location_bg.xml" value="0.19722222222222222" />
         <entry key="..\:/Project/Doctor/app/src/main/res/drawable/nev_back.xml" value="0.2203125" />
         <entry key="..\:/Project/Doctor/app/src/main/res/drawable/profile_edt_bg.xml" value="0.2203125" />
-        <entry key="..\:/Project/Doctor/app/src/main/res/layout/activity_home.xml" value="0.20416666666666666" />
+        <entry key="..\:/Project/Doctor/app/src/main/res/drawable/search_bg.xml" value="0.19722222222222222" />
+        <entry key="..\:/Project/Doctor/app/src/main/res/layout/activity_home.xml" value="0.25" />
         <entry key="..\:/Project/Doctor/app/src/main/res/layout/activity_main.xml" value="0.22" />
         <entry key="..\:/Project/Doctor/app/src/main/res/layout/activity_sign_in.xml" value="0.25" />
         <entry key="..\:/Project/Doctor/app/src/main/res/layout/booking_appointment_item.xml" value="0.33" />
+        <entry key="..\:/Project/Doctor/app/src/main/res/layout/chat_item.xml" value="0.20416666666666666" />
         <entry key="..\:/Project/Doctor/app/src/main/res/layout/complete_assignment_item.xml" value="0.5" />
+        <entry key="..\:/Project/Doctor/app/src/main/res/layout/find_doctor_item.xml" value="0.20416666666666666" />
         <entry key="..\:/Project/Doctor/app/src/main/res/layout/fragment_account_setting.xml" value="0.20416666666666666" />
         <entry key="..\:/Project/Doctor/app/src/main/res/layout/fragment_booked_appoinment.xml" value="0.20416666666666666" />
+        <entry key="..\:/Project/Doctor/app/src/main/res/layout/fragment_chat.xml" value="0.20416666666666666" />
         <entry key="..\:/Project/Doctor/app/src/main/res/layout/fragment_completed_assignment.xml" value="0.20416666666666666" />
         <entry key="..\:/Project/Doctor/app/src/main/res/layout/fragment_dashboard.xml" value="0.20416666666666666" />
         <entry key="..\:/Project/Doctor/app/src/main/res/layout/fragment_home.xml" value="0.20416666666666666" />
@@ -32,12 +38,17 @@
         <entry key="..\:/Project/Doctor/app/src/main/res/layout/fragment_my_review.xml" value="0.20416666666666666" />
         <entry key="..\:/Project/Doctor/app/src/main/res/layout/fragment_my_wallet.xml" value="0.20416666666666666" />
         <entry key="..\:/Project/Doctor/app/src/main/res/layout/fragment_online_consultants.xml" value="0.20416666666666666" />
+        <entry key="..\:/Project/Doctor/app/src/main/res/layout/fragment_profile_clinical.xml" value="0.20416666666666666" />
+        <entry key="..\:/Project/Doctor/app/src/main/res/layout/fragment_profile_lifestyle.xml" value="0.20416666666666666" />
+        <entry key="..\:/Project/Doctor/app/src/main/res/layout/fragment_profile_personal.xml" value="0.20416666666666666" />
         <entry key="..\:/Project/Doctor/app/src/main/res/layout/fragment_profile_setting.xml" value="0.20416666666666666" />
         <entry key="..\:/Project/Doctor/app/src/main/res/layout/fragment_profile_setting_clinical.xml" value="0.20416666666666666" />
         <entry key="..\:/Project/Doctor/app/src/main/res/layout/fragment_profile_setting_lifestyle.xml" value="0.20416666666666666" />
         <entry key="..\:/Project/Doctor/app/src/main/res/layout/fragment_profile_setting_personal.xml" value="0.22" />
+        <entry key="..\:/Project/Doctor/app/src/main/res/layout/fragment_profille.xml" value="0.20416666666666666" />
         <entry key="..\:/Project/Doctor/app/src/main/res/layout/fragment_redemption.xml" value="0.20416666666666666" />
         <entry key="..\:/Project/Doctor/app/src/main/res/layout/fragment_transaction_history.xml" value="0.20416666666666666" />
+        <entry key="..\:/Project/Doctor/app/src/main/res/layout/layout_slider.xml" value="0.20416666666666666" />
         <entry key="..\:/Project/Doctor/app/src/main/res/layout/manage_booking_item.xml" value="0.20416666666666666" />
         <entry key="..\:/Project/Doctor/app/src/main/res/layout/manage_calendar_item.xml" value="0.20416666666666666" />
         <entry key="..\:/Project/Doctor/app/src/main/res/layout/my_question_item.xml" value="0.20416666666666666" />
