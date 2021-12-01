@@ -30,7 +30,6 @@ public class CompletedAssignment extends Fragment {
     RecyclerView recyclerView;
     CompletedAssignmentAdapter adapter;
     List<CompleteAssignmentModel> list = new ArrayList<>();
-
     View view;
 
     @Override

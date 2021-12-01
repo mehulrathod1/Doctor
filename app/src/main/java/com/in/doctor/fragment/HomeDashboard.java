@@ -32,8 +32,10 @@ import com.in.doctor.R;
 import com.in.doctor.activity.Home;
 import com.in.doctor.adapter.BookedAppointmentAdapter;
 import com.in.doctor.adapter.FindDoctorAdapter;
+import com.in.doctor.adapter.HealthCareAdapter;
 import com.in.doctor.adapter.SliderPagerAdapter;
 import com.in.doctor.model.BookedAppointmentModel;
+import com.in.doctor.model.CareAndCheckupModel;
 import com.in.doctor.model.FindDoctorModel;
 
 import java.util.ArrayList;
@@ -54,10 +56,15 @@ public class HomeDashboard extends Fragment {
     private TextView[] dots;
     int page_position = 0;
 
-    RecyclerView recyclerView;
+    RecyclerView recyclerView, healthCheckupRecycler, healthCareRecycler;
+    HealthCareAdapter healthCareAdapter;
+    List<CareAndCheckupModel> careList = new ArrayList<>();
+    List<CareAndCheckupModel> healthList = new ArrayList<>();
+
     FindDoctorAdapter adapter;
     List<FindDoctorModel> list = new ArrayList<>();
 
+    LinearLayout doctorConsultant;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -72,6 +79,8 @@ public class HomeDashboard extends Fragment {
 
         init();
         recyclerData();
+        healthCareData();
+        healthCheckupData();
 
         return view;
     }
@@ -80,22 +89,23 @@ public class HomeDashboard extends Fragment {
     public void init() {
 
         recyclerView = view.findViewById(R.id.findDoctor);
+        healthCareRecycler = view.findViewById(R.id.healthCareRecycler);
+        healthCheckupRecycler = view.findViewById(R.id.healthCheckupRecycler);
 
+        doctorConsultant = view.findViewById(R.id.doctorConsultant);
 
         vp_slider = view.findViewById(R.id.vp_slider);
         ll_dots = view.findViewById(R.id.ll_dots);
 
+
         slider_image_list = new ArrayList<>();
-
         addBottomDots(0);
-
         slider_image_list.add("https://wallpaperaccess.com/full/297372.jpg");
         slider_image_list.add("https://www.teahub.io/photos/full/68-683520_beautiful-girl-wallpapers-hd.jpg");
         slider_image_list.add("https://wallpaperaccess.com/full/1198406.jpg");
         slider_image_list.add("https://www.wallpaperuse.com/wallp/50-509102_m.jpg");
         sliderPagerAdapter = new SliderPagerAdapter(getActivity(), slider_image_list);
         vp_slider.setAdapter(sliderPagerAdapter);
-
         vp_slider.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
@@ -136,6 +146,13 @@ public class HomeDashboard extends Fragment {
         }, 100, 5000);
 
 
+        doctorConsultant.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Fragment fragment = new DoctorConsultant();
+                loadFragment(fragment);
+            }
+        });
     }
 
 
@@ -153,7 +170,7 @@ public class HomeDashboard extends Fragment {
 
         ll_dots.removeAllViews();
         for (int i = 0; i < dots.length; i++) {
-            dots[i] = new TextView(getActivity());
+            dots[i] = new TextView(getContext());
             dots[i].setText(Html.fromHtml("&#8226;"));
             dots[i].setTextSize(35);
             dots[i].setTextColor(Color.parseColor("#EFEFEF"));
@@ -189,5 +206,53 @@ public class HomeDashboard extends Fragment {
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setAdapter(adapter);
     }
+
+    public void healthCareData() {
+
+        CareAndCheckupModel model = new CareAndCheckupModel("", "Covid Care");
+        CareAndCheckupModel model1 = new CareAndCheckupModel("", "Physiotherapy");
+        CareAndCheckupModel model2 = new CareAndCheckupModel("", "Medical Equipment");
+        CareAndCheckupModel model3 = new CareAndCheckupModel("", "Gynaecologist");
+        careList.add(model);
+        careList.add(model1);
+        careList.add(model2);
+        careList.add(model3);
+
+
+        healthCareAdapter = new HealthCareAdapter(careList, getContext(), new HealthCareAdapter.Click() {
+            @Override
+            public void onClick(int position) {
+
+            }
+        });
+
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
+        healthCareRecycler.setLayoutManager(mLayoutManager);
+        healthCareRecycler.setAdapter(healthCareAdapter);
+    }
+
+    public void healthCheckupData() {
+
+        CareAndCheckupModel model = new CareAndCheckupModel("", "Health Checkup 1");
+        CareAndCheckupModel model1 = new CareAndCheckupModel("", "Health Checkup 2");
+        CareAndCheckupModel model2 = new CareAndCheckupModel("", "Health Checkup 3");
+        CareAndCheckupModel model3 = new CareAndCheckupModel("", "Health Checkup 4");
+        healthList.add(model);
+        healthList.add(model1);
+        healthList.add(model2);
+        healthList.add(model3);
+
+
+        healthCareAdapter = new HealthCareAdapter(healthList, getContext(), new HealthCareAdapter.Click() {
+            @Override
+            public void onClick(int position) {
+
+            }
+        });
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
+        healthCheckupRecycler.setLayoutManager(mLayoutManager);
+        healthCheckupRecycler.setAdapter(healthCareAdapter);
+    }
+
 
 }

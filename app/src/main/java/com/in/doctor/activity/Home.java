@@ -10,10 +10,12 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager.widget.ViewPager;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.Html;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
@@ -32,6 +34,7 @@ import com.in.doctor.fragment.AccountSetting;
 import com.in.doctor.fragment.BookedAppointment;
 import com.in.doctor.fragment.Chat;
 import com.in.doctor.fragment.CompletedAssignment;
+import com.in.doctor.fragment.DoctorConsultant;
 import com.in.doctor.fragment.HomeDashboard;
 import com.in.doctor.fragment.ManageBooking;
 import com.in.doctor.fragment.ManageCalendar;
@@ -60,18 +63,25 @@ public class Home extends AppCompatActivity {
     DrawerLayout my_drawer_layout;
     CoordinatorLayout coordinator;
     BottomNavigationView bottomNavigationView;
-    FloatingActionButton Request;
+    FloatingActionButton request;
 
 
     RelativeLayout rl_main;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        init();
 
+        fragment = new HomeDashboard();
+        loadFragment(fragment);
+
+        int index = getIntent().getIntExtra("s",0);
+        if (index == 1){
+            fragment = new DoctorConsultant();
+            loadFragment(fragment);
+        }
+        init();
     }
 
     @SuppressLint("ResourceAsColor")
@@ -81,7 +91,7 @@ public class Home extends AppCompatActivity {
         firstFrame = findViewById(R.id.firstFrame);
         header_title = findViewById(R.id.header_title);
         bottomNavigationView = findViewById(R.id.bottomNavigationView);
-        Request = findViewById(R.id.Request);
+        request = findViewById(R.id.Request);
         bottomNavigationView.setBackgroundColor(android.R.color.transparent);
         bottomNavigationView.getMenu().findItem(R.id.home).setChecked(true);
 
@@ -98,8 +108,7 @@ public class Home extends AppCompatActivity {
 
         nevBack = findViewById(R.id.nevBack);
 
-        fragment = new HomeDashboard();
-        loadFragment(fragment);
+
 
         drawerLayout = findViewById(R.id.my_drawer_layout);
         actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.nav_open, R.string.nav_close);
@@ -120,14 +129,13 @@ public class Home extends AppCompatActivity {
             }
         });
 
-        Request.setOnClickListener(new View.OnClickListener() {
+        request.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                coordinator.setVisibility(View.GONE);
-                header.setVisibility(View.GONE);
-                fragment = new ManageBooking();
-                loadFragment(fragment);
+
+                Intent intent = new Intent(getApplicationContext(), Request.class);
+                startActivity(intent);
 
             }
         });

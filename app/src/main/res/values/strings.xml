@@ -127,10 +127,15 @@
     <string name="Stress_buster_zone">Stress buster zone</string>
     <string name="Ask_Questions">Ask Questions</string>
     <string name="Knowledge_Forum">Knowledge Forum</string>
-
     <string name="Find_Your_Doctors">Find Your Doctors</string>
     <string name="View_all">View all</string>
     <string name="Choose_from">Choose from top specialities</string>
+    <string name="Health_Care_services">Health Care Services</string>
+    <string name="Health_Checkup_at_Home">Health Checkup at Home</string>
+
+
+    <!--    Doctor Consultation-->
+    <string name="Ask_Doctor">Ask Doctor</string>
 
 
 </resources>
