@@ -51,7 +51,7 @@ public class DoctorConsultantAdapter extends RecyclerView.Adapter<DoctorConsulta
         holder.speciality.setText(model.getSpeciality());
         holder.Location.setText(model.getLocation());
 
-        holder.profileImage.setOnClickListener(new View.OnClickListener() {
+        holder.AskQuestions.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 click.onItemClick(position);
@@ -66,7 +66,7 @@ public class DoctorConsultantAdapter extends RecyclerView.Adapter<DoctorConsulta
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        TextView speciality, exp, Location, LikePercentage, Rate, DoctorName;
+        TextView speciality, exp, Location, LikePercentage, Rate, DoctorName, AskQuestions;
         ImageView profileImage;
 
         public ViewHolder(@NonNull View itemView) {
@@ -78,6 +78,7 @@ public class DoctorConsultantAdapter extends RecyclerView.Adapter<DoctorConsulta
             Location = itemView.findViewById(R.id.Location);
             LikePercentage = itemView.findViewById(R.id.LikePercentage);
             Rate = itemView.findViewById(R.id.Rate);
+            AskQuestions = itemView.findViewById(R.id.AskQuestions);
             profileImage = itemView.findViewById(R.id.profileImage);
         }
     }

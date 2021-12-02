@@ -18,7 +18,9 @@
         <entry key="..\:/Project/Doctor/app/src/main/res/drawable/nev_back.xml" value="0.2203125" />
         <entry key="..\:/Project/Doctor/app/src/main/res/drawable/profile_edt_bg.xml" value="0.2203125" />
         <entry key="..\:/Project/Doctor/app/src/main/res/drawable/search_bg.xml" value="0.19722222222222222" />
-        <entry key="..\:/Project/Doctor/app/src/main/res/layout/activity_doctor_profile.xml" value="0.20416666666666666" />
+        <entry key="..\:/Project/Doctor/app/src/main/res/drawable/time_bg.xml" value="0.21614583333333334" />
+        <entry key="..\:/Project/Doctor/app/src/main/res/layout/activity_book_appointment.xml" value="0.25" />
+        <entry key="..\:/Project/Doctor/app/src/main/res/layout/activity_doctor_profile.xml" value="0.2" />
         <entry key="..\:/Project/Doctor/app/src/main/res/layout/activity_home.xml" value="0.25" />
         <entry key="..\:/Project/Doctor/app/src/main/res/layout/activity_main.xml" value="0.22" />
         <entry key="..\:/Project/Doctor/app/src/main/res/layout/activity_request.xml" value="0.20416666666666666" />
@@ -29,6 +31,8 @@
         <entry key="..\:/Project/Doctor/app/src/main/res/layout/complete_assignment_item.xml" value="0.5" />
         <entry key="..\:/Project/Doctor/app/src/main/res/layout/doctor_counsult_item.xml" value="0.25" />
         <entry key="..\:/Project/Doctor/app/src/main/res/layout/doctor_item.xml" value="0.20416666666666666" />
+        <entry key="..\:/Project/Doctor/app/src/main/res/layout/doctor_price_per_slot_item.xml" value="0.20416666666666666" />
+        <entry key="..\:/Project/Doctor/app/src/main/res/layout/doctot_uploaad_image_item.xml" value="0.20416666666666666" />
         <entry key="..\:/Project/Doctor/app/src/main/res/layout/find_doctor_item.xml" value="0.20416666666666666" />
         <entry key="..\:/Project/Doctor/app/src/main/res/layout/fragment_account_setting.xml" value="0.20416666666666666" />
         <entry key="..\:/Project/Doctor/app/src/main/res/layout/fragment_booked_appoinment.xml" value="0.20416666666666666" />

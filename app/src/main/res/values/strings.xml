@@ -137,5 +137,41 @@
     <!--    Doctor Consultation-->
     <string name="Ask_Doctor">Ask Doctor</string>
 
+    <!--    Doctor profile-->
 
+    <string name="Details">Details</string>
+    <string name="Education_Details">Education Details</string>
+    <string name="Experience">Experience</string>
+    <string name="About_Me">About Me</string>
+    <string name="Clinic_Info">Clinic Info</string>
+    <string name="Uploaded_Images">Uploaded Images</string>
+    <string name="Doctor_availability">Doctor\'s availability status</string>
+    <string name="From_Days">From to To days</string>
+    <string name="OpenClose_Time">Open-Close Time</string>
+    <string name="Schedule_video">Schedule Video Consultancy Appointment</string>
+    <string name="Price_Per_slot">Price per slot </string>
+    <string name="Rating">Ratings</string>
+    <string name="Afternoon">Afternoon</string>
+    <string name="Evening">Evening</string>
+    <string name="Morning">Morning</string>
+    <string name="Enter_Comments">Enter Comments</string>
+    <string name="Upload_Report_File">Upload Report File</string>
+    <string name="Choose_report">Choose report</string>
+    <string name="Book_am_Appointment">Book an Appointment</string>
+
+
+<!--    bookAppointment-->
+    <string name="Confirmation">Confirmation</string>
+    <string name="Booking_for">Booking for</string>
+    <string name="Status_of_Booking">Status of Booking</string>
+    <string name="Patient_Details">Patient Details</string>
+    <string name="Patient_Name">Patient Name</string>
+    <string name="Booking_Details">Booking Details</string>
+    <string name="Booked_Service_time">Booked Service time</string>
+    <string name="Clinic_Address">Clinic Address</string>
+    <string name="Total_Amount">Total Amount</string>
+    <string name="Admin_Fees">Admin Fees</string>
+    <string name="Amount_Status">Amount Status</string>
+    <string name="Upload_Document">Upload Document</string>
+    <string name="Download_Report_File">Download Report File</string>
 </resources>
