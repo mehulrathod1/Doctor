@@ -34,6 +34,7 @@ import com.in.doctor.fragment.AccountSetting;
 import com.in.doctor.fragment.BookedAppointment;
 import com.in.doctor.fragment.Chat;
 import com.in.doctor.fragment.CompletedAssignment;
+import com.in.doctor.fragment.DoctorConsultSecond;
 import com.in.doctor.fragment.DoctorConsultant;
 import com.in.doctor.fragment.HomeDashboard;
 import com.in.doctor.fragment.ManageBooking;
@@ -76,11 +77,18 @@ public class Home extends AppCompatActivity {
         fragment = new HomeDashboard();
         loadFragment(fragment);
 
-        int index = getIntent().getIntExtra("s",0);
-        if (index == 1){
+        int index = getIntent().getIntExtra("s", 0);
+        if (index == 1) {
             fragment = new DoctorConsultant();
             loadFragment(fragment);
         }
+        if (index == 2) {
+
+            fragment = new DoctorConsultSecond();
+            loadFragment(fragment);
+
+        }
+
         init();
     }
 
@@ -107,7 +115,6 @@ public class Home extends AppCompatActivity {
         nevBackHeader = headerLayout.findViewById(R.id.nevBackHeader);
 
         nevBack = findViewById(R.id.nevBack);
-
 
 
         drawerLayout = findViewById(R.id.my_drawer_layout);

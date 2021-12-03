@@ -16,6 +16,7 @@ public class Search extends AppCompatActivity {
 
     ImageView nevBack;
     TextView headerTitle;
+    TextView doctorName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +30,7 @@ public class Search extends AppCompatActivity {
     public void init() {
         nevBack = findViewById(R.id.nevBack);
         headerTitle = findViewById(R.id.header_title);
+        doctorName = findViewById(R.id.doctorName);
 
 
         nevBack.setOnClickListener(new View.OnClickListener() {
@@ -36,6 +38,14 @@ public class Search extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), Home.class);
                 intent.putExtra("s",1);
+                startActivity(intent);
+            }
+        });
+        doctorName.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), Home.class);
+                intent.putExtra("s",2);
                 startActivity(intent);
             }
         });

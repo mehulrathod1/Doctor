@@ -170,7 +170,7 @@
                                 android:layout_marginLeft="@dimen/_8sdp"
                                 android:layout_marginRight="@dimen/_8sdp"
                                 android:layout_weight="1"
-
+                                android:id="@+id/homeCare"
                                 android:orientation="vertical">
 
                                 <ImageView

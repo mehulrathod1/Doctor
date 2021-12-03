@@ -160,7 +160,7 @@
     <string name="Book_am_Appointment">Book an Appointment</string>
 
 
-<!--    bookAppointment-->
+    <!--    bookAppointment-->
     <string name="Confirmation">Confirmation</string>
     <string name="Booking_for">Booking for</string>
     <string name="Status_of_Booking">Status of Booking</string>
@@ -174,4 +174,39 @@
     <string name="Amount_Status">Amount Status</string>
     <string name="Upload_Document">Upload Document</string>
     <string name="Download_Report_File">Download Report File</string>
+    <string name="Chat">Chat</string>
+    <string name="Start_Video">Start Video</string>
+
+    <!--    care Services-->
+    <string name="Book_Now">Book Now</string>
+    <string name="Know_More">Know More</string>
+    <string name="Find_InHome_Care">Find In-Home Care Near You</string>
+    <string name="Where_is_car_needed">Where is care needed?</string>
+    <string name="Enter_Postal_Code">Enter Postal Code</string>
+    <string name="Name">Name</string>
+    <string name="Enter_Full_Name">Enter Full Name</string>
+    <string name="Enter_Email_Id">Enter Email Id</string>
+    <string name="Phone_Number">Phone Number</string>
+    <string name="Enter_Phone_Number">Enter Phone Number</string>
+    <string name="Find_Care">Find Care</string>
+
+
+    <!--filer-->
+
+    <string name="Category">Category</string>
+    <string name="Category_Name">Category Name</string>
+    <string name="Male">Male</string>
+    <string name="Female">Female</string>
+    <string name="Any_Day">Any Day</string>
+    <string name="Gender">Gender</string>
+    <string name="Day">Day</string>
+    <string name="Next_3_days">Next 3 days</string>
+    <string name="Today">Today</string>
+    <string name="Consultancy_fees">Consultancy fees</string>
+    <string name="Years_of_experience">Years of experience</string>
+    <string name="Video_consult">Video consult</string>
+    <string name="Yes">Yes</string>
+    <string name="No">No</string>
+
+
 </resources>

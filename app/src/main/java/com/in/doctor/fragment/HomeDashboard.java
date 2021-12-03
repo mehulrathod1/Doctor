@@ -64,7 +64,7 @@ public class HomeDashboard extends Fragment {
     FindDoctorAdapter adapter;
     List<FindDoctorModel> list = new ArrayList<>();
 
-    LinearLayout doctorConsultant;
+    LinearLayout doctorConsultant,homeCare;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -93,6 +93,7 @@ public class HomeDashboard extends Fragment {
         healthCheckupRecycler = view.findViewById(R.id.healthCheckupRecycler);
 
         doctorConsultant = view.findViewById(R.id.doctorConsultant);
+        homeCare = view.findViewById(R.id.homeCare);
 
         vp_slider = view.findViewById(R.id.vp_slider);
         ll_dots = view.findViewById(R.id.ll_dots);
@@ -150,6 +151,13 @@ public class HomeDashboard extends Fragment {
             @Override
             public void onClick(View v) {
                 Fragment fragment = new DoctorConsultant();
+                loadFragment(fragment);
+            }
+        });
+        homeCare.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Fragment fragment = new CareServices();
                 loadFragment(fragment);
             }
         });

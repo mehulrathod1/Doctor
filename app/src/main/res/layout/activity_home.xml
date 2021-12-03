@@ -75,7 +75,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:contentDescription="@string/app_name"
-                    android:src="@drawable/ic_review_star_24"
+                    android:src="@drawable/ic_date_range_24"
+                    app:tint="@color/action_mode_color"
+                    android:backgroundTint="@color/white"
                     app:layout_anchor="@id/bottomAppBar" />
 
             </androidx.coordinatorlayout.widget.CoordinatorLayout>
