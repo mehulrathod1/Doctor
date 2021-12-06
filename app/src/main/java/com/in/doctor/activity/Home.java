@@ -103,6 +103,7 @@ public class Home extends AppCompatActivity {
         bottomNavigationView.setBackgroundColor(android.R.color.transparent);
         bottomNavigationView.getMenu().findItem(R.id.home).setChecked(true);
 
+        coordinator.setVisibility(View.VISIBLE);
 
         my_drawer_layout = findViewById(R.id.my_drawer_layout);
 

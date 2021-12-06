@@ -37,7 +37,7 @@ public class Search extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), Home.class);
-                intent.putExtra("s",1);
+                intent.putExtra("s", 1);
                 startActivity(intent);
             }
         });
@@ -45,7 +45,7 @@ public class Search extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), Home.class);
-                intent.putExtra("s",2);
+                intent.putExtra("s", 2);
                 startActivity(intent);
             }
         });

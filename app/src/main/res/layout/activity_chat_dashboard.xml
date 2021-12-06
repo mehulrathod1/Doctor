@@ -46,8 +46,7 @@
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:layout_width="@dimen/_60sdp"
                     android:layout_height="@dimen/_60sdp"
-
-                    android:src="@drawable/boy_img" />
+                    android:src="@color/action_mode_color" />
 
             </LinearLayout>
 
@@ -78,6 +77,13 @@
                 android:layout_marginTop="@dimen/_8sdp"
                 android:layout_marginRight="@dimen/_20sdp"
                 android:background="@color/md_grey_200" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+
         </LinearLayout>
 
     </LinearLayout>

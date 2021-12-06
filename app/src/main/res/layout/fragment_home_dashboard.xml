@@ -165,12 +165,12 @@
                             </LinearLayout>
 
                             <LinearLayout
+                                android:id="@+id/homeCare"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="@dimen/_8sdp"
                                 android:layout_marginRight="@dimen/_8sdp"
                                 android:layout_weight="1"
-                                android:id="@+id/homeCare"
                                 android:orientation="vertical">
 
                                 <ImageView
@@ -357,8 +357,10 @@
                                     android:textStyle="bold" />
 
                                 <TextView
-                                    android:layout_width="match_parent"
+                                    android:id="@+id/viewAllDoctor"
+                                    android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:layout_alignParentRight="true"
                                     android:layout_centerInParent="true"
                                     android:gravity="right"
                                     android:text="@string/View_all"
@@ -418,8 +420,10 @@
                                     android:textStyle="bold" />
 
                                 <TextView
-                                    android:layout_width="match_parent"
+                                    android:id="@+id/viewAllServices"
+                                    android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:layout_alignParentRight="true"
                                     android:layout_centerInParent="true"
                                     android:gravity="right"
                                     android:text="@string/View_all"
@@ -473,9 +477,11 @@
                                     android:textStyle="bold" />
 
                                 <TextView
-                                    android:layout_width="match_parent"
+                                    android:id="@+id/viewAllCheckup"
+                                    android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_centerInParent="true"
+                                    android:layout_alignParentRight="true"
                                     android:gravity="right"
                                     android:text="@string/View_all"
                                     android:textColor="@color/action_mode_color_300" />

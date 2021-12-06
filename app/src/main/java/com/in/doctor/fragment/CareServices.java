@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.in.doctor.R;
@@ -28,6 +29,7 @@ public class CareServices extends Fragment {
     TextView bookNow;
     AlertDialog alert;
     AlertDialog.Builder alertDialog;
+    ImageView dialogClose;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -54,6 +56,8 @@ public class CareServices extends Fragment {
         alertDialog.setView(dialogLayout);
         alert = alertDialog.create();
 
+        dialogClose = dialogLayout.findViewById(R.id.dialogClose);
+
 
         bookNow.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -63,6 +67,13 @@ public class CareServices extends Fragment {
 
             }
         });
+        dialogClose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                alert.dismiss();
+            }
+        });
+
 
     }
 

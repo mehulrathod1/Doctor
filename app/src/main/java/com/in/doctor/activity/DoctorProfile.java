@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import com.in.doctor.R;
 import com.in.doctor.adapter.DoctorTimePriceAdapter;
@@ -24,7 +25,7 @@ import java.util.List;
 public class DoctorProfile extends AppCompatActivity {
 
 
-    RecyclerView recyclerView, reviewRecycler,timeRecycler;
+    RecyclerView recyclerView, reviewRecycler, timeRecycler;
     DoctorUploadedImageAdapter adapter;
     List<CareAndCheckupModel> list = new ArrayList<>();
 
@@ -35,6 +36,8 @@ public class DoctorProfile extends AppCompatActivity {
     List<DoctorTimePrice> timePriceList = new ArrayList<>();
 
     Button bookAppointment;
+
+    ImageView backButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,11 +57,21 @@ public class DoctorProfile extends AppCompatActivity {
         reviewRecycler = findViewById(R.id.reviewRecycler);
         timeRecycler = findViewById(R.id.timeRecycler);
         bookAppointment = findViewById(R.id.BookAppointment);
+        backButton = findViewById(R.id.backButton);
+
 
         bookAppointment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(),BookAppointment.class);
+                Intent intent = new Intent(getApplicationContext(), BookAppointment.class);
+                startActivity(intent);
+            }
+        });
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), Home.class);
+                intent.putExtra("s", 1);
                 startActivity(intent);
             }
         });
@@ -91,7 +104,7 @@ public class DoctorProfile extends AppCompatActivity {
 
     public void reviewData() {
 
-        MyReviewModel model = new MyReviewModel("", "Lorem ipsum.", "27/09/2021","Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea.");
+        MyReviewModel model = new MyReviewModel("", "Lorem ipsum.", "27/09/2021", "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea.");
         reviewList.add(model);
         reviewList.add(model);
         reviewList.add(model);
@@ -112,6 +125,7 @@ public class DoctorProfile extends AppCompatActivity {
         reviewRecycler.setLayoutManager(mLayoutManager);
         reviewRecycler.setAdapter(reviewAdapter);
     }
+
     public void timePriceData() {
 
 
@@ -125,14 +139,14 @@ public class DoctorProfile extends AppCompatActivity {
         timePriceList.add(model);
 
 
-       doctorTimePriceAdapter = new DoctorTimePriceAdapter(timePriceList, this, new DoctorTimePriceAdapter.Click() {
-           @Override
-           public void itemClick(int position) {
+        doctorTimePriceAdapter = new DoctorTimePriceAdapter(timePriceList, this, new DoctorTimePriceAdapter.Click() {
+            @Override
+            public void itemClick(int position) {
 
-           }
-       });
+            }
+        });
 
-        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false);
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
         timeRecycler.setLayoutManager(mLayoutManager);
         timeRecycler.setAdapter(doctorTimePriceAdapter);
     }

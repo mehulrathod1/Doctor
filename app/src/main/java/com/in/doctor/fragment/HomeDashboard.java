@@ -29,6 +29,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationItemView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.in.doctor.R;
+import com.in.doctor.activity.DoctorProfile;
 import com.in.doctor.activity.Home;
 import com.in.doctor.adapter.BookedAppointmentAdapter;
 import com.in.doctor.adapter.FindDoctorAdapter;
@@ -48,7 +49,7 @@ public class HomeDashboard extends Fragment {
 
     View view;
     Fragment fragment;
-
+    TextView viewAllDoctor, viewAllServices, viewAllCheckup;
     private ViewPager vp_slider;
     private LinearLayout ll_dots;
     SliderPagerAdapter sliderPagerAdapter;
@@ -64,7 +65,7 @@ public class HomeDashboard extends Fragment {
     FindDoctorAdapter adapter;
     List<FindDoctorModel> list = new ArrayList<>();
 
-    LinearLayout doctorConsultant,homeCare;
+    LinearLayout doctorConsultant, homeCare;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -94,6 +95,9 @@ public class HomeDashboard extends Fragment {
 
         doctorConsultant = view.findViewById(R.id.doctorConsultant);
         homeCare = view.findViewById(R.id.homeCare);
+        viewAllDoctor = view.findViewById(R.id.viewAllDoctor);
+        viewAllServices = view.findViewById(R.id.viewAllServices);
+        viewAllCheckup = view.findViewById(R.id.viewAllCheckup);
 
         vp_slider = view.findViewById(R.id.vp_slider);
         ll_dots = view.findViewById(R.id.ll_dots);
@@ -105,7 +109,13 @@ public class HomeDashboard extends Fragment {
         slider_image_list.add("https://www.teahub.io/photos/full/68-683520_beautiful-girl-wallpapers-hd.jpg");
         slider_image_list.add("https://wallpaperaccess.com/full/1198406.jpg");
         slider_image_list.add("https://www.wallpaperuse.com/wallp/50-509102_m.jpg");
-        sliderPagerAdapter = new SliderPagerAdapter(getActivity(), slider_image_list);
+        sliderPagerAdapter = new SliderPagerAdapter(getActivity(), slider_image_list, new SliderPagerAdapter.Click() {
+            @Override
+            public void itemClick(int position) {
+                Intent intent = new Intent(getActivity(), DoctorProfile.class);
+                startActivity(intent);
+            }
+        });
         vp_slider.setAdapter(sliderPagerAdapter);
         vp_slider.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
@@ -161,8 +171,28 @@ public class HomeDashboard extends Fragment {
                 loadFragment(fragment);
             }
         });
+        viewAllDoctor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Fragment fragment = new DoctorConsultant();
+                loadFragment(fragment);
+            }
+        });
+        viewAllServices.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Fragment fragment = new CareServices();
+                loadFragment(fragment);
+            }
+        });
+        viewAllCheckup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Fragment fragment = new CareServices();
+                loadFragment(fragment);
+            }
+        });
     }
-
 
     private void loadFragment(Fragment fragment) {
         FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
@@ -208,6 +238,8 @@ public class HomeDashboard extends Fragment {
             @Override
             public void onButtonClick(int position) {
 
+                Fragment fragment = new DoctorConsultant();
+                loadFragment(fragment);
             }
         });
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
@@ -231,6 +263,8 @@ public class HomeDashboard extends Fragment {
             @Override
             public void onClick(int position) {
 
+                Fragment fragment = new CareServices();
+                loadFragment(fragment);
             }
         });
 
@@ -254,7 +288,8 @@ public class HomeDashboard extends Fragment {
         healthCareAdapter = new HealthCareAdapter(healthList, getContext(), new HealthCareAdapter.Click() {
             @Override
             public void onClick(int position) {
-
+                Fragment fragment = new CareServices();
+                loadFragment(fragment);
             }
         });
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);

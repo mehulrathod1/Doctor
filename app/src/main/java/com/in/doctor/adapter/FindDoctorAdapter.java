@@ -48,6 +48,7 @@ public class FindDoctorAdapter extends RecyclerView.Adapter<FindDoctorAdapter.Vi
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                click.onButtonClick(position);
 
             }
         });

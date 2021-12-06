@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.viewpager.widget.PagerAdapter;
 
@@ -18,11 +19,19 @@ public class SliderPagerAdapter extends PagerAdapter {
     private LayoutInflater layoutInflater;
     Activity activity;
     ArrayList<String> image_arraylist;
+    Click click;
 
-    public SliderPagerAdapter(Activity activity, ArrayList<String> image_arraylist) {
+
+    public interface Click {
+        void itemClick(int position);
+    }
+
+    public SliderPagerAdapter(Activity activity, ArrayList<String> image_arraylist, Click click) {
         this.activity = activity;
         this.image_arraylist = image_arraylist;
+        this.click = click;
     }
+
 
     @Override
     public Object instantiateItem(ViewGroup container, int position) {
@@ -30,6 +39,14 @@ public class SliderPagerAdapter extends PagerAdapter {
 
         View view = layoutInflater.inflate(R.layout.layout_slider, container, false);
         ImageView im_slider = (ImageView) view.findViewById(R.id.im_slider);
+        TextView consultNow = view.findViewById(R.id.consultNow);
+
+        consultNow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                click.itemClick(position);
+            }
+        });
         Picasso.get()
                 .load(image_arraylist.get(position))
                 .placeholder(R.drawable.ic_review_star_24) // optional
