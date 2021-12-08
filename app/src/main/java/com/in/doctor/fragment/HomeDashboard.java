@@ -82,6 +82,7 @@ public class HomeDashboard extends Fragment {
         recyclerData();
         healthCareData();
         healthCheckupData();
+        addBottomDots(0);
 
         return view;
     }
@@ -104,7 +105,6 @@ public class HomeDashboard extends Fragment {
 
 
         slider_image_list = new ArrayList<>();
-        addBottomDots(0);
         slider_image_list.add("https://wallpaperaccess.com/full/297372.jpg");
         slider_image_list.add("https://www.teahub.io/photos/full/68-683520_beautiful-girl-wallpapers-hd.jpg");
         slider_image_list.add("https://wallpaperaccess.com/full/1198406.jpg");
@@ -208,7 +208,7 @@ public class HomeDashboard extends Fragment {
 
         ll_dots.removeAllViews();
         for (int i = 0; i < dots.length; i++) {
-            dots[i] = new TextView(getContext());
+            dots[i] = new TextView(getActivity());
             dots[i].setText(Html.fromHtml("&#8226;"));
             dots[i].setTextSize(35);
             dots[i].setTextColor(Color.parseColor("#EFEFEF"));

@@ -295,13 +295,27 @@ public class Home extends AppCompatActivity {
     }
 
     private void loadFragment(Fragment fragment) {
-        // load fragment
+
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-//frame_container is your layout name in xml file
         transaction.replace(R.id.firstFrame, fragment);
         transaction.addToBackStack(null);
         transaction.commit();
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
 
+        if (coordinator.getVisibility() == View.GONE) {
+            coordinator.setVisibility(View.VISIBLE);
+            header.setVisibility(View.VISIBLE);
+
+        } else {
+//            moveTaskToBack(true);
+//            finish();
+        }
+//        Intent intent = new Intent(getApplicationContext(), Home.class);
+
+
+    }
 }
