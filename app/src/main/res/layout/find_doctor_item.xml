@@ -17,7 +17,7 @@
             android:layout_height="@dimen/_70sdp"
             android:layout_marginLeft="@dimen/_16sdp"
             android:layout_marginRight="@dimen/_16sdp"
-            android:src="@color/action_mode_color">
+            android:src="@drawable/genaral_physical">
 
         </de.hdodenhof.circleimageview.CircleImageView>
 

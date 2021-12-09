@@ -66,7 +66,6 @@ public class Home extends AppCompatActivity {
     BottomNavigationView bottomNavigationView;
     FloatingActionButton request;
 
-
     RelativeLayout rl_main;
 
     @Override
@@ -100,7 +99,7 @@ public class Home extends AppCompatActivity {
         header_title = findViewById(R.id.header_title);
         bottomNavigationView = findViewById(R.id.bottomNavigationView);
         request = findViewById(R.id.Request);
-        bottomNavigationView.setBackgroundColor(android.R.color.transparent);
+        bottomNavigationView.setBackgroundColor(android.R.color.black);
         bottomNavigationView.getMenu().findItem(R.id.home).setChecked(true);
 
         coordinator.setVisibility(View.VISIBLE);
@@ -162,14 +161,16 @@ public class Home extends AppCompatActivity {
                         break;
                     case R.id.Revenue:
                         header_title.setText("My Revenue");
-                        fragment = new MyRevenue();
-                        loadFragment(fragment);
+                        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                        transaction.replace(R.id.firstFrame, new MyRevenue());
+                        transaction.commit();
                         break;
                     case R.id.Chats:
                         header_title.setText("Profile");
                         fragment = new Chat();
                         loadFragment(fragment);
                         break;
+
                     case R.id.Profile:
                         header_title.setText("Profile");
                         fragment = new Profile();

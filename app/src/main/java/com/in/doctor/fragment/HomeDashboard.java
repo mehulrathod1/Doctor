@@ -82,7 +82,7 @@ public class HomeDashboard extends Fragment {
         recyclerData();
         healthCareData();
         healthCheckupData();
-        addBottomDots(0);
+//        addBottomDots(0);
 
         return view;
     }
@@ -103,6 +103,9 @@ public class HomeDashboard extends Fragment {
         vp_slider = view.findViewById(R.id.vp_slider);
         ll_dots = view.findViewById(R.id.ll_dots);
 
+        viewAllDoctor.setText(Html.fromHtml("<u>View All</u>"));
+        viewAllServices.setText(Html.fromHtml("<u>View All</u>"));
+        viewAllCheckup.setText(Html.fromHtml("<u>View All</u>"));
 
         slider_image_list = new ArrayList<>();
         slider_image_list.add("https://wallpaperaccess.com/full/297372.jpg");
@@ -125,7 +128,7 @@ public class HomeDashboard extends Fragment {
 
             @Override
             public void onPageSelected(int position) {
-                addBottomDots(position);
+//                addBottomDots(position);
             }
 
             @Override

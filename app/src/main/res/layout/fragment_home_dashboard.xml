@@ -89,7 +89,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical"
                             android:layout_marginRight="@dimen/_12sdp"
-                            android:src="@drawable/ic_search_24" />
+                            android:src="@drawable/icon_ionic_search" />
 
                         <TextView
                             style="@style/sub_heading_text"
@@ -154,7 +154,7 @@
                                 <ImageView
                                     android:layout_width="match_parent"
                                     android:layout_height="@dimen/_80sdp"
-                                    android:src="@color/md_grey" />
+                                    android:src="@drawable/rectangle_1" />
 
                                 <TextView
                                     android:layout_width="match_parent"
@@ -176,7 +176,7 @@
                                 <ImageView
                                     android:layout_width="match_parent"
                                     android:layout_height="78dp"
-                                    android:src="@color/md_grey" />
+                                    android:src="@drawable/rectangle_2" />
 
                                 <TextView
                                     android:layout_width="match_parent"
@@ -197,7 +197,7 @@
                                 <ImageView
                                     android:layout_width="match_parent"
                                     android:layout_height="@dimen/_80sdp"
-                                    android:src="@color/md_grey" />
+                                    android:src="@drawable/rectangle_3" />
 
                                 <TextView
                                     android:layout_width="match_parent"
@@ -218,7 +218,7 @@
                                 <ImageView
                                     android:layout_width="match_parent"
                                     android:layout_height="@dimen/_80sdp"
-                                    android:src="@color/md_grey" />
+                                    android:src="@drawable/rectangle_2" />
 
                                 <TextView
                                     android:layout_width="match_parent"
@@ -249,7 +249,7 @@
                                 <ImageView
                                     android:layout_width="match_parent"
                                     android:layout_height="@dimen/_80sdp"
-                                    android:src="@color/md_grey" />
+                                    android:src="@drawable/rectangle_4" />
 
                                 <TextView
                                     android:layout_width="match_parent"
@@ -271,7 +271,7 @@
                                 <ImageView
                                     android:layout_width="match_parent"
                                     android:layout_height="@dimen/_80sdp"
-                                    android:src="@color/md_grey" />
+                                    android:src="@drawable/rectangle5" />
 
                                 <TextView
                                     android:layout_width="match_parent"
@@ -287,13 +287,12 @@
                                 android:layout_marginLeft="@dimen/_8sdp"
                                 android:layout_marginRight="@dimen/_8sdp"
                                 android:layout_weight="1"
-
                                 android:orientation="vertical">
 
                                 <ImageView
                                     android:layout_width="match_parent"
                                     android:layout_height="@dimen/_80sdp"
-                                    android:src="@color/md_grey" />
+                                    android:src="@drawable/rectangle_4" />
 
                                 <TextView
                                     android:layout_width="match_parent"
@@ -315,7 +314,7 @@
                                 <ImageView
                                     android:layout_width="match_parent"
                                     android:layout_height="@dimen/_80sdp"
-                                    android:src="@color/md_grey" />
+                                    android:src="@drawable/rectangle_6" />
 
                                 <TextView
                                     android:layout_width="match_parent"
@@ -361,6 +360,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_alignParentRight="true"
+                                    android:drawableRight="@drawable/ic_baseline_arrow_forward_24"
                                     android:layout_centerInParent="true"
                                     android:gravity="right"
                                     android:text="@string/View_all"
@@ -424,6 +424,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_alignParentRight="true"
+                                    android:drawableRight="@drawable/ic_baseline_arrow_forward_24"
                                     android:layout_centerInParent="true"
                                     android:gravity="right"
                                     android:text="@string/View_all"
@@ -480,8 +481,9 @@
                                     android:id="@+id/viewAllCheckup"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_centerInParent="true"
                                     android:layout_alignParentRight="true"
+                                    android:drawableRight="@drawable/ic_baseline_arrow_forward_24"
+                                    android:layout_centerInParent="true"
                                     android:gravity="right"
                                     android:text="@string/View_all"
                                     android:textColor="@color/action_mode_color_300" />

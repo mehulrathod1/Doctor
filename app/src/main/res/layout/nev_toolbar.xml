@@ -16,7 +16,7 @@
             android:layout_marginLeft="@dimen/_20sdp"
             android:background="@drawable/back_button_bg"
             android:padding="@dimen/_5sdp"
-            android:src="@drawable/ic_nev_list_24" />
+            android:src="@drawable/icon_nev" />
 
         <TextView
             android:id="@+id/header_title"

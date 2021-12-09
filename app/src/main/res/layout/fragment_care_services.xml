@@ -41,7 +41,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical"
                             android:layout_marginRight="@dimen/_12sdp"
-                            android:src="@drawable/ic_search_24" />
+                            android:src="@drawable/icon_ionic_search" />
 
                         <TextView
                             style="@style/sub_heading_text"

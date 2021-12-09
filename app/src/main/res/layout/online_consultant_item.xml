@@ -38,7 +38,9 @@
                         android:id="@+id/profileImage"
                         android:layout_width="@dimen/_98sdp"
                         android:layout_height="@dimen/_98sdp"
-                        android:src="@color/action_mode_color"></de.hdodenhof.circleimageview.CircleImageView>
+                        android:src="@drawable/rectangle_1">
+
+                    </de.hdodenhof.circleimageview.CircleImageView>
 
                 </LinearLayout>
 

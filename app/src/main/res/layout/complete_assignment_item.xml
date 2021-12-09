@@ -77,6 +77,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:layout_gravity="center_vertical"
                         android:orientation="horizontal">
 
 
@@ -85,14 +86,15 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:src="@drawable/ic_baseline_view_eye_24" />
+                            android:layout_gravity="center_vertical"
+                            android:src="@drawable/eye" />
 
                         <ImageView
                             android:id="@+id/PrescriptionDownload"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:src="@drawable/ic_baseline_view_eye_24" />
+                            android:src="@drawable/icon_feather_download" />
 
 
                     </LinearLayout>
@@ -150,6 +152,7 @@
                     <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
                         android:layout_weight="1"
                         android:orientation="horizontal">
 
@@ -157,15 +160,16 @@
                             android:id="@+id/InvoiceView"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
                             android:layout_weight="1"
-                            android:src="@drawable/ic_baseline_view_eye_24" />
+                            android:src="@drawable/eye" />
 
                         <ImageView
                             android:id="@+id/InvoiceDownload"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:src="@drawable/ic_baseline_view_eye_24" />
+                            android:src="@drawable/icon_feather_download" />
 
 
                     </LinearLayout>
@@ -225,6 +229,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:layout_gravity="center_vertical"
                         android:orientation="horizontal">
 
                         <ImageView
@@ -232,15 +237,15 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:src="@drawable/ic_baseline_view_eye_24" />
+                            android:layout_gravity="center_vertical"
+                            android:src="@drawable/eye" />
 
                         <ImageView
                             android:id="@+id/DocumentDownload"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:src="@drawable/ic_baseline_view_eye_24" />
-
+                            android:src="@drawable/icon_feather_download" />
 
                     </LinearLayout>
                 </LinearLayout>

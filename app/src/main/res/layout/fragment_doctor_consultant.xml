@@ -24,7 +24,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="@dimen/_46sdp"
-                android:drawableLeft="@drawable/ic_search_24"
+                android:drawableLeft="@drawable/icon_ionic_search"
                 android:gravity="center"
                 android:drawablePadding="@dimen/_20sdp"
                 android:layout_marginLeft="@dimen/_30sdp"
