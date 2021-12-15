@@ -114,6 +114,29 @@
 
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/sub_heading_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sports_involvement" />
+
+            <EditText
+                style="@style/heading_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:background="@drawable/profile_edt_bg"
+                android:hint="Sports_involvement"
+                android:padding="10dp" />
+
+        </LinearLayout>
+
     </LinearLayout>
 
 

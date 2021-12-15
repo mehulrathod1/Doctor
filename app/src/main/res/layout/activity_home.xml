@@ -90,6 +90,7 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
+        app:itemTextColor="@color/action_mode_color"
         app:menu="@menu/menu" />
 
 </androidx.drawerlayout.widget.DrawerLayout>

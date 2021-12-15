@@ -1,44 +1,40 @@
 package com.in.doctor.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.in.doctor.R;
 import com.in.doctor.adapter.BookedAppointmentAdapter;
-import com.in.doctor.adapter.ManageBookingAdapter;
 import com.in.doctor.model.BookedAppointmentModel;
-import com.in.doctor.model.ManageBookingModel;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Request extends AppCompatActivity {
+public class BookedAppointment extends AppCompatActivity {
+
     ImageView nevBack;
     TextView headerTitle;
     RecyclerView recyclerView;
-    ManageBookingAdapter adapter;
-    List<ManageBookingModel> list = new ArrayList<>();
+    BookedAppointmentAdapter adapter;
+    List<BookedAppointmentModel> list = new ArrayList<>();
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_request);
+        setContentView(R.layout.activity_booked_appointment);
         getSupportActionBar().hide();
+
         init();
         recyclerData();
     }
-
 
     public void init() {
         nevBack = findViewById(R.id.nevBack);
@@ -59,7 +55,7 @@ public class Request extends AppCompatActivity {
     public void recyclerData() {
 
 
-        ManageBookingModel model = new ManageBookingModel("008979977", "27/09/2021", "video consult", "02:30");
+        BookedAppointmentModel model = new BookedAppointmentModel("9956328", "Lorem ipsum.", "Gujarat ", "$199", "");
         list.add(model);
         list.add(model);
         list.add(model);
@@ -68,14 +64,9 @@ public class Request extends AppCompatActivity {
         list.add(model);
         list.add(model);
 
-        adapter = new ManageBookingAdapter(list, this, new ManageBookingAdapter.Click() {
+        adapter = new BookedAppointmentAdapter(list, this, new BookedAppointmentAdapter.Click() {
             @Override
-            public void onClickAccept(int position) {
-
-            }
-
-            @Override
-            public void onClickCancel(int position) {
+            public void onButtonClick(int position) {
 
             }
         });

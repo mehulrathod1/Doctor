@@ -12,6 +12,33 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Doctor">
         <activity
+            android:name=".activity.AccountSetting"
+            android:exported="true" />
+        <activity
+            android:name=".activity.MyWallet"
+            android:exported="true" />
+        <activity
+            android:name=".activity.MyQuestion"
+            android:exported="true" />
+        <activity
+            android:name=".activity.MyReview"
+            android:exported="true" />
+        <activity
+            android:name=".activity.CompletedAssignment"
+            android:exported="true" />
+        <activity
+            android:name=".activity.OnlineConsultants"
+            android:exported="true" />
+        <activity
+            android:name=".activity.BookedAppointment"
+            android:exported="true" />
+        <activity
+            android:name=".activity.ManageCalendar"
+            android:exported="true" />
+        <activity
+            android:name=".activity.ProfileSetting"
+            android:exported="true" />
+        <activity
             android:name=".activity.ChatDashboard"
             android:exported="true" />
         <activity

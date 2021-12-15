@@ -1,39 +1,35 @@
 package com.in.doctor.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.in.doctor.R;
-import com.in.doctor.adapter.BookedAppointmentAdapter;
-import com.in.doctor.adapter.ManageBookingAdapter;
-import com.in.doctor.model.BookedAppointmentModel;
-import com.in.doctor.model.ManageBookingModel;
+import com.in.doctor.adapter.CompletedAssignmentAdapter;
+import com.in.doctor.model.CompleteAssignmentModel;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Request extends AppCompatActivity {
+public class CompletedAssignment extends AppCompatActivity {
+
     ImageView nevBack;
     TextView headerTitle;
     RecyclerView recyclerView;
-    ManageBookingAdapter adapter;
-    List<ManageBookingModel> list = new ArrayList<>();
+    CompletedAssignmentAdapter adapter;
+    List<CompleteAssignmentModel> list = new ArrayList<>();
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_request);
+        setContentView(R.layout.activity_completed_assignment);
         getSupportActionBar().hide();
         init();
         recyclerData();
@@ -45,7 +41,7 @@ public class Request extends AppCompatActivity {
         headerTitle = findViewById(R.id.header_title);
         recyclerView = findViewById(R.id.recycler);
 
-        headerTitle.setText("My Booked Appointment");
+        headerTitle.setText("Completed Assignment");
 
         nevBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,8 +54,7 @@ public class Request extends AppCompatActivity {
 
     public void recyclerData() {
 
-
-        ManageBookingModel model = new ManageBookingModel("008979977", "27/09/2021", "video consult", "02:30");
+        CompleteAssignmentModel model = new CompleteAssignmentModel("9956328", "27/09/2021", "$199 ");
         list.add(model);
         list.add(model);
         list.add(model);
@@ -68,20 +63,42 @@ public class Request extends AppCompatActivity {
         list.add(model);
         list.add(model);
 
-        adapter = new ManageBookingAdapter(list, this, new ManageBookingAdapter.Click() {
+
+        adapter = new CompletedAssignmentAdapter(list, this, new CompletedAssignmentAdapter.Click() {
             @Override
-            public void onClickAccept(int position) {
+            public void onClickPrescriptionView(int position) {
 
             }
 
             @Override
-            public void onClickCancel(int position) {
+            public void onClickPrescriptionDownload(int position) {
+
+            }
+
+            @Override
+            public void onClickInvoiceView(int position) {
+
+            }
+
+            @Override
+            public void onClickInvoiceDownload(int position) {
+
+            }
+
+            @Override
+            public void onClickDocumentView(int position) {
+
+            }
+
+            @Override
+            public void onClickDocumentDownload(int position) {
 
             }
         });
 
-        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(this);
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setAdapter(adapter);
     }
+
 }

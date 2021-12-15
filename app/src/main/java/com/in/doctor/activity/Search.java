@@ -23,8 +23,8 @@ public class Search extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
 
-        getSupportActionBar().hide();
-        init();
+            getSupportActionBar().hide();
+            init();
     }
 
     public void init() {

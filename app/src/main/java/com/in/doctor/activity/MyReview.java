@@ -1,39 +1,34 @@
 package com.in.doctor.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.in.doctor.R;
-import com.in.doctor.adapter.BookedAppointmentAdapter;
-import com.in.doctor.adapter.ManageBookingAdapter;
-import com.in.doctor.model.BookedAppointmentModel;
-import com.in.doctor.model.ManageBookingModel;
+import com.in.doctor.adapter.MyReviewAdapter;
+import com.in.doctor.model.MyReviewModel;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Request extends AppCompatActivity {
+public class MyReview extends AppCompatActivity {
+
     ImageView nevBack;
     TextView headerTitle;
     RecyclerView recyclerView;
-    ManageBookingAdapter adapter;
-    List<ManageBookingModel> list = new ArrayList<>();
-
+    MyReviewAdapter adapter;
+    List<MyReviewModel> list = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_request);
+        setContentView(R.layout.activity_my_review);
         getSupportActionBar().hide();
         init();
         recyclerData();
@@ -58,8 +53,7 @@ public class Request extends AppCompatActivity {
 
     public void recyclerData() {
 
-
-        ManageBookingModel model = new ManageBookingModel("008979977", "27/09/2021", "video consult", "02:30");
+        MyReviewModel model = new MyReviewModel("", "Lorem ipsum.", "27/09/2021", "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea.");
         list.add(model);
         list.add(model);
         list.add(model);
@@ -68,14 +62,10 @@ public class Request extends AppCompatActivity {
         list.add(model);
         list.add(model);
 
-        adapter = new ManageBookingAdapter(list, this, new ManageBookingAdapter.Click() {
+
+        adapter = new MyReviewAdapter(list, this, new MyReviewAdapter.Click() {
             @Override
-            public void onClickAccept(int position) {
-
-            }
-
-            @Override
-            public void onClickCancel(int position) {
+            public void onItemClick(int position) {
 
             }
         });

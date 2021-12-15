@@ -1,51 +1,51 @@
 package com.in.doctor.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.in.doctor.R;
-import com.in.doctor.adapter.BookedAppointmentAdapter;
-import com.in.doctor.adapter.ManageBookingAdapter;
-import com.in.doctor.model.BookedAppointmentModel;
-import com.in.doctor.model.ManageBookingModel;
+import com.in.doctor.adapter.ManageCalenderAdapter;
+import com.in.doctor.model.ManageCalendarModel;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Request extends AppCompatActivity {
+public class ManageCalendar extends AppCompatActivity {
+
     ImageView nevBack;
     TextView headerTitle;
+
+
+    ManageCalenderAdapter adapter;
     RecyclerView recyclerView;
-    ManageBookingAdapter adapter;
-    List<ManageBookingModel> list = new ArrayList<>();
+    List<ManageCalendarModel> list = new ArrayList<>();
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_request);
+        setContentView(R.layout.activity_manage_calendar);
         getSupportActionBar().hide();
+
         init();
         recyclerData();
     }
 
-
     public void init() {
+
         nevBack = findViewById(R.id.nevBack);
         headerTitle = findViewById(R.id.header_title);
         recyclerView = findViewById(R.id.recycler);
 
-        headerTitle.setText("My Booked Appointment");
+        headerTitle.setText("Manage Calendar");
+
 
         nevBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,12 +54,12 @@ public class Request extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
     }
 
     public void recyclerData() {
 
-
-        ManageBookingModel model = new ManageBookingModel("008979977", "27/09/2021", "video consult", "02:30");
+        ManageCalendarModel model = new ManageCalendarModel("9956328", "Lorem ipsum.", "Gujarat ", "$199", "", "Pending");
         list.add(model);
         list.add(model);
         list.add(model);
@@ -68,14 +68,9 @@ public class Request extends AppCompatActivity {
         list.add(model);
         list.add(model);
 
-        adapter = new ManageBookingAdapter(list, this, new ManageBookingAdapter.Click() {
+        adapter = new ManageCalenderAdapter(list, this, new ManageCalenderAdapter.Click() {
             @Override
-            public void onClickAccept(int position) {
-
-            }
-
-            @Override
-            public void onClickCancel(int position) {
+            public void onButtonClick(int position) {
 
             }
         });

@@ -3,7 +3,6 @@
 
     <item
         android:id="@+id/ProfileSetting"
-
         android:title="@string/profile_setting" />
 
     <item

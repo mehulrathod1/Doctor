@@ -7,20 +7,14 @@ import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.viewpager.widget.ViewPager;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
-import android.os.Handler;
-import android.text.Html;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -29,27 +23,12 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.in.doctor.R;
-import com.in.doctor.adapter.SliderPagerAdapter;
-import com.in.doctor.fragment.AccountSetting;
-import com.in.doctor.fragment.BookedAppointment;
 import com.in.doctor.fragment.Chat;
-import com.in.doctor.fragment.CompletedAssignment;
 import com.in.doctor.fragment.DoctorConsultSecond;
 import com.in.doctor.fragment.DoctorConsultant;
 import com.in.doctor.fragment.HomeDashboard;
-import com.in.doctor.fragment.ManageBooking;
-import com.in.doctor.fragment.ManageCalendar;
-import com.in.doctor.fragment.MyQuestion;
 import com.in.doctor.fragment.MyRevenue;
-import com.in.doctor.fragment.MyReview;
-import com.in.doctor.fragment.MyWallet;
-import com.in.doctor.fragment.OnlineConsultants;
 import com.in.doctor.fragment.Profile;
-import com.in.doctor.fragment.ProfileSetting;
-
-import java.util.ArrayList;
-import java.util.Timer;
-import java.util.TimerTask;
 
 public class Home extends AppCompatActivity {
 
@@ -99,7 +78,8 @@ public class Home extends AppCompatActivity {
         header_title = findViewById(R.id.header_title);
         bottomNavigationView = findViewById(R.id.bottomNavigationView);
         request = findViewById(R.id.Request);
-        bottomNavigationView.setBackgroundColor(android.R.color.black);
+
+        bottomNavigationView.setBackgroundColor(android.R.color.white);
         bottomNavigationView.getMenu().findItem(R.id.home).setChecked(true);
 
         coordinator.setVisibility(View.VISIBLE);
@@ -135,7 +115,6 @@ public class Home extends AppCompatActivity {
                 drawerLayout.close();
             }
         });
-
         request.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -154,7 +133,6 @@ public class Home extends AppCompatActivity {
 
                 switch (item.getItemId()) {
                     case R.id.home:
-
                         header_title.setText("DCP");
                         fragment = new HomeDashboard();
                         loadFragment(fragment);
@@ -184,94 +162,61 @@ public class Home extends AppCompatActivity {
 
 
         Navigation.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+
+
             @Override
             public boolean onNavigationItemSelected(MenuItem menuItem) {
                 int id = menuItem.getItemId();
                 switch (id) {
                     case R.id.ProfileSetting:
 
-                        coordinator.setVisibility(View.GONE);
-                        my_drawer_layout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
-                        header.setVisibility(View.GONE);
-                        fragment = new ProfileSetting();
-                        loadFragment(fragment);
+                        moveNext(ProfileSetting.class);
                         drawerLayout.close();
                         break;
                     case R.id.ManageCalender:
-                        coordinator.setVisibility(View.GONE);
-                        my_drawer_layout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
-                        header.setVisibility(View.GONE);
-                        fragment = new ManageCalendar();
-                        loadFragment(fragment);
+
+                        moveNext(ManageCalendar.class);
                         drawerLayout.close();
                         break;
 
                     case R.id.BookingRequest:
-                        coordinator.setVisibility(View.GONE);
-                        my_drawer_layout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
-                        header.setVisibility(View.GONE);
-                        fragment = new ManageBooking();
-                        loadFragment(fragment);
+
+                        moveNext(Request.class);
                         drawerLayout.close();
                         break;
 
                     case R.id.BookedAppointment:
-                        coordinator.setVisibility(View.GONE);
-                        my_drawer_layout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
-                        header.setVisibility(View.GONE);
-                        fragment = new BookedAppointment();
-                        loadFragment(fragment);
+                        moveNext(BookedAppointment.class);
                         drawerLayout.close();
                         break;
 
                     case R.id.OnlineConsultant:
-                        coordinator.setVisibility(View.GONE);
-                        my_drawer_layout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
-                        header.setVisibility(View.GONE);
-                        fragment = new OnlineConsultants();
-                        loadFragment(fragment);
+                        moveNext(OnlineConsultants.class);
                         drawerLayout.close();
                         break;
 
                     case R.id.CompletedAssignment:
-                        coordinator.setVisibility(View.GONE);
-                        my_drawer_layout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
-                        header.setVisibility(View.GONE);
-                        fragment = new CompletedAssignment();
-                        loadFragment(fragment);
+
+                        moveNext(CompletedAssignment.class);
                         drawerLayout.close();
                         break;
 
                     case R.id.MyReview:
-                        coordinator.setVisibility(View.GONE);
-                        my_drawer_layout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
-                        header.setVisibility(View.GONE);
-                        fragment = new MyReview();
-                        loadFragment(fragment);
+
+                        moveNext(MyReview.class);
                         drawerLayout.close();
                         break;
                     case R.id.MYQuestion:
-                        coordinator.setVisibility(View.GONE);
-                        my_drawer_layout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
-                        header.setVisibility(View.GONE);
-                        fragment = new MyQuestion();
-                        loadFragment(fragment);
+                        moveNext(MyQuestion.class);
                         drawerLayout.close();
                         break;
                     case R.id.BillingSegment:
-                        coordinator.setVisibility(View.GONE);
-                        my_drawer_layout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
-                        header.setVisibility(View.GONE);
-                        fragment = new MyWallet();
-                        loadFragment(fragment);
+                        moveNext(MyWallet.class);
                         drawerLayout.close();
                         break;
                     case R.id.AccountSetting:
-                        coordinator.setVisibility(View.GONE);
-                        my_drawer_layout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
-                        header.setVisibility(View.GONE);
-                        fragment = new AccountSetting();
-                        loadFragment(fragment);
+
+                        moveNext(AccountSetting.class);
                         drawerLayout.close();
                         break;
                     case R.id.Logout:
@@ -302,6 +247,14 @@ public class Home extends AppCompatActivity {
         transaction.addToBackStack(null);
         transaction.commit();
     }
+
+
+    public void moveNext(Class activity) {
+        Intent intent = new Intent(getApplicationContext(), activity);
+        startActivity(intent);
+
+    }
+
 
     @Override
     public void onBackPressed() {

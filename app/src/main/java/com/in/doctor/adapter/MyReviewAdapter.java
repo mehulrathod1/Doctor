@@ -12,12 +12,12 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.in.doctor.R;
-import com.in.doctor.fragment.ManageBooking;
 import com.in.doctor.model.MyReviewModel;
 
 import java.util.List;
 
-public class MyReviewAdapter extends RecyclerView.Adapter<MyReviewAdapter.ViewHolder> {
+public class MyReviewAdapter
+        extends RecyclerView.Adapter<MyReviewAdapter.ViewHolder> {
 
     List<MyReviewModel> list;
     Context context;
