@@ -12,9 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.in.doctor.R;
-import com.in.doctor.fragment.Chat;
 import com.in.doctor.model.ChatModel;
-import com.in.doctor.model.ManageBookingModel;
 
 import java.util.List;
 

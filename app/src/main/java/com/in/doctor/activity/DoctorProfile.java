@@ -13,7 +13,6 @@ import android.widget.ImageView;
 import com.in.doctor.R;
 import com.in.doctor.adapter.DoctorTimePriceAdapter;
 import com.in.doctor.adapter.DoctorUploadedImageAdapter;
-import com.in.doctor.adapter.HealthCareAdapter;
 import com.in.doctor.adapter.MyReviewAdapter;
 import com.in.doctor.model.CareAndCheckupModel;
 import com.in.doctor.model.DoctorTimePrice;

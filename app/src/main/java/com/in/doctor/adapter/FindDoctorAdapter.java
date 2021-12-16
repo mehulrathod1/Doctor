@@ -11,7 +11,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.in.doctor.R;
-import com.in.doctor.model.CompleteAssignmentModel;
 import com.in.doctor.model.FindDoctorModel;
 
 import java.util.List;

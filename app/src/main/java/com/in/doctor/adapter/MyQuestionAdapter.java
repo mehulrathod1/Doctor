@@ -11,7 +11,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.in.doctor.R;
 import com.in.doctor.model.MyQuestionModel;
 
-import java.util.Date;
 import java.util.List;
 
 public class MyQuestionAdapter extends RecyclerView.Adapter<MyQuestionAdapter.ViewHolder> {

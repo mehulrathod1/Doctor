@@ -7,9 +7,6 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
-import com.in.doctor.fragment.ProfileSettingClinical;
-import com.in.doctor.fragment.ProfileSettingLifestyle;
-import com.in.doctor.fragment.ProfileSettingPersonal;
 import com.in.doctor.fragment.Redemption;
 import com.in.doctor.fragment.TransactionHistory;
 

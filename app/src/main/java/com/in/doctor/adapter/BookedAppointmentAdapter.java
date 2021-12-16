@@ -2,11 +2,9 @@ package com.in.doctor.adapter;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.graphics.ColorSpace;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.contentcapture.ContentCaptureCondition;
 import android.widget.ImageView;
 import android.widget.TextView;
 

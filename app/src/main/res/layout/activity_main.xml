@@ -73,7 +73,7 @@
                     app:hintEnabled="false">
 
                     <EditText
-                        android:id="@+id/EdtFirstName"
+                        android:id="@+id/edtFirstName"
                         style="@style/form_style"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/_50sdp"
@@ -96,7 +96,7 @@
                     app:hintEnabled="false">
 
                     <EditText
-                        android:id="@+id/EdtLastName"
+                        android:id="@+id/edtLastName"
                         style="@style/form_style"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/_50sdp"
@@ -169,7 +169,7 @@
                         app:hintEnabled="false">
 
                         <EditText
-                            android:id="@+id/EdtMobileNumber"
+                            android:id="@+id/edtMobileNumber"
                             style="@style/form_style"
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/_50sdp"

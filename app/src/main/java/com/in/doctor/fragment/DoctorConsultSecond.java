@@ -1,7 +1,5 @@
 package com.in.doctor.fragment;
 
-import android.app.AlertDialog;
-import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -15,10 +13,7 @@ import android.view.ViewGroup;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.in.doctor.R;
-import com.in.doctor.activity.DoctorProfile;
-import com.in.doctor.adapter.DoctorConsultantAdapter;
 import com.in.doctor.adapter.DoctorConsultantSecondAdapter;
-import com.in.doctor.model.DoctorConsultModel;
 import com.in.doctor.model.DoctorConsultantSecondModel;
 
 import java.util.ArrayList;

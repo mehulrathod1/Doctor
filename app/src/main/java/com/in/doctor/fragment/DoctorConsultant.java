@@ -15,9 +15,7 @@ import android.widget.LinearLayout;
 import com.in.doctor.R;
 import com.in.doctor.activity.DoctorProfile;
 import com.in.doctor.activity.Search;
-import com.in.doctor.adapter.CompletedAssignmentAdapter;
 import com.in.doctor.adapter.DoctorConsultantAdapter;
-import com.in.doctor.model.CompleteAssignmentModel;
 import com.in.doctor.model.DoctorConsultModel;
 
 import java.util.ArrayList;

@@ -10,9 +10,6 @@ import androidx.fragment.app.FragmentPagerAdapter;
 import com.in.doctor.fragment.ProfileClinical;
 import com.in.doctor.fragment.ProfileLifestyle;
 import com.in.doctor.fragment.ProfilePersonal;
-import com.in.doctor.fragment.ProfileSettingClinical;
-import com.in.doctor.fragment.ProfileSettingLifestyle;
-import com.in.doctor.fragment.ProfileSettingPersonal;
 
 public class ProfileAdapter extends FragmentPagerAdapter {
 

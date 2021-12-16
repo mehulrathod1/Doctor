@@ -9,7 +9,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.in.doctor.R;
-import com.in.doctor.fragment.DoctorConsultant;
 
 public class Search extends AppCompatActivity {
 

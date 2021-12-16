@@ -10,14 +10,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.in.doctor.R;
 import com.in.doctor.activity.ChatDashboard;
 import com.in.doctor.adapter.ChatAdapter;
-import com.in.doctor.adapter.ManageBookingAdapter;
 import com.in.doctor.model.ChatModel;
-import com.in.doctor.model.ManageBookingModel;
 
 import java.util.ArrayList;
 import java.util.List;

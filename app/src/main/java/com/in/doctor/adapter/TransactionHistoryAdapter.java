@@ -10,7 +10,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.in.doctor.R;
-import com.in.doctor.model.MyReviewModel;
 import com.in.doctor.model.TransactionHistoryModel;
 
 import java.util.List;

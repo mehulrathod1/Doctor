@@ -12,7 +12,6 @@ import android.view.ViewGroup;
 import com.google.android.material.tabs.TabLayout;
 import com.in.doctor.R;
 import com.in.doctor.adapter.ProfileAdapter;
-import com.in.doctor.adapter.ProfileSettingAdapter;
 
 public class Profile extends Fragment {
 

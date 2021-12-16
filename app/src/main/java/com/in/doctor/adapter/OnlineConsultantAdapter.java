@@ -2,7 +2,6 @@ package com.in.doctor.adapter;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,7 +12,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.in.doctor.R;
-import com.in.doctor.model.ManageCalendarModel;
 import com.in.doctor.model.OnlineConsultantModel;
 
 import java.util.List;
