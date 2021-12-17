@@ -31,13 +31,12 @@
                     android:text="@string/first_name" />
 
                 <EditText
-                    style="@style/heading_text"
+                    android:id="@+id/edtFirstName"
+                    style="@style/Profile_setting_personal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_8sdp"
-                    android:background="@drawable/profile_edt_bg"
-                    android:hint="@string/first_name"
-                    android:padding="10dp" />
+                    android:hint="@string/first_name" />
 
             </LinearLayout>
 
@@ -54,38 +53,16 @@
                     android:text="@string/last_name" />
 
                 <EditText
-                    style="@style/heading_text"
+
+                    android:id="@+id/edtLastName"
+                    style="@style/Profile_setting_personal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_8sdp"
-                    android:background="@drawable/profile_edt_bg"
-                    android:hint="@string/last_name"
-                    android:padding="10dp" />
+                    android:hint="@string/last_name" />
 
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_16sdp"
-                android:orientation="vertical">
-
-                <TextView
-                    style="@style/sub_heading_text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/first_name" />
-
-                <EditText
-                    style="@style/heading_text"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_8sdp"
-                    android:background="@drawable/profile_edt_bg"
-                    android:hint="@string/first_name"
-                    android:padding="10dp" />
-
-            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -100,13 +77,15 @@
                     android:text="@string/Speciality" />
 
                 <EditText
-                    style="@style/heading_text"
+
+                    android:id="@+id/edtSpeciality"
+                    style="@style/Profile_setting_personal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_8sdp"
-                    android:background="@drawable/profile_edt_bg"
                     android:hint="@string/Speciality"
-                    android:padding="10dp" />
+
+                    />
 
             </LinearLayout>
 
@@ -123,13 +102,12 @@
                     android:text="@string/Speciality_subcategory" />
 
                 <EditText
-                    style="@style/heading_text"
+                    android:id="@+id/edtSubSpeciality"
+                    style="@style/Profile_setting_personal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_8sdp"
-                    android:background="@drawable/profile_edt_bg"
-                    android:hint="@string/Speciality_subcategory"
-                    android:padding="10dp" />
+                    android:hint="@string/Speciality_subcategory" />
 
             </LinearLayout>
 
@@ -146,13 +124,15 @@
                     android:text="@string/education" />
 
                 <EditText
-                    style="@style/heading_text"
+
+                    android:id="@+id/edtEducation"
+                    style="@style/Profile_setting_personal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_8sdp"
-                    android:background="@drawable/profile_edt_bg"
                     android:hint="@string/education"
-                    android:padding="10dp" />
+
+                    />
 
             </LinearLayout>
 
@@ -169,13 +149,14 @@
                     android:text="@string/Language_Spoken" />
 
                 <EditText
-                    style="@style/heading_text"
+                    android:id="@+id/edtLanguageSpoken"
+                    style="@style/Profile_setting_personal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_8sdp"
-                    android:background="@drawable/profile_edt_bg"
                     android:hint="@string/Language_Spoken_Language_Spoken"
-                    android:padding="10dp" />
+
+                    />
 
             </LinearLayout>
 
@@ -192,13 +173,14 @@
                     android:text="@string/Total_years_of_experience" />
 
                 <EditText
-                    style="@style/heading_text"
+                    android:id="@+id/edtExperience"
+                    style="@style/Profile_setting_personal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_8sdp"
-                    android:background="@drawable/profile_edt_bg"
                     android:hint="@string/years_of_experience"
-                    android:padding="10dp" />
+
+                    />
 
             </LinearLayout>
 
@@ -215,14 +197,19 @@
                     android:text="@string/Address" />
 
                 <EditText
-                    style="@style/heading_text"
+                    android:id="@+id/edtAddress"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_150sdp"
                     android:layout_marginTop="@dimen/_8sdp"
                     android:background="@drawable/profile_edt_bg"
+                    android:fontFamily="@font/montserrat_semi_bold"
                     android:gravity="top"
                     android:hint="@string/Address"
-                    android:padding="10dp" />
+                    android:padding="@dimen/_10sdp"
+                    android:textColor="@color/action_mode_color_edt"
+                    android:textSize="@dimen/_16sdp"
+
+                    />
 
             </LinearLayout>
 
@@ -255,16 +242,21 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="@dimen/_16sdp"
+                        android:fontFamily="@font/montserrat_regular"
                         android:text="@string/Update_Photo"
-                        android:textAlignment="center" />
+                        android:textAlignment="center"
+                        android:textColor="@color/action_mode_color_edt" />
 
                     <TextView
+                        android:id="@+id/txtChoosePhoto"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@drawable/edt_bg"
+                        android:fontFamily="@font/montserrat_regular"
                         android:padding="@dimen/_4sdp"
                         android:text="@string/Choose_new_photo"
-                        android:textAlignment="center" />
+                        android:textAlignment="center"
+                        android:textColor="@color/action_mode_color_edt" />
                 </LinearLayout>
 
             </LinearLayout>
@@ -277,10 +269,12 @@
                 android:orientation="vertical">
 
                 <Button
-                    android:id="@+id/btnSignIn"
+                    android:id="@+id/btnSubmit"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_60sdp"
+                    android:fontFamily="@font/montserrat_semi_bold"
                     android:text="@string/Submit"
+                    android:textAllCaps="false"
                     android:textSize="@dimen/_20sdp" />
 
             </LinearLayout>

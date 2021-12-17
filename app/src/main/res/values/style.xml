@@ -23,6 +23,8 @@
 
     <style name="sub_heading_text">
         <item name="android:textSize">@dimen/_16sdp</item>
+        <item name="android:fontFamily">@font/montserrat_regular</item>
+        <item name="android:textColor">@color/action_mode_color_edt</item>
     </style>
 
 
@@ -33,7 +35,32 @@
         <item name="android:padding">@dimen/_10sdp</item>
         <item name="android:textAlignment">viewStart</item>
         <item name="android:textColor">@color/action_mode_color_edt</item>
+
+    </style>
+
+    <style name="Profile_setting_personal">
+        <item name="android:textSize">@dimen/_16sdp</item>
+        <item name="android:background">@drawable/profile_edt_bg</item>
+        <item name="android:fontFamily">@font/montserrat_semi_bold</item>
+        <item name="android:padding">@dimen/_10sdp</item>
+        <item name="android:textAlignment">viewStart</item>
+        <item name="android:textColor">@color/action_mode_color_edt</item>
+        <item name="android:singleLine">true</item>
     </style>
 
 
+    <style name="item_style">
+        <item name="android:fontFamily">@font/lato_bold</item>
+        <item name="android:textSize">@dimen/_12sdp</item>
+        <item name="android:textColor">@color/black_text_color</item>
+        <item name="android:layout_marginTop">@dimen/_4sdp</item>
+
+
+    </style>
+
+    <style name="item_sub_style">
+        <item name="android:fontFamily">@font/lato_regular</item>
+        <item name="android:textSize">@dimen/_10sdp</item>
+
+    </style>
 </resources>

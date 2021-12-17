@@ -1,62 +1,143 @@
 package com.in.doctor.model;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class OnlineConsultantModel {
-    String BookingId, DoctorName, CityName, Price, profileImage, Status;
+    @SerializedName("status")
+    @Expose
+    String status;
 
-    public String getBookingId() {
-        return BookingId;
-    }
+    @SerializedName("message")
+    @Expose
+    String message;
 
-    public void setBookingId(String bookingId) {
-        BookingId = bookingId;
-    }
-
-    public String getDoctorName() {
-        return DoctorName;
-    }
-
-    public void setDoctorName(String doctorName) {
-        DoctorName = doctorName;
-    }
-
-    public String getCityName() {
-        return CityName;
-    }
-
-    public void setCityName(String cityName) {
-        CityName = cityName;
-    }
-
-    public String getPrice() {
-        return Price;
-    }
-
-    public void setPrice(String price) {
-        Price = price;
-    }
-
-    public String getProfileImage() {
-        return profileImage;
-    }
-
-    public void setProfileImage(String profileImage) {
-        this.profileImage = profileImage;
-    }
+    @SerializedName("data")
+    @Expose
+    List<Consultant> consultantList = new ArrayList<>();
 
     public String getStatus() {
-        return Status;
+        return status;
     }
 
     public void setStatus(String status) {
-        Status = status;
+        this.status = status;
     }
 
-    public OnlineConsultantModel(String bookingId, String doctorName, String cityName, String price, String profileImage, String status) {
-        BookingId = bookingId;
-        DoctorName = doctorName;
-        CityName = cityName;
-        Price = price;
-        this.profileImage = profileImage;
-        Status = status;
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public List<Consultant> getConsultantList() {
+        return consultantList;
+    }
+
+    public void setConsultantList(List<Consultant> consultantList) {
+        this.consultantList = consultantList;
+    }
+
+    public static class Consultant {
+
+        @SerializedName("Booking ID")
+        @Expose
+        String BookingID;
+
+        @SerializedName("Patient Name")
+        @Expose
+        String PatientName;
+
+        @SerializedName("booking Time")
+        @Expose
+        String bookingTime;
+
+        @SerializedName("booking Date")
+        @Expose
+        String bookingDate;
+
+        @SerializedName("Fees")
+        @Expose
+        String Fees;
+
+        @SerializedName("Location")
+        @Expose
+        String Location;
+
+        @SerializedName("Status")
+        @Expose
+        String Status;
+
+
+        public Consultant(String bookingID, String patientName, String bookingTime, String bookingDate, String fees, String location, String status) {
+            BookingID = bookingID;
+            PatientName = patientName;
+            this.bookingTime = bookingTime;
+            this.bookingDate = bookingDate;
+            Fees = fees;
+            Location = location;
+            Status = status;
+        }
+
+        public String getBookingID() {
+            return BookingID;
+        }
+
+        public void setBookingID(String bookingID) {
+            BookingID = bookingID;
+        }
+
+        public String getPatientName() {
+            return PatientName;
+        }
+
+        public void setPatientName(String patientName) {
+            PatientName = patientName;
+        }
+
+        public String getBookingTime() {
+            return bookingTime;
+        }
+
+        public void setBookingTime(String bookingTime) {
+            this.bookingTime = bookingTime;
+        }
+
+        public String getBookingDate() {
+            return bookingDate;
+        }
+
+        public void setBookingDate(String bookingDate) {
+            this.bookingDate = bookingDate;
+        }
+
+        public String getFees() {
+            return Fees;
+        }
+
+        public void setFees(String fees) {
+            Fees = fees;
+        }
+
+        public String getLocation() {
+            return Location;
+        }
+
+        public void setLocation(String location) {
+            Location = location;
+        }
+
+        public String getStatus() {
+            return Status;
+        }
+
+        public void setStatus(String status) {
+            Status = status;
+        }
     }
 }

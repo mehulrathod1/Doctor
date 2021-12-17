@@ -1,46 +1,106 @@
 package com.in.doctor.model;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class ManageBookingModel {
 
-    String BookingId,OrderDate,BookingOf,BookingTime;
+    @SerializedName("status")
+    @Expose
+    String status;
 
-    public ManageBookingModel(String bookingId, String orderDate, String bookingOf, String bookingTime) {
-        BookingId = bookingId;
-        OrderDate = orderDate;
-        BookingOf = bookingOf;
-        BookingTime = bookingTime;
+    @SerializedName("message")
+    @Expose
+    String message;
+
+    @SerializedName("data")
+    @Expose
+    List<ManageBookingModel.Booking> dataList = new ArrayList<>();
+
+    public String getStatus() {
+        return status;
     }
 
-    public String getBookingId() {
-        return BookingId;
+    public void setStatus(String status) {
+        this.status = status;
     }
 
-    public void setBookingId(String bookingId) {
-        BookingId = bookingId;
+    public String getMessage() {
+        return message;
     }
 
-    public String getOrderDate() {
-        return OrderDate;
+    public void setMessage(String message) {
+        this.message = message;
     }
 
-    public void setOrderDate(String orderDate) {
-        OrderDate = orderDate;
+    public List<Booking> getDataList() {
+        return dataList;
     }
 
-    public String getBookingOf() {
-        return BookingOf;
+    public void setDataList(List<Booking> dataList) {
+        this.dataList = dataList;
     }
 
-    public void setBookingOf(String bookingOf) {
-        BookingOf = bookingOf;
-    }
+    public static class Booking {
 
-    public String getBookingTime() {
-        return BookingTime;
-    }
+        @SerializedName("Booking Id")
+        @Expose
+        String BookingId;
 
-    public void setBookingTime(String bookingTime) {
-        BookingTime = bookingTime;
+        @SerializedName("Booking Date")
+        @Expose
+        String BookingDate;
+
+        @SerializedName("Booking Time")
+        @Expose
+        String BookingTime;
+
+        @SerializedName("Boking of")
+        @Expose
+        String BookingOf;
+
+
+        public Booking(String bookingId, String bookingDate, String bookingTime, String bookingOf) {
+            BookingId = bookingId;
+            BookingDate = bookingDate;
+            BookingTime = bookingTime;
+            BookingOf = bookingOf;
+        }
+
+        public String getBookingId() {
+            return BookingId;
+        }
+
+        public void setBookingId(String bookingId) {
+            BookingId = bookingId;
+        }
+
+        public String getBookingDate() {
+            return BookingDate;
+        }
+
+        public void setBookingDate(String bookingDate) {
+            BookingDate = bookingDate;
+        }
+
+        public String getBookingTime() {
+            return BookingTime;
+        }
+
+        public void setBookingTime(String bookingTime) {
+            BookingTime = bookingTime;
+        }
+
+        public String getBookingOf() {
+            return BookingOf;
+        }
+
+        public void setBookingOf(String bookingOf) {
+            BookingOf = bookingOf;
+        }
     }
 }
 

@@ -68,6 +68,14 @@
     <string name="Offline_Consultancy_Fees">Offline Consultancy Fees</string>
     <string name="Doctor_availability_status">Doctor’s availability status</string>
 
+<!--    profile Setting lifestyle-->
+
+    <string name="Smoking">Smoking</string>
+    <string name="Alcohol">Alcohol</string>
+    <string name="Workout_level">Workout level</string>
+    <string name="Sports_involvement"> Sports involvement</string>
+
+
     <!--    manage_calendar-->
     <string name="Booking_Id">Booking Id</string>
     <string name="Doctor_Name">Doctor Name</string>

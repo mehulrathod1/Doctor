@@ -34,20 +34,17 @@
                     android:orientation="vertical">
 
                     <TextView
+                        style="@style/item_sub_style"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/Booking_Id"
-                        android:textColor="@color/black_text_color"
-                        android:textSize="@dimen/_10sdp" />
+                        android:text="@string/Booking_Id" />
 
                     <TextView
                         android:id="@+id/BookingId"
+                        style="@style/item_style"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="008979977"
-                        android:textColor="@color/black_text_color"
-                        android:textSize="@dimen/_12sdp"
-                        android:textStyle="bold" />
+                        android:text="008979977" />
 
                 </LinearLayout>
 
@@ -58,20 +55,17 @@
                     android:orientation="vertical">
 
                     <TextView
+                        style="@style/item_sub_style"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/Order_Date"
-                        android:textColor="@color/black_text_color"
-                        android:textSize="@dimen/_10sdp" />
+                        android:text="@string/Order_Date" />
 
                     <TextView
                         android:id="@+id/OrderDate"
+                        style="@style/item_style"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="008979977"
-                        android:textColor="@color/black_text_color"
-                        android:textSize="@dimen/_12sdp"
-                        android:textStyle="bold" />
+                        android:text="008979977" />
 
                 </LinearLayout>
 
@@ -82,12 +76,12 @@
                     android:orientation="vertical">
 
                     <android.widget.Button
+                        android:id="@+id/RequestAccept"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/_30sdp"
-                        android:id="@+id/RequestAccept"
+                        android:background="@drawable/button_blue_border"
                         android:text="@string/Accept"
                         android:textAllCaps="false"
-                        android:background="@drawable/button_blue_border"
                         android:textColor="@color/white_button_color" />
                 </LinearLayout>
             </LinearLayout>
@@ -106,21 +100,17 @@
                     android:orientation="vertical">
 
                     <TextView
+                        style="@style/item_sub_style"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/RequestCancel"
-                        android:text="@string/Booking_of"
-                        android:textColor="@color/black_text_color"
-                        android:textSize="@dimen/_10sdp" />
+                        android:text="@string/Booking_of" />
 
                     <TextView
                         android:id="@+id/BookingOf"
+                        style="@style/item_style"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="008979977"
-                        android:textColor="@color/black_text_color"
-                        android:textSize="@dimen/_12sdp"
-                        android:textStyle="bold" />
+                        android:text="008979977" />
 
                 </LinearLayout>
 
@@ -131,20 +121,17 @@
                     android:orientation="vertical">
 
                     <TextView
+                        style="@style/item_sub_style"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/Booking_Time"
-                        android:textColor="@color/black_text_color"
-                        android:textSize="@dimen/_10sdp" />
+                        android:text="@string/Booking_Time" />
 
                     <TextView
                         android:id="@+id/BookingTime"
+                        style="@style/item_style"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="2:32"
-                        android:textColor="@color/black_text_color"
-                        android:textSize="@dimen/_12sdp"
-                        android:textStyle="bold" />
+                        android:text="2:32" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -154,11 +141,12 @@
                     android:orientation="vertical">
 
                     <android.widget.Button
+                        android:id="@+id/RequestCancel"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/_30sdp"
+                        android:background="@drawable/button_border"
                         android:text="@string/Cancel"
                         android:textAllCaps="false"
-                        android:background="@drawable/button_border"
                         android:textColor="@color/black_text_color" />
 
                 </LinearLayout>

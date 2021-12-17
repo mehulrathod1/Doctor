@@ -1,5 +1,7 @@
 package com.in.doctor.activity;
 
+import static com.in.doctor.global.Glob.Token;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -12,10 +14,18 @@ import android.widget.TextView;
 
 import com.in.doctor.R;
 import com.in.doctor.adapter.OnlineConsultantAdapter;
+import com.in.doctor.global.Glob;
+import com.in.doctor.model.ManageBookingModel;
 import com.in.doctor.model.OnlineConsultantModel;
+import com.in.doctor.retrofit.Api;
+import com.in.doctor.retrofit.RetrofitClient;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class OnlineConsultants extends AppCompatActivity {
 
@@ -24,7 +34,7 @@ public class OnlineConsultants extends AppCompatActivity {
 
     OnlineConsultantAdapter adapter;
     RecyclerView recyclerView;
-    List<OnlineConsultantModel> list = new ArrayList<>();
+    List<OnlineConsultantModel.Consultant> list = new ArrayList<>();
 
 
     @Override
@@ -34,7 +44,7 @@ public class OnlineConsultants extends AppCompatActivity {
         getSupportActionBar().hide();
 
         init();
-        recyclerData();
+        getOnlineConsultant(Token, "13");
     }
 
     public void init() {
@@ -44,6 +54,8 @@ public class OnlineConsultants extends AppCompatActivity {
         recyclerView = findViewById(R.id.recycler);
 
         headerTitle.setText("Online Consultant");
+
+        Glob.progressDialog(this);
 
 
         nevBack.setOnClickListener(new View.OnClickListener() {
@@ -56,17 +68,45 @@ public class OnlineConsultants extends AppCompatActivity {
 
     }
 
+    public void getOnlineConsultant(String token, String doctor_id) {
+
+        Api call = RetrofitClient.getClient(Glob.Base_Url).create(Api.class);
+        Glob.dialog.show();
+
+        call.getOnlineConsultant(token, doctor_id).enqueue(new Callback<OnlineConsultantModel>() {
+            @Override
+            public void onResponse(Call<OnlineConsultantModel> call, Response<OnlineConsultantModel> response) {
+
+                OnlineConsultantModel onlineConsultantModel = response.body();
+
+                List<OnlineConsultantModel.Consultant> dataList = onlineConsultantModel.getConsultantList();
+                for (int i = 0; i < dataList.size(); i++) {
+
+                    OnlineConsultantModel.Consultant model = dataList.get(i);
+
+
+                    OnlineConsultantModel.Consultant data = new OnlineConsultantModel.Consultant(
+                            model.getBookingID(), model.getPatientName(),
+                            model.getBookingTime(), model.getBookingDate(),
+                            model.getFees(), model.getLocation(), model.getStatus()
+                    );
+                    list.add(data);
+
+                }
+                recyclerData();
+                Glob.dialog.dismiss();
+
+            }
+
+            @Override
+            public void onFailure(Call<OnlineConsultantModel> call, Throwable t) {
+
+            }
+        });
+    }
+
+
     public void recyclerData() {
-
-
-        OnlineConsultantModel model = new OnlineConsultantModel("9956328", "Lorem ipsum.", "Gujarat ", "$199", "", "Pending");
-        list.add(model);
-        list.add(model);
-        list.add(model);
-        list.add(model);
-        list.add(model);
-        list.add(model);
-        list.add(model);
 
         adapter = new OnlineConsultantAdapter(list, this, new OnlineConsultantAdapter.Click() {
             @Override
@@ -77,6 +117,7 @@ public class OnlineConsultants extends AppCompatActivity {
 
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(mLayoutManager);
+        adapter.notifyDataSetChanged();
         recyclerView.setAdapter(adapter);
     }
 }

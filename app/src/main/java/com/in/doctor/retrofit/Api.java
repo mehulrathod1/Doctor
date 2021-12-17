@@ -1,5 +1,10 @@
 package com.in.doctor.retrofit;
 
+import com.in.doctor.model.ClinicalSettingModel;
+import com.in.doctor.model.CommonModel;
+import com.in.doctor.model.ManageBookingModel;
+import com.in.doctor.model.ManageCalendarModel;
+import com.in.doctor.model.OnlineConsultantModel;
 import com.in.doctor.model.PersonalSettingModel;
 import com.in.doctor.model.SignInModel;
 import com.in.doctor.model.SignUpModel;
@@ -44,17 +49,59 @@ public interface Api {
 
     @FormUrlEncoded
     @POST("get_doctor_clinic.php")
-    Call<ClinicSettingModel> doctorClinical(
+    Call<ClinicalSettingModel> doctorClinic(
+            @Field("token") String token,
+            @Field("doctor_id") String doctor_id
+
+    );
+
+
+    @FormUrlEncoded
+    @POST("manage_calendar.php")
+    Call<ManageCalendarModel> getCalender(
             @Field("token") String token,
             @Field("doctor_id") String doctor_id
 
     );
 
     @FormUrlEncoded
-    @POST("get_doctor_lifestyle.php")
-    Call<PersonalSettingModel> doctorLifestyle(
+    @POST("my_booking_request.php")
+    Call<ManageBookingModel> getBookingRequest(
+
             @Field("token") String token,
             @Field("doctor_id") String doctor_id
 
+    );
+
+    @FormUrlEncoded
+    @POST("booking_request_accept.php")
+    Call<CommonModel> bookingRequestAccept(
+            @Field("token") String token,
+            @Field("doctor_id") String doctor_id,
+            @Field("booking_id") String booking_id
+    );
+
+    @FormUrlEncoded
+    @POST("booking_request_cancle.php")
+    Call<CommonModel> bookingRequestCancel(
+            @Field("token") String token,
+            @Field("doctor_id") String doctor_id,
+            @Field("booking_id") String booking_id
+    );
+
+    @FormUrlEncoded
+    @POST("my_online_consultants.php")
+    Call<OnlineConsultantModel> getOnlineConsultant(
+            @Field("token") String token,
+            @Field("doctor_id") String doctor_id);
+
+
+    @FormUrlEncoded
+    @POST("account_setting.php")
+    Call<CommonModel> accountSetting(
+            @Field("token") String token,
+            @Field("doctor_id") String doctor_id,
+            @Field("old_password") String old_password,
+            @Field("new_password") String new_password
     );
 }

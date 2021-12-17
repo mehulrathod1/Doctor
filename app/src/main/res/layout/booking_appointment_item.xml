@@ -87,7 +87,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="@dimen/_8sdp"
-                                    android:text="@string/Doctor_Name"
+                                    android:text="@string/Patient_Name"
                                     android:textColor="@color/black_text_color"
                                     android:textSize="@dimen/_10sdp" />
 
@@ -150,8 +150,7 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_marginLeft="@dimen/_12sdp"
-                                        android:src="@drawable/eye"
-                                         />
+                                        android:src="@drawable/eye" />
 
                                 </LinearLayout>
 

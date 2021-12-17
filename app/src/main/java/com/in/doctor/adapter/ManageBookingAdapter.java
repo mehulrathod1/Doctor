@@ -5,6 +5,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -17,11 +18,11 @@ import java.util.List;
 
 public class ManageBookingAdapter extends RecyclerView.Adapter<ManageBookingAdapter.ViewHolder> {
 
-    List<ManageBookingModel> list;
+    List<ManageBookingModel.Booking> list;
     Context context;
     Click click;
 
-    public ManageBookingAdapter(List<ManageBookingModel> list, Context context, Click click) {
+    public ManageBookingAdapter(List<ManageBookingModel.Booking> list, Context context, Click click) {
         this.list = list;
         this.context = context;
         this.click = click;
@@ -44,10 +45,10 @@ public class ManageBookingAdapter extends RecyclerView.Adapter<ManageBookingAdap
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, @SuppressLint("RecyclerView") int position) {
 
-        ManageBookingModel model = list.get(position);
+        ManageBookingModel.Booking model = list.get(position);
 
         holder.BookingId.setText(model.getBookingId());
-        holder.OrderDate.setText(model.getOrderDate());
+        holder.BookingDate.setText(model.getBookingDate());
         holder.BookingOf.setText(model.getBookingOf());
         holder.BookingTime.setText(model.getBookingTime());
 
@@ -61,9 +62,10 @@ public class ManageBookingAdapter extends RecyclerView.Adapter<ManageBookingAdap
         holder.RequestCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                click.onClickAccept(position);
+                click.onClickCancel(position);
             }
         });
+
 
     }
 
@@ -74,15 +76,15 @@ public class ManageBookingAdapter extends RecyclerView.Adapter<ManageBookingAdap
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        TextView BookingId, OrderDate, BookingOf, BookingTime;
+        TextView BookingId, BookingDate, BookingOf, BookingTime;
 
-        TextView RequestAccept, RequestCancel;
+        Button RequestAccept, RequestCancel;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
             BookingId = itemView.findViewById(R.id.BookingId);
-            OrderDate = itemView.findViewById(R.id.OrderDate);
+            BookingDate = itemView.findViewById(R.id.OrderDate);
             BookingOf = itemView.findViewById(R.id.BookingOf);
             BookingTime = itemView.findViewById(R.id.BookingTime);
 

@@ -8,6 +8,9 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.in.doctor.R;
@@ -16,6 +19,9 @@ import com.in.doctor.model.PersonalSettingModel;
 import com.in.doctor.retrofit.Api;
 import com.in.doctor.retrofit.RetrofitClient;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -23,6 +29,10 @@ import retrofit2.Response;
 public class ProfileSettingLifestyle extends Fragment {
 
     View view;
+    Spinner spnSmoking, spnAlcohol, spnWorkoutLevel;
+    EditText edtSportInvolvement;
+    ArrayAdapter<String> smokingAdapter, alcoholAdapter, workoutAdapter;
+    List<String> smokingList, alcoholList, workoutList;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -34,28 +44,46 @@ public class ProfileSettingLifestyle extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_profile_setting_lifestyle, container, false);
+        init();
+
         return view;
     }
 
+    public void init() {
 
-    public void doctorLifestyle(String token, String user_id) {
+        spnSmoking = view.findViewById(R.id.spnSmoking);
+        spnAlcohol = view.findViewById(R.id.spnAlcohol);
+        spnWorkoutLevel = view.findViewById(R.id.spnWorkoutLevel);
+        edtSportInvolvement = view.findViewById(R.id.edtSportInvolvement);
 
-        Api call = RetrofitClient.getClient(Glob.Base_Url).create(Api.class);
-        Glob.dialog.show();
+        smokingList = new ArrayList<>();
+        smokingList.add("yes");
+        smokingList.add("No");
 
-        call.doctorPersonal(token, user_id).enqueue(new Callback<PersonalSettingModel>() {
-            @Override
-            public void onResponse(Call<PersonalSettingModel> call, Response<PersonalSettingModel> response) {
-                PersonalSettingModel profileSettingPersonal = response.body();
-                Toast.makeText(getContext(), profileSettingPersonal.getMessage(), Toast.LENGTH_SHORT).show();
-            }
 
-            @Override
-            public void onFailure(Call<PersonalSettingModel> call, Throwable t) {
-                Toast.makeText(getContext(), t.getMessage(), Toast.LENGTH_SHORT).show();
-                Log.e("TAG", "onFailure: " + t.getMessage());
-            }
-        });
+        smokingAdapter = new ArrayAdapter<String>(getContext(), R.layout.profile_spinner_text, smokingList);
+        smokingAdapter.setDropDownViewResource(R.layout.dropdown_item);
+        spnSmoking.setAdapter(smokingAdapter);
+
+        alcoholList = new ArrayList<>();
+        alcoholList.add("yes");
+        alcoholList.add("No");
+
+
+        alcoholAdapter = new ArrayAdapter<String>(getContext(), R.layout.profile_spinner_text, alcoholList);
+        alcoholAdapter.setDropDownViewResource(R.layout.dropdown_item);
+        spnAlcohol.setAdapter(alcoholAdapter);
+
+
+        workoutList = new ArrayList<>();
+        workoutList.add("High");
+        workoutList.add("Medium");
+
+
+        workoutAdapter = new ArrayAdapter<String>(getContext(), R.layout.profile_spinner_text, alcoholList);
+        workoutAdapter.setDropDownViewResource(R.layout.dropdown_item);
+        spnWorkoutLevel.setAdapter(workoutAdapter);
+
     }
 
 }

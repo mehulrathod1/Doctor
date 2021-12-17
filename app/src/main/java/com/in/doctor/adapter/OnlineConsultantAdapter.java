@@ -17,11 +17,11 @@ import com.in.doctor.model.OnlineConsultantModel;
 import java.util.List;
 
 public class OnlineConsultantAdapter extends RecyclerView.Adapter<OnlineConsultantAdapter.ViewHolder> {
-    List<OnlineConsultantModel> list;
+    List<OnlineConsultantModel.Consultant> list;
     Context context;
     Click click;
 
-    public OnlineConsultantAdapter(List<OnlineConsultantModel> list, Context context, Click click) {
+    public OnlineConsultantAdapter(List<OnlineConsultantModel.Consultant> list, Context context, Click click) {
         this.list = list;
         this.context = context;
         this.click = click;
@@ -43,11 +43,12 @@ public class OnlineConsultantAdapter extends RecyclerView.Adapter<OnlineConsulta
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, @SuppressLint("RecyclerView") int position) {
 
-        OnlineConsultantModel model = list.get(position);
-        holder.BookingId.setText(model.getBookingId());
-        holder.DoctorName.setText(model.getDoctorName());
-        holder.CityName.setText(model.getCityName());
-        holder.Price.setText(model.getPrice());
+        OnlineConsultantModel.Consultant model = list.get(position);
+        holder.BookingId.setText(model.getBookingID());
+        holder.DoctorName.setText(model.getPatientName());
+        holder.CityName.setText(model.getLocation());
+        holder.Price.setText(model.getFees());
+        holder.Status.setText(model.getStatus());
 
         holder.viewBookingDetail.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -64,7 +65,7 @@ public class OnlineConsultantAdapter extends RecyclerView.Adapter<OnlineConsulta
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         ImageView profileImage;
-        TextView BookingId, DoctorName, CityName, Price,viewBookingDetail;
+        TextView BookingId, DoctorName, CityName, Price, viewBookingDetail, Status;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -75,6 +76,8 @@ public class OnlineConsultantAdapter extends RecyclerView.Adapter<OnlineConsulta
             DoctorName = itemView.findViewById(R.id.DoctorName);
             CityName = itemView.findViewById(R.id.CityName);
             Price = itemView.findViewById(R.id.Price);
+            Status = itemView.findViewById(R.id.Status);
+
             viewBookingDetail = itemView.findViewById(R.id.viewBookingDetail);
         }
     }

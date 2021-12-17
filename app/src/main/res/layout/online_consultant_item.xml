@@ -10,8 +10,8 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/_14sdp"
         android:layout_marginTop="@dimen/_7sdp"
-        android:layout_marginBottom="@dimen/_7sdp"
         android:layout_marginRight="@dimen/_14sdp"
+        android:layout_marginBottom="@dimen/_7sdp"
         android:background="@color/white"
         app:cardCornerRadius="@dimen/_8sdp">
 
@@ -71,26 +71,26 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="008979977"
-                            android:textStyle="bold"
                             android:textColor="@color/black_text_color"
-                            android:textSize="@dimen/_12sdp" />
+                            android:textSize="@dimen/_12sdp"
+                            android:textStyle="bold" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/_8sdp"
-                            android:textColor="@color/black_text_color"
                             android:text="@string/Doctor_Name"
+                            android:textColor="@color/black_text_color"
                             android:textSize="@dimen/_10sdp" />
 
                         <TextView
                             android:id="@+id/DoctorName"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textColor="@color/black_text_color"
                             android:text="Name"
-                            android:textStyle="bold"
-                            android:textSize="@dimen/_12sdp" />
+                            android:textColor="@color/black_text_color"
+                            android:textSize="@dimen/_12sdp"
+                            android:textStyle="bold" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -105,9 +105,9 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Gujarat"
-                            android:textStyle="bold"
                             android:textColor="@color/black_text_color"
-                            android:textSize="@dimen/_12sdp" />
+                            android:textSize="@dimen/_12sdp"
+                            android:textStyle="bold" />
                     </LinearLayout>
                 </LinearLayout>
 
@@ -122,8 +122,8 @@
                         android:id="@+id/Status"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/Pending"
                         android:layout_marginBottom="@dimen/_24sdp"
+                        android:text="@string/Pending"
                         android:textColor="#D68100"
                         android:textSize="@dimen/_12sdp" />
 
@@ -133,9 +133,9 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/_24sdp"
                         android:text="$199"
-                        android:textStyle="bold"
                         android:textColor="@color/black_text_color"
-                        android:textSize="@dimen/_16sdp" />
+                        android:textSize="@dimen/_16sdp"
+                        android:textStyle="bold" />
                 </LinearLayout>
 
             </LinearLayout>
@@ -151,8 +151,7 @@
                     android:background="@color/action_mode_color"
                     android:gravity="center"
                     android:text="@string/View_Booking_Details"
-                    android:textColor="@color/white_button_color"
-                    />
+                    android:textColor="@color/white_button_color" />
             </LinearLayout>
         </LinearLayout>
     </androidx.cardview.widget.CardView>

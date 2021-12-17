@@ -32,13 +32,12 @@
                     android:text="@string/Clinic_Name" />
 
                 <EditText
-                    style="@style/heading_text"
+                    android:id="@+id/edtClinicName"
+                    style="@style/Profile_setting_personal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_8sdp"
-                    android:background="@drawable/profile_edt_bg"
-                    android:hint="@string/Clinic_Name"
-                    android:padding="10dp" />
+                    android:hint="@string/Clinic_Name" />
 
             </LinearLayout>
 
@@ -55,13 +54,12 @@
                     android:text="@string/Location_of_clinic" />
 
                 <EditText
-                    style="@style/heading_text"
+                    android:id="@+id/edtClinicLocation"
+                    style="@style/Profile_setting_personal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_8sdp"
-                    android:background="@drawable/profile_edt_bg"
-                    android:hint="@string/Language_Spoken_Language_Spoken"
-                    android:padding="10dp" />
+                    android:hint="@string/Language_Spoken_Language_Spoken" />
 
             </LinearLayout>
 
@@ -78,13 +76,14 @@
                     android:text="@string/From_to_To_days" />
 
                 <EditText
-                    style="@style/heading_text"
+                    android:id="@+id/edtFromToDays"
+                    style="@style/Profile_setting_personal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_8sdp"
-                    android:background="@drawable/profile_edt_bg"
                     android:hint="@string/From_to_To_days"
-                    android:padding="10dp" />
+
+                    />
 
             </LinearLayout>
 
@@ -101,13 +100,14 @@
                     android:text="@string/Open_Time" />
 
                 <EditText
-                    style="@style/heading_text"
+                    android:id="@+id/edtOpenTime"
+                    style="@style/Profile_setting_personal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_8sdp"
-                    android:background="@drawable/profile_edt_bg"
                     android:hint="@string/Open_Time"
-                    android:padding="10dp" />
+
+                    />
 
             </LinearLayout>
 
@@ -124,13 +124,14 @@
                     android:text="@string/Close_Time" />
 
                 <EditText
-                    style="@style/heading_text"
+                    android:id="@+id/edtCloseTime"
+                    style="@style/Profile_setting_personal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_8sdp"
-                    android:background="@drawable/profile_edt_bg"
                     android:hint="@string/Close_Time"
-                    android:padding="10dp" />
+
+                    />
 
             </LinearLayout>
 
@@ -147,13 +148,14 @@
                     android:text="@string/Offline_Consultancy_Fees" />
 
                 <EditText
-                    style="@style/heading_text"
+                    android:id="@+id/edtConsultancyFees"
+                    style="@style/Profile_setting_personal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_8sdp"
-                    android:background="@drawable/profile_edt_bg"
                     android:hint="@string/Offline_Consultancy_Fees"
-                    android:padding="10dp" />
+
+                    />
 
             </LinearLayout>
 
@@ -170,13 +172,14 @@
                     android:text="@string/Doctor_availability_status" />
 
                 <EditText
-                    style="@style/heading_text"
+                    android:id="@+id/edtAvailabilityStatus"
+                    style="@style/Profile_setting_personal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_8sdp"
-                    android:background="@drawable/profile_edt_bg"
                     android:hint="@string/Doctor_availability_status"
-                    android:padding="10dp" />
+
+                    />
 
             </LinearLayout>
 
@@ -189,10 +192,12 @@
                 android:orientation="vertical">
 
                 <Button
-                    android:id="@+id/btnSignIn"
+                    android:id="@+id/btnSubmit"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_60sdp"
+                    android:fontFamily="@font/montserrat_semi_bold"
                     android:text="@string/Submit"
+                    android:textAllCaps="false"
                     android:textSize="@dimen/_20sdp" />
 
             </LinearLayout>
