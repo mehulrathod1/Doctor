@@ -13,7 +13,6 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/_60sdp"
             android:background="@color/md_grey"
             android:orientation="vertical">
 
@@ -360,8 +359,8 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_alignParentRight="true"
-                                    android:drawableRight="@drawable/ic_baseline_arrow_forward_24"
                                     android:layout_centerInParent="true"
+                                    android:drawableRight="@drawable/ic_baseline_arrow_forward_24"
                                     android:gravity="right"
                                     android:text="@string/View_all"
                                     android:textColor="@color/action_mode_color_300" />
@@ -424,8 +423,8 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_alignParentRight="true"
-                                    android:drawableRight="@drawable/ic_baseline_arrow_forward_24"
                                     android:layout_centerInParent="true"
+                                    android:drawableRight="@drawable/ic_baseline_arrow_forward_24"
                                     android:gravity="right"
                                     android:text="@string/View_all"
                                     android:textColor="@color/action_mode_color_300" />
@@ -482,8 +481,8 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_alignParentRight="true"
-                                    android:drawableRight="@drawable/ic_baseline_arrow_forward_24"
                                     android:layout_centerInParent="true"
+                                    android:drawableRight="@drawable/ic_baseline_arrow_forward_24"
                                     android:gravity="right"
                                     android:text="@string/View_all"
                                     android:textColor="@color/action_mode_color_300" />
@@ -495,6 +494,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/_8sdp"
+                            android:layout_marginBottom="@dimen/_60sdp"
                             android:orientation="vertical">
 
 

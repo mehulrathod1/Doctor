@@ -66,6 +66,7 @@ public class ProfileSettingClinical extends Fragment {
 
     public void doctorClinic(String token, String user_id) {
 
+
         Api call = RetrofitClient.getClient(Glob.Base_Url).create(Api.class);
 
 

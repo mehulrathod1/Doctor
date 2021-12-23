@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -153,13 +154,17 @@ public class Request extends AppCompatActivity {
         adapter = new ManageBookingAdapter(list, this, new ManageBookingAdapter.Click() {
             @Override
             public void onClickAccept(int position) {
-                bookingRequestAccept(Token, "13", "3");
+
+                String bookingId = list.get(position).getBookingId();
+                Log.e("fghgfds", "onClickAccept: " + bookingId);
+                bookingRequestAccept(Token, "13", bookingId);
             }
 
             @Override
             public void onClickCancel(int position) {
-
-                bookingRequestCancel(Token, "13", "3");
+                String bookingId = list.get(position).getBookingId();
+                Log.e("fghgfds", "onClickAccept: " + bookingId);
+                bookingRequestCancel(Token, "13", bookingId);
             }
         });
 

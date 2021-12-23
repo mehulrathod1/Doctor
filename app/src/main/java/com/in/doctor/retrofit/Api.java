@@ -2,6 +2,7 @@ package com.in.doctor.retrofit;
 
 import com.in.doctor.model.ClinicalSettingModel;
 import com.in.doctor.model.CommonModel;
+import com.in.doctor.model.LifestyleSettingModel;
 import com.in.doctor.model.ManageBookingModel;
 import com.in.doctor.model.ManageCalendarModel;
 import com.in.doctor.model.OnlineConsultantModel;
@@ -55,13 +56,18 @@ public interface Api {
 
     );
 
+    @FormUrlEncoded
+    @POST("get_doctor_lifestyle.php")
+    Call<LifestyleSettingModel> doctorLifestyle(
+            @Field("token") String token,
+            @Field("doctor_id") String doctor_id
+    );
 
     @FormUrlEncoded
     @POST("manage_calendar.php")
     Call<ManageCalendarModel> getCalender(
             @Field("token") String token,
             @Field("doctor_id") String doctor_id
-
     );
 
     @FormUrlEncoded
@@ -70,7 +76,6 @@ public interface Api {
 
             @Field("token") String token,
             @Field("doctor_id") String doctor_id
-
     );
 
     @FormUrlEncoded
@@ -104,4 +109,6 @@ public interface Api {
             @Field("old_password") String old_password,
             @Field("new_password") String new_password
     );
+
+
 }

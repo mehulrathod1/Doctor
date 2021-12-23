@@ -62,7 +62,6 @@ public class MainActivity extends AppCompatActivity {
 
         Glob.progressDialog(this);
 
-
         countryCodeList = new ArrayList<>();
         countryCodeList.add("+91");
         countryCodeList.add("+92");
@@ -111,10 +110,11 @@ public class MainActivity extends AppCompatActivity {
 //                            edtMobileNumber.getText().toString(), edtPassword.getText().toString(),
 //                            edtConformPassword.getText().toString());
 //                }
-
+//
 
             }
         });
+
     }
 
     public void signUp(String token, String first_name, String last_name,

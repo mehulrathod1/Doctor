@@ -10,14 +10,13 @@ import android.widget.ImageView;
 import com.in.doctor.R;
 
 public class BookAppointment extends AppCompatActivity {
-    ImageView backButton;
 
+    ImageView backButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_book_appointment);
-
         getSupportActionBar().hide();
     }
 

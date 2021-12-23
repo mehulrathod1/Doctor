@@ -1,5 +1,7 @@
 package com.in.doctor.fragment;
 
+import static com.in.doctor.global.Glob.Token;
+
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -15,6 +17,8 @@ import android.widget.Toast;
 
 import com.in.doctor.R;
 import com.in.doctor.global.Glob;
+import com.in.doctor.model.ClinicalSettingModel;
+import com.in.doctor.model.LifestyleSettingModel;
 import com.in.doctor.model.PersonalSettingModel;
 import com.in.doctor.retrofit.Api;
 import com.in.doctor.retrofit.RetrofitClient;
@@ -45,6 +49,7 @@ public class ProfileSettingLifestyle extends Fragment {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_profile_setting_lifestyle, container, false);
         init();
+        doctorLifestyle(Token, "13");
 
         return view;
     }
@@ -80,10 +85,57 @@ public class ProfileSettingLifestyle extends Fragment {
         workoutList.add("Medium");
 
 
-        workoutAdapter = new ArrayAdapter<String>(getContext(), R.layout.profile_spinner_text, alcoholList);
+        workoutAdapter = new ArrayAdapter<String>(getContext(), R.layout.profile_spinner_text, workoutList);
         workoutAdapter.setDropDownViewResource(R.layout.dropdown_item);
         spnWorkoutLevel.setAdapter(workoutAdapter);
 
     }
+
+
+    public void doctorLifestyle(String token, String user_id) {
+
+        Api call = RetrofitClient.getClient(Glob.Base_Url).create(Api.class);
+
+
+        call.doctorLifestyle(token, user_id).enqueue(new Callback<LifestyleSettingModel>() {
+            @Override
+            public void onResponse(Call<LifestyleSettingModel> call, Response<LifestyleSettingModel> response) {
+
+                LifestyleSettingModel lifestyleSettingModel = response.body();
+
+
+                Log.e("TpiAG", "onResponse: " + lifestyleSettingModel.getData().getSmoking());
+                Log.e("TpiAG", "onResponse: " + lifestyleSettingModel.getData().getAlchol());
+                Log.e("TpiAG", "onResponse: " + lifestyleSettingModel.getData().getWorkout_level());
+                Log.e("TpiAG", "onResponse: " + lifestyleSettingModel.getData().getSports_involvement());
+
+                if (lifestyleSettingModel.getData().getSmoking().equals("no")) {
+                    spnSmoking.setSelection(1);
+                } else {
+                    spnSmoking.setSelection(0);
+                }
+                if (lifestyleSettingModel.getData().getAlchol().equals("no")) {
+                    spnAlcohol.setSelection(1);
+                } else {
+                    spnAlcohol.setSelection(0);
+                }
+
+                if (lifestyleSettingModel.getData().getWorkout_level().equals("high")) {
+                    spnWorkoutLevel.setSelection(0);
+                } else {
+                    spnWorkoutLevel.setSelection(1);
+                }
+
+                edtSportInvolvement.setText(lifestyleSettingModel.getData().getSports_involvement());
+
+            }
+
+            @Override
+            public void onFailure(Call<LifestyleSettingModel> call, Throwable t) {
+
+            }
+        });
+    }
+
 
 }

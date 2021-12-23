@@ -3,7 +3,10 @@ package com.in.doctor.activity;
 import static com.in.doctor.global.Glob.Token;
 import static com.in.doctor.global.Glob.dialog;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.biometric.BiometricPrompt;
+import androidx.core.content.ContextCompat;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -19,6 +22,8 @@ import com.in.doctor.model.SignInModel;
 import com.in.doctor.retrofit.Api;
 import com.in.doctor.retrofit.RetrofitClient;
 
+import java.util.concurrent.Executor;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -29,6 +34,10 @@ public class SignIn extends AppCompatActivity {
     Button btnSignIn;
     EditText edtEmail, edtPassword;
 
+    private BiometricPrompt biometricPrompt;
+    private BiometricPrompt.PromptInfo promptInfo;
+    private Executor executor;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,6 +45,36 @@ public class SignIn extends AppCompatActivity {
         getSupportActionBar().hide();
 
         init();
+
+        executor = ContextCompat.getMainExecutor(getApplicationContext());
+
+
+        biometricPrompt = new BiometricPrompt(SignIn.this, executor, new BiometricPrompt.AuthenticationCallback() {
+            @Override
+            public void onAuthenticationError(int errorCode, @NonNull CharSequence errString) {
+                super.onAuthenticationError(errorCode, errString);
+
+                Toast.makeText(getApplicationContext(), "" + errString, Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onAuthenticationSucceeded(@NonNull BiometricPrompt.AuthenticationResult result) {
+                super.onAuthenticationSucceeded(result);
+                Toast.makeText(getApplicationContext(), "Success", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onAuthenticationFailed() {
+                super.onAuthenticationFailed();
+                Toast.makeText(getApplicationContext(), "Faill", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        promptInfo = new BiometricPrompt.PromptInfo.Builder().
+                setTitle("Biometric Authentication")
+                .setSubtitle("Login Fingure or Face")
+                .setNegativeButtonText("cancel")
+                .build();
 
     }
 
@@ -50,8 +89,9 @@ public class SignIn extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(getApplicationContext(), Home.class);
-                startActivity(intent);
+//                Intent intent = new Intent(getApplicationContext(), Home.class);
+//                startActivity(intent);
+                biometricPrompt.authenticate(promptInfo);
 //                signInUser(Token, edtEmail.getText().toString(), edtPassword.getText().toString());
             }
         });
