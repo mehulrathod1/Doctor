@@ -34,7 +34,7 @@
         <entry key="..\:/Project/Doctor/app/src/main/res/layout/activity_booked_appointment.xml" value="0.20416666666666666" />
         <entry key="..\:/Project/Doctor/app/src/main/res/layout/activity_chat_dashboard.xml" value="0.15" />
         <entry key="..\:/Project/Doctor/app/src/main/res/layout/activity_completed_assignment.xml" value="0.20416666666666666" />
-        <entry key="..\:/Project/Doctor/app/src/main/res/layout/activity_doctor_profile.xml" value="0.2" />
+        <entry key="..\:/Project/Doctor/app/src/main/res/layout/activity_doctor_profile.xml" value="0.25" />
         <entry key="..\:/Project/Doctor/app/src/main/res/layout/activity_home.xml" value="0.25" />
         <entry key="..\:/Project/Doctor/app/src/main/res/layout/activity_lab_test.xml" value="0.20416666666666666" />
         <entry key="..\:/Project/Doctor/app/src/main/res/layout/activity_main.xml" value="0.22" />
@@ -47,6 +47,7 @@
         <entry key="..\:/Project/Doctor/app/src/main/res/layout/activity_request.xml" value="0.20416666666666666" />
         <entry key="..\:/Project/Doctor/app/src/main/res/layout/activity_search.xml" value="0.20416666666666666" />
         <entry key="..\:/Project/Doctor/app/src/main/res/layout/activity_sign_in.xml" value="0.25" />
+        <entry key="..\:/Project/Doctor/app/src/main/res/layout/activity_splash.xml" value="0.182518115942029" />
         <entry key="..\:/Project/Doctor/app/src/main/res/layout/book_now_dialog.xml" value="0.20416666666666666" />
         <entry key="..\:/Project/Doctor/app/src/main/res/layout/booking_appointment_item.xml" value="0.33" />
         <entry key="..\:/Project/Doctor/app/src/main/res/layout/chat_item.xml" value="0.20416666666666666" />

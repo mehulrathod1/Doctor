@@ -890,8 +890,8 @@
         android:layout_height="@dimen/_46sdp"
         android:layout_alignParentBottom="true"
         android:layout_margin="@dimen/_12sdp"
-        android:text="@string/Book_am_Appointment"
         android:background="@drawable/button_bg"
+        android:text="@string/Book_am_Appointment"
         android:textAllCaps="false"
         android:textSize="@dimen/_20sdp" />
 </RelativeLayout>

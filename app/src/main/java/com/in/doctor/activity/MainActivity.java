@@ -6,6 +6,7 @@ import static com.in.doctor.global.Glob.user_id;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -37,6 +38,9 @@ public class MainActivity extends AppCompatActivity {
     Spinner countryCode;
     List<String> countryCodeList;
 
+    String TAG = "MainActivity";
+    SharedPreferences prefs;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +50,11 @@ public class MainActivity extends AppCompatActivity {
 
         init();
 
+
+        prefs = getSharedPreferences("MyPref", MODE_PRIVATE);
+        String name = prefs.getString("name", "No name defined");//"No name defined" is the default value.
+        prefs.edit().commit();
+        Log.e(TAG, "onCreate: " + name);
 
     }
 
@@ -92,6 +101,10 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), SignIn.class);
                 startActivity(intent);
 
+
+                prefs.edit().clear().apply();
+
+
 //                if (edtFirstName.getText().toString().equals("")) {
 //                    edtFirstName.setError("Please Enter FirstName");
 //                } else if (edtLastName.getText().toString().equals("")) {
@@ -129,17 +142,16 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<SignUpModel> call, Response<SignUpModel> response) {
 
-
                 SignUpModel signUpModel = response.body();
                 if (signUpModel.getStatus().equals("true")) {
                     Toast.makeText(getApplicationContext(), signUpModel.getMessage(), Toast.LENGTH_SHORT).show();
-                    List<SignUpModel.SignUP> dataList = signUpModel.getSignUPList();
-                    for (int i = 0; i < dataList.size(); i++) {
 
-                        SignUpModel.SignUP model = new SignUpModel.SignUP();
-                        user_id = model.getUser_id();
-                        Toast.makeText(getApplicationContext(), model.getUser_id(), Toast.LENGTH_SHORT).show();
-                    }
+
+                    user_id = signUpModel.getSignUpModel().getUser_id();
+
+
+                    Log.e(TAG, "onResponse: " + user_id + "-------" + signUpModel.getSignUpModel().getUser_id());
+
                     Glob.dialog.dismiss();
                     Intent intent = new Intent(getApplicationContext(), Home.class);
                     startActivity(intent);

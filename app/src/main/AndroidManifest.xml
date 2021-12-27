@@ -3,6 +3,7 @@
     package="com.in.doctor">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.USE_FINGERPRINT" />
 
     <application
         android:allowBackup="true"
@@ -12,63 +13,67 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Doctor"
         android:usesCleartextTraffic="true">
-
         <activity
-            android:name="com.in.doctor.activity.AccountSetting"
-            android:exported="true" />
-        <activity
-            android:name="com.in.doctor.activity.MyWallet"
-            android:exported="true" />
-        <activity
-            android:name="com.in.doctor.activity.MyQuestion"
-            android:exported="true" />
-        <activity
-            android:name="com.in.doctor.activity.MyReview"
-            android:exported="true" />
-        <activity
-            android:name="com.in.doctor.activity.CompletedAssignment"
-            android:exported="true" />
-        <activity
-            android:name="com.in.doctor.activity.OnlineConsultants"
-            android:exported="true" />
-        <activity
-            android:name="com.in.doctor.activity.BookedAppointment"
-            android:exported="true" />
-        <activity
-            android:name="com.in.doctor.activity.ManageCalendar"
-            android:exported="true" />
-        <activity
-            android:name="com.in.doctor.activity.ProfileSetting"
-            android:exported="true" />
-        <activity
-            android:name="com.in.doctor.activity.ChatDashboard"
-            android:exported="true" />
-        <activity
-            android:name="com.in.doctor.activity.BookAppointment"
-            android:exported="true" />
-        <activity
-            android:name="com.in.doctor.activity.DoctorProfile"
-            android:exported="true" />
-        <activity
-            android:name="com.in.doctor.activity.Search"
-            android:exported="true" />
-        <activity
-            android:name="com.in.doctor.activity.Request"
-            android:exported="true" />
-        <activity
-            android:name="com.in.doctor.activity.Home"
-            android:exported="true" />
-        <activity
-            android:name="com.in.doctor.activity.SignIn"
-            android:exported="true" />
-        <activity
-            android:name="com.in.doctor.activity.MainActivity"
+            android:name=".activity.Splash"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.AccountSetting"
+            android:exported="true" />
+        <activity
+            android:name=".activity.MyWallet"
+            android:exported="true" />
+        <activity
+            android:name=".activity.MyQuestion"
+            android:exported="true" />
+        <activity
+            android:name=".activity.MyReview"
+            android:exported="true" />
+        <activity
+            android:name=".activity.CompletedAssignment"
+            android:exported="true" />
+        <activity
+            android:name=".activity.OnlineConsultants"
+            android:exported="true" />
+        <activity
+            android:name=".activity.BookedAppointment"
+            android:exported="true" />
+        <activity
+            android:name=".activity.ManageCalendar"
+            android:exported="true" />
+        <activity
+            android:name=".activity.ProfileSetting"
+            android:exported="true" />
+        <activity
+            android:name=".activity.ChatDashboard"
+            android:exported="true" />
+        <activity
+            android:name=".activity.BookAppointment"
+            android:exported="true" />
+        <activity
+            android:name=".activity.DoctorProfile"
+            android:exported="true" />
+        <activity
+            android:name=".activity.Search"
+            android:exported="true" />
+        <activity
+            android:name=".activity.Request"
+            android:exported="true" />
+        <activity
+            android:name=".activity.Home"
+            android:exported="true" />
+        <activity
+            android:name=".activity.SignIn"
+            android:exported="true" />
+        <activity
+            android:name=".activity.MainActivity"
+            android:exported="true">
+
         </activity>
     </application>
 

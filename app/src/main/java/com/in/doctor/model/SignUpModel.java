@@ -20,7 +20,7 @@ public class SignUpModel {
 
     @SerializedName("data")
     @Expose
-    List<SignUpModel.SignUP> signUPList = new ArrayList<>();
+    SignUP signUpModel;
 
 
     public String getStatus() {
@@ -39,12 +39,12 @@ public class SignUpModel {
         this.message = message;
     }
 
-    public List<SignUP> getSignUPList() {
-        return signUPList;
+    public SignUP getSignUpModel() {
+        return signUpModel;
     }
 
-    public void setSignUPList(List<SignUP> signUPList) {
-        this.signUPList = signUPList;
+    public void setSignUpModel(SignUP signUpModel) {
+        this.signUpModel = signUpModel;
     }
 
     public static class SignUP {
