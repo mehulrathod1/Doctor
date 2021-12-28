@@ -27,6 +27,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.in.doctor.R;
@@ -60,6 +61,7 @@ public class SignIn extends AppCompatActivity {
 
     Button btnSignIn;
     EditText edtEmail, edtPassword;
+    TextView txtSignUp;
 
     private BiometricPrompt biometricPrompt;
     private BiometricPrompt.PromptInfo promptInfo;
@@ -67,12 +69,11 @@ public class SignIn extends AppCompatActivity {
 
     String TAG = "SignIn";
 
-
     //fingure print
 
 
     private KeyStore keyStore;
-    private static final String KEY_NAME = "androidHive";
+    private static final String KEY_NAME = "android";
     private Cipher cipher;
 
     @Override
@@ -84,7 +85,17 @@ public class SignIn extends AppCompatActivity {
 
         initView();
 
-        accessFingerprint();
+//        SharedPreferences prefs = getSharedPreferences("MyPref", MODE_PRIVATE);
+//        String id = prefs.getString("id", "null");//"No name defined" is the default value.
+//        String token = prefs.getString("token", "null");
+//        prefs.edit().commit();
+//        Log.e(TAG, "onCreate: " + id);
+//        Log.e(TAG, "onCreate: " + token);
+//
+//        if (!id.equals("null") && token.equals("null")) {
+//            accessFingerprint();
+//        }
+
 
 //        executor = ContextCompat.getMainExecutor(getApplicationContext());
 //        biometricPrompt = new BiometricPrompt(SignIn.this, executor, new BiometricPrompt.AuthenticationCallback() {
@@ -179,7 +190,7 @@ public class SignIn extends AppCompatActivity {
     public void initView() {
 
         Glob.progressDialog(this);
-
+        txtSignUp = findViewById(R.id.txtSignUp);
         btnSignIn = findViewById(R.id.btnSignIn);
         edtEmail = findViewById(R.id.edtEmail);
         edtPassword = findViewById(R.id.edtPassword);
@@ -187,17 +198,23 @@ public class SignIn extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                SharedPreferences.Editor editor = getSharedPreferences("MyPref", MODE_PRIVATE).edit();
-                editor.putString("name", "Elena");
-                editor.apply();
-                editor.commit();
 
 //                Intent intent = new Intent(getApplicationContext(), Home.class);
 //                startActivity(intent);
 //                biometricPrompt.authenticate(promptInfo);
-//                signInUser(Token, edtEmail.getText().toString(), edtPassword.getText().toString());
+                signInUser(Token, edtEmail.getText().toString(), edtPassword.getText().toString());
             }
         });
+
+        txtSignUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
     }
 
     public void accessFingerprint() {
@@ -262,7 +279,13 @@ public class SignIn extends AppCompatActivity {
                     Log.e(TAG, "onResponse: " + model.getSignInId().getId());
                     Log.e(TAG, "onResponse: " + model.getSignInId().getEmail());
 
-                    Intent intent = new Intent(getApplicationContext(), Home.class);
+                    SharedPreferences.Editor editor = getSharedPreferences("MyPref", MODE_PRIVATE).edit();
+                    editor.putString("token", "123456789");
+                    editor.putString("id", "13");
+                    editor.apply();
+                    editor.commit();
+
+                    Intent intent = new Intent(getApplicationContext(), Authentication.class);
                     startActivity(intent);
                 } else {
                     Toast.makeText(getApplicationContext(), model.getMessage(), Toast.LENGTH_SHORT).show();
@@ -331,7 +354,11 @@ public class SignIn extends AppCompatActivity {
 //            textView.setText(e);
             if (success) {
 //                textView.setTextColor(ContextCompat.getColor(context,R.color.colorPrimaryDark));
+
                 Toast.makeText(getApplicationContext(), "Sucess", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getApplicationContext(), Home.class);
+                startActivity(intent);
+
             } else
                 Toast.makeText(getApplicationContext(), "" + e, Toast.LENGTH_SHORT).show();
         }

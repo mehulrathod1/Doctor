@@ -51,11 +51,6 @@ public class MainActivity extends AppCompatActivity {
         init();
 
 
-        prefs = getSharedPreferences("MyPref", MODE_PRIVATE);
-        String name = prefs.getString("name", "No name defined");//"No name defined" is the default value.
-        prefs.edit().commit();
-        Log.e(TAG, "onCreate: " + name);
-
     }
 
     public void init() {
@@ -98,11 +93,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+
                 Intent intent = new Intent(getApplicationContext(), SignIn.class);
                 startActivity(intent);
-
-
-                prefs.edit().clear().apply();
 
 
 //                if (edtFirstName.getText().toString().equals("")) {

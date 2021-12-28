@@ -10,7 +10,9 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.Preference;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
@@ -133,6 +135,8 @@ public class Home extends AppCompatActivity {
 
                 switch (item.getItemId()) {
                     case R.id.home:
+
+
                         header_title.setText("DCP");
                         fragment = new HomeDashboard();
                         loadFragment(fragment);
@@ -220,9 +224,10 @@ public class Home extends AppCompatActivity {
                         drawerLayout.close();
                         break;
                     case R.id.Logout:
-//                        coordinator.setVisibility(View.GONE);
-//                        my_drawer_layout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
-//                        header.setVisibility(View.GONE);
+//                        SharedPreferences.Editor editor = getSharedPreferences("MyPref", MODE_PRIVATE).edit();
+//                        editor.remove("token");
+//                        editor.commit();
+                        moveNext(SignIn.class);
                         drawerLayout.close();
                         break;
                 }
