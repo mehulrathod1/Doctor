@@ -16,7 +16,9 @@ import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.in.doctor.R;
@@ -41,16 +43,17 @@ public class HomeDashboard extends Fragment {
     ArrayList<String> slider_image_list;
     private TextView[] dots;
     int page_position = 0;
-
     RecyclerView recyclerView, healthCheckupRecycler, healthCareRecycler;
     HealthCareAdapter healthCareAdapter;
     List<CareAndCheckupModel> careList = new ArrayList<>();
     List<CareAndCheckupModel> healthList = new ArrayList<>();
-
     FindDoctorAdapter adapter;
     List<FindDoctorModel> list = new ArrayList<>();
-
     LinearLayout doctorConsultant, homeCare;
+
+    Spinner countryName;
+    ArrayAdapter<String> countryNameAdapter;
+    List<String> countryNameList = new ArrayList<>();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -78,15 +81,25 @@ public class HomeDashboard extends Fragment {
         recyclerView = view.findViewById(R.id.findDoctor);
         healthCareRecycler = view.findViewById(R.id.healthCareRecycler);
         healthCheckupRecycler = view.findViewById(R.id.healthCheckupRecycler);
-
         doctorConsultant = view.findViewById(R.id.doctorConsultant);
         homeCare = view.findViewById(R.id.homeCare);
         viewAllDoctor = view.findViewById(R.id.viewAllDoctor);
         viewAllServices = view.findViewById(R.id.viewAllServices);
         viewAllCheckup = view.findViewById(R.id.viewAllCheckup);
-
         vp_slider = view.findViewById(R.id.vp_slider);
         ll_dots = view.findViewById(R.id.ll_dots);
+        countryName = view.findViewById(R.id.countryName);
+
+
+        countryNameList.add("Gujarat");
+        countryNameList.add("Maharashtra");
+        countryNameList.add("Rajasthan");
+
+
+        countryNameAdapter = new ArrayAdapter<String>(getContext(), R.layout.profile_spinner_text, countryNameList);
+        countryNameAdapter.setDropDownViewResource(R.layout.dropdown_item);
+        countryName.setAdapter(countryNameAdapter);
+
 
         viewAllDoctor.setText(Html.fromHtml("<u>View All</u>"));
         viewAllServices.setText(Html.fromHtml("<u>View All</u>"));

@@ -83,15 +83,14 @@ public class Home extends AppCompatActivity {
 
         bottomNavigationView.setBackgroundColor(android.R.color.white);
         bottomNavigationView.getMenu().findItem(R.id.home).setChecked(true);
+        bottomNavigationView.getMenu().getItem(2).setEnabled(false);
 
         coordinator.setVisibility(View.VISIBLE);
-
         my_drawer_layout = findViewById(R.id.my_drawer_layout);
 
         header = findViewById(R.id.header);
 
         getSupportActionBar().hide();
-
 
         View headerLayout = Navigation.inflateHeaderView(R.layout.nev_header);
         nevBackHeader = headerLayout.findViewById(R.id.nevBackHeader);

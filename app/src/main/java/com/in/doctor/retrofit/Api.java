@@ -110,5 +110,20 @@ public interface Api {
             @Field("new_password") String new_password
     );
 
+    @FormUrlEncoded
+    @POST("deactive_account.php")
+    Call<CommonModel> deleteAccount(
+            @Field("token") String token,
+            @Field("doctor_id") String doctor_id
 
+    );
+
+    @FormUrlEncoded
+    @POST("get_patient_view_booking_details.php")
+    Call<CommonModel> patientDetail(
+            @Field("token") String token,
+            @Field("doctor_id") String doctor_id,
+            @Field("booking_id") String booking_id
+
+    );
 }

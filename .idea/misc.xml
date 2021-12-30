@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Project/Doctor/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2203125" />
         <entry key="..\:/Project/Doctor/app/src/main/res/drawable/answer_bg.xml" value="0.2203125" />
         <entry key="..\:/Project/Doctor/app/src/main/res/drawable/back_bg.xml" value="0.2203125" />
         <entry key="..\:/Project/Doctor/app/src/main/res/drawable/back_button_bg.xml" value="0.2203125" />
@@ -51,6 +52,7 @@
         <entry key="..\:/Project/Doctor/app/src/main/res/layout/activity_splash.xml" value="0.182518115942029" />
         <entry key="..\:/Project/Doctor/app/src/main/res/layout/book_now_dialog.xml" value="0.20416666666666666" />
         <entry key="..\:/Project/Doctor/app/src/main/res/layout/booking_appointment_item.xml" value="0.33" />
+        <entry key="..\:/Project/Doctor/app/src/main/res/layout/bottom_nevigation_bg.xml" value="0.20416666666666666" />
         <entry key="..\:/Project/Doctor/app/src/main/res/layout/chat_item.xml" value="0.20416666666666666" />
         <entry key="..\:/Project/Doctor/app/src/main/res/layout/complete_assignment_item.xml" value="0.33" />
         <entry key="..\:/Project/Doctor/app/src/main/res/layout/doctor_consultant_second_item.xml" value="0.2" />
@@ -71,7 +73,7 @@
         <entry key="..\:/Project/Doctor/app/src/main/res/layout/fragment_doctor_consult_second.xml" value="0.20416666666666666" />
         <entry key="..\:/Project/Doctor/app/src/main/res/layout/fragment_doctor_consultant.xml" value="0.20416666666666666" />
         <entry key="..\:/Project/Doctor/app/src/main/res/layout/fragment_home.xml" value="0.20416666666666666" />
-        <entry key="..\:/Project/Doctor/app/src/main/res/layout/fragment_home_dashboard.xml" value="0.33" />
+        <entry key="..\:/Project/Doctor/app/src/main/res/layout/fragment_home_dashboard.xml" value="0.2938388625592417" />
         <entry key="..\:/Project/Doctor/app/src/main/res/layout/fragment_manage_booking.xml" value="0.20416666666666666" />
         <entry key="..\:/Project/Doctor/app/src/main/res/layout/fragment_manage_calendar.xml" value="0.20416666666666666" />
         <entry key="..\:/Project/Doctor/app/src/main/res/layout/fragment_my_question.xml" value="0.20416666666666666" />

@@ -13,10 +13,12 @@ import android.view.View;
 import android.webkit.GeolocationPermissions;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.in.doctor.R;
 import com.in.doctor.adapter.ManageCalenderAdapter;
 import com.in.doctor.global.Glob;
+import com.in.doctor.model.CommonModel;
 import com.in.doctor.model.ManageCalendarModel;
 import com.in.doctor.retrofit.Api;
 import com.in.doctor.retrofit.RetrofitClient;
@@ -68,10 +70,30 @@ public class ManageCalendar extends AppCompatActivity {
 
     }
 
+    public void patientDetail(String token, String doctor_id, String booking_id) {
+        Api call = RetrofitClient.getClient(Glob.Base_Url).create(Api.class);
+        Glob.dialog.show();
+
+        call.patientDetail(token, doctor_id, booking_id).enqueue(new Callback<CommonModel>() {
+            @Override
+            public void onResponse(Call<CommonModel> call, Response<CommonModel> response) {
+                CommonModel commonModel = response.body();
+
+                Toast.makeText(getApplicationContext(), "" + commonModel.getMessage(), Toast.LENGTH_SHORT).show();
+                Glob.dialog.dismiss();
+            }
+
+            @Override
+            public void onFailure(Call<CommonModel> call, Throwable t) {
+
+            }
+        });
+    }
+
     public void getCalender(String token, String doctor_id) {
 
-            Api call = RetrofitClient.getClient(Glob.Base_Url).create(Api.class);
-            Glob.dialog.show();
+        Api call = RetrofitClient.getClient(Glob.Base_Url).create(Api.class);
+        Glob.dialog.show();
 
         call.getCalender(token, doctor_id).enqueue(new Callback<ManageCalendarModel>() {
             @Override
@@ -115,6 +137,8 @@ public class ManageCalendar extends AppCompatActivity {
 
 
                 Log.e("id", "onButtonClick: " + list.get(position).getDoctorName());
+                patientDetail(Token, "13", "3");
+
             }
         });
 
