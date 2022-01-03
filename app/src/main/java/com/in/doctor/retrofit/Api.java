@@ -2,6 +2,7 @@ package com.in.doctor.retrofit;
 
 import com.in.doctor.model.ClinicalSettingModel;
 import com.in.doctor.model.CommonModel;
+import com.in.doctor.model.GetFcmTokenModel;
 import com.in.doctor.model.LifestyleSettingModel;
 import com.in.doctor.model.ManageBookingModel;
 import com.in.doctor.model.ManageCalendarModel;
@@ -125,5 +126,22 @@ public interface Api {
             @Field("doctor_id") String doctor_id,
             @Field("booking_id") String booking_id
 
+    );
+
+    @FormUrlEncoded
+    @POST("add_fcm_token.php")
+    Call<CommonModel> addFcmToken(
+
+            @Field("token") String token,
+            @Field("doctor_id") String user_id,
+            @Field("fcm_token") String fcm_token
+    );
+
+    @FormUrlEncoded
+    @POST("get_fcm_token.php")
+    Call<GetFcmTokenModel> getFcmToken(
+
+            @Field("token") String token,
+            @Field("doctor_id") String user_id
     );
 }

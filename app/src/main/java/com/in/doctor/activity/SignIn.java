@@ -30,8 +30,12 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.messaging.FirebaseMessaging;
 import com.in.doctor.R;
 import com.in.doctor.global.Glob;
+import com.in.doctor.model.CommonModel;
 import com.in.doctor.model.SignInModel;
 import com.in.doctor.retrofit.Api;
 import com.in.doctor.retrofit.RetrofitClient;
@@ -62,6 +66,7 @@ public class SignIn extends AppCompatActivity {
     Button btnSignIn;
     EditText edtEmail, edtPassword;
     TextView txtSignUp;
+    String FCMToken;
 
     private BiometricPrompt biometricPrompt;
     private BiometricPrompt.PromptInfo promptInfo;
@@ -84,7 +89,7 @@ public class SignIn extends AppCompatActivity {
 
 
         initView();
-
+        getFmcToken();
 //        SharedPreferences prefs = getSharedPreferences("MyPref", MODE_PRIVATE);
 //        String id = prefs.getString("id", "null");//"No name defined" is the default value.
 //        String token = prefs.getString("token", "null");
@@ -285,6 +290,8 @@ public class SignIn extends AppCompatActivity {
                     editor.apply();
                     editor.commit();
 
+                    addFcmToken(Token,"13",FCMToken);
+
                     Intent intent = new Intent(getApplicationContext(), Authentication.class);
                     startActivity(intent);
                 } else {
@@ -363,4 +370,50 @@ public class SignIn extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "" + e, Toast.LENGTH_SHORT).show();
         }
     }
+
+
+    public void getFmcToken() {
+
+        FirebaseMessaging.getInstance().getToken()
+                .addOnCompleteListener(new OnCompleteListener<String>() {
+                    @Override
+                    public void onComplete(@NonNull Task<String> task) {
+                        if (!task.isSuccessful()) {
+                            Log.w(TAG, "Fetching FCM registration token failed", task.getException());
+                            return;
+                        }
+
+                        // Get new FCM registration token
+                        FCMToken = task.getResult();
+                        Log.e(TAG, "onComplete: " + FCMToken);
+
+                        // Log and toast
+//                        String msg = getString(R.string.msg_token_fmt, token);
+//                        Log.d(TAG, msg);
+//                        Toast.makeText(SignIn.this, msg, Toast.LENGTH_SHORT).show();
+                    }
+                });
+    }
+    public void addFcmToken(String token, String doctor_id, String fcm_token) {
+        Api call = RetrofitClient.getClient(Glob.Base_Url).create(Api.class);
+        Glob.dialog.show();
+
+        call.addFcmToken(token, doctor_id, fcm_token).enqueue(new Callback<CommonModel>() {
+            @Override
+            public void onResponse(Call<CommonModel> call, Response<CommonModel> response) {
+                CommonModel commonModel = response.body();
+
+                Toast.makeText(getApplicationContext(), "" + commonModel.getMessage(), Toast.LENGTH_SHORT).show();
+                Glob.dialog.dismiss();
+            }
+
+            @Override
+            public void onFailure(Call<CommonModel> call, Throwable t) {
+
+                Toast.makeText(getApplicationContext(), "" + t.getMessage(), Toast.LENGTH_SHORT).show();
+                Glob.dialog.dismiss();
+            }
+        });
+    }
+
 }

@@ -13,6 +13,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.Preference;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
@@ -31,6 +32,14 @@ import com.in.doctor.fragment.DoctorConsultant;
 import com.in.doctor.fragment.HomeDashboard;
 import com.in.doctor.fragment.MyRevenue;
 import com.in.doctor.fragment.Profile;
+import com.in.doctor.global.Glob;
+import com.in.doctor.model.GetFcmTokenModel;
+import com.in.doctor.retrofit.Api;
+import com.in.doctor.retrofit.RetrofitClient;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class Home extends AppCompatActivity {
 
@@ -70,6 +79,7 @@ public class Home extends AppCompatActivity {
         }
 
         init();
+        getFcmToken(Glob.Token, "13");
     }
 
     @SuppressLint("ResourceAsColor")
@@ -248,7 +258,7 @@ public class Home extends AppCompatActivity {
 
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.firstFrame, fragment);
-        transaction.addToBackStack(null);
+//        transaction.addToBackStack(null);
         transaction.commit();
     }
 
@@ -274,6 +284,26 @@ public class Home extends AppCompatActivity {
         }
 //        Intent intent = new Intent(getApplicationContext(), Home.class);
 
+
+    }
+
+
+    public void getFcmToken(String token, String doctor_id) {
+        Api call = RetrofitClient.getClient(Glob.Base_Url).create(Api.class);
+
+        call.getFcmToken(token, doctor_id).enqueue(new Callback<GetFcmTokenModel>() {
+            @Override
+            public void onResponse(Call<GetFcmTokenModel> call, Response<GetFcmTokenModel> response) {
+                GetFcmTokenModel model = response.body();
+
+                Log.e("main", "onResponse: " + model.getData().getFcm_token());
+            }
+
+            @Override
+            public void onFailure(Call<GetFcmTokenModel> call, Throwable t) {
+
+            }
+        });
 
     }
 }

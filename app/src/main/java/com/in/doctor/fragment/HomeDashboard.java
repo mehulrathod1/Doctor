@@ -3,6 +3,7 @@ package com.in.doctor.fragment;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -71,7 +72,6 @@ public class HomeDashboard extends Fragment {
         healthCareData();
         healthCheckupData();
         addBottomDots(0);
-
         return view;
     }
 
@@ -293,10 +293,11 @@ public class HomeDashboard extends Fragment {
                 loadFragment(fragment);
             }
         });
+
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
         healthCheckupRecycler.setLayoutManager(mLayoutManager);
         healthCheckupRecycler.setAdapter(healthCareAdapter);
     }
 
-
 }
+
