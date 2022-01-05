@@ -8,8 +8,10 @@ import com.in.doctor.model.ManageBookingModel;
 import com.in.doctor.model.ManageCalendarModel;
 import com.in.doctor.model.OnlineConsultantModel;
 import com.in.doctor.model.PersonalSettingModel;
+import com.in.doctor.model.SendNotificationModel;
 import com.in.doctor.model.SignInModel;
 import com.in.doctor.model.SignUpModel;
+import com.in.doctor.model.ViewPatientDetailModel;
 
 import retrofit2.Call;
 import retrofit2.http.Field;
@@ -121,7 +123,7 @@ public interface Api {
 
     @FormUrlEncoded
     @POST("get_patient_view_booking_details.php")
-    Call<CommonModel> patientDetail(
+    Call<ViewPatientDetailModel> patientDetail(
             @Field("token") String token,
             @Field("doctor_id") String doctor_id,
             @Field("booking_id") String booking_id
@@ -140,8 +142,16 @@ public interface Api {
     @FormUrlEncoded
     @POST("get_fcm_token.php")
     Call<GetFcmTokenModel> getFcmToken(
+            @Field("token") String token,
+            @Field("user_id") String user_id
+    );
+
+    @FormUrlEncoded
+    @POST("send_notification.php")
+    Call<SendNotificationModel> sendNotification(
 
             @Field("token") String token,
-            @Field("doctor_id") String user_id
+            @Field("user_id") String user_id,
+            @Field("message") String message
     );
 }

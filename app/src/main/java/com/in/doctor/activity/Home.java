@@ -258,17 +258,13 @@ public class Home extends AppCompatActivity {
 
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.firstFrame, fragment);
-//        transaction.addToBackStack(null);
         transaction.commit();
     }
-
 
     public void moveNext(Class activity) {
         Intent intent = new Intent(getApplicationContext(), activity);
         startActivity(intent);
-
     }
-
 
     @Override
     public void onBackPressed() {
@@ -296,7 +292,8 @@ public class Home extends AppCompatActivity {
             public void onResponse(Call<GetFcmTokenModel> call, Response<GetFcmTokenModel> response) {
                 GetFcmTokenModel model = response.body();
 
-                Log.e("main", "onResponse: " + model.getData().getFcm_token());
+                Log.e("FCMtoken", "onResponse: " + model.getData().getFcm_token());
+
             }
 
             @Override

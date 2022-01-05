@@ -217,4 +217,23 @@
     <string name="No">No</string>
 
 
+    <!--    view booking detail-->
+
+    <string name="Booking_Date">Booking Date</string>
+    <string name="Booking_Status">Booking Status</string>
+    <string name="payment_Status">Payment Status</string>
+    <string name="age">Age</string>
+    <string name="Blood_group">Blood group</string>
+    <string name="Marital">Marital Status</string>
+    <string name="lifestyle_and_clinic">Lifestyle &amp; Clinic Detail</string>
+    <string name="Alcohol_Consumption">Alcohol Consumption</string>
+    <string name="smoking_Consumption">Smoking Consumption</string>
+    <string name="Workout">Workout</string>
+    <string name="Sports">Sports</string>
+    <string name="Chronic_Disease">Chronic Disease</string>
+    <string name="medication">medication</string>
+    <string name="Injury">Injury</string>
+    <string name="Allergies">Allergies</string>
+
+
 </resources>

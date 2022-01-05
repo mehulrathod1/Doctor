@@ -137,6 +137,7 @@ public class MainActivity extends AppCompatActivity {
 
                 SignUpModel signUpModel = response.body();
                 if (signUpModel.getStatus().equals("true")) {
+
                     Toast.makeText(getApplicationContext(), signUpModel.getMessage(), Toast.LENGTH_SHORT).show();
 
 

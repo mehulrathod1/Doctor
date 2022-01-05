@@ -70,25 +70,6 @@ public class ManageCalendar extends AppCompatActivity {
 
     }
 
-    public void patientDetail(String token, String doctor_id, String booking_id) {
-        Api call = RetrofitClient.getClient(Glob.Base_Url).create(Api.class);
-        Glob.dialog.show();
-
-        call.patientDetail(token, doctor_id, booking_id).enqueue(new Callback<CommonModel>() {
-            @Override
-            public void onResponse(Call<CommonModel> call, Response<CommonModel> response) {
-                CommonModel commonModel = response.body();
-
-                Toast.makeText(getApplicationContext(), "" + commonModel.getMessage(), Toast.LENGTH_SHORT).show();
-                Glob.dialog.dismiss();
-            }
-
-            @Override
-            public void onFailure(Call<CommonModel> call, Throwable t) {
-
-            }
-        });
-    }
 
     public void getCalender(String token, String doctor_id) {
 
@@ -137,7 +118,7 @@ public class ManageCalendar extends AppCompatActivity {
 
 
                 Log.e("id", "onButtonClick: " + list.get(position).getDoctorName());
-                patientDetail(Token, "13", "3");
+
 
             }
         });

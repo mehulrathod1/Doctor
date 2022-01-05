@@ -13,7 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Doctor"
         android:usesCleartextTraffic="true">
-
+        <activity
+            android:name=".activity.BookingDetail"
+            android:exported="true" />
 
         <service
             android:name=".utils.MyFirebaseMessagingService"
@@ -85,9 +87,7 @@
             android:exported="true" />
         <activity
             android:name=".activity.MainActivity"
-            android:exported="true">
-
-        </activity>
+            android:exported="true"></activity>
     </application>
 
 </manifest>

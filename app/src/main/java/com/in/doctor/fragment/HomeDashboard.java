@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Color;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -14,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
 import android.text.Html;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,6 +24,7 @@ import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.google.firebase.messaging.Constants;
 import com.in.doctor.R;
 import com.in.doctor.activity.DoctorProfile;
 import com.in.doctor.adapter.FindDoctorAdapter;
@@ -30,8 +33,16 @@ import com.in.doctor.adapter.SliderPagerAdapter;
 import com.in.doctor.model.CareAndCheckupModel;
 import com.in.doctor.model.FindDoctorModel;
 
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.List;
+
+import okhttp3.MediaType;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
 
 public class HomeDashboard extends Fragment {
 
@@ -56,6 +67,9 @@ public class HomeDashboard extends Fragment {
     ArrayAdapter<String> countryNameAdapter;
     List<String> countryNameList = new ArrayList<>();
 
+    public static final MediaType JSON
+            = MediaType.parse("application/json; charset=utf-8");
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -72,6 +86,8 @@ public class HomeDashboard extends Fragment {
         healthCareData();
         healthCheckupData();
         addBottomDots(0);
+
+
         return view;
     }
 
@@ -113,8 +129,10 @@ public class HomeDashboard extends Fragment {
         sliderPagerAdapter = new SliderPagerAdapter(getActivity(), slider_image_list, new SliderPagerAdapter.Click() {
             @Override
             public void itemClick(int position) {
-                Intent intent = new Intent(getActivity(), DoctorProfile.class);
-                startActivity(intent);
+//                Intent intent = new Intent(getActivity(), DoctorProfile.class);
+//                startActivity(intent);
+                sendNotification("e6_uV61OSsy-_z31aqlivI:APA91bF9AOxn6xrOFCgg0NzlV-Cul9lZcrEyzTZx1EbXlnka2QruIFx278GBIOq-A2j6T6q0uwy40mrWtvN4c-ghYLI_2ZrcW0quePAoMoarQZv78uWxZB3JsBiFCVV3x0IkbwB-53ZO");
+
             }
         });
         vp_slider.setAdapter(sliderPagerAdapter);
@@ -298,6 +316,37 @@ public class HomeDashboard extends Fragment {
         healthCheckupRecycler.setLayoutManager(mLayoutManager);
         healthCheckupRecycler.setAdapter(healthCareAdapter);
     }
+
+    private void sendNotification(final String regToken) {
+        new AsyncTask<Void, Void, Void>() {
+            @Override
+            protected Void doInBackground(Void... params) {
+                try {
+                    OkHttpClient client = new OkHttpClient();
+                    JSONObject json = new JSONObject();
+                    JSONObject dataJson = new JSONObject();
+                    dataJson.put("body", "");
+                    dataJson.put("title", "dummy notification");
+                    json.put("notification", dataJson);
+                    json.put("to", regToken);
+                    RequestBody body = RequestBody.create(JSON, json.toString());
+                    Request request = new Request.Builder()
+                            .header("Authorization", "key=" + "AAAAEhxA8sc:APA91bGzKFx7gAT8wnp2rCjvhz12SZ-nGhg6HF3dffOhfOBpKAxYWvRpfkoRmWSnZd2_W1-ez8gizm1di1BAjmA-HBvD5QnVoPTEPwNTmGBR1NSONAcLV36OOZ_hlhMYMBDqVCEesOOQ")
+                            .url("https://fcm.googleapis.com/fcm/send")
+                            .post(body)
+                            .build();
+                    Response response = client.newCall(request).execute();
+                    String finalResponse = response.body().string();
+                    Log.e("doInBackground", "doInBackground: " + finalResponse);
+                } catch (Exception e) {
+                    //Log.d(TAG,e+"");
+                }
+                return null;
+            }
+        }.execute();
+
+    }
+
 
 }
 
