@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+
+
     <style name="profile_edt">
         <item name="android:textSize">@dimen/_14sdp</item>
         <!--        <item name="fontFamily">"sans-serif"</item>-->

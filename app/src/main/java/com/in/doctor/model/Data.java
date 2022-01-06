@@ -4,34 +4,31 @@ import com.google.gson.annotations.SerializedName;
 
 public class Data{
 
-	@SerializedName("Channel Name")
-	private String channelName;
+	@SerializedName("Patient Personal")
+	private PatientPersonal patientPersonal;
 
-	@SerializedName("user_id")
-	private String userId;
+	@SerializedName("Patient Medical")
+	private PatientMedical patientMedical;
 
-	public void setChannelName(String channelName){
-		this.channelName = channelName;
+	@SerializedName("Patient Lifestyle")
+	private PatientLifestyle patientLifestyle;
+
+	@SerializedName("Booking Details")
+	private BookingDetails bookingDetails;
+
+	public PatientPersonal getPatientPersonal(){
+		return patientPersonal;
 	}
 
-	public String getChannelName(){
-		return channelName;
+	public PatientMedical getPatientMedical(){
+		return patientMedical;
 	}
 
-	public void setUserId(String userId){
-		this.userId = userId;
+	public PatientLifestyle getPatientLifestyle(){
+		return patientLifestyle;
 	}
 
-	public String getUserId(){
-		return userId;
+	public BookingDetails getBookingDetails(){
+		return bookingDetails;
 	}
-
-	@Override
- 	public String toString(){
-		return 
-			"Data{" + 
-			"channel Name = '" + channelName + '\'' + 
-			",user_id = '" + userId + '\'' + 
-			"}";
-		}
 }

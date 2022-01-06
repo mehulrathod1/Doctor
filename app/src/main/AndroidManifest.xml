@@ -14,6 +14,9 @@
         android:theme="@style/Theme.Doctor"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".activity.VideoCallScreen"
+            android:exported="true" />
+        <activity
             android:name=".activity.BookingDetail"
             android:exported="true" />
 
@@ -87,7 +90,7 @@
             android:exported="true" />
         <activity
             android:name=".activity.MainActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
     </application>
 
 </manifest>

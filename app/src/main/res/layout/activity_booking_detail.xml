@@ -40,6 +40,7 @@
                     android:src="@drawable/nev_back" />
 
                 <TextView
+                    android:id="@+id/patient_name"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_52sdp"
                     android:layout_below="@id/ProfileImage"
@@ -121,6 +122,7 @@
                                     android:textSize="@dimen/_14sdp" />
 
                                 <TextView
+                                    android:id="@+id/booking_id"
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="7.5"
@@ -154,6 +156,7 @@
                                     android:textSize="@dimen/_14sdp" />
 
                                 <TextView
+                                    android:id="@+id/booking_date"
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="7.5"
@@ -187,12 +190,12 @@
                                     android:textSize="@dimen/_14sdp" />
 
                                 <TextView
+                                    android:id="@+id/booking_time"
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="7.5"
                                     android:text="Lorem ipsum."
                                     android:textColor="@color/action_mode_color_edt"
-
                                     android:textSize="@dimen/_14sdp" />
 
                             </LinearLayout>
@@ -221,6 +224,7 @@
                                     android:textSize="@dimen/_14sdp" />
 
                                 <TextView
+                                    android:id="@+id/booking_status"
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="7.5"
@@ -254,6 +258,7 @@
                                     android:textSize="@dimen/_14sdp" />
 
                                 <TextView
+                                    android:id="@+id/payment_status"
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="7.5"
@@ -331,6 +336,7 @@
                                     android:textSize="@dimen/_14sdp" />
 
                                 <TextView
+                                    android:id="@+id/patient_email"
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="7.5"
@@ -364,6 +370,7 @@
                                     android:textSize="@dimen/_14sdp" />
 
                                 <TextView
+                                    android:id="@+id/patient_number"
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="7.5"
@@ -397,6 +404,7 @@
                                     android:textSize="@dimen/_14sdp" />
 
                                 <TextView
+                                    android:id="@+id/patient_address"
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="7.5"
@@ -430,6 +438,7 @@
                                     android:textSize="@dimen/_14sdp" />
 
                                 <TextView
+                                    android:id="@+id/patient_age"
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="7.5"
@@ -463,6 +472,7 @@
                                     android:textSize="@dimen/_14sdp" />
 
                                 <TextView
+                                    android:id="@+id/patient_blood_group"
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="7.5"
@@ -496,6 +506,7 @@
                                     android:textSize="@dimen/_14sdp" />
 
                                 <TextView
+                                    android:id="@+id/patient_gender"
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="7.5"
@@ -529,6 +540,7 @@
                                     android:textSize="@dimen/_14sdp" />
 
                                 <TextView
+                                    android:id="@+id/patient_marital_status"
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="7.5"
@@ -605,6 +617,7 @@
                                     android:textSize="@dimen/_14sdp" />
 
                                 <TextView
+                                    android:id="@+id/alcohol_consumption"
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="7.5"
@@ -638,6 +651,7 @@
                                     android:textSize="@dimen/_14sdp" />
 
                                 <TextView
+                                    android:id="@+id/smoking_consumption"
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="7.5"
@@ -671,6 +685,7 @@
                                     android:textSize="@dimen/_14sdp" />
 
                                 <TextView
+                                    android:id="@+id/workout"
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="7.5"
@@ -705,6 +720,7 @@
                                     android:textSize="@dimen/_14sdp" />
 
                                 <TextView
+                                    android:id="@+id/sport"
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="7.5"
@@ -713,7 +729,6 @@
                                     android:textSize="@dimen/_14sdp" />
 
                             </LinearLayout>
-
 
 
                             <LinearLayout
@@ -740,6 +755,7 @@
                                     android:textSize="@dimen/_14sdp" />
 
                                 <TextView
+                                    android:id="@+id/allergies"
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="7.5"
@@ -773,6 +789,7 @@
                                     android:textSize="@dimen/_14sdp" />
 
                                 <TextView
+                                    android:id="@+id/chronic_disease"
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="7.5"
@@ -781,6 +798,7 @@
                                     android:textSize="@dimen/_14sdp" />
 
                             </LinearLayout>
+
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
@@ -805,6 +823,7 @@
                                     android:textSize="@dimen/_14sdp" />
 
                                 <TextView
+                                    android:id="@+id/medication"
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="7.5"
@@ -839,6 +858,7 @@
                                     android:textSize="@dimen/_14sdp" />
 
                                 <TextView
+                                    android:id="@+id/injury"
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="7.5"
@@ -856,6 +876,7 @@
                                 android:orientation="vertical">
 
                                 <TextView
+                                    android:id="@+id/chat"
                                     android:layout_width="match_parent"
                                     android:layout_height="@dimen/_40sdp"
                                     android:layout_marginTop="@dimen/_18sdp"
@@ -866,6 +887,7 @@
                                     android:textSize="@dimen/_20sdp" />
 
                                 <TextView
+                                    android:id="@+id/video_chat"
                                     android:layout_width="match_parent"
                                     android:layout_height="@dimen/_40sdp"
                                     android:layout_marginTop="@dimen/_18sdp"

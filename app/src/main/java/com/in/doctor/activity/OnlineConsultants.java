@@ -8,19 +8,14 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.in.doctor.R;
 import com.in.doctor.adapter.OnlineConsultantAdapter;
 import com.in.doctor.global.Glob;
-import com.in.doctor.model.CommonModel;
-import com.in.doctor.model.ManageBookingModel;
 import com.in.doctor.model.OnlineConsultantModel;
-import com.in.doctor.model.ViewPatientDetailModel;
 import com.in.doctor.retrofit.Api;
 import com.in.doctor.retrofit.RetrofitClient;
 
@@ -118,9 +113,9 @@ public class OnlineConsultants extends AppCompatActivity {
 
 
                 String booking_Id = list.get(position).getBookingID();
-                patientDetail(Token, "13", booking_Id);
 
                 Intent intent = new Intent(getApplicationContext(), BookingDetail.class);
+                intent.putExtra("bookingId", booking_Id);
                 startActivity(intent);
             }
         });
@@ -131,28 +126,5 @@ public class OnlineConsultants extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
     }
 
-    public void patientDetail(String token, String doctor_id, String booking_id) {
-        Api call = RetrofitClient.getClient(Glob.Base_Url).create(Api.class);
-        Glob.dialog.show();
-
-
-        call.patientDetail(token, doctor_id, booking_id).enqueue(new Callback<ViewPatientDetailModel>() {
-            @Override
-            public void onResponse(Call<ViewPatientDetailModel> call, Response<ViewPatientDetailModel> response) {
-
-                ViewPatientDetailModel model = response.body();
-
-
-                Log.e("dataaa", "onResponse: " + model.getData().getChannelName());
-
-                Glob.dialog.dismiss();
-            }
-
-            @Override
-            public void onFailure(Call<ViewPatientDetailModel> call, Throwable t) {
-
-            }
-        });
-    }
 
 }

@@ -147,7 +147,7 @@ public interface Api {
     );
 
     @FormUrlEncoded
-    @POST("send_notification.php")
+    @POST("http://ciam.notionprojects.tech/api/patient/send_notification.php")
     Call<SendNotificationModel> sendNotification(
 
             @Field("token") String token,
