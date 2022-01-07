@@ -1,6 +1,7 @@
 package com.in.doctor.activity;
 
 import static com.in.doctor.global.Glob.Token;
+import static com.in.doctor.global.Glob.channel_name;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -114,8 +115,17 @@ public class BookingDetail extends AppCompatActivity {
                 SendNotificationModel model = response.body();
                 SendNotificationModel.SendNotification data = model.getData();
 
-                Log.e("id", "onResponse: " + data.getChannelName());
-                Log.e("id", "onResponse: " + data.getUser_id());
+                Log.e("id", "onResdfghjponse:" + data.getChannelName());
+                String channel = data.getChannelName();
+
+
+                Intent intent = new Intent(getApplicationContext(), VideoCallScreen.class);
+                intent.putExtra("channel_name", channel);
+                startActivity(intent);
+
+
+                Log.e("asdfghjkjhgfdsa", "onResponse: " + channel_name);
+                Log.e("id", "onResponse:" + data.getUser_id());
             }
 
             @Override
