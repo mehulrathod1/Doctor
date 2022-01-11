@@ -67,8 +67,10 @@ public class HomeDashboard extends Fragment {
     ArrayAdapter<String> countryNameAdapter;
     List<String> countryNameList = new ArrayList<>();
 
+
     public static final MediaType JSON
             = MediaType.parse("application/json; charset=utf-8");
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -131,7 +133,7 @@ public class HomeDashboard extends Fragment {
             public void itemClick(int position) {
 //                Intent intent = new Intent(getActivity(), DoctorProfile.class);
 //                startActivity(intent);
-                sendNotification("e6_uV61OSsy-_z31aqlivI:APA91bF9AOxn6xrOFCgg0NzlV-Cul9lZcrEyzTZx1EbXlnka2QruIFx278GBIOq-A2j6T6q0uwy40mrWtvN4c-ghYLI_2ZrcW0quePAoMoarQZv78uWxZB3JsBiFCVV3x0IkbwB-53ZO");
+//                sendNotification("e6_uV61OSsy-_z31aqlivI:APA91bF9AOxn6xrOFCgg0NzlV-Cul9lZcrEyzTZx1EbXlnka2QruIFx278GBIOq-A2j6T6q0uwy40mrWtvN4c-ghYLI_2ZrcW0quePAoMoarQZv78uWxZB3JsBiFCVV3x0IkbwB-53ZO");
 
             }
         });
@@ -179,36 +181,38 @@ public class HomeDashboard extends Fragment {
         doctorConsultant.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Fragment fragment = new DoctorConsultant();
-                loadFragment(fragment);
+//                Fragment fragment = new DoctorConsultant();
+//                loadFragment(fragment);
             }
         });
         homeCare.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Fragment fragment = new CareServices();
-                loadFragment(fragment);
+//                Fragment fragment = new CareServices();
+//                loadFragment(fragment);
             }
         });
         viewAllDoctor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Fragment fragment = new DoctorConsultant();
-                loadFragment(fragment);
+
+//                Fragment fragment = new DoctorConsultant();
+//                loadFragment(fragment);
+
             }
         });
         viewAllServices.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Fragment fragment = new CareServices();
-                loadFragment(fragment);
+//                Fragment fragment = new CareServices();
+//                loadFragment(fragment);
             }
         });
         viewAllCheckup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Fragment fragment = new CareServices();
-                loadFragment(fragment);
+//                Fragment fragment = new CareServices();
+//                loadFragment(fragment);
             }
         });
     }
@@ -257,8 +261,9 @@ public class HomeDashboard extends Fragment {
             @Override
             public void onButtonClick(int position) {
 
-                Fragment fragment = new DoctorConsultant();
-                loadFragment(fragment);
+//                Fragment fragment = new DoctorConsultant();
+//                loadFragment(fragment);
+
             }
         });
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
@@ -272,6 +277,7 @@ public class HomeDashboard extends Fragment {
         CareAndCheckupModel model1 = new CareAndCheckupModel("", "Physiotherapy");
         CareAndCheckupModel model2 = new CareAndCheckupModel("", "Medical Equipment");
         CareAndCheckupModel model3 = new CareAndCheckupModel("", "Gynaecologist");
+
         careList.add(model);
         careList.add(model1);
         careList.add(model2);
@@ -282,8 +288,8 @@ public class HomeDashboard extends Fragment {
             @Override
             public void onClick(int position) {
 
-                Fragment fragment = new CareServices();
-                loadFragment(fragment);
+//                Fragment fragment = new CareServices();
+//                loadFragment(fragment);
             }
         });
 
@@ -303,18 +309,20 @@ public class HomeDashboard extends Fragment {
         healthList.add(model2);
         healthList.add(model3);
 
-
         healthCareAdapter = new HealthCareAdapter(healthList, getContext(), new HealthCareAdapter.Click() {
             @Override
             public void onClick(int position) {
-                Fragment fragment = new CareServices();
-                loadFragment(fragment);
+
+//                Fragment fragment = new CareServices();
+//                loadFragment(fragment);
+
             }
         });
 
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
         healthCheckupRecycler.setLayoutManager(mLayoutManager);
         healthCheckupRecycler.setAdapter(healthCareAdapter);
+
     }
 
     private void sendNotification(final String regToken) {

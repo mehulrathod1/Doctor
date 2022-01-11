@@ -284,13 +284,15 @@ public class SignIn extends AppCompatActivity {
                     Log.e(TAG, "onResponse: " + model.getSignInId().getId());
                     Log.e(TAG, "onResponse: " + model.getSignInId().getEmail());
 
+
+                    Glob.user_id = model.getSignInId().getId();
                     SharedPreferences.Editor editor = getSharedPreferences("MyPref", MODE_PRIVATE).edit();
                     editor.putString("token", "123456789");
-                    editor.putString("id", "13");
+                    editor.putString("id", Glob.user_id);
                     editor.apply();
                     editor.commit();
 
-                    addFcmToken(Token,"13",FCMToken);
+                    addFcmToken(Token,Glob.user_id,FCMToken);
 
                     Intent intent = new Intent(getApplicationContext(), Authentication.class);
                     startActivity(intent);

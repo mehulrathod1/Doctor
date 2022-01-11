@@ -46,6 +46,7 @@
                     android:layout_below="@id/ProfileImage"
                     android:layout_marginLeft="@dimen/_12sdp"
                     android:layout_marginRight="@dimen/_12sdp"
+                    android:fontFamily="@font/montserrat_semi_bold"
                     android:gravity="center_vertical"
                     android:text="Dr. Daksh Kumar"
                     android:textColor="@color/action_mode_color"
@@ -78,12 +79,13 @@
                             android:orientation="vertical">
 
                             <TextView
+                                style="@style/m_semi_18"
                                 android:layout_width="match_parent"
                                 android:layout_height="@dimen/_35sdp"
                                 android:gravity="center_vertical"
                                 android:text="@string/Booking_Details"
-                                android:textColor="@color/action_mode_color_edt"
-                                android:textSize="@dimen/_18sdp" />
+
+                                />
 
                             <View
                                 android:layout_width="match_parent"
@@ -106,12 +108,11 @@
                                 android:weightSum="10">
 
                                 <TextView
+                                    style="@style/m_semi_14"
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="2"
-                                    android:text="@string/Booking_Id"
-                                    android:textColor="@color/action_mode_color_edt"
-                                    android:textSize="@dimen/_14sdp" />
+                                    android:text="@string/Booking_Id" />
 
                                 <TextView
                                     android:layout_width="0dp"
@@ -123,12 +124,12 @@
 
                                 <TextView
                                     android:id="@+id/booking_id"
+                                    style="@style/m_semi_14"
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="7.5"
                                     android:text="Lorem ipsum."
-                                    android:textColor="@color/action_mode_color_edt"
-                                    android:textSize="@dimen/_14sdp" />
+                                    android:textColor="@color/action_mode_color_edt" />
 
                             </LinearLayout>
 
@@ -140,12 +141,11 @@
                                 android:weightSum="10">
 
                                 <TextView
+                                    style="@style/m_semi_14"
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="2"
-                                    android:text="@string/Booking_Date"
-                                    android:textColor="@color/action_mode_color_edt"
-                                    android:textSize="@dimen/_14sdp" />
+                                    android:text="@string/Booking_Date" />
 
                                 <TextView
                                     android:layout_width="0dp"
@@ -157,12 +157,12 @@
 
                                 <TextView
                                     android:id="@+id/booking_date"
+                                    style="@style/m_semi_14"
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="7.5"
                                     android:text="Lorem ipsum."
-                                    android:textColor="@color/action_mode_color_edt"
-                                    android:textSize="@dimen/_14sdp" />
+                                    android:textColor="@color/action_mode_color_edt" />
 
                             </LinearLayout>
 
@@ -174,12 +174,11 @@
                                 android:weightSum="10">
 
                                 <TextView
+                                    style="@style/m_semi_14"
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="2"
-                                    android:text="@string/Booking_Time"
-                                    android:textColor="@color/action_mode_color_edt"
-                                    android:textSize="@dimen/_14sdp" />
+                                    android:text="@string/Booking_Time" />
 
                                 <TextView
                                     android:layout_width="0dp"
@@ -191,12 +190,12 @@
 
                                 <TextView
                                     android:id="@+id/booking_time"
+                                    style="@style/m_semi_14"
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="7.5"
                                     android:text="Lorem ipsum."
-                                    android:textColor="@color/action_mode_color_edt"
-                                    android:textSize="@dimen/_14sdp" />
+                                    android:textColor="@color/action_mode_color_edt" />
 
                             </LinearLayout>
 
@@ -208,12 +207,11 @@
                                 android:weightSum="10">
 
                                 <TextView
+                                    style="@style/m_semi_14"
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="2"
-                                    android:text="@string/Booking_Status"
-                                    android:textColor="@color/action_mode_color_edt"
-                                    android:textSize="@dimen/_14sdp" />
+                                    android:text="@string/Booking_Status" />
 
                                 <TextView
                                     android:layout_width="0dp"
@@ -225,12 +223,12 @@
 
                                 <TextView
                                     android:id="@+id/booking_status"
+                                    style="@style/m_semi_14"
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="7.5"
                                     android:text="Lorem ipsum."
-                                    android:textColor="@color/action_mode_color_edt"
-                                    android:textSize="@dimen/_14sdp" />
+                                    android:textColor="@color/action_mode_color_edt" />
 
                             </LinearLayout>
 
@@ -242,12 +240,11 @@
                                 android:weightSum="10">
 
                                 <TextView
+                                    style="@style/m_semi_14"
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="2"
-                                    android:text="@string/payment_Status"
-                                    android:textColor="@color/action_mode_color_edt"
-                                    android:textSize="@dimen/_14sdp" />
+                                    android:text="@string/payment_Status" />
 
                                 <TextView
                                     android:layout_width="0dp"
@@ -259,12 +256,12 @@
 
                                 <TextView
                                     android:id="@+id/payment_status"
+                                    style="@style/m_semi_14"
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="7.5"
                                     android:text="Lorem ipsum."
-                                    android:textColor="@color/action_mode_color_edt"
-                                    android:textSize="@dimen/_14sdp" />
+                                    android:textColor="@color/action_mode_color_edt" />
 
                             </LinearLayout>
 
@@ -291,12 +288,11 @@
                             android:orientation="vertical">
 
                             <TextView
+                                style="@style/m_semi_18"
                                 android:layout_width="match_parent"
                                 android:layout_height="@dimen/_35sdp"
                                 android:gravity="center_vertical"
-                                android:text="@string/Patient_Details"
-                                android:textColor="@color/action_mode_color_edt"
-                                android:textSize="@dimen/_18sdp" />
+                                android:text="@string/Patient_Details" />
 
                             <View
                                 android:layout_width="match_parent"
@@ -320,12 +316,11 @@
                                 android:weightSum="10">
 
                                 <TextView
+                                    style="@style/m_semi_14"
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="2"
-                                    android:text="@string/email"
-                                    android:textColor="@color/action_mode_color_edt"
-                                    android:textSize="@dimen/_14sdp" />
+                                    android:text="@string/email" />
 
                                 <TextView
                                     android:layout_width="0dp"
@@ -337,12 +332,12 @@
 
                                 <TextView
                                     android:id="@+id/patient_email"
+                                    style="@style/m_semi_14"
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="7.5"
                                     android:text="Lorem ipsum."
-                                    android:textColor="@color/action_mode_color_edt"
-                                    android:textSize="@dimen/_14sdp" />
+                                    android:textColor="@color/action_mode_color_edt" />
 
                             </LinearLayout>
 
@@ -354,12 +349,11 @@
                                 android:weightSum="10">
 
                                 <TextView
+                                    style="@style/m_semi_14"
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="2"
-                                    android:text="@string/mobile_Number"
-                                    android:textColor="@color/action_mode_color_edt"
-                                    android:textSize="@dimen/_14sdp" />
+                                    android:text="@string/mobile_Number" />
 
                                 <TextView
                                     android:layout_width="0dp"
@@ -371,12 +365,12 @@
 
                                 <TextView
                                     android:id="@+id/patient_number"
+                                    style="@style/m_semi_14"
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="7.5"
                                     android:text="Lorem ipsum."
-                                    android:textColor="@color/action_mode_color_edt"
-                                    android:textSize="@dimen/_14sdp" />
+                                    android:textColor="@color/action_mode_color_edt" />
 
                             </LinearLayout>
 
@@ -388,12 +382,11 @@
                                 android:weightSum="10">
 
                                 <TextView
+                                    style="@style/m_semi_14"
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="2"
-                                    android:text="@string/Address"
-                                    android:textColor="@color/action_mode_color_edt"
-                                    android:textSize="@dimen/_14sdp" />
+                                    android:text="@string/Address" />
 
                                 <TextView
                                     android:layout_width="0dp"
@@ -405,12 +398,12 @@
 
                                 <TextView
                                     android:id="@+id/patient_address"
+                                    style="@style/m_semi_14"
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="7.5"
                                     android:text="Lorem ipsum."
-                                    android:textColor="@color/action_mode_color_edt"
-                                    android:textSize="@dimen/_14sdp" />
+                                    android:textColor="@color/action_mode_color_edt" />
 
                             </LinearLayout>
 
@@ -422,12 +415,11 @@
                                 android:weightSum="10">
 
                                 <TextView
+                                    style="@style/m_semi_14"
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="2"
-                                    android:text="@string/age"
-                                    android:textColor="@color/action_mode_color_edt"
-                                    android:textSize="@dimen/_14sdp" />
+                                    android:text="@string/age" />
 
                                 <TextView
                                     android:layout_width="0dp"
@@ -439,12 +431,12 @@
 
                                 <TextView
                                     android:id="@+id/patient_age"
+                                    style="@style/m_semi_14"
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="7.5"
                                     android:text="Lorem ipsum."
-                                    android:textColor="@color/action_mode_color_edt"
-                                    android:textSize="@dimen/_14sdp" />
+                                    android:textColor="@color/action_mode_color_edt" />
 
                             </LinearLayout>
 
@@ -456,12 +448,11 @@
                                 android:weightSum="10">
 
                                 <TextView
+                                    style="@style/m_semi_14"
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="2"
-                                    android:text="@string/Blood_group"
-                                    android:textColor="@color/action_mode_color_edt"
-                                    android:textSize="@dimen/_14sdp" />
+                                    android:text="@string/Blood_group" />
 
                                 <TextView
                                     android:layout_width="0dp"
@@ -473,12 +464,12 @@
 
                                 <TextView
                                     android:id="@+id/patient_blood_group"
+                                    style="@style/m_semi_14"
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="7.5"
                                     android:text="Lorem ipsum."
-                                    android:textColor="@color/action_mode_color_edt"
-                                    android:textSize="@dimen/_14sdp" />
+                                    android:textColor="@color/action_mode_color_edt" />
 
                             </LinearLayout>
 
@@ -490,12 +481,11 @@
                                 android:weightSum="10">
 
                                 <TextView
+                                    style="@style/m_semi_14"
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="2"
-                                    android:text="@string/Gender"
-                                    android:textColor="@color/action_mode_color_edt"
-                                    android:textSize="@dimen/_14sdp" />
+                                    android:text="@string/Gender" />
 
                                 <TextView
                                     android:layout_width="0dp"
@@ -507,12 +497,12 @@
 
                                 <TextView
                                     android:id="@+id/patient_gender"
+                                    style="@style/m_semi_14"
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="7.5"
                                     android:text="Lorem ipsum."
-                                    android:textColor="@color/action_mode_color_edt"
-                                    android:textSize="@dimen/_14sdp" />
+                                    android:textColor="@color/action_mode_color_edt" />
 
                             </LinearLayout>
 
@@ -524,12 +514,11 @@
                                 android:weightSum="10">
 
                                 <TextView
+                                    style="@style/m_semi_14"
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="2"
-                                    android:text="@string/Marital"
-                                    android:textColor="@color/action_mode_color_edt"
-                                    android:textSize="@dimen/_14sdp" />
+                                    android:text="@string/Marital" />
 
                                 <TextView
                                     android:layout_width="0dp"
@@ -541,12 +530,12 @@
 
                                 <TextView
                                     android:id="@+id/patient_marital_status"
+                                    style="@style/m_semi_14"
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="7.5"
                                     android:text="Lorem ipsum."
-                                    android:textColor="@color/action_mode_color_edt"
-                                    android:textSize="@dimen/_14sdp" />
+                                    android:textColor="@color/action_mode_color_edt" />
 
                             </LinearLayout>
                         </LinearLayout>
@@ -573,12 +562,11 @@
                             android:orientation="vertical">
 
                             <TextView
+                                style="@style/m_semi_18"
                                 android:layout_width="match_parent"
                                 android:layout_height="@dimen/_35sdp"
                                 android:gravity="center_vertical"
-                                android:text="@string/lifestyle_and_clinic"
-                                android:textColor="@color/action_mode_color_edt"
-                                android:textSize="@dimen/_18sdp" />
+                                android:text="@string/lifestyle_and_clinic" />
 
                             <View
                                 android:layout_width="match_parent"
@@ -601,12 +589,11 @@
                                 android:weightSum="10">
 
                                 <TextView
+                                    style="@style/m_semi_14"
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="2"
-                                    android:text="@string/Alcohol_Consumption"
-                                    android:textColor="@color/action_mode_color_edt"
-                                    android:textSize="@dimen/_14sdp" />
+                                    android:text="@string/Alcohol_Consumption" />
 
                                 <TextView
                                     android:layout_width="0dp"
@@ -618,12 +605,12 @@
 
                                 <TextView
                                     android:id="@+id/alcohol_consumption"
+                                    style="@style/m_semi_14"
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="7.5"
                                     android:text="Lorem ipsum."
-                                    android:textColor="@color/action_mode_color_edt"
-                                    android:textSize="@dimen/_14sdp" />
+                                    android:textColor="@color/action_mode_color_edt" />
 
                             </LinearLayout>
 
@@ -635,12 +622,11 @@
                                 android:weightSum="10">
 
                                 <TextView
+                                    style="@style/m_semi_14"
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="2"
-                                    android:text="@string/smoking_Consumption"
-                                    android:textColor="@color/action_mode_color_edt"
-                                    android:textSize="@dimen/_14sdp" />
+                                    android:text="@string/smoking_Consumption" />
 
                                 <TextView
                                     android:layout_width="0dp"
@@ -652,12 +638,12 @@
 
                                 <TextView
                                     android:id="@+id/smoking_consumption"
+                                    style="@style/m_semi_14"
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="7.5"
                                     android:text="Lorem ipsum."
-                                    android:textColor="@color/action_mode_color_edt"
-                                    android:textSize="@dimen/_14sdp" />
+                                    android:textColor="@color/action_mode_color_edt" />
 
                             </LinearLayout>
 
@@ -669,12 +655,11 @@
                                 android:weightSum="10">
 
                                 <TextView
+                                    style="@style/m_semi_14"
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="2"
-                                    android:text="@string/Workout"
-                                    android:textColor="@color/action_mode_color_edt"
-                                    android:textSize="@dimen/_14sdp" />
+                                    android:text="@string/Workout" />
 
                                 <TextView
                                     android:layout_width="0dp"
@@ -686,13 +671,12 @@
 
                                 <TextView
                                     android:id="@+id/workout"
+                                    style="@style/m_semi_14"
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="7.5"
                                     android:text="Lorem ipsum."
-                                    android:textColor="@color/action_mode_color_edt"
-
-                                    android:textSize="@dimen/_14sdp" />
+                                    android:textColor="@color/action_mode_color_edt" />
 
                             </LinearLayout>
 
@@ -704,12 +688,11 @@
                                 android:weightSum="10">
 
                                 <TextView
+                                    style="@style/m_semi_14"
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="2"
-                                    android:text="@string/Sports"
-                                    android:textColor="@color/action_mode_color_edt"
-                                    android:textSize="@dimen/_14sdp" />
+                                    android:text="@string/Sports" />
 
                                 <TextView
                                     android:layout_width="0dp"
@@ -721,12 +704,12 @@
 
                                 <TextView
                                     android:id="@+id/sport"
+                                    style="@style/m_semi_14"
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="7.5"
                                     android:text="Lorem ipsum."
-                                    android:textColor="@color/action_mode_color_edt"
-                                    android:textSize="@dimen/_14sdp" />
+                                    android:textColor="@color/action_mode_color_edt" />
 
                             </LinearLayout>
 
@@ -739,12 +722,11 @@
                                 android:weightSum="10">
 
                                 <TextView
+                                    style="@style/m_semi_14"
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="2"
-                                    android:text="@string/Allergies"
-                                    android:textColor="@color/action_mode_color_edt"
-                                    android:textSize="@dimen/_14sdp" />
+                                    android:text="@string/Allergies" />
 
                                 <TextView
                                     android:layout_width="0dp"
@@ -756,12 +738,12 @@
 
                                 <TextView
                                     android:id="@+id/allergies"
+                                    style="@style/m_semi_14"
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="7.5"
                                     android:text="Lorem ipsum."
-                                    android:textColor="@color/action_mode_color_edt"
-                                    android:textSize="@dimen/_14sdp" />
+                                    android:textColor="@color/action_mode_color_edt" />
 
                             </LinearLayout>
 
@@ -773,12 +755,11 @@
                                 android:weightSum="10">
 
                                 <TextView
+                                    style="@style/m_semi_14"
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="2"
-                                    android:text="@string/Chronic_Disease"
-                                    android:textColor="@color/action_mode_color_edt"
-                                    android:textSize="@dimen/_14sdp" />
+                                    android:text="@string/Chronic_Disease" />
 
                                 <TextView
                                     android:layout_width="0dp"
@@ -790,12 +771,12 @@
 
                                 <TextView
                                     android:id="@+id/chronic_disease"
+                                    style="@style/m_semi_14"
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="7.5"
                                     android:text="Lorem ipsum."
-                                    android:textColor="@color/action_mode_color_edt"
-                                    android:textSize="@dimen/_14sdp" />
+                                    android:textColor="@color/action_mode_color_edt" />
 
                             </LinearLayout>
 
@@ -807,12 +788,11 @@
                                 android:weightSum="10">
 
                                 <TextView
+                                    style="@style/m_semi_14"
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="2"
-                                    android:text="@string/medication"
-                                    android:textColor="@color/action_mode_color_edt"
-                                    android:textSize="@dimen/_14sdp" />
+                                    android:text="@string/medication" />
 
                                 <TextView
                                     android:layout_width="0dp"
@@ -824,12 +804,12 @@
 
                                 <TextView
                                     android:id="@+id/medication"
+                                    style="@style/m_semi_14"
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="7.5"
                                     android:text="Lorem ipsum."
-                                    android:textColor="@color/action_mode_color_edt"
-                                    android:textSize="@dimen/_14sdp" />
+                                    android:textColor="@color/action_mode_color_edt" />
 
                             </LinearLayout>
 
@@ -842,12 +822,11 @@
                                 android:weightSum="10">
 
                                 <TextView
+                                    style="@style/m_semi_14"
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="2"
-                                    android:text="@string/Injury"
-                                    android:textColor="@color/action_mode_color_edt"
-                                    android:textSize="@dimen/_14sdp" />
+                                    android:text="@string/Injury" />
 
                                 <TextView
                                     android:layout_width="0dp"
@@ -859,12 +838,12 @@
 
                                 <TextView
                                     android:id="@+id/injury"
+                                    style="@style/m_semi_14"
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="7.5"
                                     android:text="Lorem ipsum."
-                                    android:textColor="@color/action_mode_color_edt"
-                                    android:textSize="@dimen/_14sdp" />
+                                    android:textColor="@color/action_mode_color_edt" />
 
                             </LinearLayout>
 
@@ -881,10 +860,24 @@
                                     android:layout_height="@dimen/_40sdp"
                                     android:layout_marginTop="@dimen/_18sdp"
                                     android:background="@drawable/time_bg"
+                                    android:fontFamily="@font/montserrat_semi_bold"
                                     android:gravity="center"
                                     android:text="@string/Chat"
                                     android:textColor="@color/action_mode_color_edt"
                                     android:textSize="@dimen/_20sdp" />
+
+                                <TextView
+                                    android:id="@+id/audio_call"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/_40sdp"
+                                    android:layout_marginTop="@dimen/_18sdp"
+                                    android:background="@drawable/time_bg"
+                                    android:fontFamily="@font/montserrat_semi_bold"
+                                    android:gravity="center"
+                                    android:text="@string/Start_Audio_Call"
+                                    android:textColor="@color/action_mode_color_edt"
+                                    android:textSize="@dimen/_20sdp"
+                                    android:visibility="gone" />
 
                                 <TextView
                                     android:id="@+id/video_chat"
@@ -892,6 +885,7 @@
                                     android:layout_height="@dimen/_40sdp"
                                     android:layout_marginTop="@dimen/_18sdp"
                                     android:background="@color/action_mode_color"
+                                    android:fontFamily="@font/montserrat_semi_bold"
                                     android:gravity="center"
                                     android:text="@string/Start_Video"
                                     android:textColor="@color/white"

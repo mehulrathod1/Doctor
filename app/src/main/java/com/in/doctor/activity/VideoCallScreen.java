@@ -175,12 +175,13 @@ public class VideoCallScreen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_video_call_screen);
+        getSupportActionBar().hide();
         initUI();
 
 
         Intent intent = getIntent();
 
-        channel= intent.getStringExtra("channel_name");
+        channel = intent.getStringExtra("channel_name");
         // Ask for permissions at runtime.
         // This is just an example set of permissions. Other permissions
         // may be needed, and please refer to our online documents.
@@ -306,11 +307,12 @@ public class VideoCallScreen extends AppCompatActivity {
         // 2. One token is only valid for the channel name that
         // you use to generate this token.
 
+//        mRtcEngine.disableVideo();
         String token = "agora_access_token";
         if (TextUtils.isEmpty(token) || TextUtils.equals(token, "#YOUR ACCESS TOKEN#")) {
             token = null; // default, no token
         }
-        Log.e(TAG, "joinChannel: "+channel);
+        Log.e(TAG, "joinChannel: " + channel);
         mRtcEngine.joinChannel("", channel, "Extra Optional Data", 0);
     }
 
@@ -346,17 +348,21 @@ public class VideoCallScreen extends AppCompatActivity {
     }
 
     public void onCallClicked(View view) {
-        if (mCallEnd) {
-            startCall();
-            mCallEnd = false;
-            mCallBtn.setImageResource(R.drawable.btn_endcall_pressed);
-        } else {
-            endCall();
-            mCallEnd = true;
-            mCallBtn.setImageResource(R.drawable.btn_startcall_normal);
-        }
 
-        showButtons(!mCallEnd);
+        endCall();
+        Intent intent = new Intent(getApplicationContext(), Home.class);
+        startActivity(intent);
+//        if (mCallEnd) {
+//            startCall();
+//            mCallEnd = false;
+//            mCallBtn.setImageResource(R.drawable.btn_endcall_pressed);
+//        } else {
+//            endCall();
+//            mCallEnd = true;
+//            mCallBtn.setImageResource(R.drawable.btn_startcall_normal);
+//        }
+//
+//        showButtons(!mCallEnd);
     }
 
     private void startCall() {

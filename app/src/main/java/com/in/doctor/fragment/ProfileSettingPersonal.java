@@ -46,7 +46,7 @@ public class ProfileSettingPersonal extends Fragment {
 
         view = inflater.inflate(R.layout.fragment_profile_setting_personal, container, false);
         init();
-        doctorPersonal(Glob.Token, "19");
+        doctorPersonal(Glob.Token, Glob.user_id);
         return view;
     }
 

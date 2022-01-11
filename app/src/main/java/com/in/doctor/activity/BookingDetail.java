@@ -36,7 +36,7 @@ public class BookingDetail extends AppCompatActivity {
 
     TextView patient_name, bookingId, booking_date, booking_time, booking_status, payment_status, patient_email, patient_number, patient_address, patient_age,
             patient_blood_group, patient_gender, patient_marital_status, alcohol_consumption, smoking_consumption, workout, sport, allergies,
-            chronic_disease, medication, injury, chat, video_chat;
+            chronic_disease, medication, injury, chat, video_chat, audio_call;
 
     ImageView profile_image;
     String patient_user_id;
@@ -55,7 +55,7 @@ public class BookingDetail extends AppCompatActivity {
 
         Log.e(TAG, "onCreate: " + booking_Id);
 
-        patientDetail(Token, "13", booking_Id);
+        patientDetail(Token, Glob.user_id, booking_Id);
 
 
     }
@@ -87,7 +87,7 @@ public class BookingDetail extends AppCompatActivity {
         injury = findViewById(R.id.injury);
         chat = findViewById(R.id.chat);
         video_chat = findViewById(R.id.video_chat);
-
+        audio_call = findViewById(R.id.audio_call);
 
         Glob.progressDialog(this);
 
@@ -97,7 +97,12 @@ public class BookingDetail extends AppCompatActivity {
             public void onClick(View v) {
 
                 sendNotification(Glob.Token, patient_user_id, "test");
+            }
+        });
 
+        audio_call.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
             }
         });

@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.WindowManager;
 
 import com.in.doctor.R;
+import com.in.doctor.global.Glob;
 
 public class Splash extends AppCompatActivity {
 
@@ -39,6 +40,11 @@ public class Splash extends AppCompatActivity {
         Log.e(TAG, "onCreate: " + id);
         Log.e(TAG, "onCreate: " + token);
         Log.e(TAG, "onCreate: " + auth);
+
+        if (!id.equals(null)) {
+            Glob.user_id = id;
+        }
+
 
         if (auth.equals("null")) {
             moveNext(SignIn.class);

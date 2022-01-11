@@ -44,7 +44,7 @@ public class Request extends AppCompatActivity {
         setContentView(R.layout.activity_request);
         getSupportActionBar().hide();
         init();
-        getBookingRequest(Token, "13");
+        getBookingRequest(Token, Glob.user_id);
 
     }
 
@@ -157,14 +157,14 @@ public class Request extends AppCompatActivity {
 
                 String bookingId = list.get(position).getBookingId();
                 Log.e("fghgfds", "onClickAccept: " + bookingId);
-                bookingRequestAccept(Token, "13", bookingId);
+                bookingRequestAccept(Token, Glob.user_id, bookingId);
             }
 
             @Override
             public void onClickCancel(int position) {
                 String bookingId = list.get(position).getBookingId();
                 Log.e("fghgfds", "onClickAccept: " + bookingId);
-                bookingRequestCancel(Token, "13", bookingId);
+                bookingRequestCancel(Token, Glob.user_id, bookingId);
             }
         });
 

@@ -79,7 +79,7 @@ public class Home extends AppCompatActivity {
         }
 
         init();
-        getFcmToken(Glob.Token, "13");
+        getFcmToken(Glob.Token, Glob.user_id);
     }
 
     @SuppressLint("ResourceAsColor")

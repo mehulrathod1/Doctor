@@ -43,7 +43,7 @@ public class OnlineConsultants extends AppCompatActivity {
         getSupportActionBar().hide();
 
         init();
-        getOnlineConsultant(Token, "13");
+        getOnlineConsultant(Token, Glob.user_id);
     }
 
     public void init() {

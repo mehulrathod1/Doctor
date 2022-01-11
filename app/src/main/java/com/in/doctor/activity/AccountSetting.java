@@ -87,7 +87,7 @@ public class AccountSetting extends AppCompatActivity {
             public void onClick(View v) {
 
 
-                accountSetting(Token, "13", "123456", "test123");
+                accountSetting(Token, Glob.user_id, "123456", "test123");
 
             }
         });

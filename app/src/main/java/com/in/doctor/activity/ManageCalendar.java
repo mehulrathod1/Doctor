@@ -48,7 +48,7 @@ public class ManageCalendar extends AppCompatActivity {
         getSupportActionBar().hide();
 
         init();
-        getCalender(Token, "13");
+        getCalender(Token, Glob.user_id);
     }
 
     public void init() {

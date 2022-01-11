@@ -44,7 +44,7 @@ public class ProfileSettingClinical extends Fragment {
         view = inflater.inflate(R.layout.fragment_profile_setting_clinical, container, false);
 
         init();
-        doctorClinic(Token, "13");
+        doctorClinic(Token, Glob.user_id);
 
         return view;
     }

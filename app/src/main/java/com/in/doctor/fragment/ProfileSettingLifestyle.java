@@ -49,7 +49,7 @@ public class ProfileSettingLifestyle extends Fragment {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_profile_setting_lifestyle, container, false);
         init();
-        doctorLifestyle(Token, "13");
+        doctorLifestyle(Token, Glob.user_id);
 
         return view;
     }

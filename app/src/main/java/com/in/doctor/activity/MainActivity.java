@@ -98,25 +98,25 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
 
 
-//                if (edtFirstName.getText().toString().equals("")) {
-//                    edtFirstName.setError("Please Enter FirstName");
-//                } else if (edtLastName.getText().toString().equals("")) {
-//                    edtLastName.setError("Please Enter LastName");
-//                } else if (ediEmail.getText().toString().equals("")) {
-//                    ediEmail.setError("Please Enter Email");
-//                } else if (edtMobileNumber.getText().toString().equals("")) {
-//                    edtMobileNumber.setError("Please Enter Mobile Number");
-//                } else if (edtPassword.getText().toString().equals("")) {
-//                    edtPassword.setError("Please Enter Password");
-//                } else if (edtConformPassword.getText().toString().equals("")) {
-//                    edtConformPassword.setError("Please Enter ConformPassword");
-//                } else {
-//                    signUp(Token, edtFirstName.getText().toString(), edtLastName.getText().toString(),
-//                            ediEmail.getText().toString(), countryCode.getSelectedItem().toString(),
-//                            edtMobileNumber.getText().toString(), edtPassword.getText().toString(),
-//                            edtConformPassword.getText().toString());
-//                }
-//
+                if (edtFirstName.getText().toString().equals("")) {
+                    edtFirstName.setError("Please Enter FirstName");
+                } else if (edtLastName.getText().toString().equals("")) {
+                    edtLastName.setError("Please Enter LastName");
+                } else if (ediEmail.getText().toString().equals("")) {
+                    ediEmail.setError("Please Enter Email");
+                } else if (edtMobileNumber.getText().toString().equals("")) {
+                    edtMobileNumber.setError("Please Enter Mobile Number");
+                } else if (edtPassword.getText().toString().equals("")) {
+                    edtPassword.setError("Please Enter Password");
+                } else if (edtConformPassword.getText().toString().equals("")) {
+                    edtConformPassword.setError("Please Enter ConformPassword");
+                } else {
+                    signUp(Token, edtFirstName.getText().toString(), edtLastName.getText().toString(),
+                            ediEmail.getText().toString(), countryCode.getSelectedItem().toString(),
+                            edtMobileNumber.getText().toString(), edtPassword.getText().toString(),
+                            edtConformPassword.getText().toString());
+                }
+
 
             }
         });
@@ -140,14 +140,11 @@ public class MainActivity extends AppCompatActivity {
 
                     Toast.makeText(getApplicationContext(), signUpModel.getMessage(), Toast.LENGTH_SHORT).show();
 
-
                     user_id = signUpModel.getSignUpModel().getUser_id();
-
-
                     Log.e(TAG, "onResponse: " + user_id + "-------" + signUpModel.getSignUpModel().getUser_id());
 
                     Glob.dialog.dismiss();
-                    Intent intent = new Intent(getApplicationContext(), Home.class);
+                    Intent intent = new Intent(getApplicationContext(), SignIn.class);
                     startActivity(intent);
                 } else {
                     Glob.dialog.dismiss();

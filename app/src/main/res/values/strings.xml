@@ -184,6 +184,7 @@
     <string name="Download_Report_File">Download Report File</string>
     <string name="Chat">Chat</string>
     <string name="Start_Video">Start Video</string>
+    <string name="Start_Audio_Call">Audio Call</string>
 
     <!--    care Services-->
     <string name="Book_Now">Book Now</string>
