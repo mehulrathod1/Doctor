@@ -17,6 +17,7 @@ import android.widget.Toast;
 import com.in.doctor.R;
 import com.in.doctor.global.Glob;
 import com.in.doctor.model.ClinicalSettingModel;
+import com.in.doctor.model.CommonModel;
 import com.in.doctor.retrofit.Api;
 import com.in.doctor.retrofit.RetrofitClient;
 
@@ -45,7 +46,6 @@ public class ProfileSettingClinical extends Fragment {
 
         init();
         doctorClinic(Token, Glob.user_id);
-
         return view;
     }
 
@@ -61,6 +61,19 @@ public class ProfileSettingClinical extends Fragment {
         btnSubmit = view.findViewById(R.id.btnSubmit);
 
 
+        btnSubmit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                updateDoctorClinic(Token, Glob.user_id, edtClinicName.getText().toString(),
+                        edtClinicLocation.getText().toString(),
+                        edtOpenTime.getText().toString(),
+                        edtCloseTime.getText().toString(),
+                        edtConsultancyFees.getText().toString(),
+                        edtFromToDays.getText().toString(),
+                        edtAvailabilityStatus.getText().toString());
+            }
+        });
+
     }
 
 
@@ -68,7 +81,6 @@ public class ProfileSettingClinical extends Fragment {
 
 
         Api call = RetrofitClient.getClient(Glob.Base_Url).create(Api.class);
-
 
 
         call.doctorClinic(token, user_id).enqueue(new Callback<ClinicalSettingModel>() {
@@ -79,6 +91,8 @@ public class ProfileSettingClinical extends Fragment {
 
                 Log.e("TAG", "onResponse: " + model.getData().getDoctor_id());
 
+                Log.e("TAG", "onResponse: " + model.getData().getClinic_name());
+
                 edtClinicName.setText(model.getData().getClinic_name());
                 edtClinicLocation.setText(model.getData().getClinic_location());
                 edtFromToDays.setText(model.getData().getFrom_to_days());
@@ -87,7 +101,6 @@ public class ProfileSettingClinical extends Fragment {
                 edtCloseTime.setText(model.getData().getClose_time());
                 edtConsultancyFees.setText(model.getData().getOfline_consultancy_fees());
                 edtAvailabilityStatus.setText(model.getData().getDoctor_availability_status());
-
 
             }
 
@@ -98,4 +111,27 @@ public class ProfileSettingClinical extends Fragment {
         });
     }
 
+    public void updateDoctorClinic(String token, String doctor_id,
+                                   String clinic_name, String clinic_location,
+                                   String open_time, String close_time, String ofline_consultancy_fees,
+                                   String from_to_days, String doctor_availability_status) {
+
+        Api call = RetrofitClient.getClient(Glob.Base_Url).create(Api.class);
+        call.updateDoctorClinic(token, doctor_id, clinic_name, clinic_location, open_time, close_time,
+                ofline_consultancy_fees, from_to_days, doctor_availability_status).enqueue(new Callback<CommonModel>() {
+            @Override
+            public void onResponse(Call<CommonModel> call, Response<CommonModel> response) {
+
+                CommonModel model = response.body();
+                Toast.makeText(getContext(), "" + model.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onFailure(Call<CommonModel> call, Throwable t) {
+
+            }
+        });
+
+
+    }
 }

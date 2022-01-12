@@ -56,7 +56,7 @@ public class PersonalSettingModel {
         String last_name;
 
 
-        @SerializedName("specialistid")
+        @SerializedName("specialist")
         @Expose
         String specialistid;
 

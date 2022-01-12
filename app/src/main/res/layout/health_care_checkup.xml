@@ -29,10 +29,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:textAlignment="center"
                 android:text="Covid Care"
+                android:textAlignment="center"
                 android:textColor="@color/white"
-                android:textSize="@dimen/_18sdp" />
+                android:fontFamily="@font/montserrat_semi_bold"
+                android:textSize="@dimen/_16sdp" />
         </RelativeLayout>
 
     </androidx.cardview.widget.CardView>

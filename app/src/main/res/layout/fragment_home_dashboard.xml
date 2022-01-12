@@ -162,7 +162,7 @@
                                     android:layout_height="wrap_content"
                                     android:gravity="center"
                                     android:text="@string/Doctor_Consultation"
-                                    android:textColor="@color/action_mode_color_edt" />
+                                    style="@style/m_regular_12"/>
                             </LinearLayout>
 
                             <LinearLayout
@@ -184,7 +184,7 @@
                                     android:layout_height="wrap_content"
                                     android:gravity="center"
                                     android:text="@string/Home_Care_Servicies"
-                                    android:textColor="@color/action_mode_color_edt" />
+                                    style="@style/m_regular_12"/>
                             </LinearLayout>
 
                             <LinearLayout
@@ -205,7 +205,7 @@
                                     android:layout_height="wrap_content"
                                     android:gravity="center"
                                     android:text="@string/Lab_Tests"
-                                    android:textColor="@color/action_mode_color_edt" />
+                                    style="@style/m_regular_12" />
                             </LinearLayout>
 
                             <LinearLayout
@@ -226,7 +226,7 @@
                                     android:layout_height="wrap_content"
                                     android:gravity="center"
                                     android:text="@string/Medicine"
-                                    android:textColor="@color/action_mode_color_edt" />
+                                    style="@style/m_regular_12"/>
                             </LinearLayout>
 
                         </LinearLayout>
@@ -257,7 +257,7 @@
                                     android:layout_height="wrap_content"
                                     android:gravity="center"
                                     android:text="@string/Health_care"
-                                    android:textColor="@color/action_mode_color_edt" />
+                                    style="@style/m_regular_12" />
                             </LinearLayout>
 
                             <LinearLayout
@@ -279,7 +279,7 @@
                                     android:layout_height="wrap_content"
                                     android:gravity="center"
                                     android:text="@string/Stress_buster_zone"
-                                    android:textColor="@color/action_mode_color_edt" />
+                                    style="@style/m_regular_12"/>
                             </LinearLayout>
 
                             <LinearLayout
@@ -300,7 +300,7 @@
                                     android:layout_height="wrap_content"
                                     android:gravity="center"
                                     android:text="@string/Ask_Questions"
-                                    android:textColor="@color/action_mode_color_edt" />
+                                    style="@style/m_regular_12"/>
 
                             </LinearLayout>
 
@@ -322,7 +322,7 @@
                                     android:layout_height="wrap_content"
                                     android:gravity="center"
                                     android:text="@string/Knowledge_Forum"
-                                    android:textColor="@color/action_mode_color_edt" />
+                                    style="@style/m_regular_12"/>
                             </LinearLayout>
 
                         </LinearLayout>
@@ -348,13 +348,12 @@
                                 android:layout_marginRight="@dimen/_8sdp">
 
                                 <TextView
-
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:fontFamily="@font/montserrat_semi_bold"
                                     android:text="@string/Find_Your_Doctors"
                                     android:textColor="@color/action_mode_color"
-                                    android:textSize="@dimen/_20sdp"
-                                    android:textStyle="bold" />
+                                    android:textSize="@dimen/_18sdp" />
 
                                 <TextView
                                     android:id="@+id/viewAllDoctor"
@@ -415,10 +414,10 @@
 
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:fontFamily="@font/montserrat_semi_bold"
                                     android:text="@string/Health_Care_services"
                                     android:textColor="@color/action_mode_color"
-                                    android:textSize="@dimen/_20sdp"
-                                    android:textStyle="bold" />
+                                    android:textSize="@dimen/_18sdp" />
 
                                 <TextView
                                     android:id="@+id/viewAllServices"
@@ -475,8 +474,9 @@
                                     android:layout_height="wrap_content"
                                     android:text="@string/Health_Checkup_at_Home"
                                     android:textColor="@color/action_mode_color"
-                                    android:textSize="@dimen/_20sdp"
-                                    android:textStyle="bold" />
+                                    android:textSize="@dimen/_18sdp"
+                                    android:fontFamily="@font/montserrat_semi_bold"
+                                     />
 
                                 <TextView
                                     android:id="@+id/viewAllCheckup"

@@ -32,8 +32,9 @@
                     android:gravity="center"
                     android:text="Heal at Home"
                     android:textColor="@color/action_mode_color"
-                    android:textSize="@dimen/_20sdp"
-                    android:textStyle="bold" />
+                    android:textSize="@dimen/_18sdp"
+                    android:fontFamily="@font/montserrat_semi_bold"
+                     />
 
                 <TextView
                     android:layout_width="match_parent"

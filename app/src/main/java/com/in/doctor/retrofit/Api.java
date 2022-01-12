@@ -13,10 +13,14 @@ import com.in.doctor.model.SignInModel;
 import com.in.doctor.model.SignUpModel;
 import com.in.doctor.model.ViewPatientDetailModel;
 
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
+import retrofit2.http.Multipart;
 import retrofit2.http.POST;
+import retrofit2.http.Part;
 
 public interface Api {
 
@@ -48,6 +52,47 @@ public interface Api {
     Call<PersonalSettingModel> doctorPersonal(
             @Field("token") String token,
             @Field("doctor_id") String doctor_id
+    );
+
+    @FormUrlEncoded
+    @POST("update_doctor_lifestyle.php")
+    Call<CommonModel> updateDoctorLifestyle(
+            @Field("token") String token,
+            @Field("doctor_id") String doctor_id,
+            @Field("smoking") String smoking,
+            @Field("alchol") String alchol,
+            @Field("workout_level") String workout_level,
+            @Field("sports_involvement") String sports_involvement
+
+    );
+
+    @FormUrlEncoded
+    @POST("update_doctor_clinic.php")
+    Call<CommonModel> updateDoctorClinic(
+            @Field("token") String token,
+            @Field("doctor_id") String doctor_id,
+            @Field("clinic_name") String clinic_name,
+            @Field("clinic_location") String clinic_location,
+            @Field("open_time") String open_time,
+            @Field("close_time") String close_time,
+            @Field("ofline_consultancy_fees") String ofline_consultancy_fees,
+            @Field("from_to_days") String from_to_days,
+            @Field("doctor_availability_status") String doctor_availability_status
+    );
+
+    @Multipart
+    @POST("update_doctor_personal_details.php")
+    Call<CommonModel> updateDoctorPersonal(
+            @Part("token") RequestBody token,
+            @Part("doctor_id") RequestBody doctor_id,
+            @Part("first_name") RequestBody first_name,
+            @Part("last_name") RequestBody last_name,
+            @Part("specialistid") RequestBody specialistid,
+            @Part("education") RequestBody education,
+            @Part("language_spoken") RequestBody language_spoken,
+            @Part("experience") RequestBody experience,
+            @Part("address") RequestBody address,
+            @Part MultipartBody.Part image
 
     );
 

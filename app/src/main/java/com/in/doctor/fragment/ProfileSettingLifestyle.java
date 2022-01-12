@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -18,6 +19,7 @@ import android.widget.Toast;
 import com.in.doctor.R;
 import com.in.doctor.global.Glob;
 import com.in.doctor.model.ClinicalSettingModel;
+import com.in.doctor.model.CommonModel;
 import com.in.doctor.model.LifestyleSettingModel;
 import com.in.doctor.model.PersonalSettingModel;
 import com.in.doctor.retrofit.Api;
@@ -25,6 +27,7 @@ import com.in.doctor.retrofit.RetrofitClient;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -37,6 +40,7 @@ public class ProfileSettingLifestyle extends Fragment {
     EditText edtSportInvolvement;
     ArrayAdapter<String> smokingAdapter, alcoholAdapter, workoutAdapter;
     List<String> smokingList, alcoholList, workoutList;
+    Button btnSubmit;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -60,6 +64,7 @@ public class ProfileSettingLifestyle extends Fragment {
         spnAlcohol = view.findViewById(R.id.spnAlcohol);
         spnWorkoutLevel = view.findViewById(R.id.spnWorkoutLevel);
         edtSportInvolvement = view.findViewById(R.id.edtSportInvolvement);
+        btnSubmit = view.findViewById(R.id.btnSubmit);
 
         smokingList = new ArrayList<>();
         smokingList.add("yes");
@@ -89,6 +94,18 @@ public class ProfileSettingLifestyle extends Fragment {
         workoutAdapter.setDropDownViewResource(R.layout.dropdown_item);
         spnWorkoutLevel.setAdapter(workoutAdapter);
 
+
+        btnSubmit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                updateDoctorLifestyle(Token, Glob.user_id, spnSmoking.getSelectedItem().toString(),
+                        spnAlcohol.getSelectedItem().toString(),
+                        spnWorkoutLevel.getSelectedItem().toString(),
+                        edtSportInvolvement.getText().toString());
+            }
+        });
     }
 
 
@@ -109,18 +126,18 @@ public class ProfileSettingLifestyle extends Fragment {
                 Log.e("TpiAG", "onResponse: " + lifestyleSettingModel.getData().getWorkout_level());
                 Log.e("TpiAG", "onResponse: " + lifestyleSettingModel.getData().getSports_involvement());
 
-                if (lifestyleSettingModel.getData().getSmoking().equals("no")) {
+                if (lifestyleSettingModel.getData().getSmoking().equals("No")) {
                     spnSmoking.setSelection(1);
                 } else {
                     spnSmoking.setSelection(0);
                 }
-                if (lifestyleSettingModel.getData().getAlchol().equals("no")) {
+                if (lifestyleSettingModel.getData().getAlchol().equals("No")) {
                     spnAlcohol.setSelection(1);
                 } else {
                     spnAlcohol.setSelection(0);
                 }
 
-                if (lifestyleSettingModel.getData().getWorkout_level().equals("high")) {
+                if (lifestyleSettingModel.getData().getWorkout_level().equals("High")) {
                     spnWorkoutLevel.setSelection(0);
                 } else {
                     spnWorkoutLevel.setSelection(1);
@@ -137,5 +154,27 @@ public class ProfileSettingLifestyle extends Fragment {
         });
     }
 
+    public void updateDoctorLifestyle(String token, String doctor_id,
+                                      String smoking, String alchol,
+                                      String workout_level,
+                                      String sports_involvement) {
+
+        Api call = RetrofitClient.getClient(Glob.Base_Url).create(Api.class);
+
+        call.updateDoctorLifestyle(token, doctor_id, smoking, alchol,
+                workout_level, sports_involvement).enqueue(new Callback<CommonModel>() {
+            @Override
+            public void onResponse(Call<CommonModel> call, Response<CommonModel> response) {
+                CommonModel model = response.body();
+
+                Toast.makeText(getContext(), "" + model.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onFailure(Call<CommonModel> call, Throwable t) {
+
+            }
+        });
+    }
 
 }

@@ -50,7 +50,7 @@
                     android:gravity="center_vertical"
                     android:text="Dr. Daksh Kumar"
                     android:textColor="@color/action_mode_color"
-                    android:textSize="@dimen/_20sdp" />
+                    android:textSize="@dimen/_18sdp" />
             </RelativeLayout>
 
             <LinearLayout

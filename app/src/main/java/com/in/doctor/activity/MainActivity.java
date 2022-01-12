@@ -94,8 +94,8 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
 
 
-                Intent intent = new Intent(getApplicationContext(), SignIn.class);
-                startActivity(intent);
+//                Intent intent = new Intent(getApplicationContext(), SignIn.class);
+//                startActivity(intent);
 
 
                 if (edtFirstName.getText().toString().equals("")) {
