@@ -92,8 +92,32 @@ public interface Api {
             @Part("language_spoken") RequestBody language_spoken,
             @Part("experience") RequestBody experience,
             @Part("address") RequestBody address,
-            @Part MultipartBody.Part image
+            @Part MultipartBody.Part image,
+            @Part("about_me") RequestBody about
 
+    );
+
+    @Multipart
+    @POST("upload_clinic_images.php")
+    Call<CommonModel> uploadClinicImage(
+            @Part("token") RequestBody token,
+            @Part("doctor_id") RequestBody doctor_id,
+            @Part MultipartBody.Part image
+    );
+
+    @FormUrlEncoded
+    @POST("update_doctor_personal_details.php")
+    Call<CommonModel> updateDoctorPersonalNoImage(
+            @Field("token") String token,
+            @Field("doctor_id") String doctor_id,
+            @Field("first_name") String first_name,
+            @Field("last_name") String last_name,
+            @Field("specialistid") String specialistid,
+            @Field("education") String education,
+            @Field("language_spoken") String language_spoken,
+            @Field("experience") String experience,
+            @Field("address") String address,
+            @Field("about_me") String about_me
     );
 
     @FormUrlEncoded

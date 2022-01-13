@@ -124,10 +124,10 @@ public class HomeDashboard extends Fragment {
         viewAllCheckup.setText(Html.fromHtml("<u>View All</u>"));
 
         slider_image_list = new ArrayList<>();
-        slider_image_list.add("https://wallpaperaccess.com/full/297372.jpg");
-        slider_image_list.add("https://www.teahub.io/photos/full/68-683520_beautiful-girl-wallpapers-hd.jpg");
-        slider_image_list.add("https://wallpaperaccess.com/full/1198406.jpg");
-        slider_image_list.add("https://www.wallpaperuse.com/wallp/50-509102_m.jpg");
+        slider_image_list.add("http://ciam.notionprojects.tech/assets/image/userprofile/1642061177_appointment-img.png");
+        slider_image_list.add("http://ciam.notionprojects.tech/assets/image/userprofile/1642061177_appointment-img.png");
+        slider_image_list.add("http://ciam.notionprojects.tech/assets/image/userprofile/1642061177_appointment-img.png");
+        slider_image_list.add("http://ciam.notionprojects.tech/assets/image/userprofile/1642061177_appointment-img.png");
         sliderPagerAdapter = new SliderPagerAdapter(getActivity(), slider_image_list, new SliderPagerAdapter.Click() {
             @Override
             public void itemClick(int position) {

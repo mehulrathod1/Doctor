@@ -57,8 +57,7 @@ import retrofit2.Response;
 
 public class ProfileSettingPersonal extends Fragment {
 
-
-    EditText edtFirstName, edtLastName, edtSpeciality, edtSubSpeciality, edtEducation, edtLanguageSpoken, edtExperience, edtAddress;
+    EditText edtFirstName, edtLastName, edtSpeciality, edtSubSpeciality, edtEducation, edtLanguageSpoken, edtExperience, edtAddress, edtAbout;
     TextView txtChoosePhoto;
     Button btnSubmit;
     ImageView profileImage;
@@ -99,7 +98,7 @@ public class ProfileSettingPersonal extends Fragment {
         edtLanguageSpoken = view.findViewById(R.id.edtLanguageSpoken);
         edtExperience = view.findViewById(R.id.edtExperience);
         edtAddress = view.findViewById(R.id.edtAddress);
-
+        edtAbout = view.findViewById(R.id.edtAbout);
         profileImage = view.findViewById(R.id.profile_image);
         txtChoosePhoto = view.findViewById(R.id.txtChoosePhoto);
         btnSubmit = view.findViewById(R.id.btnSubmit);
@@ -108,16 +107,6 @@ public class ProfileSettingPersonal extends Fragment {
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                File dummy_file ;
-                dummy_file = new File("dfghhgfd");
-                updateDoctorPersonal("123456789", Glob.user_id, edtFirstName.getText().toString(),
-                        edtLastName.getText().toString(), "1",
-                        edtEducation.getText().toString(), edtLanguageSpoken.getText().toString(),
-                        edtExperience.getText().toString(), edtAddress.getText().toString(), dummy_file);
-
-
-
 
 
                 String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new
@@ -149,11 +138,14 @@ public class ProfileSettingPersonal extends Fragment {
                     updateDoctorPersonal("123456789", Glob.user_id, edtFirstName.getText().toString(),
                             edtLastName.getText().toString(), "1",
                             edtEducation.getText().toString(), edtLanguageSpoken.getText().toString(),
-                            edtExperience.getText().toString(), edtAddress.getText().toString(), img_file);
+                            edtExperience.getText().toString(), edtAddress.getText().toString(), img_file, edtAbout.getText().toString());
                 } else {
 
 
-                      Toast.makeText(getActivity(), "Please enter correct detail", Toast.LENGTH_SHORT).show();
+                    updateDoctorPersonalNoImage("123456789", Glob.user_id, edtFirstName.getText().toString(),
+                            edtLastName.getText().toString(), "1",
+                            edtEducation.getText().toString(), edtLanguageSpoken.getText().toString(),
+                            edtExperience.getText().toString(), edtAddress.getText().toString(),edtAbout.getText().toString());
 
 
                 }
@@ -187,7 +179,7 @@ public class ProfileSettingPersonal extends Fragment {
 
     public void updateDoctorPersonal(String token, String doctor_id, String first_name, String last_name,
                                      String specialistid, String education, String language_spoken,
-                                     String experience, String address, File Profile_image) {
+                                     String experience, String address, File Profile_image, String about) {
 
 
         Api call = RetrofitClient.getClient(Glob.Base_Url).create(Api.class);
@@ -202,6 +194,7 @@ public class ProfileSettingPersonal extends Fragment {
         RequestBody requestBody_language_spoken = RequestBody.create(MediaType.parse("multipart/form-data"), language_spoken);
         RequestBody requestBody_experience = RequestBody.create(MediaType.parse("multipart/form-data"), experience);
         RequestBody requestBody_address = RequestBody.create(MediaType.parse("multipart/form-data"), address);
+        RequestBody requestBody_about = RequestBody.create(MediaType.parse("multipart/form-data"), about);
 
         MultipartBody.Part requestBody_profile_image = null;
         RequestBody requestBody_req_img = RequestBody.create(MediaType.parse("multipart/form-data"), Profile_image);
@@ -209,7 +202,7 @@ public class ProfileSettingPersonal extends Fragment {
 
 
         call.updateDoctorPersonal(requestBody_token, requestBody_doctor_id, requestBody_first_name, requestBody_last_name, requestBody_specialistid,
-                requestBody_education, requestBody_language_spoken, requestBody_experience, requestBody_address, requestBody_profile_image).enqueue(new Callback<CommonModel>() {
+                requestBody_education, requestBody_language_spoken, requestBody_experience, requestBody_address, requestBody_profile_image, requestBody_about).enqueue(new Callback<CommonModel>() {
             @Override
             public void onResponse(Call<CommonModel> call, Response<CommonModel> response) {
 
@@ -228,6 +221,35 @@ public class ProfileSettingPersonal extends Fragment {
         });
 
 
+    }
+
+    public void updateDoctorPersonalNoImage(String token, String doctor_id, String first_name, String last_name,
+                                            String specialistid, String education, String language_spoken,
+                                            String experience, String address, String about) {
+
+
+        Api call = RetrofitClient.getClient(Glob.Base_Url).create(Api.class);
+        Glob.dialog.show();
+
+
+        call.updateDoctorPersonalNoImage(token, doctor_id, first_name, last_name,
+                specialistid, education, language_spoken, experience, address, about).enqueue(new Callback<CommonModel>() {
+            @Override
+            public void onResponse(Call<CommonModel> call, Response<CommonModel> response) {
+                CommonModel model = response.body();
+                Toast.makeText(getContext(), "" + model.getMessage(), Toast.LENGTH_SHORT).show();
+                Glob.dialog.dismiss();
+
+            }
+
+            @Override
+            public void onFailure(Call<CommonModel> call, Throwable t) {
+
+                Toast.makeText(getContext(), "" + t.getMessage(), Toast.LENGTH_SHORT).show();
+                Glob.dialog.dismiss();
+
+            }
+        });
     }
 
 

@@ -187,18 +187,27 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_16sdp"
+                android:layout_marginTop="@dimen/_24sdp"
                 android:layout_marginBottom="@dimen/_16sdp"
                 android:orientation="vertical">
 
                 <Button
+                    android:id="@+id/btn_upload_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_56sdp"
+                    android:fontFamily="@font/montserrat_semi_bold"
+                    android:text="Upload Image"
+                    android:textAllCaps="false"
+                    android:textSize="@dimen/_18sdp" />
+
+                <Button
                     android:id="@+id/btnSubmit"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_60sdp"
+                    android:layout_height="@dimen/_56sdp"
                     android:fontFamily="@font/montserrat_semi_bold"
                     android:text="@string/Submit"
                     android:textAllCaps="false"
-                    android:textSize="@dimen/_20sdp" />
+                    android:textSize="@dimen/_18sdp" />
 
             </LinearLayout>
 

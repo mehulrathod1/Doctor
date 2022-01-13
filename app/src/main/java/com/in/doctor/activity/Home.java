@@ -67,19 +67,21 @@ public class Home extends AppCompatActivity {
         loadFragment(fragment);
 
         int index = getIntent().getIntExtra("s", 0);
+
         if (index == 1) {
+
             fragment = new DoctorConsultant();
             loadFragment(fragment);
         }
-        if (index == 2) {
 
+        if (index == 2) {
             fragment = new DoctorConsultSecond();
             loadFragment(fragment);
-
         }
 
         init();
         getFcmToken(Glob.Token, Glob.user_id);
+
     }
 
     @SuppressLint("ResourceAsColor")
@@ -209,7 +211,6 @@ public class Home extends AppCompatActivity {
                         break;
 
                     case R.id.CompletedAssignment:
-
                         moveNext(CompletedAssignment.class);
                         drawerLayout.close();
                         break;
