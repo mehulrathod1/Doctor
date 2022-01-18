@@ -47,7 +47,7 @@ public class OnlineConsultantAdapter extends RecyclerView.Adapter<OnlineConsulta
         holder.BookingId.setText(model.getBookingID());
         holder.DoctorName.setText(model.getPatientName());
         holder.CityName.setText(model.getLocation());
-        holder.Price.setText(model.getFees());
+        holder.Price.setText(model.getFees() +" ₹");
         holder.Status.setText(model.getStatus());
 
         holder.viewBookingDetail.setOnClickListener(new View.OnClickListener() {

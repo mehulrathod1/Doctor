@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
+import android.os.Handler;
 import android.text.Html;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -37,6 +38,8 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
@@ -87,7 +90,7 @@ public class HomeDashboard extends Fragment {
         recyclerData();
         healthCareData();
         healthCheckupData();
-        addBottomDots(0);
+//        addBottomDots(0);
 
 
         return view;
@@ -146,7 +149,7 @@ public class HomeDashboard extends Fragment {
 
             @Override
             public void onPageSelected(int position) {
-                addBottomDots(position);
+//                addBottomDots(position);
             }
 
             @Override
@@ -155,27 +158,27 @@ public class HomeDashboard extends Fragment {
             }
         });
 
-//        final Handler handler = new Handler();
-//
-//        final Runnable update = new Runnable() {
-//            public void run() {
-//                if (page_position == slider_image_list.size()) {
-//                    page_position = 0;
-//                } else {
-//                    page_position = page_position + 1;
-//                }
-//                vp_slider.setCurrentItem(page_position, true);
-//            }
-//        };
-//
-//        new Timer().schedule(new TimerTask() {
-//
-//
-//            @Override
-//            public void run() {
-//                handler.post(update);
-//            }
-//        }, 100, 5000);
+        final Handler handler = new Handler();
+
+        final Runnable update = new Runnable() {
+            public void run() {
+                if (page_position == slider_image_list.size()) {
+                    page_position = 0;
+                } else {
+                    page_position = page_position + 1;
+                }
+                vp_slider.setCurrentItem(page_position, true);
+            }
+        };
+
+        new Timer().schedule(new TimerTask() {
+
+
+            @Override
+            public void run() {
+                handler.post(update);
+            }
+        }, 100, 5000);
 
 
         doctorConsultant.setOnClickListener(new View.OnClickListener() {

@@ -848,17 +848,37 @@
                             </LinearLayout>
 
 
+                            <TextView
+                                style="@style/m_semi_14"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_28sdp"
+                                android:text="@string/Upload_Report_File"
+                                android:textColor="@color/action_mode_color_edt" />
+
+                            <TextView
+                                android:id="@+id/choose_file"
+                                style="@style/m_semi_14"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_40sdp"
+                                android:layout_marginTop="@dimen/_14sdp"
+                                android:height="@dimen/_30sdp"
+                                android:background="@drawable/time_bg"
+                                android:gravity="center"
+                                android:text="@string/Choose_report"
+                                android:textColor="@color/action_mode_color_edt" />
+
+
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginTop="@dimen/_8sdp"
+                                android:layout_marginTop="@dimen/_18sdp"
                                 android:orientation="vertical">
 
                                 <TextView
                                     android:id="@+id/chat"
                                     android:layout_width="match_parent"
                                     android:layout_height="@dimen/_40sdp"
-                                    android:layout_marginTop="@dimen/_18sdp"
                                     android:background="@drawable/time_bg"
                                     android:fontFamily="@font/montserrat_semi_bold"
                                     android:gravity="center"

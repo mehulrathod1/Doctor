@@ -57,8 +57,7 @@ public class Authentication extends AppCompatActivity {
                 Intent intent = mKeyguardManager.createConfirmDeviceCredentialIntent(null, null);
                 if (intent != null) {
                     startActivityForResult(intent, REQUEST_CODE_CONFIRM_DEVICE_CREDENTIALS);
-                }
-                else {
+                } else {
                     Toast.makeText(getApplicationContext(), "Please first add screenlock", Toast.LENGTH_SHORT).show();
                 }
             }

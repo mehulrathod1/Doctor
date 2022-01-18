@@ -35,7 +35,6 @@ public class DoctorProfile extends AppCompatActivity {
     List<DoctorTimePrice> timePriceList = new ArrayList<>();
 
     Button bookAppointment;
-
     ImageView backButton;
 
     @Override
@@ -44,7 +43,6 @@ public class DoctorProfile extends AppCompatActivity {
         setContentView(R.layout.activity_doctor_profile);
 
         getSupportActionBar().hide();
-
         init();
         imageData();
         reviewData();

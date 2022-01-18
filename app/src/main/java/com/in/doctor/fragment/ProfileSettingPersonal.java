@@ -145,7 +145,7 @@ public class ProfileSettingPersonal extends Fragment {
                     updateDoctorPersonalNoImage("123456789", Glob.user_id, edtFirstName.getText().toString(),
                             edtLastName.getText().toString(), "1",
                             edtEducation.getText().toString(), edtLanguageSpoken.getText().toString(),
-                            edtExperience.getText().toString(), edtAddress.getText().toString(),edtAbout.getText().toString());
+                            edtExperience.getText().toString(), edtAddress.getText().toString(), edtAbout.getText().toString());
 
 
                 }
@@ -294,6 +294,7 @@ public class ProfileSettingPersonal extends Fragment {
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
 
 
+
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         if (requestCode == MY_CAMERA_REQUEST_CODE) {
             if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
@@ -320,7 +321,6 @@ public class ProfileSettingPersonal extends Fragment {
             Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
             // Create a File reference for future access
             photoFile = getPhotoFileUri(photoFileName);
-
             img_url = Uri.fromFile(photoFile);
 
             Uri fileProvider = FileProvider.getUriForFile(getContext(), "com.in.doctor.provider", photoFile);
@@ -448,7 +448,6 @@ public class ProfileSettingPersonal extends Fragment {
 //                                    edtExperience.getText().toString(), edtAddress.getText().toString(), img_file);
                             Uri temporary_Image = Uri.fromFile(new File(String.valueOf(img_file)));
                             profileImage.setImageURI(temporary_Image);
-
                         }
                         break;
                     case 2:
