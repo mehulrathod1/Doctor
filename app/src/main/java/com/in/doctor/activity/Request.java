@@ -56,7 +56,7 @@ public class Request extends AppCompatActivity {
 
         Glob.progressDialog(this);
 
-        headerTitle.setText("My Booked Appointment");
+        headerTitle.setText("Booking Request");
 
         nevBack.setOnClickListener(new View.OnClickListener() {
             @Override

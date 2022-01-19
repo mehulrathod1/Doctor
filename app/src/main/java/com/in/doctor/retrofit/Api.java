@@ -223,4 +223,16 @@ public interface Api {
             @Field("user_id") String user_id,
             @Field("message") String message
     );
+
+    @Multipart
+    @POST("upload_patient_report.php")
+    Call<CommonModel> uploadPatientReport(
+            @Part("token") RequestBody token,
+            @Part("doctor_id") RequestBody doctor_id,
+            @Part("patient_id") RequestBody patient_id,
+            @Part("booking_id") RequestBody booking_id,
+            @Part MultipartBody.Part doctor_report
+
+    );
+
 }

@@ -90,7 +90,7 @@ public class HomeDashboard extends Fragment {
         recyclerData();
         healthCareData();
         healthCheckupData();
-//        addBottomDots(0);
+        addBottomDots(0);
 
 
         return view;
@@ -149,7 +149,7 @@ public class HomeDashboard extends Fragment {
 
             @Override
             public void onPageSelected(int position) {
-//                addBottomDots(position);
+                addBottomDots(position);
             }
 
             @Override
@@ -226,23 +226,22 @@ public class HomeDashboard extends Fragment {
         fragmentTransaction.replace(R.id.firstFrame, fragment);
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
-
     }
 
     private void addBottomDots(int currentPage) {
         dots = new TextView[slider_image_list.size()];
-
         ll_dots.removeAllViews();
-        for (int i = 0; i < dots.length; i++) {
-            dots[i] = new TextView(getActivity());
-            dots[i].setText(Html.fromHtml("&#8226;"));
-            dots[i].setTextSize(35);
-            dots[i].setTextColor(Color.parseColor("#EFEFEF"));
-            ll_dots.addView(dots[i]);
+        if (getActivity() != null) {
+            for (int i = 0; i < dots.length; i++) {
+                dots[i] = new TextView(getActivity());
+                dots[i].setText(Html.fromHtml("&#8226;"));
+                dots[i].setTextSize(35);
+                dots[i].setTextColor(Color.parseColor("#EFEFEF"));
+                ll_dots.addView(dots[i]);
+            }
+            if (dots.length > 0)
+                dots[currentPage].setTextColor(Color.parseColor("#233E8B"));
         }
-
-        if (dots.length > 0)
-            dots[currentPage].setTextColor(Color.parseColor("#233E8B"));
     }
 
     public void recyclerData() {

@@ -857,7 +857,7 @@
                                 android:textColor="@color/action_mode_color_edt" />
 
                             <TextView
-                                android:id="@+id/choose_file"
+                                android:id="@+id/upload_report_file"
                                 style="@style/m_semi_14"
                                 android:layout_width="match_parent"
                                 android:layout_height="@dimen/_40sdp"
@@ -865,7 +865,7 @@
                                 android:height="@dimen/_30sdp"
                                 android:background="@drawable/time_bg"
                                 android:gravity="center"
-                                android:text="@string/Choose_report"
+                                android:text="@string/Upload_Report_File"
                                 android:textColor="@color/action_mode_color_edt" />
 
 
