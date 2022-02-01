@@ -63,8 +63,7 @@ public class ManageCalendar extends AppCompatActivity {
         nevBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), Home.class);
-                startActivity(intent);
+             finish();
             }
         });
 

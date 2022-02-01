@@ -12,6 +12,7 @@ import androidx.core.content.ContextCompat;
 import android.Manifest;
 import android.annotation.TargetApi;
 import android.app.KeyguardManager;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -73,6 +74,8 @@ public class SignIn extends AppCompatActivity {
     private Executor executor;
 
     String TAG = "SignIn";
+    ProgressDialog progressDialog;
+
 
     //fingure print
 
@@ -194,11 +197,17 @@ public class SignIn extends AppCompatActivity {
 
     public void initView() {
 
-        Glob.progressDialog(this);
         txtSignUp = findViewById(R.id.txtSignUp);
         btnSignIn = findViewById(R.id.btnSignIn);
         edtEmail = findViewById(R.id.edtEmail);
         edtPassword = findViewById(R.id.edtPassword);
+
+
+        progressDialog = new ProgressDialog(SignIn.this);
+        progressDialog.setCancelable(false); // set cancelable to false
+        progressDialog.setMessage("Please Wait"); // set message
+
+
         btnSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -207,7 +216,17 @@ public class SignIn extends AppCompatActivity {
 //                Intent intent = new Intent(getApplicationContext(), Home.class);
 //                startActivity(intent);
 //                biometricPrompt.authenticate(promptInfo);
-                signInUser(Token, edtEmail.getText().toString(), edtPassword.getText().toString());
+
+
+                if (edtEmail.getText().toString().equals("")) {
+                    edtEmail.setError("Please Enter Email");
+                } else if (edtPassword.getText().toString().equals("")) {
+                    edtPassword.setError("Please Enter Password");
+                } else {
+
+                    signInUser(Token, edtEmail.getText().toString(), edtPassword.getText().toString());
+                }
+//                signInUser(Token, edtEmail.getText().toString(), edtPassword.getText().toString());
             }
         });
 
@@ -269,7 +288,7 @@ public class SignIn extends AppCompatActivity {
     public void signInUser(String token, String email, String password) {
 
         Api call = RetrofitClient.getClient(Glob.Base_Url).create(Api.class);
-        Glob.dialog.show();
+        progressDialog.show();
 
         call.SignIn(token, email, password).enqueue(new Callback<SignInModel>() {
             @Override
@@ -279,7 +298,7 @@ public class SignIn extends AppCompatActivity {
 
                 if (model.getStatus().equals("true")) {
                     Toast.makeText(getApplicationContext(), model.getMessage(), Toast.LENGTH_SHORT).show();
-                    Glob.dialog.dismiss();
+                    progressDialog.dismiss();
 
                     Log.e(TAG, "onResponse: " + model.getSignInId().getId());
                     Log.e(TAG, "onResponse: " + model.getSignInId().getEmail());
@@ -292,22 +311,21 @@ public class SignIn extends AppCompatActivity {
                     editor.apply();
                     editor.commit();
 
-                    addFcmToken(Token,Glob.user_id,FCMToken);
+                    addFcmToken(Token, Glob.user_id, FCMToken);
 
                     Intent intent = new Intent(getApplicationContext(), Authentication.class);
                     startActivity(intent);
                 } else {
-                    Toast.makeText(getApplicationContext(), model.getMessage(), Toast.LENGTH_SHORT).show();
-                    Glob.dialog.dismiss();
-
+                    Toast.makeText(getApplicationContext(), "Please enter valid detail", Toast.LENGTH_SHORT).show();
+                    progressDialog.dismiss();
                 }
             }
 
             @Override
             public void onFailure(Call<SignInModel> call, Throwable t) {
-                Toast.makeText(getApplicationContext(), t.getMessage(), Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getApplicationContext(), "Please enter valid detail", Toast.LENGTH_SHORT).show();
                 Log.e("TAG", "onFailure: " + t.getMessage());
-                Glob.dialog.dismiss();
+                progressDialog.dismiss();
             }
         });
 
@@ -396,24 +414,25 @@ public class SignIn extends AppCompatActivity {
                     }
                 });
     }
+
     public void addFcmToken(String token, String doctor_id, String fcm_token) {
         Api call = RetrofitClient.getClient(Glob.Base_Url).create(Api.class);
-        Glob.dialog.show();
+        progressDialog.show();
 
         call.addFcmToken(token, doctor_id, fcm_token).enqueue(new Callback<CommonModel>() {
             @Override
             public void onResponse(Call<CommonModel> call, Response<CommonModel> response) {
                 CommonModel commonModel = response.body();
 
-                Toast.makeText(getApplicationContext(), "" + commonModel.getMessage(), Toast.LENGTH_SHORT).show();
-                Glob.dialog.dismiss();
+//                Toast.makeText(getApplicationContext(), "" + commonModel.getMessage(), Toast.LENGTH_SHORT).show();
+                progressDialog.dismiss();
             }
 
             @Override
             public void onFailure(Call<CommonModel> call, Throwable t) {
 
-                Toast.makeText(getApplicationContext(), "" + t.getMessage(), Toast.LENGTH_SHORT).show();
-                Glob.dialog.dismiss();
+//                Toast.makeText(getApplicationContext(), "" + t.getMessage(), Toast.LENGTH_SHORT).show();
+                progressDialog.dismiss();
 
             }
         });

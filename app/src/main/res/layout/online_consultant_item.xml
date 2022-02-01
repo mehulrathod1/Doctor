@@ -115,7 +115,7 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="0.6"
-                    android:gravity="center_vertical"
+                    android:gravity="bottom"
                     android:orientation="vertical">
 
                     <TextView
@@ -124,6 +124,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="@dimen/_24sdp"
                         android:text="@string/Pending"
+                        android:visibility="gone"
                         android:textColor="#D68100"
                         android:textSize="@dimen/_12sdp" />
 
@@ -131,8 +132,8 @@
                         android:id="@+id/Price"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/_24sdp"
                         android:text="$199"
+                        android:layout_marginBottom="@dimen/_14sdp"
                         android:textColor="@color/black_text_color"
                         android:textSize="@dimen/_16sdp"
                         android:textStyle="bold" />

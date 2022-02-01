@@ -233,6 +233,7 @@ public class Home extends AppCompatActivity {
                         moveNext(AccountSetting.class);
                         drawerLayout.close();
                         break;
+
                     case R.id.Logout:
 //                        SharedPreferences.Editor editor = getSharedPreferences("MyPref", MODE_PRIVATE).edit();
 //                        editor.remove("token");
