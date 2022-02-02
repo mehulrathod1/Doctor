@@ -118,7 +118,6 @@ public class OnlineConsultants extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(mLayoutManager);
         adapter.notifyDataSetChanged();
