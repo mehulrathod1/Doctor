@@ -350,6 +350,7 @@ public class VideoCallScreen extends AppCompatActivity {
     public void onCallClicked(View view) {
 
         endCall();
+        finish();
         Intent intent = new Intent(getApplicationContext(), Home.class);
         startActivity(intent);
 //        if (mCallEnd) {

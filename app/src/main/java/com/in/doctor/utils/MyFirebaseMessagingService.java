@@ -27,7 +27,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
     @Override
     public void onMessageReceived(RemoteMessage remoteMessage) {
 
-        showNotification(remoteMessage.getNotification().getTitle(), remoteMessage.getNotification().getBody(),remoteMessage);
+        showNotification(remoteMessage.getNotification().getTitle(), remoteMessage.getNotification().getBody(), remoteMessage);
 
         Log.d("TAG", "Fro00000m: " + remoteMessage.getData().get("chanel_name"));
 
@@ -61,17 +61,17 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         Log.e("TAG", "message:" + message);
         Log.e("TAG", "click:" + click);
 
-        }
+    }
 
 
-    public void showNotification(String title, String message,RemoteMessage remoteMessage) {
+    public void showNotification(String title, String message, RemoteMessage remoteMessage) {
 
 
         String channel_name = remoteMessage.getData().get("chanel_name");
 
 
         Intent intent = new Intent(this, VideoCallScreen.class);
-        intent.putExtra("channel",channel_name);
+        intent.putExtra("channel", channel_name);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
 
 
@@ -80,7 +80,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this, "myNotification");
         builder.setContentTitle(title)
-                .setSmallIcon(R.drawable.logo_white)
+                .setSmallIcon(R.drawable.ic_baseline_arrow_forward_24)
                 .setAutoCancel(true)
                 .setSound(Settings.System.DEFAULT_NOTIFICATION_URI)
                 .setContentText(message)
@@ -94,6 +94,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         NotificationManager manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
         manager.notify(0, builder.build());
     }
+
     @Override
     public void onDeletedMessages() {
 

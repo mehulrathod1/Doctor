@@ -57,7 +57,6 @@ public class BookingDetail extends AppCompatActivity {
             patient_blood_group, patient_gender, patient_marital_status, alcohol_consumption, smoking_consumption, workout, sport, allergies,
             chronic_disease, medication, injury, chat, video_chat, audio_call, upload_report_file;
 
-
     String patient_id,booking_idd;
 
     ImageView profile_image;
