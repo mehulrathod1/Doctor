@@ -323,7 +323,7 @@ public class SignIn extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<SignInModel> call, Throwable t) {
-//                Toast.makeText(getApplicationContext(), "Please enter valid detail", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Please enter valid detail", Toast.LENGTH_SHORT).show();
                 Log.e("TAG", "onFailure: " + t.getMessage());
                 progressDialog.dismiss();
             }
@@ -431,7 +431,7 @@ public class SignIn extends AppCompatActivity {
             @Override
             public void onFailure(Call<CommonModel> call, Throwable t) {
 
-//                Toast.makeText(getApplicationContext(), "" + t.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "" + t.getMessage(), Toast.LENGTH_SHORT).show();
                 progressDialog.dismiss();
 
             }

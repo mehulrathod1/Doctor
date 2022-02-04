@@ -11,6 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.in.doctor.R;
 import com.in.doctor.model.OnlineConsultantModel;
 
@@ -46,9 +47,14 @@ public class OnlineConsultantAdapter extends RecyclerView.Adapter<OnlineConsulta
         OnlineConsultantModel.Consultant model = list.get(position);
         holder.BookingId.setText(model.getBookingID());
         holder.DoctorName.setText(model.getPatientName());
-        holder.CityName.setText(model.getLocation());
-        holder.Price.setText(model.getFees() +" ₹");
+        holder.CityName.setText(model.getPatientAge() + "  year");
+        holder.Price.setText(model.getFees() + " ₹");
         holder.Status.setText(model.getStatus());
+
+
+        Glide.with(context)
+                .load(model.getProfilePic())
+                .into(holder.profileImage);
 
         holder.viewBookingDetail.setOnClickListener(new View.OnClickListener() {
             @Override

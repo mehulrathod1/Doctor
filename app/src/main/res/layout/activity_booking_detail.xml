@@ -200,6 +200,40 @@
                             </LinearLayout>
 
                             <LinearLayout
+                                android:id="@+id/ll_booking_for"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_8sdp"
+                                android:orientation="horizontal"
+                                android:weightSum="10">
+
+                                <TextView
+                                    style="@style/m_semi_14"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="2"
+                                    android:text="@string/Booking_for" />
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="0.5"
+                                    android:text="   -   "
+                                    android:textColor="@color/action_mode_color_edt"
+                                    android:textSize="@dimen/_14sdp" />
+
+                                <TextView
+                                    android:id="@+id/booking_for"
+                                    style="@style/m_semi_14"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="7.5"
+                                    android:text="Lorem ipsum."
+                                    android:textColor="@color/action_mode_color_edt" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="@dimen/_8sdp"
@@ -270,6 +304,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/ll_patient_detail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_12sdp"
@@ -313,6 +348,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="@dimen/_8sdp"
                                 android:orientation="horizontal"
+                                android:visibility="gone"
                                 android:weightSum="10">
 
                                 <TextView
@@ -346,6 +382,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="@dimen/_8sdp"
                                 android:orientation="horizontal"
+                                android:visibility="gone"
                                 android:weightSum="10">
 
                                 <TextView
@@ -538,11 +575,323 @@
                                     android:textColor="@color/action_mode_color_edt" />
 
                             </LinearLayout>
+
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_8sdp"
+                                android:orientation="horizontal"
+                                android:weightSum="10">
+
+                                <TextView
+                                    style="@style/m_semi_14"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="2"
+                                    android:text="Patient Comment" />
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="0.5"
+                                    android:text="   -   "
+                                    android:textColor="@color/action_mode_color_edt"
+                                    android:textSize="@dimen/_14sdp" />
+
+                                <TextView
+                                    android:id="@+id/patient_comment"
+                                    style="@style/m_semi_14"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="7.5"
+                                    android:maxLines="4"
+                                    android:textColor="@color/action_mode_color_edt" />
+
+                            </LinearLayout>
                         </LinearLayout>
 
 
                     </LinearLayout>
                 </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_relative_detail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:background="@color/white"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_12sdp"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                style="@style/m_semi_18"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_35sdp"
+                                android:gravity="center_vertical"
+                                android:text="Relative detail" />
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_1sdp"
+                                android:layout_marginTop="@dimen/_4sdp"
+                                android:layout_marginBottom="@dimen/_4sdp"
+                                android:background="@color/action_mode_color_edt" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_8sdp"
+                                android:orientation="horizontal"
+                                android:weightSum="10">
+
+                                <TextView
+                                    style="@style/m_semi_14"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="2"
+                                    android:text="Relative Name" />
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="0.5"
+                                    android:text="   -   "
+                                    android:textColor="@color/action_mode_color_edt"
+                                    android:textSize="@dimen/_14sdp" />
+
+                                <TextView
+                                    android:id="@+id/relative_name"
+                                    style="@style/m_semi_14"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="7.5"
+                                    android:text="Lorem ipsum."
+                                    android:textColor="@color/action_mode_color_edt" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_8sdp"
+                                android:orientation="horizontal"
+                                android:weightSum="10">
+
+                                <TextView
+                                    style="@style/m_semi_14"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="2"
+                                    android:text="Relation" />
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="0.5"
+                                    android:text="   -   "
+                                    android:textColor="@color/action_mode_color_edt"
+                                    android:textSize="@dimen/_14sdp" />
+
+                                <TextView
+                                    android:id="@+id/relative_relation"
+                                    style="@style/m_semi_14"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="7.5"
+                                    android:text="Lorem ipsum."
+                                    android:textColor="@color/action_mode_color_edt" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_8sdp"
+                                android:orientation="horizontal"
+                                android:weightSum="10">
+
+                                <TextView
+                                    style="@style/m_semi_14"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="2"
+                                    android:text="@string/age" />
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="0.5"
+                                    android:text="   -   "
+                                    android:textColor="@color/action_mode_color_edt"
+                                    android:textSize="@dimen/_14sdp" />
+
+                                <TextView
+                                    android:id="@+id/relative_age"
+                                    style="@style/m_semi_14"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="7.5"
+                                    android:text="Lorem ipsum."
+                                    android:textColor="@color/action_mode_color_edt" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_8sdp"
+                                android:orientation="horizontal"
+                                android:weightSum="10">
+
+                                <TextView
+                                    style="@style/m_semi_14"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="2"
+                                    android:text="@string/Blood_group" />
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="0.5"
+                                    android:text="   -   "
+                                    android:textColor="@color/action_mode_color_edt"
+                                    android:textSize="@dimen/_14sdp" />
+
+                                <TextView
+                                    android:id="@+id/relative_blood_group"
+                                    style="@style/m_semi_14"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="7.5"
+                                    android:text="Lorem ipsum."
+                                    android:textColor="@color/action_mode_color_edt" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_8sdp"
+                                android:orientation="horizontal"
+                                android:weightSum="10">
+
+                                <TextView
+                                    style="@style/m_semi_14"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="2"
+                                    android:text="@string/Gender" />
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="0.5"
+                                    android:text="   -   "
+                                    android:textColor="@color/action_mode_color_edt"
+                                    android:textSize="@dimen/_14sdp" />
+
+                                <TextView
+                                    android:id="@+id/relative_gender"
+                                    style="@style/m_semi_14"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="7.5"
+                                    android:text="Lorem ipsum."
+                                    android:textColor="@color/action_mode_color_edt" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_8sdp"
+                                android:orientation="horizontal"
+                                android:weightSum="10">
+
+                                <TextView
+                                    style="@style/m_semi_14"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="2"
+                                    android:text="@string/Marital" />
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="0.5"
+                                    android:text="   -   "
+                                    android:textColor="@color/action_mode_color_edt"
+                                    android:textSize="@dimen/_14sdp" />
+
+                                <TextView
+                                    android:id="@+id/relative_marital_status"
+                                    style="@style/m_semi_14"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="7.5"
+                                    android:text="Lorem ipsum."
+                                    android:textColor="@color/action_mode_color_edt" />
+
+                            </LinearLayout>
+
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_8sdp"
+                                android:orientation="horizontal"
+                                android:weightSum="10">
+
+                                <TextView
+                                    style="@style/m_semi_14"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="2"
+                                    android:text="Patient Comment" />
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="0.5"
+                                    android:text="   -   "
+                                    android:textColor="@color/action_mode_color_edt"
+                                    android:textSize="@dimen/_14sdp" />
+
+                                <TextView
+                                    android:id="@+id/relative_comment"
+                                    style="@style/m_semi_14"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="7.5"
+                                    android:maxLines="4"
+                                    android:textColor="@color/action_mode_color_edt" />
+
+                            </LinearLayout>
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+                </LinearLayout>
+
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -551,6 +900,7 @@
                     android:orientation="vertical">
 
                     <LinearLayout
+                        android:id="@+id/ll_life_clinic"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="@dimen/_12sdp"
@@ -713,7 +1063,6 @@
 
                             </LinearLayout>
 
-
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
@@ -848,69 +1197,93 @@
                             </LinearLayout>
 
 
-                            <TextView
-                                style="@style/m_semi_14"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="@dimen/_28sdp"
-                                android:text="@string/Upload_Report_File"
-                                android:textColor="@color/action_mode_color_edt" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_12sdp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/m_semi_14"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_12sdp"
+                            android:text="@string/Upload_Report_File"
+                            android:textColor="@color/action_mode_color_edt" />
+
+
+                        <TextView
+                            android:id="@+id/download_patient_report"
+                            style="@style/m_semi_14"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_40sdp"
+                            android:layout_marginTop="@dimen/_14sdp"
+                            android:height="@dimen/_30sdp"
+                            android:background="@drawable/time_bg"
+                            android:gravity="center"
+                            android:text="Download Patient Report"
+                            android:textColor="@color/action_mode_color_edt" />
+
+                        <TextView
+                            android:id="@+id/upload_report_file"
+                            style="@style/m_semi_14"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_40sdp"
+                            android:layout_marginTop="@dimen/_14sdp"
+                            android:height="@dimen/_30sdp"
+                            android:background="@drawable/time_bg"
+                            android:visibility="gone"
+                            android:gravity="center"
+                            android:text="Upload Prescription"
+                            android:textColor="@color/action_mode_color_edt" />
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_18sdp"
+                            android:orientation="vertical">
 
                             <TextView
-                                android:id="@+id/upload_report_file"
-                                style="@style/m_semi_14"
+                                android:id="@+id/chat"
                                 android:layout_width="match_parent"
                                 android:layout_height="@dimen/_40sdp"
-                                android:layout_marginTop="@dimen/_14sdp"
-                                android:height="@dimen/_30sdp"
                                 android:background="@drawable/time_bg"
+                                android:fontFamily="@font/montserrat_semi_bold"
                                 android:gravity="center"
-                                android:text="@string/Upload_Report_File"
-                                android:textColor="@color/action_mode_color_edt" />
+                                android:text="@string/Chat"
+                                android:visibility="gone"
+                                android:textColor="@color/action_mode_color_edt"
+                                android:textSize="@dimen/_14sdp" />
 
-
-                            <LinearLayout
+                            <TextView
+                                android:id="@+id/audio_call"
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
+                                android:layout_height="@dimen/_40sdp"
                                 android:layout_marginTop="@dimen/_18sdp"
-                                android:orientation="vertical">
+                                android:background="@drawable/time_bg"
+                                android:fontFamily="@font/montserrat_semi_bold"
+                                android:gravity="center"
+                                android:text="@string/Start_Audio_Call"
+                                android:textColor="@color/action_mode_color_edt"
+                                android:textSize="@dimen/_20sdp"
+                                android:visibility="gone" />
 
-                                <TextView
-                                    android:id="@+id/chat"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="@dimen/_40sdp"
-                                    android:background="@drawable/time_bg"
-                                    android:fontFamily="@font/montserrat_semi_bold"
-                                    android:gravity="center"
-                                    android:text="@string/Chat"
-                                    android:textColor="@color/action_mode_color_edt"
-                                    android:textSize="@dimen/_20sdp" />
-
-                                <TextView
-                                    android:id="@+id/audio_call"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="@dimen/_40sdp"
-                                    android:layout_marginTop="@dimen/_18sdp"
-                                    android:background="@drawable/time_bg"
-                                    android:fontFamily="@font/montserrat_semi_bold"
-                                    android:gravity="center"
-                                    android:text="@string/Start_Audio_Call"
-                                    android:textColor="@color/action_mode_color_edt"
-                                    android:textSize="@dimen/_20sdp"
-                                    android:visibility="gone" />
-
-                                <TextView
-                                    android:id="@+id/video_chat"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="@dimen/_40sdp"
-                                    android:layout_marginTop="@dimen/_18sdp"
-                                    android:background="@color/action_mode_color"
-                                    android:fontFamily="@font/montserrat_semi_bold"
-                                    android:gravity="center"
-                                    android:text="@string/Start_Video"
-                                    android:textColor="@color/white"
-                                    android:textSize="@dimen/_20sdp" />
-                            </LinearLayout>
+                            <TextView
+                                android:id="@+id/video_chat"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_40sdp"
+                                android:layout_marginTop="@dimen/_18sdp"
+                                android:background="@color/action_mode_color"
+                                android:fontFamily="@font/montserrat_semi_bold"
+                                android:gravity="center"
+                                android:text="@string/Start_Video"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/_14sdp" />
                         </LinearLayout>
                     </LinearLayout>
                 </LinearLayout>

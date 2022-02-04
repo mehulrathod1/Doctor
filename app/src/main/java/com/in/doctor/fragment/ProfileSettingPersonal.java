@@ -182,6 +182,7 @@ public class ProfileSettingPersonal extends Fragment {
                                      String experience, String address, File Profile_image, String about) {
 
 
+
         Api call = RetrofitClient.getClient(Glob.Base_Url).create(Api.class);
         Glob.dialog.show();
 

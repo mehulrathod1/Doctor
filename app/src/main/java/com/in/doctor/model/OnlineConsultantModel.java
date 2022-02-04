@@ -73,8 +73,16 @@ public class OnlineConsultantModel {
         @Expose
         String Status;
 
+        @SerializedName("Profile Pic")
+        @Expose
+        String ProfilePic;
 
-        public Consultant(String bookingID, String patientName, String bookingTime, String bookingDate, String fees, String location, String status) {
+        @SerializedName("Patient Age")
+        @Expose
+        String PatientAge;
+
+
+        public Consultant(String bookingID, String patientName, String bookingTime, String bookingDate, String fees, String location, String status, String profilePic, String patientAge) {
             BookingID = bookingID;
             PatientName = patientName;
             this.bookingTime = bookingTime;
@@ -82,6 +90,24 @@ public class OnlineConsultantModel {
             Fees = fees;
             Location = location;
             Status = status;
+            ProfilePic = profilePic;
+            PatientAge = patientAge;
+        }
+
+        public String getProfilePic() {
+            return ProfilePic;
+        }
+
+        public void setProfilePic(String profilePic) {
+            ProfilePic = profilePic;
+        }
+
+        public String getPatientAge() {
+            return PatientAge;
+        }
+
+        public void setPatientAge(String patientAge) {
+            PatientAge = patientAge;
         }
 
         public String getBookingID() {

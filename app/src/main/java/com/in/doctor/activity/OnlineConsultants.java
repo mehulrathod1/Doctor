@@ -81,19 +81,16 @@ public class OnlineConsultants extends AppCompatActivity {
                 for (int i = 0; i < dataList.size(); i++) {
 
                     OnlineConsultantModel.Consultant model = dataList.get(i);
-
-
                     OnlineConsultantModel.Consultant data = new OnlineConsultantModel.Consultant(
                             model.getBookingID(), model.getPatientName(),
                             model.getBookingTime(), model.getBookingDate(),
-                            model.getFees(), model.getLocation(), model.getStatus()
-                    );
+                            model.getFees(), model.getLocation(), model.getStatus(), model.getProfilePic(),
+                            model.getPatientAge());
                     list.add(data);
-
                 }
+
                 recyclerData();
                 Glob.dialog.dismiss();
-
             }
 
             @Override

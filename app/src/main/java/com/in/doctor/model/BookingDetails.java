@@ -22,6 +22,18 @@ public class BookingDetails{
 	@SerializedName("Fees")
 	private String fees;
 
+	@SerializedName("Booking For")
+	private String BookingFor;
+
+
+	public String getBookingFor() {
+		return BookingFor;
+	}
+
+	public void setBookingFor(String bookingFor) {
+		BookingFor = bookingFor;
+	}
+
 	public String getBookingID(){
 		return bookingID;
 	}
