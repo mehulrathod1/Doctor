@@ -1,7 +1,5 @@
 package com.in.doctor.utils;
 
-import static com.google.firebase.messaging.Constants.MessagePayloadKeys.SENDER_ID;
-
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
@@ -11,29 +9,45 @@ import android.media.RingtoneManager;
 import android.net.Uri;
 import android.provider.Settings;
 import android.util.Log;
+import android.widget.Toast;
 
 import androidx.core.app.NotificationCompat;
 
-import com.google.firebase.messaging.FirebaseMessaging;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 import com.in.doctor.R;
 import com.in.doctor.activity.VideoCallScreen;
 import com.in.doctor.global.Glob;
 
+
 public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
 
+    String TAG = "MyFirebaseMessagingService";
+
     @Override
     public void onMessageReceived(RemoteMessage remoteMessage) {
+        super.onMessageReceived(remoteMessage);
 
         showNotification(remoteMessage.getNotification().getTitle(), remoteMessage.getNotification().getBody(), remoteMessage);
 
-        Log.d("TAG", "Fro00000m: " + remoteMessage.getData().get("chanel_name"));
+        Log.d(TAG, "Fro00000m: " + remoteMessage.getData().get("chanel_name"));
+
 
         if (remoteMessage.getData().size() > 0) {
-            Log.e("TAG", "Message data payload: " + remoteMessage.getData());
+            Log.e(TAG, "Message data payload: " + remoteMessage.getData());
 
+            String jsonMessage = remoteMessage.getData().get("chanel_name");
+            Log.e(TAG, "onMessageReceived:" + jsonMessage);
+            Glob.channel_name = jsonMessage;
+
+
+            if (!jsonMessage.equals("")) {
+                Intent intent = new Intent(this, VideoCallScreen.class);
+                intent.putExtra("channel_name", jsonMessage);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);
+            }
 //            JSONObject data = new JSONObject(remoteMessage.getData());
 //            try {
 //
@@ -49,20 +63,25 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 //            }
 
         }
-        String jsonMessage = remoteMessage.getData().get("chanel_name");
-        Log.e("TAG", "onMessageReceived:" + jsonMessage);
-        Glob.channel_name = jsonMessage;
+
+
+//        String jsonMessage = remoteMessage.getData().get("chanel_name");
+//        Log.e(TAG, "onMessageReceived:" + jsonMessage);
+//        Glob.channel_name = jsonMessage;
 
         String title = remoteMessage.getNotification().getTitle();
         String message = remoteMessage.getNotification().getBody();
         String click = remoteMessage.getNotification().getClickAction();
 
         Log.e("tittllrlrr", "title :" + title);
-        Log.e("TAG", "message:" + message);
-        Log.e("TAG", "click:" + click);
+        Log.e(TAG, "message:" + message);
+        Log.e(TAG, "click:" + click);
+
+
+        String channel_name = remoteMessage.getData().get("chanel_name");
+
 
     }
-
 
     public void showNotification(String title, String message, RemoteMessage remoteMessage) {
 
@@ -78,14 +97,22 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 1, intent, PendingIntent.FLAG_ONE_SHOT);
 
 
+//        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, "myNotification");
+//        builder.setContentTitle(title)
+//                .setSmallIcon(R.drawable.ic_baseline_arrow_forward_24)
+//                .setAutoCancel(true)
+//                .setSound(Settings.System.DEFAULT_NOTIFICATION_URI)
+//                .setContentText(message)
+//                .setContentIntent(pendingIntent)
+//                .setAutoCancel(true);
+
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this, "myNotification");
         builder.setContentTitle(title)
                 .setSmallIcon(R.drawable.ic_baseline_arrow_forward_24)
                 .setAutoCancel(true)
                 .setSound(Settings.System.DEFAULT_NOTIFICATION_URI)
                 .setContentText(message)
-                .setContentIntent(pendingIntent)
-                .setAutoCancel(true);
+                .setContentIntent(pendingIntent);
 
         Uri notification = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
         Ringtone r = RingtoneManager.getRingtone(getApplicationContext(), notification);
@@ -94,6 +121,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         NotificationManager manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
         manager.notify(0, builder.build());
     }
+
 
     @Override
     public void onDeletedMessages() {

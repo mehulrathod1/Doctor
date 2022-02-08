@@ -158,11 +158,11 @@
                                     android:src="@drawable/rectangle_1" />
 
                                 <TextView
+                                    style="@style/m_regular_12"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:gravity="center"
-                                    android:text="@string/Doctor_Consultation"
-                                    style="@style/m_regular_12"/>
+                                    android:text="online consultation" />
                             </LinearLayout>
 
                             <LinearLayout
@@ -177,14 +177,14 @@
                                 <ImageView
                                     android:layout_width="match_parent"
                                     android:layout_height="78dp"
-                                    android:src="@drawable/rectangle_2" />
+                                    android:src="@drawable/rectangle_1" />
 
                                 <TextView
+                                    style="@style/m_regular_12"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:gravity="center"
-                                    android:text="@string/Home_Care_Servicies"
-                                    style="@style/m_regular_12"/>
+                                    android:text="Completed Assignment" />
                             </LinearLayout>
 
                             <LinearLayout
@@ -198,14 +198,14 @@
                                 <ImageView
                                     android:layout_width="match_parent"
                                     android:layout_height="@dimen/_80sdp"
-                                    android:src="@drawable/rectangle_3" />
+                                    android:src="@drawable/rectangle_1" />
 
                                 <TextView
+                                    style="@style/m_regular_12"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:gravity="center"
-                                    android:text="@string/Lab_Tests"
-                                    style="@style/m_regular_12" />
+                                    android:text="My Review" />
                             </LinearLayout>
 
                             <LinearLayout
@@ -219,14 +219,14 @@
                                 <ImageView
                                     android:layout_width="match_parent"
                                     android:layout_height="@dimen/_80sdp"
-                                    android:src="@drawable/rectangle_2" />
+                                    android:src="@drawable/rectangle_1" />
 
                                 <TextView
+                                    style="@style/m_regular_12"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:gravity="center"
-                                    android:text="@string/Medicine"
-                                    style="@style/m_regular_12"/>
+                                    android:text="My question" />
                             </LinearLayout>
 
                         </LinearLayout>
@@ -250,14 +250,14 @@
                                 <ImageView
                                     android:layout_width="match_parent"
                                     android:layout_height="@dimen/_80sdp"
-                                    android:src="@drawable/rectangle_4" />
+                                    android:src="@drawable/rectangle_1" />
 
                                 <TextView
+                                    style="@style/m_regular_12"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:gravity="center"
-                                    android:text="@string/Health_care"
-                                    style="@style/m_regular_12" />
+                                    android:text="@string/Billing_segment" />
                             </LinearLayout>
 
                             <LinearLayout
@@ -272,14 +272,14 @@
                                 <ImageView
                                     android:layout_width="match_parent"
                                     android:layout_height="@dimen/_80sdp"
-                                    android:src="@drawable/rectangle5" />
+                                    android:src="@drawable/rectangle_1" />
 
                                 <TextView
+                                    style="@style/m_regular_12"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:gravity="center"
-                                    android:text="@string/Stress_buster_zone"
-                                    style="@style/m_regular_12"/>
+                                    android:text="Profile Setting" />
                             </LinearLayout>
 
                             <LinearLayout
@@ -293,14 +293,14 @@
                                 <ImageView
                                     android:layout_width="match_parent"
                                     android:layout_height="@dimen/_80sdp"
-                                    android:src="@drawable/rectangle_4" />
+                                    android:src="@drawable/rectangle_1" />
 
                                 <TextView
+                                    style="@style/m_regular_12"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:gravity="center"
-                                    android:text="@string/Ask_Questions"
-                                    style="@style/m_regular_12"/>
+                                    android:text="Account setting" />
 
                             </LinearLayout>
 
@@ -315,16 +315,15 @@
                                 <ImageView
                                     android:layout_width="match_parent"
                                     android:layout_height="@dimen/_80sdp"
-                                    android:src="@drawable/rectangle_6" />
+                                    android:src="@drawable/rectangle_1" />
 
                                 <TextView
+                                    style="@style/m_regular_12"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:gravity="center"
-                                    android:text="@string/Knowledge_Forum"
-                                    style="@style/m_regular_12"/>
+                                    android:text="Revenue" />
                             </LinearLayout>
-
                         </LinearLayout>
 
                     </LinearLayout>
@@ -472,11 +471,10 @@
 
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:fontFamily="@font/montserrat_semi_bold"
                                     android:text="@string/Health_Checkup_at_Home"
                                     android:textColor="@color/action_mode_color"
-                                    android:textSize="@dimen/_18sdp"
-                                    android:fontFamily="@font/montserrat_semi_bold"
-                                     />
+                                    android:textSize="@dimen/_18sdp" />
 
                                 <TextView
                                     android:id="@+id/viewAllCheckup"

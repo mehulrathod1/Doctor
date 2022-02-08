@@ -65,7 +65,7 @@ public class BookingDetail extends AppCompatActivity {
 
 
     String TAG = "BookingDetail";
-    TextView relative_relation, relative_name, relative_age, relative_blood_group, relative_gender, relative_marital_status, relative_comment, booking_for, patient_comment, patient_name, bookingId, booking_date, booking_time, booking_status, payment_status, patient_email, patient_number, patient_address, patient_age,
+    TextView appointment_time, appointment_date, relative_relation, relative_name, relative_age, relative_blood_group, relative_gender, relative_marital_status, relative_comment, booking_for, patient_comment, patient_name, bookingId, booking_date, booking_time, booking_status, payment_status, patient_email, patient_number, patient_address, patient_age,
             patient_blood_group, patient_gender, patient_marital_status, alcohol_consumption, smoking_consumption, workout, sport, allergies,
             chronic_disease, medication, injury, chat, video_chat, audio_call, upload_report_file, download_patient_report;
 
@@ -140,9 +140,11 @@ public class BookingDetail extends AppCompatActivity {
         relative_gender = findViewById(R.id.relative_gender);
         relative_marital_status = findViewById(R.id.relative_marital_status);
         relative_comment = findViewById(R.id.relative_comment);
+        appointment_date = findViewById(R.id.appointment_date);
+        appointment_time = findViewById(R.id.appointment_time);
+
 
         Glob.progressDialog(this);
-
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -284,6 +286,8 @@ public class BookingDetail extends AppCompatActivity {
                 patient_name.setText(patientPersonal.getPatientName());
                 report_download = patientPersonal.getPatientDocument();
                 patient_comment.setText(patientPersonal.getPatientComments());
+                appointment_time.setText(bookingDetails.getAppointmentTime());
+                appointment_date.setText(bookingDetails.getAppointmentDate());
                 bookingId.setText(bookingDetails.getBookingID());
                 booking_for.setText(bookingDetails.getBookingFor());
                 booking_date.setText(bookingDetails.getBookingDate());
@@ -317,7 +321,6 @@ public class BookingDetail extends AppCompatActivity {
                 booking_idd = bookingDetails.getBookingID();
                 patient_id = patientPersonal.getPatientId();
 
-
                 date_and_time = bookingDetails.getBookingDate() + " " + bookingDetails.getBookingTime();
                 Calendar compDate = Calendar.getInstance();
                 compDate.add(Calendar.MINUTE, 5);
@@ -326,12 +329,14 @@ public class BookingDetail extends AppCompatActivity {
                 String temp = "2022-02-03 12:10:00";// date_and_time
 
                 Log.e("boosdfghjl", "onResponse: " + (date_and_time));
+
 //                Log.e("demo", "onResponse: "+getCurrentDateTime.(temp)+ "---"+getCurrentDateTime +"-----" +temp);
 
                 SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy hh:mm a");
                 //Parsing the given String to Date object
                 Date date1 = null;
                 try {
+
                     date1 = formatter.parse(getCurrentDateTime);
                     Date date2 = formatter.parse(date_and_time);
                     Boolean bool1 = date1.after(date2);

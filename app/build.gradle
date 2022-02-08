@@ -7,6 +7,10 @@ android {
     compileSdk 30
 
     defaultConfig {
+
+        configurations.all {
+            resolutionStrategy { force 'androidx.core:core:1.6.0' }
+        }
         applicationId "com.in.doctor"
         minSdk 23
         targetSdk 30

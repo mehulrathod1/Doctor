@@ -200,6 +200,72 @@
                             </LinearLayout>
 
                             <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_8sdp"
+                                android:orientation="horizontal"
+                                android:weightSum="10">
+
+                                <TextView
+                                    style="@style/m_semi_14"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="2"
+                                    android:text="@string/Appointment_Date" />
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="0.5"
+                                    android:text="   -   "
+                                    android:textColor="@color/action_mode_color_edt"
+                                    android:textSize="@dimen/_14sdp" />
+
+                                <TextView
+                                    android:id="@+id/appointment_date"
+                                    style="@style/m_semi_14"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="7.5"
+                                    android:text="Lorem ipsum."
+                                    android:textColor="@color/action_mode_color_edt" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_8sdp"
+                                android:orientation="horizontal"
+                                android:weightSum="10">
+
+                                <TextView
+                                    style="@style/m_semi_14"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="2"
+                                    android:text="Appointment Time" />
+
+                                <TextView
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="0.5"
+                                    android:text="   -   "
+                                    android:textColor="@color/action_mode_color_edt"
+                                    android:textSize="@dimen/_14sdp" />
+
+                                <TextView
+                                    android:id="@+id/appointment_time"
+                                    style="@style/m_semi_14"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="7.5"
+                                    android:text="Lorem ipsum."
+                                    android:textColor="@color/action_mode_color_edt" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
                                 android:id="@+id/ll_booking_for"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
@@ -1236,10 +1302,10 @@
                             android:layout_marginTop="@dimen/_14sdp"
                             android:height="@dimen/_30sdp"
                             android:background="@drawable/time_bg"
-                            android:visibility="gone"
                             android:gravity="center"
                             android:text="Upload Prescription"
-                            android:textColor="@color/action_mode_color_edt" />
+                            android:textColor="@color/action_mode_color_edt"
+                            android:visibility="gone" />
 
 
                         <LinearLayout
@@ -1256,9 +1322,9 @@
                                 android:fontFamily="@font/montserrat_semi_bold"
                                 android:gravity="center"
                                 android:text="@string/Chat"
-                                android:visibility="gone"
                                 android:textColor="@color/action_mode_color_edt"
-                                android:textSize="@dimen/_14sdp" />
+                                android:textSize="@dimen/_14sdp"
+                                android:visibility="gone" />
 
                             <TextView
                                 android:id="@+id/audio_call"
