@@ -39,15 +39,16 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
             String jsonMessage = remoteMessage.getData().get("chanel_name");
             Log.e(TAG, "onMessageReceived:" + jsonMessage);
-            Glob.channel_name = jsonMessage;
 
-
-            if (!jsonMessage.equals("")) {
-                Intent intent = new Intent(this, VideoCallScreen.class);
-                intent.putExtra("channel_name", jsonMessage);
-                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                startActivity(intent);
-            }
+//            Glob.channel_name = jsonMessage;
+//
+//
+//            if (!jsonMessage.equals("")) {
+//                Intent intent = new Intent(this, VideoCallScreen.class);
+//                intent.putExtra("channel_name", jsonMessage);
+//                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+//                startActivity(intent);
+//            }
 //            JSONObject data = new JSONObject(remoteMessage.getData());
 //            try {
 //
@@ -87,12 +88,9 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
 
         String channel_name = remoteMessage.getData().get("chanel_name");
-
-
         Intent intent = new Intent(this, VideoCallScreen.class);
-        intent.putExtra("channel", channel_name);
+        intent.putExtra("channel_name", channel_name);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-
 
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 1, intent, PendingIntent.FLAG_ONE_SHOT);
 
