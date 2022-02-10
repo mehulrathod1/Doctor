@@ -11,7 +11,8 @@
 
     <item
         android:id="@+id/BookingRequest"
-        android:title="@string/my_booking_request" />
+        android:title="@string/my_booking_request"
+        android:visible="false" />
     <item
         android:id="@+id/BookedAppointment"
         android:title="@string/my_booked_appointment" />
@@ -37,5 +38,4 @@
     <item
         android:id="@+id/Logout"
         android:title="@string/logout" />
-
 </menu>

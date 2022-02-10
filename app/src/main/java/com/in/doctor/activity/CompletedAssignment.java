@@ -12,10 +12,18 @@ import android.widget.TextView;
 
 import com.in.doctor.R;
 import com.in.doctor.adapter.CompletedAssignmentAdapter;
+import com.in.doctor.global.Glob;
 import com.in.doctor.model.CompleteAssignmentModel;
+import com.in.doctor.model.GetFcmTokenModel;
+import com.in.doctor.retrofit.Api;
+import com.in.doctor.retrofit.RetrofitClient;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class CompletedAssignment extends AppCompatActivity {
 
@@ -23,7 +31,7 @@ public class CompletedAssignment extends AppCompatActivity {
     TextView headerTitle;
     RecyclerView recyclerView;
     CompletedAssignmentAdapter adapter;
-    List<CompleteAssignmentModel> list = new ArrayList<>();
+    List<CompleteAssignmentModel.Assignment> list = new ArrayList<>();
 
 
     @Override
@@ -32,11 +40,13 @@ public class CompletedAssignment extends AppCompatActivity {
         setContentView(R.layout.activity_completed_assignment);
         getSupportActionBar().hide();
         init();
-        recyclerData();
+        getCompleteAssignment(Glob.Token, Glob.user_id);
     }
 
 
     public void init() {
+
+        Glob.progressDialog(this);
         nevBack = findViewById(R.id.nevBack);
         headerTitle = findViewById(R.id.header_title);
         recyclerView = findViewById(R.id.recycler);
@@ -51,16 +61,40 @@ public class CompletedAssignment extends AppCompatActivity {
         });
     }
 
-    public void recyclerData() {
 
-        CompleteAssignmentModel model = new CompleteAssignmentModel("9956328", "27/09/2021", "$199 ");
-        list.add(model);
-        list.add(model);
-        list.add(model);
-        list.add(model);
-        list.add(model);
-        list.add(model);
-        list.add(model);
+    public void getCompleteAssignment(String token, String doctorID) {
+
+        Api call = RetrofitClient.getClient(Glob.Base_Url).create(Api.class);
+        Glob.dialog.show();
+
+        call.getCompletedAssignment(token, doctorID).enqueue(new Callback<CompleteAssignmentModel>() {
+            @Override
+            public void onResponse(Call<CompleteAssignmentModel> call, Response<CompleteAssignmentModel> response) {
+
+                CompleteAssignmentModel model = response.body();
+
+                List<CompleteAssignmentModel.Assignment> dataList = model.getCompleteAssignment();
+
+                for (int i = 0; i < dataList.size(); i++) {
+
+                    CompleteAssignmentModel.Assignment data = dataList.get(i);
+                    CompleteAssignmentModel.Assignment dataa = new CompleteAssignmentModel.Assignment(data.getBooking_id(),
+                            data.getAppointment_date(), data.getAmount_paid() + "  ₹", data.getPatient_id(), data.getPatient_document());
+                    list.add(dataa);
+                    Glob.dialog.dismiss();
+                }
+                recyclerData();
+            }
+
+            @Override
+            public void onFailure(Call<CompleteAssignmentModel> call, Throwable t) {
+
+                Glob.dialog.dismiss();
+            }
+        });
+    }
+
+    public void recyclerData() {
 
 
         adapter = new CompletedAssignmentAdapter(list, this, new CompletedAssignmentAdapter.Click() {
@@ -94,7 +128,6 @@ public class CompletedAssignment extends AppCompatActivity {
 
             }
         });
-
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setAdapter(adapter);

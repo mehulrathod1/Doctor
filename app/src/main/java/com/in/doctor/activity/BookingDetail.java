@@ -76,6 +76,7 @@ public class BookingDetail extends AppCompatActivity {
     ImageView profile_image, backButton;
     String patient_user_id;
     private static final int MY_PERMISSIONS_WRITE_EXTERNAL_STORAGE = 10;
+    private static final int MY_PERMISSIONS_WRITE_EXTERNAL_STORAG = 1;
     File reportFile;
 
     @Override
@@ -216,7 +217,7 @@ public class BookingDetail extends AppCompatActivity {
 
 
                 } else {
-                    ActivityCompat.requestPermissions(BookingDetail.this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, MY_PERMISSIONS_WRITE_EXTERNAL_STORAGE);
+                    ActivityCompat.requestPermissions(BookingDetail.this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, MY_PERMISSIONS_WRITE_EXTERNAL_STORAG);
 
                     Log.e("premitionnotgranted ", "onClick: " + "premitionnotgranted");
                 }

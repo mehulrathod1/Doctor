@@ -26,9 +26,12 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -45,7 +48,9 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
@@ -62,6 +67,12 @@ public class ProfileSettingPersonal extends Fragment {
     Button btnSubmit;
     ImageView profileImage;
     View view;
+
+    Spinner SpecialitySpinner;
+    List<String> SpecialistList = new ArrayList<>();
+    ArrayAdapter<String> SpecialistAdapter;
+
+    String specialistId;
 
 
     File photoFile, img_file;
@@ -90,6 +101,10 @@ public class ProfileSettingPersonal extends Fragment {
     }
 
     public void init() {
+
+        Glob.progressDialog(getContext());
+
+
         edtFirstName = view.findViewById(R.id.edtFirstName);
         edtLastName = view.findViewById(R.id.edtLastName);
         edtSpeciality = view.findViewById(R.id.edtSpeciality);
@@ -102,8 +117,58 @@ public class ProfileSettingPersonal extends Fragment {
         profileImage = view.findViewById(R.id.profile_image);
         txtChoosePhoto = view.findViewById(R.id.txtChoosePhoto);
         btnSubmit = view.findViewById(R.id.btnSubmit);
+        SpecialitySpinner = view.findViewById(R.id.spnSpeciality);
 
 
+        SpecialistList = new ArrayList<>();
+        SpecialistList.add("General Physician");
+        SpecialistList.add("skin and hair specialist");
+        SpecialistList.add("Sexologist");
+        SpecialistList.add("Gynaecologist");
+        SpecialistList.add("Bone and Joints Specialist");
+        SpecialistList.add("Ear Nose throat");
+
+
+        SpecialistAdapter = new ArrayAdapter<String>(getContext(), R.layout.profile_spinner_text, SpecialistList);
+        SpecialistAdapter.setDropDownViewResource(R.layout.dropdown_item);
+        SpecialitySpinner.setAdapter(SpecialistAdapter);
+
+
+
+        txtChoosePhoto.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final String[] options = {"Camera", "Add From Gallery", "Cancel"};
+                final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                builder.setCancelable(false);
+                builder.setItems(options, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        if (options[i].equals("Camera")) {
+                            onLaunchCamera();
+                        } else if (options[i].equals("Add From Gallery")) {
+                            openMediaContent();
+                        }
+                    }
+                });
+                builder.show();
+            }
+        });
+        SpecialitySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+
+                int pos = position+1;
+                specialistId = String.valueOf(pos);
+                Log.e("dfghjk", "onItemSelected: "+specialistId);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -152,35 +217,12 @@ public class ProfileSettingPersonal extends Fragment {
 
             }
         });
-        Glob.progressDialog(getContext());
-
-        txtChoosePhoto.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                final String[] options = {"Camera", "Add From Gallery", "Cancel"};
-                final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-                builder.setCancelable(false);
-                builder.setItems(options, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        if (options[i].equals("Camera")) {
-                            onLaunchCamera();
-                        } else if (options[i].equals("Add From Gallery")) {
-                            openMediaContent();
-                        }
-                    }
-                });
-                builder.show();
-            }
-        });
-
     }
 
 
     public void updateDoctorPersonal(String token, String doctor_id, String first_name, String last_name,
                                      String specialistid, String education, String language_spoken,
                                      String experience, String address, File Profile_image, String about) {
-
 
 
         Api call = RetrofitClient.getClient(Glob.Base_Url).create(Api.class);
@@ -292,8 +334,8 @@ public class ProfileSettingPersonal extends Fragment {
         });
     }
 
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
 
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
 
 
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);

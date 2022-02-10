@@ -2,6 +2,7 @@ package com.in.doctor.retrofit;
 
 import com.in.doctor.model.ClinicalSettingModel;
 import com.in.doctor.model.CommonModel;
+import com.in.doctor.model.CompleteAssignmentModel;
 import com.in.doctor.model.GetFcmTokenModel;
 import com.in.doctor.model.LifestyleSettingModel;
 import com.in.doctor.model.ManageBookingModel;
@@ -218,7 +219,6 @@ public interface Api {
     @FormUrlEncoded
     @POST("http://ciam.notionprojects.tech/api/patient/send_notification.php")
     Call<SendNotificationModel> sendNotification(
-
             @Field("token") String token,
             @Field("user_id") String user_id,
             @Field("message") String message
@@ -234,5 +234,12 @@ public interface Api {
             @Part MultipartBody.Part doctor_report
 
     );
+
+
+    @FormUrlEncoded
+    @POST("completed_assignment.php")
+    Call<CompleteAssignmentModel> getCompletedAssignment(
+            @Field("token") String token,
+            @Field("doctor_id") String doctor_id);
 
 }

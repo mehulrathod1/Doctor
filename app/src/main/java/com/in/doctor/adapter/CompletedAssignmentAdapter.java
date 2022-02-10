@@ -1,5 +1,6 @@
 package com.in.doctor.adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,12 +18,12 @@ import java.util.List;
 
 public class CompletedAssignmentAdapter extends RecyclerView.Adapter<CompletedAssignmentAdapter.ViewHolder> {
 
-    List<CompleteAssignmentModel> list;
+    List<CompleteAssignmentModel.Assignment> list;
     Context context;
     Click click;
 
 
-    public CompletedAssignmentAdapter(List<CompleteAssignmentModel> list, Context context, Click click) {
+    public CompletedAssignmentAdapter(List<CompleteAssignmentModel.Assignment> list, Context context, Click click) {
         this.list = list;
         this.context = context;
         this.click = click;
@@ -53,12 +54,13 @@ public class CompletedAssignmentAdapter extends RecyclerView.Adapter<CompletedAs
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        CompleteAssignmentModel model = list.get(position);
+    public void onBindViewHolder(@NonNull ViewHolder holder, @SuppressLint("RecyclerView") int position) {
+        CompleteAssignmentModel.Assignment model = list.get(position);
 
-        holder.BookingId.setText(model.getBookingId());
-        holder.AppointmentDate.setText(model.getAppointmentDate());
-        holder.AmountPaid.setText(model.getAmountPaid());
+        holder.BookingId.setText(model.getBooking_id());
+        holder.AppointmentDate.setText(model.getAppointment_date());
+        holder.AmountPaid.setText(model.getAmount_paid());
+
 
         holder.PrescriptionView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -116,7 +118,6 @@ public class CompletedAssignmentAdapter extends RecyclerView.Adapter<CompletedAs
             BookingId = itemView.findViewById(R.id.BookingId);
             AppointmentDate = itemView.findViewById(R.id.AppointmentDate);
             AmountPaid = itemView.findViewById(R.id.AmountPaid);
-
 
             PrescriptionView = itemView.findViewById(R.id.PrescriptionView);
             PrescriptionDownload = itemView.findViewById(R.id.PrescriptionDownload);
