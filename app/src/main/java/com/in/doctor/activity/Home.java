@@ -132,8 +132,7 @@ public class Home extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-
-                Intent intent = new Intent(getApplicationContext(), Request.class);
+                Intent intent = new Intent(getApplicationContext(), ManageCalendar.class);
                 startActivity(intent);
 
             }
@@ -174,8 +173,6 @@ public class Home extends AppCompatActivity {
                 return true;
             }
         });
-
-
         Navigation.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
 
 
@@ -275,16 +272,13 @@ public class Home extends AppCompatActivity {
         if (coordinator.getVisibility() == View.GONE) {
             coordinator.setVisibility(View.VISIBLE);
             header.setVisibility(View.VISIBLE);
-
         } else {
 //            moveTaskToBack(true);
 //            finish();
         }
 //        Intent intent = new Intent(getApplicationContext(), Home.class);
 
-
     }
-
 
     public void getFcmToken(String token, String doctor_id) {
         Api call = RetrofitClient.getClient(Glob.Base_Url).create(Api.class);
@@ -292,8 +286,8 @@ public class Home extends AppCompatActivity {
         call.getFcmToken(token, doctor_id).enqueue(new Callback<GetFcmTokenModel>() {
             @Override
             public void onResponse(Call<GetFcmTokenModel> call, Response<GetFcmTokenModel> response) {
-                GetFcmTokenModel model = response.body();
 
+                GetFcmTokenModel model = response.body();
                 Log.e("FCMtoken", "onResponse: " + model.getData().getFcm_token());
 
             }
@@ -305,4 +299,5 @@ public class Home extends AppCompatActivity {
         });
 
     }
+
 }

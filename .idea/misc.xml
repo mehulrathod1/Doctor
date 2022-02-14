@@ -95,6 +95,7 @@
         <entry key="..\:/Project/Doctor/app/src/main/res/layout/fragment_redemption.xml" value="0.20416666666666666" />
         <entry key="..\:/Project/Doctor/app/src/main/res/layout/fragment_transaction_history.xml" value="0.20416666666666666" />
         <entry key="..\:/Project/Doctor/app/src/main/res/layout/health_care_checkup.xml" value="0.20416666666666666" />
+        <entry key="..\:/Project/Doctor/app/src/main/res/layout/invoice_popup.xml" value="0.20416666666666666" />
         <entry key="..\:/Project/Doctor/app/src/main/res/layout/layout_slider.xml" value="0.20416666666666666" />
         <entry key="..\:/Project/Doctor/app/src/main/res/layout/manage_booking_item.xml" value="0.20416666666666666" />
         <entry key="..\:/Project/Doctor/app/src/main/res/layout/manage_calendar_item.xml" value="0.33" />
@@ -105,6 +106,8 @@
         <entry key="..\:/Project/Doctor/app/src/main/res/layout/nev_toolbar.xml" value="0.20416666666666666" />
         <entry key="..\:/Project/Doctor/app/src/main/res/layout/online_consultant_item.xml" value="0.20416666666666666" />
         <entry key="..\:/Project/Doctor/app/src/main/res/layout/profile_spinner_text.xml" value="0.20416666666666666" />
+        <entry key="..\:/Project/Doctor/app/src/main/res/layout/report_item.xml" value="0.67" />
+        <entry key="..\:/Project/Doctor/app/src/main/res/layout/report_popup.xml" value="0.20244565217391305" />
         <entry key="..\:/Project/Doctor/app/src/main/res/layout/spinner_textview.xml" value="0.20416666666666666" />
         <entry key="..\:/Project/Doctor/app/src/main/res/layout/toolbar.xml" value="0.25" />
         <entry key="..\:/Project/Doctor/app/src/main/res/layout/transaction_history_item.xml" value="0.2" />

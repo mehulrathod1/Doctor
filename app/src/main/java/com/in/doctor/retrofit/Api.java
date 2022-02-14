@@ -1,5 +1,10 @@
 package com.in.doctor.retrofit;
 
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.content.Context;
+import android.os.Build;
+
 import com.in.doctor.model.ClinicalSettingModel;
 import com.in.doctor.model.CommonModel;
 import com.in.doctor.model.CompleteAssignmentModel;
@@ -9,6 +14,7 @@ import com.in.doctor.model.ManageBookingModel;
 import com.in.doctor.model.ManageCalendarModel;
 import com.in.doctor.model.OnlineConsultantModel;
 import com.in.doctor.model.PersonalSettingModel;
+import com.in.doctor.model.ReportModel;
 import com.in.doctor.model.SendNotificationModel;
 import com.in.doctor.model.SignInModel;
 import com.in.doctor.model.SignUpModel;
@@ -39,6 +45,9 @@ public interface Api {
             @Field("password") String password,
             @Field("confirm_password") String confirm_password
     );
+
+
+
 
     @FormUrlEncoded
     @POST("login.php")
@@ -241,5 +250,15 @@ public interface Api {
     Call<CompleteAssignmentModel> getCompletedAssignment(
             @Field("token") String token,
             @Field("doctor_id") String doctor_id);
+
+
+    @FormUrlEncoded
+    @POST("get_patient_reports.php")
+    Call<ReportModel> getPatientReport(
+
+            @Field("token") String token,
+            @Field("doctor_id") String doctor_id,
+            @Field("booking_id") String booking_id
+    );
 
 }

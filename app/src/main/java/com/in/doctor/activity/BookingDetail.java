@@ -6,13 +6,20 @@ import static com.in.doctor.global.Glob.channel_name;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.Manifest;
+import android.app.AlertDialog;
 import android.app.DownloadManager;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.FileUtils;
@@ -21,6 +28,7 @@ import android.provider.OpenableColumns;
 import android.util.Base64;
 import android.util.Base64InputStream;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.webkit.CookieManager;
 import android.webkit.URLUtil;
@@ -31,6 +39,7 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.in.doctor.R;
+import com.in.doctor.adapter.ReportAdapter;
 import com.in.doctor.global.Glob;
 import com.in.doctor.model.BookingDetails;
 import com.in.doctor.model.CommonModel;
@@ -39,10 +48,15 @@ import com.in.doctor.model.PatientLifestyle;
 import com.in.doctor.model.PatientMedical;
 import com.in.doctor.model.PatientPersonal;
 import com.in.doctor.model.RelativeInformation;
+import com.in.doctor.model.ReportModel;
 import com.in.doctor.model.SendNotificationModel;
 import com.in.doctor.model.ViewPatientDetailModel;
 import com.in.doctor.retrofit.Api;
 import com.in.doctor.retrofit.RetrofitClient;
+
+import net.gotev.uploadservice.BuildConfig;
+import net.gotev.uploadservice.UploadServiceConfig;
+import net.gotev.uploadservice.protocols.multipart.MultipartUploadRequest;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -51,8 +65,10 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
@@ -78,6 +94,17 @@ public class BookingDetail extends AppCompatActivity {
     private static final int MY_PERMISSIONS_WRITE_EXTERNAL_STORAGE = 10;
     private static final int MY_PERMISSIONS_WRITE_EXTERNAL_STORAG = 1;
     File reportFile;
+
+
+    Uri uri;
+    AlertDialog reportAlert;
+    AlertDialog.Builder reportAlertDialog;
+
+
+    RecyclerView report_recycler;
+    List<ReportModel.ReportData> reportDataList = new ArrayList<>();
+    ReportAdapter reportAdapter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -145,6 +172,14 @@ public class BookingDetail extends AppCompatActivity {
         appointment_time = findViewById(R.id.appointment_time);
 
 
+        reportAlertDialog = new AlertDialog.Builder(this);
+        LayoutInflater layoutInflater = getLayoutInflater();
+        View view = layoutInflater.inflate(R.layout.report_popup, null);
+        reportAlertDialog.setView(view);
+        reportAlert = reportAlertDialog.create();
+        report_recycler = view.findViewById(R.id.report_recycler);
+
+
         Glob.progressDialog(this);
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -177,15 +212,30 @@ public class BookingDetail extends AppCompatActivity {
 
                     Log.e("premitionnotgranted ", "onClick: " + "granted");
 
-                    Intent intent = new Intent();
-                    intent.setType("application/pdf");
-                    intent.setAction(Intent.ACTION_GET_CONTENT);
-                    startActivityForResult(intent, MY_PERMISSIONS_WRITE_EXTERNAL_STORAGE);
+//                    Intent intent = new Intent();
+//                    intent.setType("application/pdf");
+//                    intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
+//                    intent.setAction(Intent.ACTION_GET_CONTENT);
+//                    intent.setAction(Intent.ACTION_OPEN_DOCUMENT);
+//                    startActivityForResult(intent, MY_PERMISSIONS_WRITE_EXTERNAL_STORAGE);
 
+                    try {
+                        Intent intent = new Intent();
+                        intent.setType("application/pdf");
+                        intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
+                        intent.setAction(Intent.ACTION_OPEN_DOCUMENT);
+                        startActivityForResult(intent, MY_PERMISSIONS_WRITE_EXTERNAL_STORAGE);
+                    } catch (Exception e) {
+
+//                        Intent photoPickerIntent = new Intent(this, XYZ.class);
+//                        startActivityForResult(photoPickerIntent, SELECT_IMAGE_REQUEST);
+
+                    }
                 } else {
 
                     ActivityCompat.requestPermissions(BookingDetail.this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, MY_PERMISSIONS_WRITE_EXTERNAL_STORAGE);
                     Log.e("premitionnotgranted ", "onClick: " + "premitionnotgranted");
+
                 }
             }
         });
@@ -200,20 +250,21 @@ public class BookingDetail extends AppCompatActivity {
 
                     Log.e("premitionnotgranted ", "onClick: " + "granted");
 
-                    DownloadManager.Request request = new DownloadManager.Request(Uri.parse(report_download));
 
-                    String title = URLUtil.guessFileName(report_download, null, null);
-                    request.setTitle(title);
-                    request.setDescription("Downloading file please wail.....");
-                    String cookie = CookieManager.getInstance().getCookie(report_download);
-                    request.addRequestHeader("cookie", cookie);
-                    request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
-                    request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, title);
+                    getPatientReport(Token, Glob.user_id, bookingId.getText().toString());
 
-                    DownloadManager downloadManager = (DownloadManager) getSystemService(DOWNLOAD_SERVICE);
-                    downloadManager.enqueue(request);
-
-                    Toast.makeText(getApplicationContext(), "Downloading Started", Toast.LENGTH_SHORT).show();
+//                    DownloadManager.Request request = new DownloadManager.Request(Uri.parse(report_download));
+//
+//                    String title = URLUtil.guessFileName(report_download, null, null);
+//                    request.setTitle(title);
+//                    request.setDescription("Downloading file please wail.....");
+//                    String cookie = CookieManager.getInstance().getCookie(report_download);
+//                    request.addRequestHeader("cookie", cookie);
+//                    request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
+//                    request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, title);
+//
+//                    DownloadManager downloadManager = (DownloadManager) getSystemService(DOWNLOAD_SERVICE);
+//                    downloadManager.enqueue(request);
 
 
                 } else {
@@ -285,7 +336,6 @@ public class BookingDetail extends AppCompatActivity {
                         .into(profile_image);
 
                 patient_name.setText(patientPersonal.getPatientName());
-                report_download = patientPersonal.getPatientDocument();
                 patient_comment.setText(patientPersonal.getPatientComments());
                 appointment_time.setText(bookingDetails.getAppointmentTime());
                 appointment_date.setText(bookingDetails.getAppointmentDate());
@@ -322,8 +372,9 @@ public class BookingDetail extends AppCompatActivity {
                 booking_idd = bookingDetails.getBookingID();
                 patient_id = patientPersonal.getPatientId();
 
-                date_and_time = bookingDetails.getBookingDate() + " " + bookingDetails.getBookingTime();
+                date_and_time = bookingDetails.getAppointmentDate() + " " + bookingDetails.getAppointmentTime();
                 Calendar compDate = Calendar.getInstance();
+
                 compDate.add(Calendar.MINUTE, 5);
                 SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy hh:mm a");
                 String getCurrentDateTime = sdf.format(compDate.getTime());
@@ -348,6 +399,7 @@ public class BookingDetail extends AppCompatActivity {
                         Log.e("bool", "onResponse: " + (getCurrentDateTime + " is after " + date_and_time));
                         chat.setVisibility(View.VISIBLE);
                         upload_report_file.setVisibility(View.VISIBLE);
+                        video_chat.setVisibility(View.GONE);
 
                     } else if (bool2) {
                         Log.e("bool", "onResponse: " + (getCurrentDateTime + " is before " + date_and_time));
@@ -362,11 +414,6 @@ public class BookingDetail extends AppCompatActivity {
                 }
 
 
-                if (report_download.equals("")) {
-                    download_patient_report.setVisibility(View.GONE);
-                } else {
-
-                }
                 if (bookingDetails.getBookingFor().equals("Me")) {
                     ll_booking_for.setVisibility(View.GONE);
                     ll_relative_detail.setVisibility(View.GONE);
@@ -427,19 +474,6 @@ public class BookingDetail extends AppCompatActivity {
         });
     }
 
-    public String getRealPathFromURI(Uri contentURI) {
-
-        // Get the Video from data
-        String[] filePathColumn = {MediaStore.Video.Media.DATA};
-        Cursor cursor = getContentResolver().query(contentURI, filePathColumn, null, null, null);
-        // cursor != null;
-        cursor.moveToFirst();
-
-        int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
-        cursor.close();
-        return cursor.getString(columnIndex);
-
-    }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -449,82 +483,32 @@ public class BookingDetail extends AppCompatActivity {
 
             case 10:
 
-
                 if (resultCode == RESULT_OK) {
-                    // Get the Uri of the selected file
+
+                    uri = data.getData();
+//                    uploadFile();
+                    Log.e("djanogoooo", "onActivityResult: " + uri);
 
 
-                    String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new
-                            Date());
-                    reportFile = new File(getCacheDir(), "DOC_" + timeStamp + ".pdf");
+                    if (data.getClipData() != null) {
+                        int count = data.getClipData().getItemCount();
+                        int currentItem = 0;
+                        while (currentItem < count) {
+                            Uri imageUri = data.getClipData().getItemAt(currentItem).getUri();
+                            //do something with the image (save it to some directory or whatever you need to do with it here)
+                            currentItem = currentItem + 1;
 
-                    FileOutputStream fos = null;
-                    try {
-                        fos = new FileOutputStream(reportFile);
-                    } catch (FileNotFoundException e) {
-                        e.printStackTrace();
-                    }
-                    try {
-                        fos.flush();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                    try {
-                        fos.close();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-//
-                    uploadPatientReport(Token, Glob.user_id, patient_id, booking_idd, reportFile);
-
-                    Uri uri = data.getData();
-
-                    Log.e("bhosado", "onActivityResult: " + uri);
-                    String uriString = uri.toString();
-                    if (uriString.startsWith("content://")) {
-                        Cursor cursor = null;
-                        try {
-                            cursor = getContentResolver().query(uri, null, null, null, null);
-                            if (cursor != null && cursor.moveToFirst()) {
-                                String displayName = cursor.getString(cursor.getColumnIndex(OpenableColumns.DISPLAY_NAME));
-                                Log.e("displayName", "onActivivvtyResult: " + displayName);
-                                upload_report_file.setText(displayName);
-                            }
-                        } finally {
-                            cursor.close();
+                            uri = imageUri;
+                            Log.e("djanogoooo", "onActivityResult: " + uri);
+                            uploadFile();
                         }
-//
+                    } else if (data.getData() != null) {
 
+                        uri = data.getData();
+                        //do something with the image (save it to some directory or whatever you need to do with it here)
+                        Log.e("djanogoooo", "onActivityResult: " + uri);
+                        uploadFile();
 
-//                    Uri uri = data.getData();
-//                    String uriString = uri.toString();
-//                    reportFile = new File(uriString);
-//                    String path = reportFile.getAbsolutePath();
-//                    String displayName = null;
-//                    reportFile = new File(path);
-//
-//                    uploadPatientReport(Token, Glob.user_id, patient_id, booking_idd, reportFile);
-//                    Log.e("path", "onActivityResult: " + reportFile);
-//
-//
-//                    if (uriString.startsWith("content://")) {
-//                        Cursor cursor = null;
-//                        try {
-//                            cursor = getContentResolver().query(uri, null, null, null, null);
-//                            if (cursor != null && cursor.moveToFirst()) {
-//                                displayName = cursor.getString(cursor.getColumnIndex(OpenableColumns.DISPLAY_NAME));
-//                                Log.e("displayName", "onActivivvtyResult: " + displayName);
-//                                upload_report_file.setText(displayName);
-//                            }
-//                        } finally {
-//                            cursor.close();
-//                        }
-//                    }
-//                    else if (uriString.startsWith("file://")) {
-//                        displayName = reportFile.getName();
-//                        Log.e("displayName", "onActivityResult: " + displayName);
-//
-//
                     }
                 }
                 break;
@@ -560,5 +544,119 @@ public class BookingDetail extends AppCompatActivity {
 
     }
 
+    public void getPatientReport(String token, String doctorId, String booking_id) {
 
+        Api call = RetrofitClient.getClient(Glob.Base_Url).create(Api.class);
+        Glob.dialog.show();
+
+        call.getPatientReport(token, doctorId, booking_id).enqueue(new Callback<ReportModel>() {
+            @Override
+            public void onResponse(Call<ReportModel> call, Response<ReportModel> response) {
+
+                ReportModel model = response.body();
+
+                reportDataList.clear();
+                List<ReportModel.ReportData> DataList = model.getData();
+                if (DataList != null) {
+                    for (int i = 0; i < DataList.size(); i++) {
+                        ReportModel.ReportData reportData = DataList.get(i);
+
+                        ReportModel.ReportData data = new ReportModel.ReportData(reportData.getReportfile());
+
+                        reportDataList.add(data);
+
+                    }
+                    reportData();
+                    Glob.dialog.dismiss();
+                    reportAlert.show();
+                } else {
+                    Glob.dialog.dismiss();
+                    reportAlert.dismiss();
+                    Toast.makeText(getApplicationContext(), "" + "No Report Found", Toast.LENGTH_SHORT).show();
+                }
+
+            }
+
+
+            @Override
+            public void onFailure(Call<ReportModel> call, Throwable t) {
+
+            }
+        });
+
+    }
+
+    public void reportData() {
+
+        reportAdapter = new ReportAdapter(reportDataList, getApplicationContext(), new ReportAdapter.Click() {
+            @Override
+            public void onViewClick(int position) {
+
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(reportDataList.get(position).getReportfile()));
+                startActivity(browserIntent);
+            }
+
+            @Override
+            public void onDownloadClick(int position) {
+
+                if (ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
+
+                    Log.e("premitionnotgranted ", "onClick: " + "granted");
+
+                    DownloadManager.Request request = new DownloadManager.Request(Uri.parse(reportDataList.get(position).getReportfile()));
+                    String title = URLUtil.guessFileName(reportDataList.get(position).getReportfile(), null, null);
+                    request.setTitle(title);
+                    request.setDescription("Downloading file please wail.....");
+                    String cookie = CookieManager.getInstance().getCookie(reportDataList.get(position).getReportfile());
+                    request.addRequestHeader("cookie", cookie);
+                    request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
+                    request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, title);
+
+                    DownloadManager downloadManager = (DownloadManager) getSystemService(DOWNLOAD_SERVICE);
+                    downloadManager.enqueue(request);
+
+                    Toast.makeText(getApplicationContext(), "Downloading Started", Toast.LENGTH_SHORT).show();
+                    reportAlert.dismiss();
+
+
+                } else {
+                    ActivityCompat.requestPermissions(BookingDetail.this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, MY_PERMISSIONS_WRITE_EXTERNAL_STORAGE);
+                    Log.e("premitionnotgranted ", "onClick: " + "premitionnotgranted");
+                }
+            }
+        });
+
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
+        report_recycler.setLayoutManager(mLayoutManager);
+        report_recycler.setAdapter(reportAdapter);
+
+    }
+
+    public void uploadFile() {
+
+
+        try {
+            if (Build.VERSION.SDK_INT >= 26) {
+
+                NotificationManager manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+                NotificationChannel channel = new NotificationChannel("TestChannel", "TestApp Channel", NotificationManager.IMPORTANCE_LOW);
+                manager.createNotificationChannel(channel);
+            }
+
+            UploadServiceConfig.initialize(getApplication(), "TestChannel", BuildConfig.DEBUG);
+
+            MultipartUploadRequest uploadRequest = new MultipartUploadRequest(this, "http://ciam.notionprojects.tech/api/doctor/upload_patient_report.php")
+                    .setMethod("POST")
+                    .addFileToUpload(uri.toString(), "doctor_report")
+                    .addParameter("doctor_id", Glob.user_id)
+                    .addParameter("patient_id", patient_id)
+                    .addParameter("booking_id", booking_idd)
+                    .addParameter("token", Token);
+//                    uploadPatientReport(Token, Glob.user_id, patient_id, booking_idd, reportFile);
+
+            uploadRequest.startUpload();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
 }
