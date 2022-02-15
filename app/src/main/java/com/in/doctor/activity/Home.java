@@ -80,10 +80,8 @@ public class Home extends AppCompatActivity {
         }
 
         init();
-        getFcmToken(Glob.Token, Glob.user_id);
-
+//        getFcmToken(Glob.Token, Glob.user_id);
     }
-
     @SuppressLint("ResourceAsColor")
     public void init() {
         coordinator = findViewById(R.id.coordinator);

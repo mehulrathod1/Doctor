@@ -32,6 +32,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.webkit.CookieManager;
 import android.webkit.URLUtil;
+import android.webkit.WebView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -88,13 +89,11 @@ public class BookingDetail extends AppCompatActivity {
     String patient_id, booking_idd, report_download, date_and_time;
 
     LinearLayout ll_booking_for, ll_life_clinic, ll_relative_detail, ll_patient_detail;
-
     ImageView profile_image, backButton;
     String patient_user_id;
     private static final int MY_PERMISSIONS_WRITE_EXTERNAL_STORAGE = 10;
     private static final int MY_PERMISSIONS_WRITE_EXTERNAL_STORAG = 1;
     File reportFile;
-
 
     Uri uri;
     AlertDialog reportAlert;
@@ -517,7 +516,6 @@ public class BookingDetail extends AppCompatActivity {
 
     }
 
-
     @Override
     public void onRequestPermissionsResult(int requestCode, String permissions[],
                                            int[] grantResults) {
@@ -561,12 +559,16 @@ public class BookingDetail extends AppCompatActivity {
                     for (int i = 0; i < DataList.size(); i++) {
                         ReportModel.ReportData reportData = DataList.get(i);
 
-                        ReportModel.ReportData data = new ReportModel.ReportData(reportData.getReportfile());
 
+                        ReportModel.ReportData data = new ReportModel.ReportData(reportData.getReportfile());
                         reportDataList.add(data);
 
+                        if (DataList.get(i).getReportfile().equals("")) {
+                            reportDataList.remove(i);
+                        }
                     }
                     reportData();
+
                     Glob.dialog.dismiss();
                     reportAlert.show();
                 } else {
@@ -592,36 +594,56 @@ public class BookingDetail extends AppCompatActivity {
             @Override
             public void onViewClick(int position) {
 
-                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(reportDataList.get(position).getReportfile()));
-                startActivity(browserIntent);
+                String uri = reportDataList.get(position).getReportfile();
+                Log.e("pdfUri", "onViewClick: " + Uri.parse(uri));
+//                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
+//                startActivity(browserIntent);
+
+                if (uri.equals("")) {
+                    Log.e("pdfUri", "onViewClick: " + "null");
+                } else {
+
+                    Intent i = new Intent(Intent.ACTION_VIEW);
+                    i.setData(Uri.parse(uri));
+                    startActivity(i);
+                    Log.e("pdfUri", "onViewClick: " + "null");
+
+                }
+
+
+//                Intent intent = new Intent(getApplicationContext(), PdfViewer.class);
+//                intent.putExtra("PfdUrl", uri);
+//                startActivity(intent);
+
             }
 
             @Override
             public void onDownloadClick(int position) {
 
-                if (ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
 
-                    Log.e("premitionnotgranted ", "onClick: " + "granted");
+                String uri = reportDataList.get(position).getReportfile();
 
-                    DownloadManager.Request request = new DownloadManager.Request(Uri.parse(reportDataList.get(position).getReportfile()));
-                    String title = URLUtil.guessFileName(reportDataList.get(position).getReportfile(), null, null);
-                    request.setTitle(title);
-                    request.setDescription("Downloading file please wail.....");
-                    String cookie = CookieManager.getInstance().getCookie(reportDataList.get(position).getReportfile());
-                    request.addRequestHeader("cookie", cookie);
-                    request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
-                    request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, title);
-
-                    DownloadManager downloadManager = (DownloadManager) getSystemService(DOWNLOAD_SERVICE);
-                    downloadManager.enqueue(request);
-
-                    Toast.makeText(getApplicationContext(), "Downloading Started", Toast.LENGTH_SHORT).show();
-                    reportAlert.dismiss();
-
-
+                if (uri.equals("")) {
+                    Log.e("pdfUri", "onViewClick: " + "null");
                 } else {
-                    ActivityCompat.requestPermissions(BookingDetail.this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, MY_PERMISSIONS_WRITE_EXTERNAL_STORAGE);
-                    Log.e("premitionnotgranted ", "onClick: " + "premitionnotgranted");
+                    if (ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
+                        Log.e("premitionnotgranted ", "onClick: " + "granted");
+                        DownloadManager.Request request = new DownloadManager.Request(Uri.parse(reportDataList.get(position).getReportfile()));
+                        String title = URLUtil.guessFileName(reportDataList.get(position).getReportfile(), null, null);
+                        request.setTitle(title);
+                        request.setDescription("Downloading file please wail.....");
+                        String cookie = CookieManager.getInstance().getCookie(reportDataList.get(position).getReportfile());
+                        request.addRequestHeader("cookie", cookie);
+                        request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
+                        request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, title);
+
+                        DownloadManager downloadManager = (DownloadManager) getSystemService(DOWNLOAD_SERVICE);
+                        downloadManager.enqueue(request);
+
+                        Toast.makeText(getApplicationContext(), "Downloading Started", Toast.LENGTH_SHORT).show();
+                        reportAlert.dismiss();
+
+                    }
                 }
             }
         });

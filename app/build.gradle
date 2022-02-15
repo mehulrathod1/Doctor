@@ -71,6 +71,10 @@ dependencies {
 //    agora
     implementation 'io.agora.rtc:full-sdk:3.5.0'
 
+//    fileupload
     def uploadServiceVersion = "4.7.0"
     implementation "net.gotev:uploadservice:$uploadServiceVersion"
+
+    
+
 }

@@ -166,7 +166,7 @@
                             </LinearLayout>
 
                             <LinearLayout
-                                android:id="@+id/homeCare"
+                                android:id="@+id/CompletedAssignment"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="@dimen/_8sdp"
@@ -188,6 +188,7 @@
                             </LinearLayout>
 
                             <LinearLayout
+                                android:id="@+id/myReview"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="@dimen/_8sdp"
@@ -209,6 +210,7 @@
                             </LinearLayout>
 
                             <LinearLayout
+                                android:id="@+id/myQuestion"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="@dimen/_8sdp"
@@ -240,6 +242,7 @@
 
 
                             <LinearLayout
+                                android:id="@+id/billingSegment"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="@dimen/_8sdp"
@@ -261,12 +264,12 @@
                             </LinearLayout>
 
                             <LinearLayout
+                                android:id="@+id/profileSetting"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="@dimen/_8sdp"
                                 android:layout_marginRight="@dimen/_8sdp"
                                 android:layout_weight="1"
-
                                 android:orientation="vertical">
 
                                 <ImageView
@@ -283,6 +286,7 @@
                             </LinearLayout>
 
                             <LinearLayout
+                                android:id="@+id/accountSetting"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="@dimen/_8sdp"
@@ -305,6 +309,7 @@
                             </LinearLayout>
 
                             <LinearLayout
+                                android:id="@+id/revenue"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="@dimen/_8sdp"
@@ -322,7 +327,7 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:gravity="center"
-                                    android:text="Revenue" />
+                                    android:text="Manage Calender" />
                             </LinearLayout>
                         </LinearLayout>
 

@@ -27,7 +27,15 @@ import android.widget.TextView;
 
 import com.google.firebase.messaging.Constants;
 import com.in.doctor.R;
+import com.in.doctor.activity.AccountSetting;
+import com.in.doctor.activity.CompletedAssignment;
 import com.in.doctor.activity.DoctorProfile;
+import com.in.doctor.activity.ManageCalendar;
+import com.in.doctor.activity.MyQuestion;
+import com.in.doctor.activity.MyReview;
+import com.in.doctor.activity.MyWallet;
+import com.in.doctor.activity.OnlineConsultants;
+import com.in.doctor.activity.ProfileSetting;
 import com.in.doctor.adapter.FindDoctorAdapter;
 import com.in.doctor.adapter.HealthCareAdapter;
 import com.in.doctor.adapter.SliderPagerAdapter;
@@ -64,7 +72,7 @@ public class HomeDashboard extends Fragment {
     List<CareAndCheckupModel> healthList = new ArrayList<>();
     FindDoctorAdapter adapter;
     List<FindDoctorModel> list = new ArrayList<>();
-    LinearLayout doctorConsultant, homeCare;
+    LinearLayout doctorConsultant, completedAssignment, billingSegment, myQuestion, manageCalender, myReview, profileSetting, accountSetting;
 
     Spinner countryName;
     ArrayAdapter<String> countryNameAdapter;
@@ -103,13 +111,19 @@ public class HomeDashboard extends Fragment {
         healthCareRecycler = view.findViewById(R.id.healthCareRecycler);
         healthCheckupRecycler = view.findViewById(R.id.healthCheckupRecycler);
         doctorConsultant = view.findViewById(R.id.doctorConsultant);
-        homeCare = view.findViewById(R.id.homeCare);
+        completedAssignment = view.findViewById(R.id.CompletedAssignment);
         viewAllDoctor = view.findViewById(R.id.viewAllDoctor);
         viewAllServices = view.findViewById(R.id.viewAllServices);
         viewAllCheckup = view.findViewById(R.id.viewAllCheckup);
         vp_slider = view.findViewById(R.id.vp_slider);
         ll_dots = view.findViewById(R.id.ll_dots);
+        myReview = view.findViewById(R.id.myReview);
+        myQuestion = view.findViewById(R.id.myQuestion);
+        billingSegment = view.findViewById(R.id.billingSegment);
         countryName = view.findViewById(R.id.countryName);
+        profileSetting = view.findViewById(R.id.profileSetting);
+        manageCalender = view.findViewById(R.id.revenue);
+        accountSetting = view.findViewById(R.id.accountSetting);
 
 
         countryNameList.add("Gujarat");
@@ -184,17 +198,77 @@ public class HomeDashboard extends Fragment {
         doctorConsultant.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                Intent intent = new Intent(getActivity(), OnlineConsultants.class);
+                startActivity(intent);
 //                Fragment fragment = new DoctorConsultant();
 //                loadFragment(fragment);
             }
         });
-        homeCare.setOnClickListener(new View.OnClickListener() {
+        completedAssignment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Fragment fragment = new CareServices();
-//                loadFragment(fragment);
+
+
+                Intent intent = new Intent(getActivity(), CompletedAssignment.class);
+                startActivity(intent);
+
             }
         });
+
+        myReview.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                Intent intent = new Intent(getActivity(), MyReview.class);
+                startActivity(intent);
+
+            }
+        });
+
+        myQuestion.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(getActivity(), MyQuestion.class);
+                startActivity(intent);
+
+            }
+        });
+
+
+        billingSegment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), MyWallet.class);
+                startActivity(intent);
+            }
+        });
+
+        profileSetting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), ProfileSetting.class);
+                startActivity(intent);
+            }
+        });
+        accountSetting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), AccountSetting.class);
+                startActivity(intent);
+            }
+        });
+
+        manageCalender.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), ManageCalendar.class);
+                startActivity(intent);
+            }
+        });
+
         viewAllDoctor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -72,10 +72,10 @@ public class CompleteAssignmentModel {
 
         @SerializedName("invoice")
         @Expose
-        InvoiceModel invoice;
+        String invoice;
 
 
-        public Assignment(String booking_id, String appointment_date, String amount_paid, String patient_id, String patient_document, InvoiceModel invoice) {
+        public Assignment(String booking_id, String appointment_date, String amount_paid, String patient_id, String patient_document, String invoice) {
             this.booking_id = booking_id;
             this.appointment_date = appointment_date;
             this.amount_paid = amount_paid;
@@ -84,11 +84,11 @@ public class CompleteAssignmentModel {
             this.invoice = invoice;
         }
 
-        public InvoiceModel getInvoice() {
+        public String getInvoice() {
             return invoice;
         }
 
-        public void setInvoice(InvoiceModel invoice) {
+        public void setInvoice(String invoice) {
             this.invoice = invoice;
         }
 
@@ -133,67 +133,4 @@ public class CompleteAssignmentModel {
         }
     }
 
-    public static class InvoiceModel {
-
-        @SerializedName("patient_name")
-        @Expose
-        String patient_name;
-
-        @SerializedName("mobile_number")
-        @Expose
-        String mobile_number;
-
-        @SerializedName("txn_id")
-        @Expose
-        String txn_id;
-
-        @SerializedName("amount")
-        @Expose
-        String amount;
-
-        @SerializedName("txn_date")
-        @Expose
-        String txn_date;
-
-
-        public String getPatient_name() {
-            return patient_name;
-        }
-
-        public void setPatient_name(String patient_name) {
-            this.patient_name = patient_name;
-        }
-
-        public String getMobile_number() {
-            return mobile_number;
-        }
-
-        public void setMobile_number(String mobile_number) {
-            this.mobile_number = mobile_number;
-        }
-
-        public String getTxn_id() {
-            return txn_id;
-        }
-
-        public void setTxn_id(String txn_id) {
-            this.txn_id = txn_id;
-        }
-
-        public String getAmount() {
-            return amount;
-        }
-
-        public void setAmount(String amount) {
-            this.amount = amount;
-        }
-
-        public String getTxn_date() {
-            return txn_date;
-        }
-
-        public void setTxn_date(String txn_date) {
-            this.txn_date = txn_date;
-        }
-    }
 }

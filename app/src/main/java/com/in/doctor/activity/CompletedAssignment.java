@@ -47,16 +47,14 @@ public class CompletedAssignment extends AppCompatActivity {
     RecyclerView recyclerView;
     CompletedAssignmentAdapter adapter;
     List<CompleteAssignmentModel.Assignment> list = new ArrayList<>();
-
     AlertDialog alert, reportAlert;
     AlertDialog.Builder alertDialog, reportAlertDialog;
-
     ImageView closeAlert, reportClose;
-
     RecyclerView report_recycler;
     List<ReportModel.ReportData> reportDataList = new ArrayList<>();
     ReportAdapter reportAdapter;
     private static final int MY_PERMISSIONS_WRITE_EXTERNAL_STORAGE = 10;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,14 +65,12 @@ public class CompletedAssignment extends AppCompatActivity {
         getCompleteAssignment(Glob.Token, Glob.user_id);
     }
 
-
     public void init() {
 
         Glob.progressDialog(this);
         nevBack = findViewById(R.id.nevBack);
         headerTitle = findViewById(R.id.header_title);
         recyclerView = findViewById(R.id.recycler);
-
 
         alertDialog = new AlertDialog.Builder(this);
         LayoutInflater inflater = getLayoutInflater();
@@ -143,6 +139,8 @@ public class CompletedAssignment extends AppCompatActivity {
                             data.getAppointment_date(), data.getAmount_paid() + "  ₹", data.getPatient_id(), data.getPatient_document(), data.getInvoice());
                     list.add(dataa);
                     Glob.dialog.dismiss();
+
+
                 }
                 recyclerData();
             }
@@ -150,6 +148,7 @@ public class CompletedAssignment extends AppCompatActivity {
             @Override
             public void onFailure(Call<CompleteAssignmentModel> call, Throwable t) {
 
+                Log.e("error", "onFailure: " + t.getMessage());
                 Glob.dialog.dismiss();
             }
         });
@@ -214,18 +213,49 @@ public class CompletedAssignment extends AppCompatActivity {
             @Override
             public void onClickInvoiceView(int position) {
 
-                alert.show();
-                patientName.setText(list.get(position).getInvoice().getPatient_name());
-                PatientNo.setText(list.get(position).getInvoice().getMobile_number());
-                Amount.setText(list.get(position).getInvoice().getAmount());
-                TransactionId.setText(list.get(position).getInvoice().getTxn_id());
-                TransactionDate.setText(list.get(position).getInvoice().getTxn_date());
 
+                String url = list.get(position).getInvoice();
+                if (url.equals("")) {
+                    Log.e("pdfUri", "onViewClick: " + "null");
+                } else {
+                    Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                    startActivity(browserIntent);
+                }
             }
 
             @Override
             public void onClickInvoiceDownload(int position) {
 
+                String url = list.get(position).getInvoice();
+
+                if (url.equals("")) {
+                    Log.e("pdfUri", "onViewClick: " + "null");
+                } else {
+                    if (ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
+
+                        Log.e("premitionnotgranted ", "onClick: " + "granted");
+
+                        DownloadManager.Request request = new DownloadManager.Request(Uri.parse(url));
+                        String title = URLUtil.guessFileName(url, null, null);
+                        request.setTitle(title);
+                        request.setDescription("Downloading file please wail.....");
+                        String cookie = CookieManager.getInstance().getCookie(url);
+                        request.addRequestHeader("cookie", cookie);
+                        request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
+                        request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, title);
+
+                        DownloadManager downloadManager = (DownloadManager) getSystemService(DOWNLOAD_SERVICE);
+                        downloadManager.enqueue(request);
+                        Toast.makeText(getApplicationContext(), "Downloading Started", Toast.LENGTH_SHORT).show();
+                        reportAlert.dismiss();
+
+
+                    } else {
+                        ActivityCompat.requestPermissions(CompletedAssignment.this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, MY_PERMISSIONS_WRITE_EXTERNAL_STORAGE);
+                        Log.e("premitionnotgranted ", "onClick: " + "premitionnotgranted");
+                    }
+
+                }
             }
 
             @Override
@@ -258,38 +288,52 @@ public class CompletedAssignment extends AppCompatActivity {
             public void onViewClick(int position) {
 
 
-                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(reportDataList.get(position).getReportfile()));
-                startActivity(browserIntent);
+                String uri = reportDataList.get(position).getReportfile();
+
+
+                if (uri.equals("")) {
+                    Log.e("pdfUri", "onViewClick: " + "null");
+                } else {
+                    Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
+                    startActivity(browserIntent);
+                }
             }
 
             @Override
             public void onDownloadClick(int position) {
 
-                if (ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
 
-                    Log.e("premitionnotgranted ", "onClick: " + "granted");
-
-                    DownloadManager.Request request = new DownloadManager.Request(Uri.parse(reportDataList.get(position).getReportfile()));
-                    String title = URLUtil.guessFileName(reportDataList.get(position).getReportfile(), null, null);
-                    request.setTitle(title);
-                    request.setDescription("Downloading file please wail.....");
-                    String cookie = CookieManager.getInstance().getCookie(reportDataList.get(position).getReportfile());
-                    request.addRequestHeader("cookie", cookie);
-                    request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
-                    request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, title);
-
-                    DownloadManager downloadManager = (DownloadManager) getSystemService(DOWNLOAD_SERVICE);
-                    downloadManager.enqueue(request);
-
-                    Toast.makeText(getApplicationContext(), "Downloading Started", Toast.LENGTH_SHORT).show();
-                    reportAlert.dismiss();
-
-
+                String uri = reportDataList.get(position).getReportfile();
+                if (uri.equals("")) {
+                    Log.e("pdfUri", "onViewClick: " + "null");
                 } else {
-                    ActivityCompat.requestPermissions(CompletedAssignment.this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, MY_PERMISSIONS_WRITE_EXTERNAL_STORAGE);
-                    Log.e("premitionnotgranted ", "onClick: " + "premitionnotgranted");
-                }
 
+                    if (ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
+
+                        Log.e("premitionnotgranted ", "onClick: " + "granted");
+
+                        DownloadManager.Request request = new DownloadManager.Request(Uri.parse(reportDataList.get(position).getReportfile()));
+                        String title = URLUtil.guessFileName(reportDataList.get(position).getReportfile(), null, null);
+                        request.setTitle(title);
+                        request.setDescription("Downloading file please wail.....");
+                        String cookie = CookieManager.getInstance().getCookie(reportDataList.get(position).getReportfile());
+                        request.addRequestHeader("cookie", cookie);
+                        request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
+                        request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, title);
+
+                        DownloadManager downloadManager = (DownloadManager) getSystemService(DOWNLOAD_SERVICE);
+                        downloadManager.enqueue(request);
+
+                        Toast.makeText(getApplicationContext(), "Downloading Started", Toast.LENGTH_SHORT).show();
+                        reportAlert.dismiss();
+
+
+                    } else {
+                        ActivityCompat.requestPermissions(CompletedAssignment.this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, MY_PERMISSIONS_WRITE_EXTERNAL_STORAGE);
+                        Log.e("premitionnotgranted ", "onClick: " + "premitionnotgranted");
+                    }
+
+                }
 
             }
         });

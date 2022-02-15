@@ -75,21 +75,23 @@ public class OnlineConsultants extends AppCompatActivity {
             @Override
             public void onResponse(Call<OnlineConsultantModel> call, Response<OnlineConsultantModel> response) {
 
+
                 OnlineConsultantModel onlineConsultantModel = response.body();
 
-                List<OnlineConsultantModel.Consultant> dataList = onlineConsultantModel.getConsultantList();
-                for (int i = 0; i < dataList.size(); i++) {
+                if (onlineConsultantModel != null) {
+                    List<OnlineConsultantModel.Consultant> dataList = onlineConsultantModel.getConsultantList();
+                    for (int i = 0; i < dataList.size(); i++) {
 
-                    OnlineConsultantModel.Consultant model = dataList.get(i);
-                    OnlineConsultantModel.Consultant data = new OnlineConsultantModel.Consultant(
-                            model.getBookingID(), model.getPatientName(),
-                            model.getBookingTime(), model.getBookingDate(),
-                            model.getFees(), model.getLocation(), model.getStatus(), model.getProfilePic(),
-                            model.getPatientAge());
-                    list.add(data);
+                        OnlineConsultantModel.Consultant model = dataList.get(i);
+                        OnlineConsultantModel.Consultant data = new OnlineConsultantModel.Consultant(
+                                model.getBookingID(), model.getPatientName(),
+                                model.getBookingTime(), model.getBookingDate(),
+                                model.getFees(), model.getLocation(), model.getStatus(), model.getProfilePic(),
+                                model.getPatientAge());
+                        list.add(data);
+                    }
+                    recyclerData();
                 }
-
-                recyclerData();
                 Glob.dialog.dismiss();
             }
 
