@@ -50,7 +50,6 @@ public class MainActivity extends AppCompatActivity {
 
         init();
 
-
     }
 
     public void init() {

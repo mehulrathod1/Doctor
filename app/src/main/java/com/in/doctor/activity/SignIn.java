@@ -132,7 +132,6 @@ public class SignIn extends AppCompatActivity {
 //                .setSubtitle("Login Fingure or Face")
 //                .setNegativeButtonText("cancel")
 //                .build();
-
     }
 
     @TargetApi(Build.VERSION_CODES.M)
@@ -312,9 +311,9 @@ public class SignIn extends AppCompatActivity {
                     editor.commit();
 
                     addFcmToken(Token, Glob.user_id, FCMToken);
-
                     Intent intent = new Intent(getApplicationContext(), Authentication.class);
                     startActivity(intent);
+
                 } else {
                     Toast.makeText(getApplicationContext(), "Please enter valid detail", Toast.LENGTH_SHORT).show();
                     progressDialog.dismiss();

@@ -156,7 +156,7 @@ public class Home extends AppCompatActivity {
                         transaction.commit();
                         break;
                     case R.id.Chats:
-                        header_title.setText("Profile");
+                        header_title.setText("Chats");
                         fragment = new Chat();
                         loadFragment(fragment);
                         break;

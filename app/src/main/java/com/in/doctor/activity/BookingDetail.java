@@ -677,6 +677,7 @@ public class BookingDetail extends AppCompatActivity {
 //                    uploadPatientReport(Token, Glob.user_id, patient_id, booking_idd, reportFile);
 
             uploadRequest.startUpload();
+            Toast.makeText(getApplicationContext(), ""+"Start Uploading...", Toast.LENGTH_SHORT).show();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }

@@ -22,6 +22,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CareServices extends Fragment {
+
     RecyclerView healthCareRecycler;
     HealthCareAdapter healthCareAdapter;
     List<CareAndCheckupModel> careList = new ArrayList<>();

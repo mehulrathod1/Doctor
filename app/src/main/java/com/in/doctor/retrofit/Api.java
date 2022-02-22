@@ -5,6 +5,8 @@ import android.app.NotificationManager;
 import android.content.Context;
 import android.os.Build;
 
+import com.in.doctor.model.ChatDashboardModel;
+import com.in.doctor.model.ChatModel;
 import com.in.doctor.model.ClinicalSettingModel;
 import com.in.doctor.model.CommonModel;
 import com.in.doctor.model.CompleteAssignmentModel;
@@ -261,4 +263,34 @@ public interface Api {
             @Field("booking_id") String booking_id
     );
 
+
+    @FormUrlEncoded
+    @POST("get_chat_user_list.php")
+    Call<ChatModel> getChatList(
+
+            @Field("token") String token,
+            @Field("doctor_id") String user_id
+
+    );
+
+    @FormUrlEncoded
+    @POST("get_chat_messages.php")
+    Call<ChatDashboardModel> getChatMessage(
+
+            @Field("token") String token,
+            @Field("doctor_id") String doctor_id,
+            @Field("user_id") String user_id
+
+    );
+
+    @FormUrlEncoded
+    @POST("add_doctor_chat.php")
+    Call<CommonModel> sendMessage(
+
+            @Field("token") String token,
+            @Field("doctor_id") String doctor_id,
+            @Field("user_id") String user_id,
+            @Field("msg_type") String msg_type,
+            @Field("message") String message
+    );
 }

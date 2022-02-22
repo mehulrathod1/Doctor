@@ -75,6 +75,8 @@ dependencies {
     def uploadServiceVersion = "4.7.0"
     implementation "net.gotev:uploadservice:$uploadServiceVersion"
 
-    
+    //    sticker
+    implementation 'org.apache.commons:commons-lang3:3.4'
+
 
 }
