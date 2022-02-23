@@ -6,8 +6,7 @@ import com.google.gson.annotations.SerializedName;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CompleteAssignmentModel {
-
+public class UpcomingAppointmentModel {
     @SerializedName("status")
     @Expose
     String status;
@@ -19,7 +18,7 @@ public class CompleteAssignmentModel {
 
     @SerializedName("data")
     @Expose
-    List<Assignment> completeAssignment = new ArrayList<>();
+    List<Upcoming> upcomingList = new ArrayList<>();
 
     public String getStatus() {
         return status;
@@ -37,57 +36,43 @@ public class CompleteAssignmentModel {
         this.message = message;
     }
 
-    public List<Assignment> getCompleteAssignment() {
-        return completeAssignment;
+    public List<Upcoming> getUpcomingList() {
+        return upcomingList;
     }
 
-    public void setCompleteAssignment(List<Assignment> completeAssignment) {
-        this.completeAssignment = completeAssignment;
+    public void setUpcomingList(List<Upcoming> upcomingList) {
+        this.upcomingList = upcomingList;
     }
 
-    public static class Assignment {
+    public static class Upcoming {
 
         @SerializedName("booking_id")
         @Expose
         String booking_id;
 
-
         @SerializedName("appointment_date")
         @Expose
         String appointment_date;
 
-
-        @SerializedName("ammount_paid")
+        @SerializedName("appointment_time")
         @Expose
-        String amount_paid;
+        String appointment_time;
 
         @SerializedName("patient_id")
         @Expose
         String patient_id;
 
 
-        @SerializedName("patient_document")
-        @Expose
-        String patient_document;
-
-        @SerializedName("invoice")
-        @Expose
-        String invoice;
-
-
         @SerializedName("booking_of")
         @Expose
         String booking_of;
 
-        public Assignment(String booking_id, String appointment_date, String amount_paid, String patient_id, String patient_document, String invoice, String booking_of, String appointment_time) {
+        public Upcoming(String booking_id, String appointment_date, String appointment_time, String patient_id, String booking_of) {
             this.booking_id = booking_id;
             this.appointment_date = appointment_date;
-            this.amount_paid = amount_paid;
-            this.patient_id = patient_id;
-            this.patient_document = patient_document;
-            this.invoice = invoice;
-            this.booking_of = booking_of;
             this.appointment_time = appointment_time;
+            this.patient_id = patient_id;
+            this.booking_of = booking_of;
         }
 
         public String getBooking_of() {
@@ -96,28 +81,6 @@ public class CompleteAssignmentModel {
 
         public void setBooking_of(String booking_of) {
             this.booking_of = booking_of;
-        }
-
-        public String getAppointment_time() {
-            return appointment_time;
-        }
-
-        public void setAppointment_time(String appointment_time) {
-            this.appointment_time = appointment_time;
-        }
-
-        @SerializedName("appointment_time")
-        @Expose
-        String appointment_time;
-
-
-
-        public String getInvoice() {
-            return invoice;
-        }
-
-        public void setInvoice(String invoice) {
-            this.invoice = invoice;
         }
 
         public String getBooking_id() {
@@ -136,12 +99,12 @@ public class CompleteAssignmentModel {
             this.appointment_date = appointment_date;
         }
 
-        public String getAmount_paid() {
-            return amount_paid;
+        public String getAppointment_time() {
+            return appointment_time;
         }
 
-        public void setAmount_paid(String amount_paid) {
-            this.amount_paid = amount_paid;
+        public void setAppointment_time(String appointment_time) {
+            this.appointment_time = appointment_time;
         }
 
         public String getPatient_id() {
@@ -151,14 +114,5 @@ public class CompleteAssignmentModel {
         public void setPatient_id(String patient_id) {
             this.patient_id = patient_id;
         }
-
-        public String getPatient_document() {
-            return patient_document;
-        }
-
-        public void setPatient_document(String patient_document) {
-            this.patient_document = patient_document;
-        }
     }
-
 }

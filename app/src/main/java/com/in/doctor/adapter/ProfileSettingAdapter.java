@@ -25,28 +25,28 @@ public class ProfileSettingAdapter extends FragmentPagerAdapter {
     @Override
     public Fragment getItem(int position) {
 
-        switch (position) {
-            case 0:
-                ProfileSettingPersonal news = new ProfileSettingPersonal();
-                return news;
+            switch (position) {
+                case 0:
+                    ProfileSettingPersonal news = new ProfileSettingPersonal();
+                    return news;
 
-            case 1:
-                ProfileSettingClinical yourCity = new ProfileSettingClinical();
-                return yourCity;
+                case 1:
+                    ProfileSettingClinical yourCity = new ProfileSettingClinical();
+                    return yourCity;
 
-            case 2:
+                case 2:
 
-                ProfileSettingLifestyle gujrat = new ProfileSettingLifestyle();
-                return gujrat;
+                    ProfileSettingLifestyle gujrat = new ProfileSettingLifestyle();
+                    return gujrat;
 
 
-            default:
-                return null;
-        }
+                default:
+                    return null;
+            }
     }
 
     @Override
     public int getCount() {
-        return totalTabs;
+            return totalTabs;
     }
 }

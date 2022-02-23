@@ -12,27 +12,25 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.in.doctor.R;
-import com.in.doctor.model.CompleteAssignmentModel;
-import com.in.doctor.model.ManageBookingModel;
+import com.in.doctor.model.UpcomingAppointmentModel;
 
 import java.util.List;
 
-public class ManageBookingAdapter extends RecyclerView.Adapter<ManageBookingAdapter.ViewHolder> {
+public class UpcomingAppointmentAdapter extends RecyclerView.Adapter<UpcomingAppointmentAdapter.ViewHolder> {
 
-    List<CompleteAssignmentModel.Assignment> list;
+
+    List<UpcomingAppointmentModel.Upcoming> list;
     Context context;
     Click click;
 
-    public ManageBookingAdapter(List<CompleteAssignmentModel.Assignment> list, Context context, Click click) {
+    public interface Click {
+        public void onViewClick(int position);
+    }
+
+    public UpcomingAppointmentAdapter(List<UpcomingAppointmentModel.Upcoming> list, Context context, Click click) {
         this.list = list;
         this.context = context;
         this.click = click;
-    }
-
-    public interface Click {
-        void onClickAccept(int position);
-
-
     }
 
     @NonNull
@@ -46,17 +44,17 @@ public class ManageBookingAdapter extends RecyclerView.Adapter<ManageBookingAdap
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, @SuppressLint("RecyclerView") int position) {
 
-        CompleteAssignmentModel.Assignment model = list.get(position);
+        UpcomingAppointmentModel.Upcoming model = list.get(position);
 
-        holder.BookingId.setText(model.getBooking_id());
         holder.BookingDate.setText(model.getAppointment_date());
-        holder.BookingOf.setText(model.getBooking_of());
         holder.BookingTime.setText(model.getAppointment_time());
+        holder.BookingId.setText(model.getBooking_id());
+        holder.BookingOf.setText(model.getBooking_of());
 
         holder.view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                click.onClickAccept(position);
+                click.onViewClick(position);
             }
         });
 
@@ -70,7 +68,6 @@ public class ManageBookingAdapter extends RecyclerView.Adapter<ManageBookingAdap
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         TextView BookingId, BookingDate, BookingOf, BookingTime;
-
         Button view;
 
         public ViewHolder(@NonNull View itemView) {

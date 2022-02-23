@@ -101,22 +101,8 @@ public class DoctorProfile extends AppCompatActivity {
 
     public void reviewData() {
 
-        MyReviewModel model = new MyReviewModel("", "Lorem ipsum.", "27/09/2021", "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea.");
-        reviewList.add(model);
-        reviewList.add(model);
-        reviewList.add(model);
-        reviewList.add(model);
-        reviewList.add(model);
-        reviewList.add(model);
-        reviewList.add(model);
 
 
-        reviewAdapter = new MyReviewAdapter(reviewList, this, new MyReviewAdapter.Click() {
-            @Override
-            public void onItemClick(int position) {
-
-            }
-        });
 
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(this);
         reviewRecycler.setLayoutManager(mLayoutManager);

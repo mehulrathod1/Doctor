@@ -31,6 +31,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class Request extends AppCompatActivity {
+
     ImageView nevBack;
     TextView headerTitle;
     RecyclerView recyclerView;
@@ -150,22 +151,22 @@ public class Request extends AppCompatActivity {
     public void recyclerData() {
 
 
-        adapter = new ManageBookingAdapter(list, this, new ManageBookingAdapter.Click() {
-            @Override
-            public void onClickAccept(int position) {
-
-                String bookingId = list.get(position).getBookingId();
-                Log.e("fghgfds", "onClickAccept: " + bookingId);
-                bookingRequestAccept(Token, Glob.user_id, bookingId);
-            }
-
-            @Override
-            public void onClickCancel(int position) {
-                String bookingId = list.get(position).getBookingId();
-                Log.e("fghgfds", "onClickAccept: " + bookingId);
-                bookingRequestCancel(Token, Glob.user_id, bookingId);
-            }
-        });
+//        adapter = new ManageBookingAdapter(list, this, new ManageBookingAdapter.Click() {
+//            @Override
+//            public void onClickAccept(int position) {
+//
+//                String bookingId = list.get(position).getBookingId();
+//                Log.e("fghgfds", "onClickAccept: " + bookingId);
+//                bookingRequestAccept(Token, Glob.user_id, bookingId);
+//            }
+//
+//            @Override
+//            public void onClickCancel(int position) {
+//                String bookingId = list.get(position).getBookingId();
+//                Log.e("fghgfds", "onClickAccept: " + bookingId);
+//                bookingRequestCancel(Token, Glob.user_id, bookingId);
+//            }
+//        });
 
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(mLayoutManager);

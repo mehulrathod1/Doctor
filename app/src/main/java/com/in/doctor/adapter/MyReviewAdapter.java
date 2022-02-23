@@ -11,19 +11,19 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.in.doctor.R;
 import com.in.doctor.model.MyReviewModel;
 
 import java.util.List;
 
-public class MyReviewAdapter
-        extends RecyclerView.Adapter<MyReviewAdapter.ViewHolder> {
+public class MyReviewAdapter extends RecyclerView.Adapter<MyReviewAdapter.ViewHolder> {
 
-    List<MyReviewModel> list;
+    List<MyReviewModel.ReviewData> list;
     Context context;
     Click click;
 
-    public MyReviewAdapter(List<MyReviewModel> list, Context context, Click click) {
+    public MyReviewAdapter(List<MyReviewModel.ReviewData> list, Context context, Click click) {
         this.list = list;
         this.context = context;
         this.click = click;
@@ -44,12 +44,41 @@ public class MyReviewAdapter
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, @SuppressLint("RecyclerView") int position) {
 
-        MyReviewModel model = list.get(position);
+        MyReviewModel.ReviewData model = list.get(position);
 
-        holder.Name.setText(model.getName());
+        holder.Name.setText(model.getUserName());
         holder.Date.setText(model.getDate());
-        holder.ReviewText.setText(model.getReviewText());
+        holder.ReviewText.setText(model.getReview());
 
+        Glide.with(context)
+                .load(model.getProfile_image())
+                .into(holder.profileImage);
+
+
+        if (model.getRating().equals("1")) {
+            holder.rate2.setVisibility(View.GONE);
+            holder.rate3.setVisibility(View.GONE);
+            holder.rate4.setVisibility(View.GONE);
+            holder.rate5.setVisibility(View.GONE);
+        } else if (model.getRating().equals("2")) {
+            holder.rate3.setVisibility(View.GONE);
+            holder.rate4.setVisibility(View.GONE);
+            holder.rate5.setVisibility(View.GONE);
+        } else if (model.getRating().equals("3")) {
+            holder.rate4.setVisibility(View.GONE);
+            holder.rate5.setVisibility(View.GONE);
+        } else if (model.getRating().equals("4")) {
+            holder.rate5.setVisibility(View.GONE);
+        }
+        else if (model.getRating().equals("5")){
+
+            holder.rate1.setVisibility(View.VISIBLE);
+            holder.rate2.setVisibility(View.VISIBLE);
+            holder.rate3.setVisibility(View.VISIBLE);
+            holder.rate4.setVisibility(View.VISIBLE);
+            holder.rate5.setVisibility(View.VISIBLE);
+
+        }
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -66,7 +95,7 @@ public class MyReviewAdapter
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         TextView Name, Date, ReviewText;
-        ImageView profileImage;
+        ImageView profileImage, rate1, rate2, rate3, rate4, rate5;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -76,6 +105,12 @@ public class MyReviewAdapter
             ReviewText = itemView.findViewById(R.id.ReviewText);
 
             profileImage = itemView.findViewById(R.id.profileImage);
+            rate1 = itemView.findViewById(R.id.rate1);
+            rate2 = itemView.findViewById(R.id.rate2);
+            rate3 = itemView.findViewById(R.id.rate3);
+            rate4 = itemView.findViewById(R.id.rate4);
+            rate5 = itemView.findViewById(R.id.rate5);
         }
     }
 }
+

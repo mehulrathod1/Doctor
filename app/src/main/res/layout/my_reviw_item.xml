@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/md_grey">
+    >
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -31,8 +31,7 @@
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="0.5"
-                    >
+                    android:layout_weight="0.5">
 
 
                     <de.hdodenhof.circleimageview.CircleImageView
@@ -57,41 +56,45 @@
 
                         <TextView
                             android:id="@+id/Name"
+                            style="@style/l_bold_14"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Doctor Name"
-                            android:textColor="@color/black_text_color"
-                            android:textSize="@dimen/_14sdp"
-                            android:textStyle="bold" />
+                            android:text="Doctor Name" />
 
                     </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_8sdp"
                         android:orientation="horizontal">
 
                         <ImageView
+                            android:id="@+id/rate1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:src="@drawable/ic_review_star_24" />
 
                         <ImageView
+                            android:id="@+id/rate2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:src="@drawable/ic_review_star_24" />
 
                         <ImageView
+                            android:id="@+id/rate3"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:src="@drawable/ic_review_star_24" />
 
                         <ImageView
+                            android:id="@+id/rate4"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:src="@drawable/ic_review_star_24" />
 
                         <ImageView
+                            android:id="@+id/rate5"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:src="@drawable/ic_review_star_24" />
@@ -108,11 +111,12 @@
                         android:id="@+id/Date"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="27/09/2021"
+                        android:fontFamily="@font/lato_regular"
                         android:gravity="right"
+                        android:text="27/09/2021"
                         android:textColor="@color/action_mode_color_300"
-                        android:textSize="@dimen/_14sdp"
-                        android:textStyle="bold" />
+                        style="@style/l_normal_12"
+                        />
 
                 </LinearLayout>
 
@@ -121,16 +125,15 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_8sdp"
-
-                >
-
+                android:layout_marginTop="@dimen/_8sdp">
 
                 <TextView
                     android:id="@+id/ReviewText"
+                    style="@style/l_bold_12"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea." />
+
             </LinearLayout>
 
         </LinearLayout>

@@ -71,6 +71,7 @@ public class Chat extends Fragment {
 
                 List<ChatModel.ChatDoctorList> dataList = chatModel.getChatDoctorLists();
 
+
                 for (int i = 0; i < dataList.size(); i++) {
 
                     ChatModel.ChatDoctorList model = dataList.get(i);

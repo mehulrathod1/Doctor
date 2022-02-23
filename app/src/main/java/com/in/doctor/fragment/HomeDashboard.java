@@ -12,6 +12,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.SimpleItemAnimator;
 import androidx.viewpager.widget.ViewPager;
 
 import android.os.Handler;
@@ -25,11 +26,13 @@ import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.google.android.material.tabs.TabLayout;
 import com.google.firebase.messaging.Constants;
 import com.in.doctor.R;
 import com.in.doctor.activity.AccountSetting;
 import com.in.doctor.activity.CompletedAssignment;
 import com.in.doctor.activity.DoctorProfile;
+import com.in.doctor.activity.Home;
 import com.in.doctor.activity.ManageCalendar;
 import com.in.doctor.activity.MyQuestion;
 import com.in.doctor.activity.MyReview;
@@ -38,13 +41,23 @@ import com.in.doctor.activity.OnlineConsultants;
 import com.in.doctor.activity.ProfileSetting;
 import com.in.doctor.adapter.FindDoctorAdapter;
 import com.in.doctor.adapter.HealthCareAdapter;
+import com.in.doctor.adapter.HomeTabAdapter;
+import com.in.doctor.adapter.MyQuestionAdapter;
+import com.in.doctor.adapter.MyReviewAdapter;
 import com.in.doctor.adapter.SliderPagerAdapter;
+import com.in.doctor.global.Glob;
 import com.in.doctor.model.CareAndCheckupModel;
 import com.in.doctor.model.FindDoctorModel;
+import com.in.doctor.model.MyQuestionModel;
+import com.in.doctor.model.MyReviewModel;
+import com.in.doctor.retrofit.Api;
+import com.in.doctor.retrofit.RetrofitClient;
 
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -54,6 +67,8 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
+import retrofit2.Call;
+import retrofit2.Callback;
 
 public class HomeDashboard extends Fragment {
 
@@ -78,9 +93,21 @@ public class HomeDashboard extends Fragment {
     ArrayAdapter<String> countryNameAdapter;
     List<String> countryNameList = new ArrayList<>();
 
-
     public static final MediaType JSON
             = MediaType.parse("application/json; charset=utf-8");
+
+
+    // For new Page
+
+    TabLayout tabLayout;
+    ViewPager viewPager;
+
+    RecyclerView reviewRecycler, questionRecycler;
+    MyReviewAdapter reviewAdapter;
+    List<MyReviewModel.ReviewData> reviewList = new ArrayList<>();
+
+    MyQuestionAdapter myQuestionAdapter;
+    List<MyQuestionModel> myQuestionModelList = new ArrayList<>();
 
 
     @Override
@@ -100,6 +127,12 @@ public class HomeDashboard extends Fragment {
         healthCheckupData();
         addBottomDots(0);
 
+
+        //for new page
+
+        initData();
+        getReview(Glob.Token, Glob.user_id);
+        questionData();
 
         return view;
     }
@@ -432,5 +465,120 @@ public class HomeDashboard extends Fragment {
     }
 
 
+    // for new Page
+
+    public void initData() {
+
+        Glob.progressDialog(getContext());
+        tabLayout = view.findViewById(R.id.tab);
+        viewPager = view.findViewById(R.id.pager);
+        reviewRecycler = view.findViewById(R.id.reviewRecycler);
+        questionRecycler = view.findViewById(R.id.questionRecycler);
+
+
+        tabLayout.addTab(tabLayout.newTab().setText("Completed"));
+        tabLayout.addTab(tabLayout.newTab().setText("Upcoming"));
+        tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
+
+
+        HomeTabAdapter homeTabAdapter = new HomeTabAdapter(getChildFragmentManager(), getContext(), tabLayout.getTabCount());
+        viewPager.setAdapter(homeTabAdapter);
+        viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
+
+        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                viewPager.setCurrentItem(tab.getPosition());
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+            }
+        });
+
+    }
+
+    public void getReview(String token, String doctor_id) {
+        Api call = RetrofitClient.getClient(Glob.Base_Url).create(Api.class);
+        Glob.dialog.show();
+
+        call.getReview(token, doctor_id).enqueue(new Callback<MyReviewModel>() {
+            @Override
+            public void onResponse(Call<MyReviewModel> call, retrofit2.Response<MyReviewModel> response) {
+
+                MyReviewModel myReviewModel = response.body();
+
+                List<MyReviewModel.ReviewData> dataList = myReviewModel.getReviewDataList();
+
+                if (dataList.size() != 0) {
+                    for (int i = 0; i < dataList.size(); i++) {
+
+                        MyReviewModel.ReviewData model = dataList.get(i);
+
+                        MyReviewModel.ReviewData data = new MyReviewModel.ReviewData(model.getReview_id(), model.getPatient_id(),
+                                model.getUserName(), model.getReview(), model.getRating(), model.getDate(), model.getProfile_image());
+
+
+                        reviewList.add(data);
+                        Collections.sort(reviewList, new Comparator<MyReviewModel.ReviewData>() {
+                            @Override
+                            public int compare(MyReviewModel.ReviewData o1, MyReviewModel.ReviewData o2) {
+                                return o2.getRating().compareTo(o1.getRating());
+                            }
+                        });
+
+                        Glob.dialog.dismiss();
+                    }
+                    reviewData();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<MyReviewModel> call, Throwable t) {
+
+            }
+        });
+    }
+
+    public void reviewData() {
+
+
+        reviewAdapter = new MyReviewAdapter(reviewList, getContext(), new MyReviewAdapter.Click() {
+            @Override
+            public void onItemClick(int position) {
+
+            }
+        });
+
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getContext());
+        reviewRecycler.setLayoutManager(mLayoutManager);
+        reviewAdapter.notifyDataSetChanged();
+        reviewRecycler.setAdapter(reviewAdapter);
+    }
+
+
+    public void questionData() {
+
+        MyQuestionModel model = new MyQuestionModel("Lorem ipsum dolor sit amet, consetetur. ?", "27/09/2021", "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea. ", "Submit Your Answer");
+        myQuestionModelList.add(model);
+        myQuestionModelList.add(model);
+        myQuestionModelList.add(model);
+        myQuestionModelList.add(model);
+        myQuestionModelList.add(model);
+
+
+        myQuestionAdapter = new MyQuestionAdapter(myQuestionModelList);
+
+        ((SimpleItemAnimator) questionRecycler.getItemAnimator()).setSupportsChangeAnimations(false);
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getContext());
+        questionRecycler.setLayoutManager(mLayoutManager);
+        questionRecycler.setAdapter(myQuestionAdapter);
+        questionRecycler.setHasFixedSize(true);
+
+    }
 }
 

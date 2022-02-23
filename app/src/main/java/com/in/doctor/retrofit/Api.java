@@ -14,12 +14,14 @@ import com.in.doctor.model.GetFcmTokenModel;
 import com.in.doctor.model.LifestyleSettingModel;
 import com.in.doctor.model.ManageBookingModel;
 import com.in.doctor.model.ManageCalendarModel;
+import com.in.doctor.model.MyReviewModel;
 import com.in.doctor.model.OnlineConsultantModel;
 import com.in.doctor.model.PersonalSettingModel;
 import com.in.doctor.model.ReportModel;
 import com.in.doctor.model.SendNotificationModel;
 import com.in.doctor.model.SignInModel;
 import com.in.doctor.model.SignUpModel;
+import com.in.doctor.model.UpcomingAppointmentModel;
 import com.in.doctor.model.ViewPatientDetailModel;
 
 import okhttp3.MultipartBody;
@@ -292,5 +294,31 @@ public interface Api {
             @Field("user_id") String user_id,
             @Field("msg_type") String msg_type,
             @Field("message") String message
+    );
+
+    @Multipart
+    @POST("add_doctor_chat.php")
+    Call<CommonModel> sendImageInChat(
+
+            @Part("token") RequestBody token,
+            @Part("doctor_id") RequestBody doctor_id,
+            @Part("user_id") RequestBody user_id,
+            @Part("msg_type") RequestBody msg_type,
+            @Part MultipartBody.Part image
+    );
+
+
+    @FormUrlEncoded
+    @POST("get_rating_reviews.php")
+    Call<MyReviewModel> getReview(
+            @Field("token") String token,
+            @Field("doctor_id") String doctor_id
+    );
+
+    @FormUrlEncoded
+    @POST("get_upcoming_booking.php")
+    Call<UpcomingAppointmentModel> getAppointment(
+            @Field("token") String token,
+            @Field("doctor_id") String doctor_id
     );
 }
