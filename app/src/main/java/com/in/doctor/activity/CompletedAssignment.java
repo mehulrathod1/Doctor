@@ -132,17 +132,20 @@ public class CompletedAssignment extends AppCompatActivity {
 
                 List<CompleteAssignmentModel.Assignment> dataList = model.getCompleteAssignment();
 
-                for (int i = 0; i < dataList.size(); i++) {
+                if (dataList.size() != 0) {
+                    for (int i = 0; i < dataList.size(); i++) {
 
-                    CompleteAssignmentModel.Assignment data = dataList.get(i);
-                    CompleteAssignmentModel.Assignment dataa = new CompleteAssignmentModel.Assignment(data.getBooking_id(),
-                            data.getAppointment_date(), data.getAmount_paid() + "  ₹", data.getPatient_id(), data.getPatient_document(), data.getInvoice(), data.getBooking_of(), data.getAppointment_time());
-                    list.add(dataa);
-                    Glob.dialog.dismiss();
-
-
+                        CompleteAssignmentModel.Assignment data = dataList.get(i);
+                        CompleteAssignmentModel.Assignment dataa = new CompleteAssignmentModel.Assignment(data.getBooking_id(),
+                                data.getAppointment_date(), data.getAmount_paid() + "  ₹", data.getPatient_id(), data.getPatient_document(), data.getInvoice(), data.getBooking_of(), data.getAppointment_time());
+                        list.add(dataa);
+                        Glob.dialog.dismiss();
+                    }
+                    recyclerData();
                 }
-                recyclerData();
+                else {
+                    Glob.dialog.dismiss();
+                }
             }
 
             @Override

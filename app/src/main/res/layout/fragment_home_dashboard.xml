@@ -522,15 +522,15 @@
 
     <!--525-->
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_height="match_parent">
 
-
-        <ScrollView
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -602,6 +602,7 @@
                         android:fontFamily="@font/montserrat_semi_bold"
                         android:text="Bookings"
                         android:textAllCaps="false"
+                        android:clickable="false"
                         android:textSize="@dimen/_14sdp" />
 
                 </LinearLayout>
@@ -627,7 +628,8 @@
                     <androidx.viewpager.widget.ViewPager
                         android:id="@+id/pager"
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/_500sdp" />
+                        android:layout_height="@dimen/_650sdp"
+                        android:background="@color/md_grey" />
 
                 </LinearLayout>
 
@@ -638,32 +640,24 @@
                     android:background="@color/md_grey"
                     android:orientation="vertical">
 
-                    <Button
-                        android:layout_width="@dimen/_150sdp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:fontFamily="@font/montserrat_semi_bold"
-                        android:text="View All"
-                        android:textAllCaps="false"
-                        android:textSize="@dimen/_14sdp" />
-
 
                     <Button
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/_16sdp"
                         android:fontFamily="@font/montserrat_semi_bold"
                         android:text="Review"
                         android:textAllCaps="false"
+                        android:clickable="false"
                         android:textSize="@dimen/_14sdp" />
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/reviewRecycler"
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/_500sdp"
+                        android:layout_height="@dimen/_520sdp"
                         android:layout_marginTop="@dimen/_16sdp" />
 
                     <Button
+                        android:id="@+id/viewAllReview"
                         android:layout_width="@dimen/_150sdp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -680,16 +674,17 @@
                         android:fontFamily="@font/montserrat_semi_bold"
                         android:text="Question &amp; Answer"
                         android:textAllCaps="false"
+                        android:clickable="false"
                         android:textSize="@dimen/_14sdp" />
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/questionRecycler"
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/_300sdp"
-                        android:layout_marginTop="@dimen/_16sdp"
-                         />
+                        android:layout_height="@dimen/_330sdp"
+                        android:layout_marginTop="@dimen/_16sdp" />
 
                     <Button
+                        android:id="@+id/viewAllQuestion"
                         android:layout_width="@dimen/_150sdp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -702,7 +697,7 @@
 
                 </LinearLayout>
             </LinearLayout>
-        </ScrollView>
-    </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
 
 </RelativeLayout>

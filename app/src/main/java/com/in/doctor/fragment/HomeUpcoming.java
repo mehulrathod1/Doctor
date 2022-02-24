@@ -1,5 +1,6 @@
 package com.in.doctor.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -12,6 +13,8 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.in.doctor.R;
+import com.in.doctor.activity.BookingDetail;
+import com.in.doctor.activity.OnlineConsultants;
 import com.in.doctor.adapter.ManageBookingAdapter;
 import com.in.doctor.adapter.UpcomingAppointmentAdapter;
 import com.in.doctor.global.Glob;
@@ -47,7 +50,7 @@ public class HomeUpcoming extends Fragment {
 
 
         init();
-        getAppointment(Glob.Token,Glob.user_id);
+        getAppointment(Glob.Token, Glob.user_id);
         return view;
     }
 
@@ -89,7 +92,7 @@ public class HomeUpcoming extends Fragment {
             @Override
             public void onFailure(Call<UpcomingAppointmentModel> call, Throwable t) {
 
-                Toast.makeText(getContext(), ""+t.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "" + t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -101,12 +104,18 @@ public class HomeUpcoming extends Fragment {
             @Override
             public void onViewClick(int position) {
 
+                String booking_Id = list.get(position).getBooking_id();
+
+                Intent intent = new Intent(getContext(), BookingDetail.class);
+                intent.putExtra("bookingId", booking_Id);
+                startActivity(intent);
             }
         });
 
 
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getContext());
         upcomingRecycler.setLayoutManager(mLayoutManager);
+        upcomingRecycler.setNestedScrollingEnabled(false);
         upcomingRecycler.setAdapter(upcomingAppointmentAdapter);
     }
 }

@@ -1,5 +1,7 @@
 package com.in.doctor.activity;
 
+import static com.in.doctor.global.Glob.Token;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,6 +14,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.Manifest;
 import android.app.ActionBar;
 import android.app.Activity;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -47,10 +51,15 @@ import com.in.doctor.model.CommonModel;
 import com.in.doctor.retrofit.Api;
 import com.in.doctor.retrofit.RetrofitClient;
 
+import net.gotev.uploadservice.BuildConfig;
+import net.gotev.uploadservice.UploadServiceConfig;
+import net.gotev.uploadservice.protocols.multipart.MultipartUploadRequest;
+
 import org.apache.commons.lang3.StringEscapeUtils;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -70,12 +79,13 @@ public class ChatDashboard extends AppCompatActivity {
     RecyclerView chatRecycler;
     ChatDashboardAdapter chatDashboardAdapter;
     List<ChatDashboardModel.DashboardMessage> chatList = new ArrayList<>();
+    List<ChatDashboardModel.DashboardMessage> DummyChatList = new ArrayList<>();
 
     ImageView profileImage, addImage;
     TextView profileName;
     String user_id, user_name, user_image;
 
-    LinearLayout sendMessage, select_from_gallery, pik_from_camera;
+    LinearLayout sendMessage, select_from_gallery, pik_from_camera, video;
     RelativeLayout ChatLayout;
     EditText messageText;
     PopupWindow popupWindow;
@@ -84,14 +94,17 @@ public class ChatDashboard extends AppCompatActivity {
     Handler handler = new Handler();
     Runnable runnable;
     long delay = 2000;
+    int chatListSize = 0;
 
     File photoFile, img_file;
     String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
     public String photoFileName = "IMG_" + timeStamp + ".jpg";
     Uri img_url;
+    Uri uri;
     public final static int CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE = 1034;
     private static final int MY_CAMERA_REQUEST_CODE = 100;
     private static final int MY_Gallery_REQUEST_CODE = 101;
+    private static final int MY_PERMISSIONS_WRITE_EXTERNAL_STORAGE = 10;
 
 
     @Override
@@ -108,7 +121,7 @@ public class ChatDashboard extends AppCompatActivity {
 
         init();
         clickEvent();
-        getChatMessage(Glob.Token, Glob.user_id, user_id);
+        getChatMessage(Token, Glob.user_id, user_id);
         setData();
         scheduleSendLocation();
     }
@@ -125,14 +138,13 @@ public class ChatDashboard extends AppCompatActivity {
         ChatLayout = findViewById(R.id.ChatLayout);
 
 
-
         bottomSheetDialog = new BottomSheetDialog(ChatDashboard.this);
         bottomSheetDialog.setContentView(R.layout.chat_select_image_popup);
 
 
-
         select_from_gallery = bottomSheetDialog.findViewById(R.id.gallery);
         pik_from_camera = bottomSheetDialog.findViewById(R.id.camera);
+        video = bottomSheetDialog.findViewById(R.id.video);
 
 
         Glide.with(this).load(user_image).into(profileImage);
@@ -149,7 +161,7 @@ public class ChatDashboard extends AppCompatActivity {
                 if (message.equals("")) {
 
                 } else {
-                    sendMessage(Glob.Token, Glob.user_id, user_id, "m", ServerUnicodeEncodedMessage);
+                    sendMessage(Token, Glob.user_id, user_id, "m", ServerUnicodeEncodedMessage);
                 }
             }
         });
@@ -158,7 +170,6 @@ public class ChatDashboard extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-
 
 
                 bottomSheetDialog.show();
@@ -183,6 +194,34 @@ public class ChatDashboard extends AppCompatActivity {
             public void onClick(View v) {
 
                 openMediaContent();
+
+            }
+        });
+
+
+        video.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+//                openMediaContent();
+
+                if (ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
+
+
+                    try {
+                        Intent intent = new Intent();
+                        intent = new Intent(Intent.ACTION_GET_CONTENT);
+                        intent.setType("video/*");
+                        intent.putExtra(MediaStore.EXTRA_VIDEO_QUALITY, 1);
+                        startActivityForResult(intent, MY_PERMISSIONS_WRITE_EXTERNAL_STORAGE);
+                    } catch (Exception e) {
+                    }
+                } else {
+                    ActivityCompat.requestPermissions(ChatDashboard.this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, MY_PERMISSIONS_WRITE_EXTERNAL_STORAGE);
+
+                    Log.e("premitionnotgranted ", "onClick: " + "premitionnotgranted");
+                }
+
 
             }
         });
@@ -218,7 +257,7 @@ public class ChatDashboard extends AppCompatActivity {
 
                     ChatDashboardModel.DashboardMessage data = new ChatDashboardModel.DashboardMessage(
                             model.getDoctor_id(), model.getPatient_id(), model.getSend_by(),
-                            model.getMessage(), model.getDate(), model.getTime(), model.getChat_image());
+                            model.getMessage(), model.getDate(), model.getTime(), model.getChat_image(), model.getChat_video());
 
                     chatList.add(data);
 //                    Glob.dialog.dismiss();
@@ -226,6 +265,45 @@ public class ChatDashboard extends AppCompatActivity {
 
                 chatDashboardAdapter.notifyDataSetChanged();
                 chatRecycler.scrollToPosition(chatDashboardAdapter.getItemCount() - 1);
+
+
+            }
+
+            @Override
+            public void onFailure(Call<ChatDashboardModel> call, Throwable t) {
+//                Glob.dialog.dismiss();
+
+            }
+        });
+    }
+
+    public void getChatMessageDummy(String token, String doctor_id, String user_id) {
+
+
+        Api call = RetrofitClient.getClient(Glob.Base_Url).create(Api.class);
+//        Glob.dialog.show();
+
+        call.getChatMessage(token, doctor_id, user_id).enqueue(new Callback<ChatDashboardModel>() {
+            @Override
+            public void onResponse(Call<ChatDashboardModel> call, Response<ChatDashboardModel> response) {
+
+                chatList.clear();
+                ChatDashboardModel chatDashboardModel = response.body();
+                List<ChatDashboardModel.DashboardMessage> dataList = chatDashboardModel.getDashboardMessageList();
+
+                for (int i = 0; i < dataList.size(); i++) {
+
+                    ChatDashboardModel.DashboardMessage model = dataList.get(i);
+
+                    ChatDashboardModel.DashboardMessage data = new ChatDashboardModel.DashboardMessage(
+                            model.getDoctor_id(), model.getPatient_id(), model.getSend_by(),
+                            model.getMessage(), model.getDate(), model.getTime(), model.getChat_image(), model.getChat_video());
+
+                    chatList.add(data);
+
+//                    Glob.dialog.dismiss();
+                }
+
 
 
             }
@@ -249,7 +327,7 @@ public class ChatDashboard extends AppCompatActivity {
                 CommonModel model = response.body();
                 Toast.makeText(getApplicationContext(), "" + model.getMessage(), Toast.LENGTH_SHORT).show();
 
-                getChatMessage(Glob.Token, Glob.user_id, user_id);
+                getChatMessage(Token, Glob.user_id, user_id);
                 messageText.setText("");
             }
 
@@ -283,7 +361,7 @@ public class ChatDashboard extends AppCompatActivity {
 
                 CommonModel model = response.body();
                 Toast.makeText(getApplicationContext(), "" + model.getMessage(), Toast.LENGTH_SHORT).show();
-                getChatMessage(Glob.Token, Glob.user_id, user_id);
+                getChatMessage(Token, Glob.user_id, user_id);
 
             }
 
@@ -302,7 +380,29 @@ public class ChatDashboard extends AppCompatActivity {
             public void onItemClick(int position) {
 
             }
+
+            @Override
+            public void onVideoSendView(int position) {
+
+
+                String videoUrl = chatList.get(position).getChat_video();
+
+                Intent intent = new Intent(getApplicationContext(), VideoPlayer.class);
+                intent.putExtra("videoUrl", videoUrl);
+                startActivity(intent);
+            }
+
+            @Override
+            public void onVideoReceivedView(int position) {
+
+                String videoUrl = chatList.get(position).getChat_video();
+
+                Intent intent = new Intent(getApplicationContext(), VideoPlayer.class);
+                intent.putExtra("videoUrl", videoUrl);
+                startActivity(intent);
+            }
         });
+
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(this);
         chatRecycler.setLayoutManager(mLayoutManager);
         chatRecycler.setAdapter(chatDashboardAdapter);
@@ -320,7 +420,22 @@ public class ChatDashboard extends AppCompatActivity {
         handler.postDelayed(new Runnable() {
             public void run() {
 
-                getChatMessage(Glob.Token, Glob.user_id, user_id);
+
+                getChatMessageDummy(Token, Glob.user_id, user_id);
+                int s = chatList.size();
+                if (chatListSize == 0) {
+                    getChatMessage(Token, Glob.user_id, user_id);
+                    chatListSize = chatList.size() + 1;
+                    Log.e("TAG", "run: " + chatListSize + "orr" + chatList.size());
+                }
+                if (chatListSize == s) {
+
+                    getChatMessage(Token, Glob.user_id, user_id);
+                    chatListSize = chatList.size() + 1;
+                    Log.e("TAG", "run: " + chatListSize + "orr" + chatList.size());
+                }
+
+
                 handler.postDelayed(this, delay);
             }
         }, delay);
@@ -489,7 +604,7 @@ public class ChatDashboard extends AppCompatActivity {
                             Log.e("img__file", "onClick: " + img_file);
 
 
-                            sendImageInChat(Glob.Token, Glob.user_id, user_id, "i", img_file);
+                            sendImageInChat(Token, Glob.user_id, user_id, "i", img_file);
 
                         }
 
@@ -529,9 +644,35 @@ public class ChatDashboard extends AppCompatActivity {
                                 }
                                 Log.e("img_file", "onClick: " + img_file);
 
-                                sendImageInChat(Glob.Token, Glob.user_id, user_id, "i", img_file);
+                                sendImageInChat(Token, Glob.user_id, user_id, "i", img_file);
                             }
 
+                        }
+                        break;
+
+                    case 10:
+
+                        if (resultCode == RESULT_OK) {
+                            uri = data.getData();
+                            if (data.getClipData() != null) {
+                                int count = data.getClipData().getItemCount();
+                                int currentItem = 0;
+                                while (currentItem < count) {
+                                    Uri imageUri = data.getClipData().getItemAt(currentItem).getUri();
+                                    //do something with the image (save it to some directory or whatever you need to do with it here)
+                                    currentItem = currentItem + 1;
+
+                                    uri = imageUri;
+                                    Log.e("onActivityResult", "onActivityResult: " + uri);
+                                    uploadFile();
+                                }
+                            } else if (data.getData() != null) {
+
+                                uri = data.getData();
+                                //do something with the image (save it to some directory or whatever you need to do with it here)
+                                Log.e("onActivityResoult", "onActivityResult: " + uri);
+                                uploadFile();
+                            }
                         }
                         break;
                 }
@@ -542,5 +683,29 @@ public class ChatDashboard extends AppCompatActivity {
 
     }
 
+    public void uploadFile() {
+
+        try {
+            if (Build.VERSION.SDK_INT >= 26) {
+
+                NotificationManager manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+                NotificationChannel channel = new NotificationChannel("TestChannel", "TestApp Channel", NotificationManager.IMPORTANCE_LOW);
+                manager.createNotificationChannel(channel);
+            }
+            UploadServiceConfig.initialize(getApplication(), "TestChannel", BuildConfig.DEBUG);
+            MultipartUploadRequest uploadRequest = new MultipartUploadRequest(this, "http://ciam.notionprojects.tech/api/doctor/add_doctor_chat.php")
+                    .setMethod("POST")
+                    .addFileToUpload(uri.toString(), "video")
+                    .addParameter("token", Token)
+                    .addParameter("doctor_id", Glob.user_id)
+                    .addParameter("user_id", user_id)
+                    .addParameter("msg_type", "v");
+            uploadRequest.startUpload();
+
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
 }
 

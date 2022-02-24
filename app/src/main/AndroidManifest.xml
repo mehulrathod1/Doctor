@@ -40,6 +40,9 @@
         android:theme="@style/Theme.Doctor"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".activity.VideoPlayer"
+            android:exported="true" />
+        <activity
             android:name=".activity.PdfViewer"
             android:exported="true" />
 

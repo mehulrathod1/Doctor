@@ -19,6 +19,7 @@
         <entry key="..\:/Project/Doctor/app/src/main/res/drawable/ic_baseline_arrow_forward_24.xml" value="0.2203125" />
         <entry key="..\:/Project/Doctor/app/src/main/res/drawable/ic_baseline_image_24.xml" value="0.2203125" />
         <entry key="..\:/Project/Doctor/app/src/main/res/drawable/ic_baseline_photo_camera_24.xml" value="0.2203125" />
+        <entry key="..\:/Project/Doctor/app/src/main/res/drawable/ic_baseline_play_circle_filled_24.xml" value="0.2203125" />
         <entry key="..\:/Project/Doctor/app/src/main/res/drawable/ic_baseline_view_eye_24.xml" value="0.2203125" />
         <entry key="..\:/Project/Doctor/app/src/main/res/drawable/ic_date_range_24.xml" value="0.2203125" />
         <entry key="..\:/Project/Doctor/app/src/main/res/drawable/ic_location_on_24.xml" value="0.19722222222222222" />
@@ -26,6 +27,7 @@
         <entry key="..\:/Project/Doctor/app/src/main/res/drawable/ic_review_star_24.xml" value="0.2203125" />
         <entry key="..\:/Project/Doctor/app/src/main/res/drawable/ic_search_24.xml" value="0.2203125" />
         <entry key="..\:/Project/Doctor/app/src/main/res/drawable/ic_thumb_up_24.xml" value="0.2203125" />
+        <entry key="..\:/Project/Doctor/app/src/main/res/drawable/ic_video.xml" value="0.2203125" />
         <entry key="..\:/Project/Doctor/app/src/main/res/drawable/know_more_button_bg.xml" value="0.2203125" />
         <entry key="..\:/Project/Doctor/app/src/main/res/drawable/location_bg.xml" value="0.19722222222222222" />
         <entry key="..\:/Project/Doctor/app/src/main/res/drawable/location_on_24.xml" value="0.2203125" />
@@ -59,6 +61,7 @@
         <entry key="..\:/Project/Doctor/app/src/main/res/layout/activity_sign_in.xml" value="0.25" />
         <entry key="..\:/Project/Doctor/app/src/main/res/layout/activity_splash.xml" value="0.182518115942029" />
         <entry key="..\:/Project/Doctor/app/src/main/res/layout/activity_video_call_screen.xml" value="0.20416666666666666" />
+        <entry key="..\:/Project/Doctor/app/src/main/res/layout/activity_video_player.xml" value="0.20416666666666666" />
         <entry key="..\:/Project/Doctor/app/src/main/res/layout/book_now_dialog.xml" value="0.20416666666666666" />
         <entry key="..\:/Project/Doctor/app/src/main/res/layout/booking_appointment_item.xml" value="0.33" />
         <entry key="..\:/Project/Doctor/app/src/main/res/layout/bottom_nevigation_bg.xml" value="0.20416666666666666" />

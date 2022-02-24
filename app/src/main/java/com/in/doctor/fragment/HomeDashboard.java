@@ -22,6 +22,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -99,6 +100,7 @@ public class HomeDashboard extends Fragment {
 
     // For new Page
 
+    Button viewAllReview, viewAllQuestion;
     TabLayout tabLayout;
     ViewPager viewPager;
 
@@ -131,6 +133,7 @@ public class HomeDashboard extends Fragment {
         //for new page
 
         initData();
+        clickEvent();
         getReview(Glob.Token, Glob.user_id);
         questionData();
 
@@ -474,7 +477,8 @@ public class HomeDashboard extends Fragment {
         viewPager = view.findViewById(R.id.pager);
         reviewRecycler = view.findViewById(R.id.reviewRecycler);
         questionRecycler = view.findViewById(R.id.questionRecycler);
-
+        viewAllReview = view.findViewById(R.id.viewAllReview);
+        viewAllQuestion = view.findViewById(R.id.viewAllQuestion);
 
         tabLayout.addTab(tabLayout.newTab().setText("Completed"));
         tabLayout.addTab(tabLayout.newTab().setText("Upcoming"));
@@ -500,6 +504,24 @@ public class HomeDashboard extends Fragment {
             }
         });
 
+    }
+
+    public void clickEvent() {
+
+        viewAllQuestion.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), MyQuestion.class);
+                startActivity(intent);
+            }
+        });
+        viewAllReview.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), MyReview.class);
+                startActivity(intent);
+            }
+        });
     }
 
     public void getReview(String token, String doctor_id) {
@@ -557,9 +579,9 @@ public class HomeDashboard extends Fragment {
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getContext());
         reviewRecycler.setLayoutManager(mLayoutManager);
         reviewAdapter.notifyDataSetChanged();
+        reviewRecycler.setNestedScrollingEnabled(false);
         reviewRecycler.setAdapter(reviewAdapter);
     }
-
 
     public void questionData() {
 
@@ -577,8 +599,10 @@ public class HomeDashboard extends Fragment {
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getContext());
         questionRecycler.setLayoutManager(mLayoutManager);
         questionRecycler.setAdapter(myQuestionAdapter);
+        questionRecycler.setNestedScrollingEnabled(false);
         questionRecycler.setHasFixedSize(true);
 
     }
+
 }
 

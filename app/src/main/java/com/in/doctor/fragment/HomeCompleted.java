@@ -72,7 +72,7 @@ public class HomeCompleted extends Fragment {
 
     public void getCompleteAssignment(String token, String doctorID) {
 
-            Api call = RetrofitClient.getClient(Glob.Base_Url).create(Api.class);
+        Api call = RetrofitClient.getClient(Glob.Base_Url).create(Api.class);
 
 
         call.getCompletedAssignment(token, doctorID).enqueue(new Callback<CompleteAssignmentModel>() {
@@ -113,6 +113,9 @@ public class HomeCompleted extends Fragment {
             @Override
             public void onClickAccept(int position) {
 
+                Intent intent = new Intent(getContext(), CompletedAssignment.class);
+                startActivity(intent);
+
             }
 
 
@@ -121,6 +124,7 @@ public class HomeCompleted extends Fragment {
 
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getContext());
         completedRecycler.setLayoutManager(mLayoutManager);
+        completedRecycler.setNestedScrollingEnabled(false);
         completedRecycler.setAdapter(adapter);
     }
 

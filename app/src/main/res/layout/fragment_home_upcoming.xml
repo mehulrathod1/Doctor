@@ -13,7 +13,16 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/upcomingRecycler"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="@dimen/_580sdp" />
+
+        <Button
+            android:layout_width="@dimen/_150sdp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/montserrat_semi_bold"
+            android:text="View All"
+            android:textAllCaps="false"
+            android:textSize="@dimen/_14sdp" />
     </LinearLayout>
 
 </RelativeLayout>
