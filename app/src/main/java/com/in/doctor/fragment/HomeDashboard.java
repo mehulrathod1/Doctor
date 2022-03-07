@@ -51,6 +51,8 @@ import com.in.doctor.model.CareAndCheckupModel;
 import com.in.doctor.model.FindDoctorModel;
 import com.in.doctor.model.MyQuestionModel;
 import com.in.doctor.model.MyReviewModel;
+import com.in.doctor.model.ReportModel;
+import com.in.doctor.model.RevenueModel;
 import com.in.doctor.retrofit.Api;
 import com.in.doctor.retrofit.RetrofitClient;
 
@@ -103,6 +105,7 @@ public class HomeDashboard extends Fragment {
     Button viewAllReview, viewAllQuestion;
     TabLayout tabLayout;
     ViewPager viewPager;
+    TextView completedRevenue;
 
     RecyclerView reviewRecycler, questionRecycler;
     MyReviewAdapter reviewAdapter;
@@ -136,6 +139,7 @@ public class HomeDashboard extends Fragment {
         clickEvent();
         getReview(Glob.Token, Glob.user_id);
         questionData();
+        getRevenue(Glob.Token, Glob.user_id);
 
         return view;
     }
@@ -479,6 +483,7 @@ public class HomeDashboard extends Fragment {
         questionRecycler = view.findViewById(R.id.questionRecycler);
         viewAllReview = view.findViewById(R.id.viewAllReview);
         viewAllQuestion = view.findViewById(R.id.viewAllQuestion);
+        completedRevenue = view.findViewById(R.id.completedRevenue);
 
         tabLayout.addTab(tabLayout.newTab().setText("Completed"));
         tabLayout.addTab(tabLayout.newTab().setText("Upcoming"));
@@ -506,6 +511,32 @@ public class HomeDashboard extends Fragment {
 
     }
 
+    public void getRevenue(String token, String doctor_id) {
+
+        Api call = RetrofitClient.getClient(Glob.Base_Url).create(Api.class);
+        Glob.dialog.show();
+
+        call.getRevenue(token, doctor_id).enqueue(new Callback<RevenueModel>() {
+            @Override
+            public void onResponse(Call<RevenueModel> call, retrofit2.Response<RevenueModel> response) {
+
+                RevenueModel revenueModel = response.body();
+
+
+                RevenueModel.Revenue revenue = revenueModel.getData();
+
+                completedRevenue.setText("₹ " + revenue.getRevenue());
+
+
+            }
+
+            @Override
+            public void onFailure(Call<RevenueModel> call, Throwable t) {
+
+            }
+        });
+    }
+
     public void clickEvent() {
 
         viewAllQuestion.setOnClickListener(new View.OnClickListener() {
@@ -523,6 +554,7 @@ public class HomeDashboard extends Fragment {
             }
         });
     }
+
 
     public void getReview(String token, String doctor_id) {
         Api call = RetrofitClient.getClient(Glob.Base_Url).create(Api.class);
@@ -568,14 +600,12 @@ public class HomeDashboard extends Fragment {
 
     public void reviewData() {
 
-
         reviewAdapter = new MyReviewAdapter(reviewList, getContext(), new MyReviewAdapter.Click() {
             @Override
             public void onItemClick(int position) {
 
             }
         });
-
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getContext());
         reviewRecycler.setLayoutManager(mLayoutManager);
         reviewAdapter.notifyDataSetChanged();
@@ -594,7 +624,6 @@ public class HomeDashboard extends Fragment {
 
 
         myQuestionAdapter = new MyQuestionAdapter(myQuestionModelList);
-
         ((SimpleItemAnimator) questionRecycler.getItemAnimator()).setSupportsChangeAnimations(false);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getContext());
         questionRecycler.setLayoutManager(mLayoutManager);

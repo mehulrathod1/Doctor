@@ -90,7 +90,7 @@ public class BookingDetail extends AppCompatActivity {
 
     LinearLayout ll_booking_for, ll_life_clinic, ll_relative_detail, ll_patient_detail;
     ImageView profile_image, backButton;
-    String patient_user_id;
+    String patient_user_id, patient_image;
     private static final int MY_PERMISSIONS_WRITE_EXTERNAL_STORAGE = 10;
     private static final int MY_PERMISSIONS_WRITE_EXTERNAL_STORAG = 1;
     File reportFile;
@@ -275,6 +275,18 @@ public class BookingDetail extends AppCompatActivity {
 
             }
         });
+
+        chat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(getApplicationContext(), ChatDashboard.class);
+                intent.putExtra("user_id", patient_id);
+                intent.putExtra("user_name", patient_name.getText().toString());
+                intent.putExtra("user_image", patient_image);
+                startActivity(intent);
+            }
+        });
     }
 
     public void sendNotification(String token, String user_id, String message) {
@@ -334,6 +346,7 @@ public class BookingDetail extends AppCompatActivity {
                         .load(patientPersonal.getPatientImage())
                         .into(profile_image);
 
+                patient_image = patientPersonal.getPatientImage();
                 patient_name.setText(patientPersonal.getPatientName());
                 patient_comment.setText(patientPersonal.getPatientComments());
                 appointment_time.setText(bookingDetails.getAppointmentTime());
@@ -398,10 +411,11 @@ public class BookingDetail extends AppCompatActivity {
                         Log.e("bool", "onResponse: " + (getCurrentDateTime + " is after " + date_and_time));
                         chat.setVisibility(View.VISIBLE);
                         upload_report_file.setVisibility(View.VISIBLE);
-                        video_chat.setVisibility(View.GONE);
+                        video_chat.setVisibility(View.VISIBLE);
 
                     } else if (bool2) {
                         Log.e("bool", "onResponse: " + (getCurrentDateTime + " is before " + date_and_time));
+                        video_chat.setVisibility(View.VISIBLE);
                     } else if (bool3) {
                         Log.e("bool", "onResponse: " + (getCurrentDateTime + " is equals to " + date_and_time));
                     }
@@ -409,9 +423,7 @@ public class BookingDetail extends AppCompatActivity {
                 } catch (ParseException e) {
                     e.printStackTrace();
 
-
                 }
-
 
                 if (bookingDetails.getBookingFor().equals("Me")) {
                     ll_booking_for.setVisibility(View.GONE);
@@ -677,7 +689,7 @@ public class BookingDetail extends AppCompatActivity {
 //                    uploadPatientReport(Token, Glob.user_id, patient_id, booking_idd, reportFile);
 
             uploadRequest.startUpload();
-            Toast.makeText(getApplicationContext(), ""+"Start Uploading...", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "" + "Start Uploading...", Toast.LENGTH_SHORT).show();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }

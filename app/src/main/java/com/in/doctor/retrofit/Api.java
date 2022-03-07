@@ -18,6 +18,7 @@ import com.in.doctor.model.MyReviewModel;
 import com.in.doctor.model.OnlineConsultantModel;
 import com.in.doctor.model.PersonalSettingModel;
 import com.in.doctor.model.ReportModel;
+import com.in.doctor.model.RevenueModel;
 import com.in.doctor.model.SendNotificationModel;
 import com.in.doctor.model.SignInModel;
 import com.in.doctor.model.SignUpModel;
@@ -49,8 +50,6 @@ public interface Api {
             @Field("password") String password,
             @Field("confirm_password") String confirm_password
     );
-
-
 
 
     @FormUrlEncoded
@@ -318,6 +317,13 @@ public interface Api {
     @FormUrlEncoded
     @POST("get_upcoming_booking.php")
     Call<UpcomingAppointmentModel> getAppointment(
+            @Field("token") String token,
+            @Field("doctor_id") String doctor_id
+    );
+
+    @FormUrlEncoded
+    @POST("get_completed_revenue.php")
+    Call<RevenueModel> getRevenue(
             @Field("token") String token,
             @Field("doctor_id") String doctor_id
     );

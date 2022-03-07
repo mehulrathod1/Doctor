@@ -144,7 +144,6 @@ public class Home extends AppCompatActivity {
                 switch (item.getItemId()) {
                     case R.id.home:
 
-
                         header_title.setText("DCP");
                         fragment = new HomeDashboard();
                         loadFragment(fragment);
@@ -165,7 +164,6 @@ public class Home extends AppCompatActivity {
                         header_title.setText("Profile");
                         fragment = new Profile();
                         loadFragment(fragment);
-                        Toast.makeText(getApplicationContext(), "Profile", Toast.LENGTH_SHORT).show();
                         break;
                 }
                 return true;

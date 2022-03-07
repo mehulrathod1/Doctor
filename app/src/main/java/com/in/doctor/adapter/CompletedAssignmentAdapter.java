@@ -42,6 +42,8 @@ public class CompletedAssignmentAdapter extends RecyclerView.Adapter<CompletedAs
 
         void onClickDocumentDownload(int position);
 
+        void onClickChatWithPatient(int position);
+
     }
 
 
@@ -99,6 +101,14 @@ public class CompletedAssignmentAdapter extends RecyclerView.Adapter<CompletedAs
             }
         });
 
+        holder.ChatWithPatient.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                click.onClickChatWithPatient(position);
+            }
+        });
+
 
     }
 
@@ -109,7 +119,7 @@ public class CompletedAssignmentAdapter extends RecyclerView.Adapter<CompletedAs
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        TextView BookingId, AppointmentDate, AmountPaid;
+        TextView BookingId, AppointmentDate, AmountPaid,ChatWithPatient;
         ImageView PrescriptionView, PrescriptionDownload, InvoiceView, InvoiceDownload, DocumentView, DocumentDownload;
 
         public ViewHolder(@NonNull View itemView) {
@@ -125,6 +135,7 @@ public class CompletedAssignmentAdapter extends RecyclerView.Adapter<CompletedAs
             InvoiceDownload = itemView.findViewById(R.id.InvoiceDownload);
             DocumentView = itemView.findViewById(R.id.DocumentView);
             DocumentDownload = itemView.findViewById(R.id.DocumentDownload);
+            ChatWithPatient = itemView.findViewById(R.id.ChatWithPatient);
         }
     }
 }

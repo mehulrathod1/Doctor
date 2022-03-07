@@ -142,8 +142,7 @@ public class CompletedAssignment extends AppCompatActivity {
                         Glob.dialog.dismiss();
                     }
                     recyclerData();
-                }
-                else {
+                } else {
                     Glob.dialog.dismiss();
                 }
             }
@@ -275,14 +274,27 @@ public class CompletedAssignment extends AppCompatActivity {
             @Override
             public void onClickDocumentDownload(int position) {
 
+
                 String bookingId = list.get(position).getBooking_id();
                 getPatientReport(Glob.Token, Glob.user_id, bookingId);
             }
+
+            @Override
+            public void onClickChatWithPatient(int position) {
+
+                Intent intent = new Intent(getApplicationContext(), ChatDashboard.class);
+                intent.putExtra("user_id", list.get(position).getPatient_id());
+                intent.putExtra("user_name", "");
+                intent.putExtra("user_image", "");
+                startActivity(intent);
+            }
         });
-        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
+
+
+    RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setAdapter(adapter);
-    }
+}
 
     public void reportData() {
 
