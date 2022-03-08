@@ -84,7 +84,7 @@ public class BookingDetail extends AppCompatActivity {
     String TAG = "BookingDetail";
     TextView appointment_time, appointment_date, relative_relation, relative_name, relative_age, relative_blood_group, relative_gender, relative_marital_status, relative_comment, booking_for, patient_comment, patient_name, bookingId, booking_date, booking_time, booking_status, payment_status, patient_email, patient_number, patient_address, patient_age,
             patient_blood_group, patient_gender, patient_marital_status, alcohol_consumption, smoking_consumption, workout, sport, allergies,
-            chronic_disease, medication, injury, chat, video_chat, audio_call, upload_report_file, download_patient_report;
+            chronic_disease, medication, injury, chat, video_chat, audio_call, upload_report_file, download_patient_report, completeCall;
 
     String patient_id, booking_idd, report_download, date_and_time;
 
@@ -169,7 +169,7 @@ public class BookingDetail extends AppCompatActivity {
         relative_comment = findViewById(R.id.relative_comment);
         appointment_date = findViewById(R.id.appointment_date);
         appointment_time = findViewById(R.id.appointment_time);
-
+        completeCall = findViewById(R.id.completeCall);
 
         reportAlertDialog = new AlertDialog.Builder(this);
         LayoutInflater layoutInflater = getLayoutInflater();
@@ -285,6 +285,14 @@ public class BookingDetail extends AppCompatActivity {
                 intent.putExtra("user_name", patient_name.getText().toString());
                 intent.putExtra("user_image", patient_image);
                 startActivity(intent);
+            }
+        });
+
+        completeCall.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                sendConsultantConformation(Token, Glob.user_id, bookingId.getText().toString());
             }
         });
     }
@@ -693,5 +701,30 @@ public class BookingDetail extends AppCompatActivity {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
+    }
+
+
+    public void sendConsultantConformation(String token, String doctor_id, String booking_id) {
+
+        Api call = RetrofitClient.getClient(Glob.Base_Url).create(Api.class);
+        Glob.dialog.show();
+
+
+        call.sendConsultantConformation(token, doctor_id, booking_id).enqueue(new Callback<CommonModel>() {
+            @Override
+            public void onResponse(Call<CommonModel> call, Response<CommonModel> response) {
+
+                CommonModel commonModel = response.body();
+
+//                Toast.makeText(getApplicationContext(), "" + commonModel.getMessage(), Toast.LENGTH_SHORT).show();
+                Glob.dialog.dismiss();
+            }
+
+            @Override
+            public void onFailure(Call<CommonModel> call, Throwable t) {
+
+            }
+        });
+
     }
 }

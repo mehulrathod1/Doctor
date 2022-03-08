@@ -323,8 +323,13 @@ public interface Api {
 
     @FormUrlEncoded
     @POST("get_completed_revenue.php")
-    Call<RevenueModel> getRevenue(
+    Call<RevenueModel> getRevenue(@Field("token") String token, @Field("doctor_id") String doctor_id);
+
+    @FormUrlEncoded
+    @POST("send_consultancy_completed.php")
+    Call<CommonModel> sendConsultantConformation(
             @Field("token") String token,
-            @Field("doctor_id") String doctor_id
+            @Field("doctor_id") String doctor_id,
+            @Field("booking_id") String booking_id
     );
 }

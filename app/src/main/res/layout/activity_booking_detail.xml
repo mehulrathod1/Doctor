@@ -1316,6 +1316,19 @@
                                 android:textSize="@dimen/_14sdp"
                                 android:visibility="gone" />
 
+
+                            <TextView
+                                android:id="@+id/completeCall"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/_40sdp"
+                                android:background="@drawable/time_bg"
+                                android:fontFamily="@font/montserrat_semi_bold"
+                                android:gravity="center"
+                                android:text="@string/call_complete"
+                                android:textColor="@color/action_mode_color_edt"
+                                android:textSize="@dimen/_14sdp"
+                                />
+
                             <TextView
                                 android:id="@+id/audio_call"
                                 android:layout_width="match_parent"

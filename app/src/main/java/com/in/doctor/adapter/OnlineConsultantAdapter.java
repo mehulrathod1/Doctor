@@ -14,24 +14,26 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.in.doctor.R;
 import com.in.doctor.model.OnlineConsultantModel;
+import com.in.doctor.model.UpcomingAppointmentModel;
 
 import java.util.List;
 
 public class OnlineConsultantAdapter extends RecyclerView.Adapter<OnlineConsultantAdapter.ViewHolder> {
-    List<OnlineConsultantModel.Consultant> list;
+    //    List<OnlineConsultantModel.Consultant> list;
+    List<UpcomingAppointmentModel.Upcoming> list;
     Context context;
     Click click;
 
-    public OnlineConsultantAdapter(List<OnlineConsultantModel.Consultant> list, Context context, Click click) {
-        this.list = list;
-        this.context = context;
-        this.click = click;
-    }
 
     public interface Click {
         void onButtonClick(int position);
     }
 
+    public OnlineConsultantAdapter(List<UpcomingAppointmentModel.Upcoming> list, Context context, Click click) {
+        this.list = list;
+        this.context = context;
+        this.click = click;
+    }
 
     @NonNull
     @Override
@@ -44,16 +46,16 @@ public class OnlineConsultantAdapter extends RecyclerView.Adapter<OnlineConsulta
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, @SuppressLint("RecyclerView") int position) {
 
-        OnlineConsultantModel.Consultant model = list.get(position);
-        holder.BookingId.setText(model.getBookingID());
-        holder.DoctorName.setText(model.getPatientName());
+        UpcomingAppointmentModel.Upcoming model = list.get(position);
+        holder.BookingId.setText(model.getBooking_id());
+        holder.DoctorName.setText(model.getPatient_name());
         holder.CityName.setText(model.getPatientAge() + "  year");
         holder.Price.setText(model.getFees() + " ₹");
         holder.Status.setText(model.getStatus());
 
 
         Glide.with(context)
-                .load(model.getProfilePic())
+                .load(model.getProfile_image())
                 .into(holder.profileImage);
 
         holder.viewBookingDetail.setOnClickListener(new View.OnClickListener() {

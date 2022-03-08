@@ -76,10 +76,18 @@ public class HomeUpcoming extends Fragment {
 
                         UpcomingAppointmentModel.Upcoming model = dataList.get(i);
 
-                        UpcomingAppointmentModel.Upcoming data = new UpcomingAppointmentModel.Upcoming(
-                                model.getBooking_id(), model.getAppointment_date(), model.getAppointment_time(),
-                                model.getPatient_id(), model.getBooking_of()
-                        );
+                        UpcomingAppointmentModel.Upcoming data = new UpcomingAppointmentModel.Upcoming(model.getBooking_id(),
+                                model.getAppointment_date(),
+                                model.getAppointment_time(),
+                                model.getPatient_id(),
+                                model.getPatient_name(),
+                                model.getPatientAge(),
+                                model.getProfile_image(),
+                                model.getFees(),
+                                model.getCoupon_discount(),
+                                model.getTo_be_paid(),
+                                model.getLocation(),
+                                model.getBooking_of());
 
                         list.add(data);
                     }

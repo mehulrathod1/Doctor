@@ -89,7 +89,9 @@ public class HomeCompleted extends Fragment {
 
                         CompleteAssignmentModel.Assignment data = dataList.get(i);
                         CompleteAssignmentModel.Assignment dataa = new CompleteAssignmentModel.Assignment(data.getBooking_id(),
-                                data.getAppointment_date(), data.getAmount_paid() + "  ₹", data.getPatient_id(), data.getPatient_document(), data.getInvoice(), data.getBooking_of(), data.getAppointment_time());
+                                data.getAppointment_date(), data.getAmount_paid() + "  ₹", data.getPatient_id(), data.getPatient_document(), data.getInvoice(), data.getBooking_of(),
+                                data.getPatient_name(),
+                                data.getAppointment_time());
                         list.add(dataa);
 
                     }

@@ -93,6 +93,7 @@ public class SignIn extends AppCompatActivity {
 
         initView();
         getFmcToken();
+
 //        SharedPreferences prefs = getSharedPreferences("MyPref", MODE_PRIVATE);
 //        String id = prefs.getString("id", "null");//"No name defined" is the default value.
 //        String token = prefs.getString("token", "null");

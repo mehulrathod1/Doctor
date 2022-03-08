@@ -79,7 +79,17 @@ public class CompleteAssignmentModel {
         @Expose
         String booking_of;
 
-        public Assignment(String booking_id, String appointment_date, String amount_paid, String patient_id, String patient_document, String invoice, String booking_of, String appointment_time) {
+        @SerializedName("patient_name")
+        @Expose
+        String patient_name;
+
+        @SerializedName("appointment_time")
+        @Expose
+        String appointment_time;
+
+
+
+        public Assignment(String booking_id, String appointment_date, String amount_paid, String patient_id, String patient_document, String invoice, String booking_of, String patient_name, String appointment_time) {
             this.booking_id = booking_id;
             this.appointment_date = appointment_date;
             this.amount_paid = amount_paid;
@@ -87,7 +97,16 @@ public class CompleteAssignmentModel {
             this.patient_document = patient_document;
             this.invoice = invoice;
             this.booking_of = booking_of;
+            this.patient_name = patient_name;
             this.appointment_time = appointment_time;
+        }
+
+        public String getPatient_name() {
+            return patient_name;
+        }
+
+        public void setPatient_name(String patient_name) {
+            this.patient_name = patient_name;
         }
 
         public String getBooking_of() {
@@ -106,9 +125,6 @@ public class CompleteAssignmentModel {
             this.appointment_time = appointment_time;
         }
 
-        @SerializedName("appointment_time")
-        @Expose
-        String appointment_time;
 
 
 

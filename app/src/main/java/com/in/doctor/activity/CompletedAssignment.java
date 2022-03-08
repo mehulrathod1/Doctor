@@ -136,8 +136,16 @@ public class CompletedAssignment extends AppCompatActivity {
                     for (int i = 0; i < dataList.size(); i++) {
 
                         CompleteAssignmentModel.Assignment data = dataList.get(i);
-                        CompleteAssignmentModel.Assignment dataa = new CompleteAssignmentModel.Assignment(data.getBooking_id(),
-                                data.getAppointment_date(), data.getAmount_paid() + "  ₹", data.getPatient_id(), data.getPatient_document(), data.getInvoice(), data.getBooking_of(), data.getAppointment_time());
+                        CompleteAssignmentModel.Assignment dataa = new CompleteAssignmentModel.Assignment(
+                                data.getBooking_id(),
+                                data.getAppointment_date(),
+                                data.getAmount_paid() + "  ₹",
+                                data.getPatient_id(),
+                                data.getPatient_document(),
+                                data.getInvoice(),
+                                data.getBooking_of(),
+                                data.getPatient_name(),
+                                data.getAppointment_time());
                         list.add(dataa);
                         Glob.dialog.dismiss();
                     }
@@ -284,17 +292,17 @@ public class CompletedAssignment extends AppCompatActivity {
 
                 Intent intent = new Intent(getApplicationContext(), ChatDashboard.class);
                 intent.putExtra("user_id", list.get(position).getPatient_id());
-                intent.putExtra("user_name", "");
+                intent.putExtra("user_name", list.get(position).getPatient_name());
                 intent.putExtra("user_image", "");
                 startActivity(intent);
             }
         });
 
 
-    RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setAdapter(adapter);
-}
+    }
 
     public void reportData() {
 
