@@ -108,7 +108,7 @@
     <string name="Transaction_Amount">Transaction Amount</string>
     <string name="Current_Wallet_Balance">Current Wallet Balance:</string>
     <string name="Amount">Amount</string>
-    <string name="Enter_Amount">Enter Amount</string>
+    <string name="Enter_Amount">Enter Amount </string>
 
 
     <!--    Account Setting-->

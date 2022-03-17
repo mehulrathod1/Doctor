@@ -316,9 +316,12 @@ public class SignIn extends AppCompatActivity {
                     startActivity(intent);
 
                 } else {
+
                     Toast.makeText(getApplicationContext(), "Please enter valid detail", Toast.LENGTH_SHORT).show();
                     progressDialog.dismiss();
+
                 }
+
             }
 
             @Override
