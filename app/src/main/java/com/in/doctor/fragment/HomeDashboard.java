@@ -334,13 +334,7 @@ public class HomeDashboard extends Fragment {
         });
     }
 
-    private void loadFragment(Fragment fragment) {
-        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.firstFrame, fragment);
-        fragmentTransaction.addToBackStack(null);
-        fragmentTransaction.commit();
-    }
+
 
     private void addBottomDots(int currentPage) {
         dots = new TextView[slider_image_list.size()];

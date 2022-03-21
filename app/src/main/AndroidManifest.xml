@@ -40,6 +40,15 @@
         android:theme="@style/Theme.Doctor"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".activity.MyProfileActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activity.MyChatActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activity.MyRevenueActivity"
+            android:exported="true" />
+        <activity
             android:name=".activity.VideoPlayer"
             android:exported="true" />
         <activity

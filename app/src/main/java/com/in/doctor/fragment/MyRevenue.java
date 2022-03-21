@@ -70,15 +70,7 @@ public class MyRevenue extends Fragment {
         recyclerView.setAdapter(adapter);
     }
 
-    private void loadFragment(Fragment fragment) {
-        String s = fragment.getClass().getName();
-        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.firstFrame, fragment);
-        fragmentTransaction.addToBackStack(s);
-        fragmentTransaction.commit();
 
-    }
 
 
 }
